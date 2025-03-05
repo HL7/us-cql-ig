@@ -1,0 +1,28 @@
+# Temporary folders #
+#####################
+temp
+template
+output
+
+# Don't commit this because it's so large #
+###########################################
+/input-cache/org.hl7.fhir.publisher.jar
+
+# Windows generated files #
+###########################
+Thumbs.db
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+
+# backup files #
+################
+*.bak
+/input-cache/tooling-cli-2.4.0.jar
+/input-cache/publisher.jar
+
+# test files #
+##############
+/input/tests/results

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ciUrl="" defaultVersion="current" defaultWorkgroup="cds" url="http://hl7.org/fhir/us/cql">
+<version code="current" url=""/>
+<artifactPageExtension value="-definitions"/>
+<artifactPageExtension value="-examples"/>
+<artifactPageExtension value="-mappings"/>
+<artifact id="Device/cqf-tooling" key="Device-cqf-tooling" name=""/>
+<artifact id="Library/CumulativeMedicationDuration" key="Library-CumulativeMedicationDuration" name="CumulativeMedicationDuration"/>
+<artifact id="Questionnaire/ExamplePatientAndCoverageQuestionnaire" key="Questionnaire-ExamplePatientAndCoverageQuestionnaire" name="Example Patient and Coverage Questionnaire"/>
+<artifact id="Library/ExamplePatientAndCoverageInitialExpressions" key="Library-ExamplePatientAndCoverageInitialExpressions" name="ExamplePatientAndCoverageInitialExpressions"/>
+<artifact id="Library/GMTPInitialExpressions" key="Library-GMTPInitialExpressions" name="GMTPInitialExpressions"/>
+<artifact id="Questionnaire/GMTPQuestionnaire" key="Questionnaire-GMTPQuestionnaire" name="Genetic/Molecular testing preauthorization request"/>
+<artifact id="Questionnaire/UPPARFQuestionnaire" key="Questionnaire-UPPARFQuestionnaire" name="Humana Uniform Pharmacy Prior Authorization Request Form"/>
+<artifact id="Library/MBODAInitialExpressions" key="Library-MBODAInitialExpressions" name="MBODAInitialExpressions"/>
+<artifact id="Library/MNACInitialExpressions" key="Library-MNACInitialExpressions" name="MNACInitialExpressions"/>
+<artifact id="Questionnaire/MBODAQuestionnaire" key="Questionnaire-MBODAQuestionnaire" name="Medical Benefit Outpatient Drug Authorization Form"/>
+<artifact id="Questionnaire/MNACQuestionnaire" key="Questionnaire-MNACQuestionnaire" name="Medical Necessity For Authorization Of Catheters"/>
+<artifact id="Library/UPPARFInitialExpressions" key="Library-UPPARFInitialExpressions" name="UPPARFInitialExpressions"/>
+<artifact id="Library/USCoreCommon" key="Library-USCoreCommon" name="USCoreCommon"/>
+<artifact id="Library/USCoreElements" key="Library-USCoreElements" name="USCoreElements"/>
+<artifact id="Library/USCoreTests" key="Library-USCoreTests" name="USCoreTests"/>
+<page key="NA" name="(NA)"/>
+<page key="many" name="(many)"/>
+<page key="patterns-allergy" name="Allergy Patterns"/>
+<page key="architectural-guidance" name="Architectural Guidance"/>
+<page key="artifacts" name="Artifacts Summary"/>
+<page key="authoring" name="Authoring Documentation"/>
+<page key="background" name="Background"/>
+<page key="changes" name="Changes"/>
+<page key="patterns-condition" name="Condition Patterns"/>
+<page key="patterns-coverage" name="Coverage Patterns"/>
+<page key="examples" name="Downloads"/>
+<page key="downloads" name="Downloads"/>
+<page key="index" name="Home"/>
+<page key="patterns-lab" name="Lab Patterns"/>
+<page key="license" name="License"/>
+<page key="patterns-medication" name="Medication Patterns"/>
+<page key="patterns-overall" name="Overall Patterns"/>
+<page key="patterns-patient" name="Patient Patterns"/>
+<page key="patterns" name="Patterns"/>
+<page key="use-case-pa" name="Prior Authorization Questionnaire Use Case"/>
+<page key="query-management" name="Query Management"/>
+<page key="patterns-service" name="Service Patterns"/>
+<page key="toc" name="Table of Contents"/>
+<page key="testing" name="Testing"/>
+<page key="tooling-support" name="Tooling Support"/>
+<page key="usage" name="Usage"/>
+<page key="use-cases" name="Use Cases"/>
+</specification>

@@ -1,0 +1,129 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+  "code" : "patient",
+  "display" : "Patient"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Patient",
+  "code" : "patient",
+  "system" : "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+  "version" : "4.0.0-ballot",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+  "code" : "Coverage",
+  "display" : "Coverage"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "Coverage",
+  "system" : "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+  "severity" : "error",
+  "error" : "Unknown code 'Coverage' in the CodeSystem 'http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext' version '4.0.0-ballot'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString" : "Unknown_Code_in_Version"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'Coverage' in the CodeSystem 'http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext' version '4.0.0-ballot'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+  "code" : "ServiceRequest",
+  "display" : "ServiceRequest"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "displayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "ServiceRequest",
+  "system" : "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+  "severity" : "error",
+  "error" : "Unknown code 'ServiceRequest' in the CodeSystem 'http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext' version '4.0.0-ballot'",
+  "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString" : "Unknown_Code_in_Version"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code 'ServiceRequest' in the CodeSystem 'http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext' version '4.0.0-ballot'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
