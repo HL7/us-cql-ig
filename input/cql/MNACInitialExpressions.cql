@@ -20,7 +20,7 @@ parameter "ServiceRequest" FHIR.ServiceRequest
 context Patient
 
 define "Date of Request":
-  ServiceRequest.authoredOn
+  ServiceRequest.authoredOn.value
 
 //https://www.hca.wa.gov/assets/billers-and-providers/13-760.pdf
 

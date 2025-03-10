@@ -298,8 +298,10 @@ define function MedicationRequestPeriodTest(Request USCore."MedicationRequestPro
       startDate:
         Coalesce(
           date from start of boundsPeriod,
-          date from R.authoredOn,
-          date from start of R.dispenseRequest.validityPeriod
+          date from R.authoredOn
+          // TODO: accessing the validityPeriod field is causing QICore to be depended on and results in an error when evaluating
+          // ,
+          // date from start of R.dispenseRequest.validityPeriod
         ),
       totalDaysSupplied: Coalesce(daysSupply, quantity.value / (dose.value * dosesPerDay)) * (1 + refills)
     return { dosage: dosage, doseAndRate: doseAndRate, timing: timing, frequency: frequency, period: period,
@@ -333,8 +335,10 @@ define function MedicationRequestPeriod(Request USCore."MedicationRequestProfile
       startDate:
         Coalesce(
           date from start of boundsPeriod,
-          date from R.authoredOn,
-          date from start of R.dispenseRequest.validityPeriod
+          date from R.authoredOn
+          // TODO: accessing the validityPeriod field is causing QICore to be depended on and results in an error when evaluating
+          // ,
+          // date from start of R.dispenseRequest.validityPeriod
         ),
       totalDaysSupplied: Coalesce(daysSupply, quantity.value / (dose.value * dosesPerDay)) * (1 + refills)
     return

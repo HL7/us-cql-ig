@@ -355,7 +355,7 @@
             }
           ],
           "linkId": "servicing-provider|name",
-          "text": "Requesting provider name",
+          "text": "Servicing Provider name",
           "type": "string"
         },
         {

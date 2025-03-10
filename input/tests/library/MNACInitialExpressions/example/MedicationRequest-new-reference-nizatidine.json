@@ -23,7 +23,7 @@
   },
   "authoredOn" : "2023-04-05T00:00:00.000-00:00",
   "requester" : {
-    "reference" : "Practitioner/practitioner-1",
+    "reference" : "Practitioner/Practitioner-1",
     "display" : "Ronald Bone, MD"
   },
   "dispenseRequest": {

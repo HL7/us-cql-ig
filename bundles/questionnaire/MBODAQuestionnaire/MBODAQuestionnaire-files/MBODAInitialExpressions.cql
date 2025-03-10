@@ -16,6 +16,8 @@ codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 code "Body surface area": '8277-6' from "LOINC" display 'Intensive care unit'
 code "Member Number": 'MB' from "Identifier Type"
 
+parameter "MedicationRequest" USCore.MedicationRequestProfile
+
 context Patient
 
 define "Last Name":
@@ -87,7 +89,8 @@ define "Code of Requested Drug":
     return M.code
 
 define "Most Recent Medication Request":
-  UCE."Most Recent Medication Request"
+  MedicationRequest
+  // UCE."Most Recent Medication Request"
 
 define "Medication Request References":
   ("Most Recent Medication Request".medication as USCore.Reference).reference
