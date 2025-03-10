@@ -1,13 +1,8 @@
-
-
-
-### Lab Observation
-
 US Core defines [US Core Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-lab.html) to record laboratory observations.
 
 Observation codes will be LOINC, and result values will be 
 
-#### Lab ####
+### Lab
 
 > TODO: what are realistic example LOINC codes that we want to pull in for the prior auth use case? Are there ones that are both a simple single observation, and ones that involve nested components / panels that we need to deal with? I've heard oxygen saturation in the past.
 

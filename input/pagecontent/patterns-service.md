@@ -1,17 +1,12 @@
-
-
-
-### Services
-
 US Core defines [US Core ServiceRequest](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-servicerequest.html) to track the proposal / planning / ordering of a service, and [US Core Procedure](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-procedure.html) to track performing a service.
 
 Typical procedure codes include SNOMED-CT, CPT, HCPCS II, ICD-10-PCS, CDT, and LOINC.
 
-#### Performed Procedures ####
+### Performed Procedures
 
 To get procedures that have been performed, use ```UCE."All Performed Procedures"```. This will return all Procedure resources with a status of 'completed'.
 
-#### Requested Services ####
+### Requested Services
 
 > NOTE: In the prior auth use case (https://build.fhir.org/ig/cqframework/cqf-us/use-case-pa.html), the workflow is generally being conducted in the context of 1 or more order, so you'll want to start by working off that context before searching the FHIR server for service requests.
 

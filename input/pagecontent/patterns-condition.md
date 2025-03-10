@@ -1,19 +1,14 @@
-
-
-
-### Condition
-
 USCore defines [USCore Condition Encounter Diagnosis](https://build.fhir.org/ig/HL7/US-Core/StructureDefinition-us-core-condition-encounter-diagnosis.html) and [USCore Condition Problems and Health Concerns](https://build.fhir.org/ig/HL7/US-Core/StructureDefinition-us-core-condition-problems-health-concerns.html).
 
 Many clinical systems make a distinction between the active conditions for a patient (i.e. the problem list or health concerns) and the diagnoses associated with an encounter. Problem list items and health concerns are typically documented with additional information about the condition such as prevalence period and clinical status, while encounter diagnoses typically have less information, usually only the diagnosis code as part of the encounter information. Within FHIR, both these types of data are represented using the Condition resource. The category element is used to indicate which kind of data the Condition represents, a problem list item, a health concern, or an encounter diagnosis.
 
 Typical code systems for Condition.code include ICD-10, SNOMED, and LOINC. For historical conditions there will also be ICD-9.
 
-#### Associated Condition ####
+### Associated Condition
 Often the most relevant condition/diagnosis is available in the context of the workflow (such as ServiceRequest.reason or Encounter.reason). For prior auth the condition/diagnosis associated with the orders getting prior auth should already be known to the payer during CRD or PAS prior to returning the questionnaire, so it's best practice not to ask for it again in the questionnaire.
 
 
-#### Active Conditions ####
+### Active Conditions
 
 In USCore 3.1.1, ```UCE."All Conditions"``` can retrieve everything. Example to check for diabetes:
 ```cql
@@ -31,7 +26,7 @@ define "Active Diabetes Conditions":
     where Condition.isActive()
 ```
 
-#### Historical Conditions ####
+### Historical Conditions
 
 To answer questions like "Have you ever been diagnosed with diabetes" use ```UCE."All Conditions"```.
 
@@ -68,7 +63,7 @@ To answer questions like "Have you had COVID in the past 3 months", use ```preva
 
 
 
-#### non-guide loose notes below, remove this before commit ####
+### non-guide loose notes below, remove this before commit
 Encounter diagnosis https://build.fhir.org/ig/HL7/US-Core/StructureDefinition-us-core-condition-encounter-diagnosis.html
 
 pattern to get main condition code
