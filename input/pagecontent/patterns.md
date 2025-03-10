@@ -15,6 +15,10 @@ US Core is the baseline for expected interoperability; this implementation guide
 
 Note that things like community calls, GitHub issues, and trying to support example questionnaires can also feed into adding more patterns outside of this methodology.
 
+Overall patterns are discussed here:
+
+[Overall](patterns-overall.html)
+
 The following table lists the patterns page for each profile:
 
 |US Core Profile|Patterns|Status|

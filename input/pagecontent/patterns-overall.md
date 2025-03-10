@@ -1,11 +1,5 @@
 ### Overall
 
-* Document high-level patterns for
-  * accessing all data, versus "clean" data (i.e. data without modifiers, or with known modifiers), data with particular statuses
-    * no implicitRules that we don't understand
-    * no modifiers or modifierExtensions that we don't understand
-  * e.g. All Allergies vs All Known Confirmed Allergies
-
 #### Element Considerations
 
 Whether logic in general should make use of the various elements of a resource (or profile of a resource) depends on measure or rule intent. However, there are some general guidelines that should be followed to ensure correct expression and evaluation of CQL.

@@ -36,16 +36,16 @@ This implementation guide does not:
 
 Ballot Schedule:
 
-FHIR IG Proposal to FMG: February 2nd
-THO Content Freeze: February 16
-NIB Deadline: February 23
-Connectathon Proposals: March 11
-Consensus Group Signup: March 3
-FHIR Core Ballot Freeze: March 18
-WG IG Approval: March 18 - April 3
-Final Content Deadline: March 30
-FHIR Connectathon: May 10
-May WGM: May 12
+* FHIR IG Proposal to FMG: February 2nd
+* THO Content Freeze: February 16
+* NIB Deadline: February 23
+* Connectathon Proposals: March 11
+* Consensus Group Signup: March 3
+* FHIR Core Ballot Freeze: March 18
+* WG IG Approval: March 18 - April 3
+* Final Content Deadline: March 30
+* FHIR Connectathon: May 10
+* May WGM: May 12
 
 Call Schedule:
 
@@ -77,11 +77,6 @@ TODO:
   * Data Requirements Transformation
   * Search Parameters Usage
 * Patterns
-  * Document high-level patterns for
-    * accessing all data, versus "clean" data (i.e. data without modifiers, or with known modifiers), data with particular statuses
-      * no implicitRules that we don't understand
-      * no modifiers or modifierExtensions that we don't understand
-    * e.g. All Allergies vs All Known Confirmed Allergies
   * Patient and Family History
   * Laboratory Testing
   * MedicationRequest
