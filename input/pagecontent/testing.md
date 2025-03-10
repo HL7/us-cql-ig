@@ -4,7 +4,7 @@ The following approaches can be used to test CQL-based Questionnaires:
 
 As with all CQL-based artifact development, CQL libraries used in CQL-based Questionnaires should be tested with focused test cases that ensure expected behavior. These are effectively "unit tests" for the CQL library, and can be authored and validated with the VSCode CQL Plugin:
 
-https://github.com/cqframework/vscode-cql/wiki/User-Guide#adding-test-data
+[User's Guide - Adding Test Data](https://github.com/cqframework/vscode-cql/wiki/User-Guide#adding-test-data)
 
 Each of the libraries in this implementation guide have associated test cases defined in the input/tests/library directory. Each library under test has a folder named the same as the library, and each of these folders has sub-folders corresponding to test cases for the library.
 
@@ -37,7 +37,7 @@ And the `Parameters-expected-results` resource has the following parameter indic
 
 Based on the DTR sequence diagram, the following 3 integration test scenarios are identified:
 
-![Integration Test Scenarios](images/Integration-Test-Scenarios.png)
+![Integration Test Scenarios](Integration-Test-Scenarios.png)
 
 1. Questionnaire Package Response
 2. EHR FHIR Queries

@@ -5,7 +5,7 @@ This topic provides query management guidance for implementers to support the us
     * Check for modifier elements and extensions
     * Manage optional _include and _revInclude situations
     * Manage _element filtering
-    * Manager version differences among servers
+    * Manage version differences among servers
     * Provide simpler functions with typical search parameter filters (e.g. including only final and amended observations)
     * Manage extension retrieval for extensions expected to be present (e.g. USCore and CRD extensions)
 * Complex element retrieval

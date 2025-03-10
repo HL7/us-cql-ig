@@ -38,3 +38,6 @@ https://www.geisinger.org/-/media/OneGeisinger/Files/PDFs/Provider/NaviNet/Forms
 
 Additional: - expand “Submitting Authorization Requests” and click on “Fax Forms”
 https://portal.healthhelp.com/landing/?p=8C06A8AB76BED882
+
+Potential Nut Allergy:
+https://fm.formularynavigator.com/FormularyNavigator/DocumentManager/Download?clientDocumentId=nU_SBgZRGEKjIxwVIRtrEQ
