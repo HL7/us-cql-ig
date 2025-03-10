@@ -64,7 +64,6 @@ Call Schedule:
 
 TODO:
 
-* Move to HL7 repository
 * Testing
   * Test Cases Parameters Resources (https://build.fhir.org/ig/HL7/cql-ig/conformance.html#fhir-type-mapping)
   * Test Case Inputs expressed as Parameters in each test case (Parameters-input.json)
