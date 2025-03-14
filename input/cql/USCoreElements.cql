@@ -594,16 +594,28 @@ define function "GetServiceRequestReasonCondition"(serviceRequest ServiceRequest
 //       where I.type ~ "Subscriber Number"
 //   )
 
-// May not be appropriate for the Elements library, this is based on identifying a medication request...
-define "Requester":
+define function Requester(medicationRequest MedicationRequestProfile):
   singleton from (
     [USCore.PractitionerProfile] P
-      where EndsWith("Most Recent Medication Request".requester.reference, P.id)
+      where EndsWith(medicationRequest.requester.reference, P.id)
   )
 
-define "RequesterRole":
+// May not be appropriate for the Elements library, this is based on identifying a medication request...
+// define "Requester":
+//   singleton from (
+//     [USCore.PractitionerProfile] P
+//       where EndsWith("Most Recent Medication Request".requester.reference, P.id)
+//   )
+
+define function RequesterRole(medicationRequest MedicationRequestProfile):
   singleton from (
     [USCore.PractitionerRoleProfile] R
-      where EndsWith(R.practitioner.reference, "Requester".id)
+      where EndsWith(R.practitioner.reference, Requester(medicationRequest).id)
   )
+
+// define "RequesterRole":
+//   singleton from (
+//     [USCore.PractitionerRoleProfile] R
+//       where EndsWith(R.practitioner.reference, "Requester".id)
+//   )
 

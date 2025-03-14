@@ -21,6 +21,8 @@ code "Subscriber Number": 'SN' from "Identifier Type"
 code "Confirmed": 'confirmed' from "Verification Status"
 code "Active": 'active' from "Condition Clinical"
 
+parameter "MedicationRequest" USCore.MedicationRequestProfile
+
 context Patient
 
 define "Urgency":
@@ -147,23 +149,24 @@ define "Dosage Unit":
   ("Most Recent Medication Request".dosageInstruction.doseAndRate[0].dose as System.Quantity).unit
 
 //helper definitions
-//TODO: medications are not necessarily a reference but could also be represented by a codeeable concept
+//TODO: medications are not necessarily a reference but could also be represented by a codeable concept
 define "Most Recent Medication":
 singleton from (
   UCE."All Medications" M
-    where EndsWith((UCE."Most Recent Medication Request".medication as USCore.Reference).reference, M.id))
+    where EndsWith(("Most Recent Medication Request".medication as USCore.Reference).reference, M.id))
  
 define "Most Recent Medication Request":
-  UCE."Most Recent Medication Request"
+  MedicationRequest
+  // UCE."Most Recent Medication Request"
 
 define "Prior Prescription":
   "Most Recent Medication Request".priorPrescription
 
 define "Requester":
-  UCE."Requester"
+  UCE.Requester("Most Recent Medication Request")
 
 define "RequesterRole":
-  UCE."RequesterRole"
+  UCE.RequesterRole("Most Recent Medication Request")
 
 //email, pager, and fax functions moved to USCoreCommon.cql
 

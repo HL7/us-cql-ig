@@ -39,7 +39,7 @@
     "display": "Amy V Shaw"
   },
   "encounter": {
-    "reference": "Encounter/1036"
+    "reference": "Encounter/example2"
   },
   "effectiveDateTime": "2010-08-12",
   "valueQuantity": {
