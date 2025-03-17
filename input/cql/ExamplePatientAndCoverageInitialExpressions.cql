@@ -13,11 +13,22 @@ code "Member Number": 'MB' from "Identifier Type"
 code "Subscriber Number": 'SN' from "Identifier Type"
 
 parameter "Coverage" FHIR.Coverage
+parameter "Coverage Id" List<System.String> 
+  default { 'minimal-coverage-example' }    // TODO: remove defaults for production use
+
 parameter "ServiceRequest" FHIR.ServiceRequest
+parameter "ServiceRequest Id" List<System.String> 
+  default { 'minimal-service-request-example' }     // TODO: remove defaults for production use
 
 context Patient
 
 // Patient
+define "Member Coverage":
+  Coalesce(
+    Coverage,
+    singleton from ([FHIR.Coverage] CV
+      where CV.id in "Coverage Id")
+  )
 
 define "Patient Name":
   UCE."Name - First Middle(s) Last"
@@ -53,16 +64,22 @@ define "Postal Code":
 // define "Coverage":
 //   First(clinical C where C is FHIR.Coverage)
 
-// TODO: is there a need to check for coverage period and order? also, do we need to check that the payor organization is the same as the source of the prior auth form?
+// TODO: is there a need to check for coverage period and order? 
+//       also, do we need to check that the payor organization is the same as the source of the prior auth form?
 define "Member ID":
-  UCE.MemberID(Coverage)
+  UCE.MemberID("Member Coverage").value
 
-// TODO: is there a need to check for coverage period and order? also, do we need to check that the payor organization is the same as the source of the prior auth form?
+// TODO: is there a need to check for coverage period and order?
+//       also do we need to check that the payor organization is the same as the source of the prior auth form?
 define "Policy Number":
-  UCE.PolicyNumber(Coverage)
+  UCE.PolicyNumber("Member Coverage").value
 
 define "Most Recent ServiceRequest":
-  ServiceRequest
+  Coalesce(
+    ServiceRequest,
+    singleton from ([FHIR.ServiceRequest] SR
+      where SR.id in "ServiceRequest Id")
+  )
 
 define "Requesting Provider":
   UCE.RequestingProvider("Most Recent ServiceRequest")
@@ -71,14 +88,10 @@ define "Requesting Provider Name":
   "Requesting Provider".name.family
 
 define "Requesting Provider Phone":
-  UC.Mobile("Requesting Provider".telecom).value
-  //This definition looks for #mobile, but wouldn't a practitioner be #work?
-/*
+  UC.Work("Requesting Provider".telecom).value
+
 define "Requesting Provider Address":
   (singleton from "Requesting Provider".address).line
-*/
-define "Requesting Provider Address":
-  { 'TODO: remove hard-coded address' }
 
 define "Requesting Provider NPI":
   "Requesting Provider".identifier I 
@@ -97,15 +110,10 @@ define "Servicing Provider Name":
   "Servicing Provider".name
 
 define "Servicing Provider Phone":
-  UC.Mobile("Servicing Provider".telecom).value
+  UC.Work("Servicing Provider".telecom).value
 
-// TODO: Error: Could not resolve data provider for package 'java.util'.
-/*
 define "Servicing Provider Address":
-  (singleton from "Servicing Provider".address).line
-*/
-define "Servicing Provider Address":
-  { 'TODO: remove hard-coded address' }
+  (singleton from "Servicing Provider".address).text
 
 define "Servicing Provider NPI":
   "Servicing Provider".identifier I 

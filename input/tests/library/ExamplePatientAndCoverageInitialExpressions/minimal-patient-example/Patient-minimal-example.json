@@ -58,11 +58,11 @@
     {
       "use": "home",
       "type": "both",
-      "text": "534 Erewhon St PeasantVille, Utah 84414",
+      "text": "534 Erewhon St Pleasantville, Utah 84414",
       "line": [
         "534 Erewhon St"
       ],
-      "city": "PleasantVille",
+      "city": "Pleasantville",
       "district": "Rainbow",
       "state": "UT",
       "postalCode": "84414",
