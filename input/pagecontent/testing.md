@@ -57,7 +57,7 @@ The Questionnaire populate aspect can be tested with a REST client (such as Post
 
 The source repository for this implementation guide contains Postman collections that test this operation for each of the included example questionnaires:
 
-(NOTE: These collections were tested against a [HAPI JPA Server Starter](https://github.com/hapifhir/hapi-fhir-jpaserver-starter) instance using version 3.19.0 of the [Clinical Reasoning](https://github.com/cqframework/clinical-reasoning) module.  They also include their own version of the FHIRHelpers Library (4.1.0) due to some technical limitations in the publisher.  Once those limitations have been removed these example collections will be regenerated.)
+(NOTE: These collections were tested against a [HAPI JPA Server Starter](https://github.com/hapifhir/hapi-fhir-jpaserver-starter) instance using version 3.19.0 of the [Clinical Reasoning](https://github.com/cqframework/clinical-reasoning) module.  They also include their own version of the FHIRHelpers Library (4.1.0) due to some technical limitations in the CQF Tooling used to construct the questionnaire bundles.  Once those limitations have been removed these example collections will be regenerated.)
 
 [Postman Collections](https://github.com/cqframework/cqf-us/tree/master/postman)
 
