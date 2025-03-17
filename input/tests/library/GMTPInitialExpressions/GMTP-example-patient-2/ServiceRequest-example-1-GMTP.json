@@ -1,6 +1,12 @@
 {
   "resourceType": "ServiceRequest",
   "id": "ServiceRequest-example-1-GMTP",
+  "identifier": [
+    {
+      "use": "official",
+      "value": "t24680"
+    }
+  ],
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"

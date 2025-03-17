@@ -37,26 +37,45 @@ define "Patient history":
       abatement: ToString(if prevalence.hasEnd() then end of prevalence else null)
     }
 
-define "Most Recent ServiceRequest":
-  ServiceRequest
-  //UCE.MostRecentSR(ServiceRequest)
-
-define "Billing Provider":
-  UCE.BillingProvider(Coverage)
-
 define "Billing Provider Name":
   "Billing Provider".name
 
 define "Billing Provider Phone":
   UC.Mobile("Billing Provider".telecom).value
 
-// TODO: Error: Could not resolve data provider for package 'java.util'.
-/*
-define "Billing Provider Address":
-  (singleton from "Billing Provider".address).line
-*/
 define "Billing Provider Address":
   { 'TODO: remove hard-coded address' }
+
+define "Retrieve Member Coverage test parameter":
+  // When executing CQL with the VSCode extension retrieve the resource specific for the test case
+  //   the list of resource ids match the resources from the test case folders
+  singleton from ([FHIR.Coverage] CV where CV.id in {
+    'Coverage-example-GMTP', // testcase: GMTP-example-patient-2
+    'coverage-GMTP-1'        // testcase: USCorePatient-GMTP-1
+  })
+
+define "Member Coverage":
+  Coalesce(
+    Coverage,
+    "Retrieve Member Coverage test parameter"
+  )
+
+define "Retrieve Service Request test parameter":
+  // When executing CQL with the VSCode extension retrieve the resource specific for the test case
+  //   the list of resource ids match the resources from the test case folders
+  singleton from ([FHIR.ServiceRequest] SR where SR.id in {
+    'ServiceRequest-example-1-GMTP',       // testcase: GMTP-example-patient-2
+    'service-request-USCorePatient-GMTP-1' // testcase: USCorePatient-GMTP-1
+  })
+
+define "Most Recent ServiceRequest":
+  Coalesce(
+    ServiceRequest,
+    "Retrieve Service Request test parameter"
+  )
+
+define "Billing Provider":
+  UCE.BillingProvider("Member Coverage")
 
 define "Billing Provider NPI":
   "Billing Provider".identifier I 
@@ -69,32 +88,29 @@ define "Billing Provider Fax":
   return T.value
 
 define "Date of Service":
-  ServiceRequest.occurrence.value
+  "Most Recent ServiceRequest".occurrence.value
 
 define "Requested Test":
-  ServiceRequest.code
+  "Most Recent ServiceRequest".code
 
 define "Test ID":
   Combine("Requested Test".coding.code.value, ', ') 
-  //"Requested Test".coding.code.value 
-  /* feature req */
 
 define "Test name":
    Combine("Requested Test".coding.display.value, ', ')
-   //"Requested Test".coding.display.valu
 
 define "ALL ICD and CPT Test Codes":
-   "Test ICD Codes" union "Test CPT Codes" as List<FHIR.Coding>
+   "Test ICD Codes" union "Test CPT Codes"
 
 define "Test ICD Codes":
  "Requested Test".coding C
   where C.system.value = 'http://hl7.org/fhir/sid/icd-10-cm'
-  return C
+  return C.code.value
   
 define "Test CPT Codes":
   "Requested Test".coding C
   where C.system.value =  'http://www.ama-assn.org/go/cpt'
-  return C
+  return C.code.value
 
 define "Test Related Condition":
   UCE.RelatedCondition("Most Recent ServiceRequest")
@@ -152,6 +168,3 @@ define "Previous genetic testing for condition":
 
 //define "Family history of genetic testing"
 //too general to prefill?
-
-
-

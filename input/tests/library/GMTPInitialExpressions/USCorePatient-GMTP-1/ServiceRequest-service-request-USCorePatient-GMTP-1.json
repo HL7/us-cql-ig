@@ -1,6 +1,12 @@
 {
   "resourceType": "ServiceRequest",
   "id": "service-request-USCorePatient-GMTP-1",
+  "identifier": [
+    {
+      "use": "official",
+      "value": "t13579"
+    }
+  ],
   "status": "active",
   "intent": "order",
   "subject": {
