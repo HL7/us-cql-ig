@@ -2,56 +2,133 @@
     "resourceType": "Parameters",
     "parameter": [
         {
-            "name": "Address",
-            "valueString": "[534 Erewhon St]"
-        },
-        {
-            "name": "Birth Sex",
-            "valueString": "M"
-        },
-        {
-            "name": "City",
-            "valueString": "[PleasantVille]"
-        },
-        {
-            "name": "Date of Birth",
-            "valueString": "1974-12-25"
-        },
-        {
-            "name": "Email Address",
-            "valueString": "peter.chalmers@example.org"
-        },
-        {
-            "name": "Medical Record Number",
-            "valueString": "12345"
-        },
-        {
-            "name": "Member ID",
-            "valueString": "null"
-        },
-        {
-            "name": "Patient",
-            "valueString": "Patient(id=minimal-patient-example)"
+            "name": "Member Coverage",
+            "resource": {
+                "resourceType": "FHIR.Coverage",
+                "id": "minimal-coverage-example"
+            }
         },
         {
             "name": "Patient Name",
             "valueString": "Peter James Chalmers"
         },
         {
+            "name": "Date of Birth",
+            "valueDate": "1974-12-25"
+        },
+        {
+            "name": "Birth Sex",
+            "valueString": "M",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+                    "valueCode" : "M"
+                }
+            ]
+        },
+        {
+            "name": "Medical Record Number",
+            "valueString": "12345"
+        },
+        {
             "name": "Phone Number",
             "valueString": "(03) 5555 6473"
         },
         {
-            "name": "Policy Number",
-            "valueString": "null"
+            "name": "Email Address",
+            "valueString": "peter.chalmers@example.org"
         },
         {
-            "name": "Postal Code",
-            "valueString": "[84414]"
+            "name": "Address",
+            "valueString": "534 Erewhon St"
+        },
+        {
+            "name": "City",
+            "valueString": "PleasantVille"
         },
         {
             "name": "State",
-            "valueString": "[UT]"
+            "valueString": "UT"
+        },
+        {
+            "name": "Postal Code",
+            "valueString": "84414"
+        },
+        {
+            "name": "Member ID",
+            "valueString": "23456"
+        },
+        {
+            "name": "Policy Number",
+            "valueString": "34567"
+        },
+        {
+            "name": "Most Recent ServiceRequest",
+            "resource": {
+                "resourceType": "FHIR.ServiceRequest",
+                "id": "minimal-service-request-example"
+            }
+        },
+        {
+            "name": "Requesting Provider",
+            "resource": {
+                "resourceType": "USCore.PractitionerProfile",
+                "id": "minimal-practitioner-example"
+            }
+        },
+        {
+            "name": "Requesting Provider Name",
+            "valueString": "Smart"
+        },
+        {
+            "name": "Requesting Provider Phone",
+            "valueString": "345-416-5670"
+        },
+        {
+            "name": "Requesting Provider Address",
+            "valueString": "8914 115TH ST, Richmond Hill, NY 12345"
+        },
+        {
+            "name": "Requesting Provider NPI",
+            "valueString": "1144221867"
+        },
+        {
+            "name": "Requesting Provider Fax",
+            "valueString": "345-416-5672"
+        },
+        {
+            "name": "Servicing Provider",
+            "resource": {
+                "resourceType": "USCore.OrganizationProfile",
+                "id": "minimal-organization-example"
+            }
+        },
+        {
+            "name": "Servicing Provider Name",
+            "valueString": "Example Organization"
+        },
+        {
+            "name": "Servicing Provider Phone",
+            "valueString": "(+1) 734-677-7777"
+        },
+        {
+            "name": "Servicing Provider Address",
+            "valueString": "3300 Washtenaw Avenue, Suite 227 Amherst, MA 01002"
+        },
+        {
+            "name": "Servicing Provider NPI",
+            "valueString": "1407071236"
+        },
+        {
+            "name": "Servicing Provider Fax",
+            "valueString": ""
+        },
+        {
+            "name": "Patient",
+            "resource": {
+                "resourceType": "USCore.Patient",
+                "id": "minimal-patient-example"
+            }
         }
     ]
 }
