@@ -9,6 +9,10 @@
     <ul class="dropdown-menu">
       <li><a href="use-cases.html">Use Cases</a></li>
       <li><a href="use-case-pa.html">Prior-Authorization Questionnaires</a></li>
+      <li><a href="use-case-cqm.html">Quality Measurement and Reporting</a></li>
+      <li><a href="use-case-cds.html">Clinical Decision Support</a></li>
+      <li><a href="use-case-cpg.html">Clinical Guidelines</a></li>
+      <li><a href="use-case-ph.html">Public Health Case Reporting</a></li>
     </ul>
   </li>
   <li class="dropdown">

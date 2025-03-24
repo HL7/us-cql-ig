@@ -1,10 +1,10 @@
-### Prior Authorization Questionnaire Use Case
-
-Links to resources for current prior authorization scenarios:
+The following links provide general background information about prior-authorization scenarios:
 
 * [Prior Authorization and Pre-Claim Review Program Stats (cms.gov)](https://www.cms.gov/files/document/prior-authorization-and-pre-claim-review-program-statistics.pdf)
 * [Prior Authorization for Certain Hospital Outpatient Department (OPD) Services \| CMS](https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-and-pre-claim-review-initiatives/prior-authorization-certain-hospital-outpatient-department-opd-services)
 * [Preauthorization and Notification Lists for Healthcare Providers - Humana](https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorization-lists)
+
+This topic is focused on how CQL is used to support this use case.
 
 ### Data Flow
 

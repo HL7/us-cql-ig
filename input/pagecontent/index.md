@@ -1,12 +1,12 @@
 ### Introduction
 
-This implementation guide contains architectural guidance and re-usable libraries that facilitate the use of CQL with FHIR in the US Realm, with an initial use case of Prior Authorization Support Questionnaires as described in the [DaVinci Documentation Templates and Rules (DTR)](https://hl7.org/fhir/us/davinci-dtr/) implementation guide.
+This implementation guide contains architectural guidance and re-usable libraries that facilitate the use of CQL with FHIR in the US Realm, with an initial use case of Prior Authorization Support Questionnaires as described in the [DaVinci Documentation Templates and Rules (DTR)](https://hl7.org/fhir/us/davinci-dtr/) implementation guide. Much of the guidance and content presented here is built on work done in the quality measurement domain, including patterns established by measure developers as part of testing and developing quality measures for use with FHIR. These patterns have been generalized to support US Core as well as harmonized to work across use cases.
 
 ### Scope of Use
 
 The intent of this guide is to support the use of CQL with FHIR in the US Realm with a focus on:
 
-* Providing architectural guidance for the evaluation of CQL expressions in the context of artifacts such as Questionnaires
+* Providing architectural guidance for the evaluation of CQL expressions in the context of artifacts such as questionnaires, quality measures, and decision support rules.
 * Providing re-usable libraries of CQL expressions to retrieve data for common use cases in the US Realm
 * Providing guidance for managing CQL expressions that may involve retrieval of data from multiple versions of US Core
 * Gathering requirements for tooling to simplify the authoring of questionnaires that use CQL
@@ -43,6 +43,7 @@ This implementation guide does not:
 
 This Implementation Guide was made possible by the thoughtful contributions of the following people and organizations:
 
+* Raj Godavarthi, MCG Health
 * Mike Gould, Zeomega
 * Yan Heras, Optimum eHealth
 * Kyle Johnsen, Epic
@@ -52,6 +53,7 @@ This Implementation Guide was made possible by the thoughtful contributions of t
 * Rob Reynolds, Smile Digital Health
 * Brenin Rhodes, Smile Digital Health
 * Bryn Rhodes, Smile Digital Health
+* Raleigh Thompson, Smile Digital Health
 
 ### Dependencies
 

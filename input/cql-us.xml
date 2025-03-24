@@ -8,7 +8,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="1"/>
   </extension>
 <!--  <extension url="http://hl7.org/fhir/tools/StructureDefinition/igpublisher-spreadsheet">
     <valueString value="resources-spreadsheet.xml"/>
@@ -80,6 +80,26 @@
         <page>
           <nameUrl value="use-case-pa.html"/>
           <title value="Prior Authorization Questionnaire Use Case"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="use-case-cqm.html"/>
+          <title value="Quality Measurement and Reporting"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="use-case-cds.html"/>
+          <title value="Clinical Decision Support"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="use-case-cpg.html"/>
+          <title value="Clinical Guidelines"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="use-case-ph.html"/>
+          <title value="Public Health Case Reporting"/>
           <generation value="markdown"/>
         </page>
       </page>

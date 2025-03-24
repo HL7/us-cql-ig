@@ -27,6 +27,8 @@
 <page key="authoring" name="Authoring Documentation"/>
 <page key="background" name="Background"/>
 <page key="changes" name="Changes"/>
+<page key="use-case-cds" name="Clinical Decision Support"/>
+<page key="use-case-cpg" name="Clinical Guidelines"/>
 <page key="patterns-condition" name="Condition Patterns"/>
 <page key="patterns-coverage" name="Coverage Patterns"/>
 <page key="downloads" name="Downloads"/>
@@ -39,6 +41,8 @@
 <page key="patterns-patient" name="Patient Patterns"/>
 <page key="patterns" name="Patterns"/>
 <page key="use-case-pa" name="Prior Authorization Questionnaire Use Case"/>
+<page key="use-case-ph" name="Public Health Case Reporting"/>
+<page key="use-case-cqm" name="Quality Measurement and Reporting"/>
 <page key="query-management" name="Query Management"/>
 <page key="patterns-service" name="Service Patterns"/>
 <page key="toc" name="Table of Contents"/>
