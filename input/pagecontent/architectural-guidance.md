@@ -34,9 +34,7 @@ TODO: Provide guidance about making the determination between sending libraries 
 
 https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#value-set-and-code-system-guidance
 
-> Can ValueSets that are not included in the Questionnaire package be referenced? The guidance above is not clear on this point.
-
-TODO: Provide best practice that for value sets that do not have expansions, don't include them in the package
+Note that questionnaires may reference value sets that are not included in the questionnaire package. In particular, best practice for value sets that do not have expansions (for example because the value set definition is more concisely expressed as a condition, or the value set is too large) is that they not be included in the questionnaire package.
 
 Value set references will be encountered in two different ways in CQL used by a Questionnaire:
 
@@ -54,9 +52,7 @@ In addition, for performance, the second approach will likely be implemented wit
 
 As well, depending on the sensitivity of the questions to updates in code systems, the expansion of value sets used may need to be performed with version-specific references to the code systems and value sets involved.
 
-> Do value sets referenced by (but not distributed in) Questionnaire packages need to be able to specify version dependencies?
-
-TODO: Need to discuss version dependencies and indicate that current best practice is to allow latest, if you have a specific need for a particular version, specify that in the ValueSet definition.
+When questionnaires and CQL libraries reference value sets, they may do so with a version-specific, or a version-independent reference. CQL libraries often use version-independent references for value sets to minimize the maintenance overhead involved in updating value set versions. To establish the versions of value sets referenced in this way, a [Version Manifest]({{site.data.fhir.ver.crmi}}/version-manifest.html) may be used if there is a need to indicate a specific version for a particular deployment.
 
 When a value set reference appears within a `retrieve`, the corresponding DataRequirement will include the value set reference. For example:
 
@@ -99,18 +95,32 @@ However, use of this approach requires that the EHR's FHIR server 1) supports th
 
 ### Performant Data Access
 
-When retrieving the set of data required to evaluate a CQL expression, multi-threading requests can reduce the overall time required to retrieve the data.
+As with any data processing application, when processing CQL, accessing the data often takes the majority of the time. As such, ensuring performant data access is a key aspect of delivering performant applications that make use of CQL.
 
-TODO: Also discuss the use of the ModuleConfiguration library to support customizing queries used to access data
+When retrieving the set of data required to evaluate a CQL expression, the search parameter to use may vary depending on the capabilities of the server being accessed. For example, the `code` search parameter for Condition resources is optional in USCore, so systems may not support that as an access path. In these cases, applications can make use of a [Module Configuration Library]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-moduleconfigurationlibrary.html) to provide alternative FHIR queries.
 
-### Readability
+For example, given a CQL retrieve expression requesting Conditions from a particular value set:
 
-### Authoring
+```cql
+define "Diabetes Conditions":
+  [Condition: "Diabetes"]
+```
 
-### Maintainability
+When accessing this data from a server that does not support the `Condition.code` search parameter, a less-selective filter may be used initially:
 
-### Versioning Considerations
+```
+[base]/Condition?category=problem-list-item
+```
 
-### Questionnaire Prepopulation
+followed by subsequent filtering locally based on the `"Diabetes"` value set.
 
-When populating a questionnaire response, if the questionnaire response already has a value for the initial expression, don't populate
+In addition, multi-threading requests to the server can reduce the overall time required to retrieve the data.
+
+### Conventions
+
+As with any content development effort, to facilitate readability and maintainability of CQL, best-practice is to following conventions established by the community:
+
+* **[Conventions](https://cql.hl7.org/14-g-formattingconventions.html)**: Overall formatting conventions and best practices
+* **[Using CQL]({{site.data.fhir.ver.cql}}/using-cql.html)**: Best-practices and conformance requirements for using CQL with FHIR
+* **[Well-known Documentation Tags](https://github.com/cqframework/clinical_quality_language/wiki/Well-Known-CQL-Documentation-Tags)**
+

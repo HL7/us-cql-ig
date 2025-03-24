@@ -1,7 +1,16 @@
 <ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
   <li><a href="index.html">IG Home</a></li>
   <li><a href="background.html">Background</a></li>
-  <li><a href="use-cases.html">Use Cases</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="use-cases.html" class="dropdown-toggle">
+      Use Cases<b class="caret">
+        </b>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="use-cases.html">Use Cases</a></li>
+      <li><a href="use-case-pa.html">Prior-Authorization Questionnaires</a></li>
+    </ul>
+  </li>
   <li class="dropdown">
     <a data-toggle="dropdown" href="query-management.html" class="dropdown-toggle">
       Guidance<b class="caret">

@@ -23,6 +23,7 @@ This implementation guide does not:
 
 * **[Background](background.html)**
 * **[Use Cases](use-cases.html)**
+  * **[Prior-Authorization Questionnaires](use-case-pa.html)**
 * **Guidance**
   * **[Architectural Guidance](architectural-guidance.html)**
   * **[Query Management](query-management.html)**

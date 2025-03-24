@@ -46,7 +46,7 @@ define "Patient Is Male":
   Patient.gender = 'male'
 ```
 
-> NOTE: Terminology-valued elements in FHIR resources are _bound_ to _value sets_. The gender element is an example of a _required_ binding, which means that only the codes in the bound value set are allowed to be used. This allows the logic in this example to compare using the actual string `'male'`. In general, terminology-valued elements should be compared using terminology operators. For more information, see the [Using Terminology](https://hl7.org/fhir/us/cqfmeasures/using-cql.html#use-of-terminologies) topic in the Quality Measure IG.
+> NOTE: Terminology-valued elements in FHIR resources are _bound_ to _value sets_. The gender element is an example of a _required_ binding, which means that only the codes in the bound value set are allowed to be used. This allows the logic in this example to compare using the actual string `'male'`. In general, terminology-valued elements should be compared using terminology operators. For more information, see the [Using Terminology]({{site.data.fhir.ver.cql}}/patterns.html#use-of-terminologies) topic in the Using CQL With FHIR IG.
 
 #### Patient race and ethnicity
 
@@ -65,7 +65,7 @@ define "Patient Race Includes Alaska Native":
 
 Some elements in USCore profiles allow for values to be represented in different ways. For example, the `deceased` element allows values of `Boolean` and `DateTime`. This means that the value of the `deceased` element for any particular patient may be either a Boolean (`true` or `false`) or a DateTime. In FHIR and CQL, these types of elements are called _choice_ types.
 
-> NOTE: Because the USCore model is using CQL system-defined types (see the [FHIR Type Mapping](https://hl7.org/fhir/us/cqfmeasures/using-cql.html#fhir-type-mapping) topic), the spelling of the types uses the CQL type names (e.g. `Boolean` rather than `boolean`).
+> NOTE: Because the USCore model is using CQL system-defined types (see the [FHIR Type Mapping]({{site.data.fhir.ver.cql}}/conformance.html#fhir-type-mapping) topic in the Using CQL With FHIR IG), the spelling of the types uses the CQL type names (e.g. `Boolean` rather than `boolean`).
 
 When accessing choice types in CQL expressions, authors can typically just treat the element as the type they are interested in accessing. For example:
 
