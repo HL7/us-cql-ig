@@ -229,10 +229,11 @@
       <code value="path-resource"/>
       <value value="input/resources/questionnaire"/>
     </parameter>
-    <parameter>
+    <!-- Commented out because the base FHIR template now includes knowledge artifact templates -->
+    <!--parameter>
       <code value="path-liquid"/>
       <value value="templates\liquid"/>
-    </parameter>
+    </parameter-->
     <parameter>
       <code value="path-suppressed-warnings"/>
       <value value="input/ignoreWarnings.txt"/>
