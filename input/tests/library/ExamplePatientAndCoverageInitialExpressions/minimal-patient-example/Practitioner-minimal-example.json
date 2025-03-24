@@ -26,8 +26,8 @@
   "telecom": [
     {
       "system": "phone",
-      "value": "345-416-5672",
-      "use": "mobile"
+      "value": "345-416-5670",
+      "use": "work"
     },
     {
       "system": "fax",
@@ -37,11 +37,12 @@
   "address": [
     {
       "line": [
-        "8914 115TH ST"
+        "8914 115TH ST",
+        "Richmond Hill, NY 12345"
       ],
       "city": "RICHMOND HIL",
       "state": "NY",
-      "postalCode": "123456",
+      "postalCode": "12345",
       "country": "USA"
     }
   ]

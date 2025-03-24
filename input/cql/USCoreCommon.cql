@@ -519,14 +519,17 @@ define fluent function mostRecent(serviceRequests List<FHIR.ServiceRequest>):
   )
 
 //TODO: Should these be singletons?
-define function Mobile(contactPoints List<USCore.ContactPoint>):
-  singleton from (contactPoints P where P.use = 'mobile')
-
 define function Email(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.system = 'email')
 
 define function Fax(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.system = 'fax')
 
+define function Mobile(contactPoints List<USCore.ContactPoint>):
+  singleton from (contactPoints P where P.use = 'mobile')
+
 define function Pager(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.system = 'pager')
+
+define function Work(contactPoints List<USCore.ContactPoint>):
+  singleton from (contactPoints P where P.use = 'work')

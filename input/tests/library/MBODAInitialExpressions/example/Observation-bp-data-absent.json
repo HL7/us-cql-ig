@@ -39,7 +39,7 @@
     "display": "Amy Shaw"
   },
   "encounter": {
-    "reference": "Encounter/1036"
+    "reference": "Encounter/example2"
   },
   "effectiveDateTime": "1999-07-02",
   "component": [
