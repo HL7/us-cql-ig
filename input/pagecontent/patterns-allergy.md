@@ -4,13 +4,36 @@ This captures allergies / adverse reactions associated with a patient.
 
 The codes come from a set of common substances for allergy documentation in SNOMED and RXNORM (US Core 3.1.1: https://hl7.org/fhir/us/core/STU3.1.1/ValueSet-us-core-allergy-substance.html, US Core 6.1.0: https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1186.8/expansion).
 
-### Current allergies
+### Modifier Elements
+
+The AllergyIntolerance resource defines the following modifier elements:
+
+* clinicalStatus
+* verificationStatus
+
+Note that neither of these elements are required, but both are must support, and have a required binding. As such the USCoreCommon library defines functions such as `isActive()` for assessing these statuses. Further examples are provided in the "Common Elements" section below.
+
+### Search Parameters
+
+USCore requires searching by:
+
+* patient
+
+In addition, servers may support searching by:
+
+* clinical-status
+
+### Cross-Version Considerations
+
+There are no significant differences between the 3.1.1, 6.1.0, and 7.0.0 versions of this profile.
+
+### Common Elements and Functions
+
+#### Current allergies
 
 To get all confirmed active allergies, ```UCE."Active Confirmed Allergies and Intolerances"``` can be used. 
 
->TODO Is there a realistic example for a specific allergy a payer would want to know about for a prior auth that we could include here? I'm not thinking of one.
-
-#### Contrast dye allergy:
+##### Contrast dye allergy:
 
 Ordering HeadMRI vs HeadCT because patient has allergy to CT dye
 
@@ -18,7 +41,7 @@ Ordering HeadMRI vs HeadCT because patient has allergy to CT dye
 ICD-10-CM Code for Radiographic dye allergy status Z91.041
 ```
 
-#### Egg allergy:
+##### Egg allergy:
 
 ```
 ICD-10-CM (International Classification of Diseases, 10th Revision, Clinical Modification)
@@ -37,7 +60,7 @@ LOINC (Logical Observation Identifiers Names and Codes)
 7286-1 – Egg yolk IgE [Mass/volume] in Serum
 ```
 
-#### Nut allergy: 
+##### Nut allergy: 
 
 ```
 ICD-10-CM Codes for Nut Allergies
@@ -59,9 +82,8 @@ define "AllergicToDrugX":
     where A.code ~ "DrugX"
 ```
 
-### No known allergies
+#### No known allergies
 
 To check if a patient has confirmed they have no known allergies, use ```UCE."No Known Allergies (Confirmed)"```. This will check for SNOMED 716186003 (No known allergy (situation)) as advised in US Core.
-
 
 > NOTE: Content for this page was adapted from the [QICore Authoring Patterns - Allergies](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0#allergies) topic.

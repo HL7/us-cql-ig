@@ -1,12 +1,57 @@
 US Core defines [US Core Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-lab.html) to record laboratory observations.
 
-Observation codes will be LOINC, and result values will be 
+Observation codes will be LOINC. Result values will generally be represented in different ways, according to the type of lab result. The LOINC code itself will often describe the expected representation of possible values for a given observation or test result.
 
-### Lab
+### Modifier Elements
 
-> TODO: what are realistic example LOINC codes that we want to pull in for the prior auth use case? Are there ones that are both a simple single observation, and ones that involve nested components / panels that we need to deal with? I've heard oxygen saturation in the past.
+The Observation resource defines the following modifier elements:
 
+* status
+
+In addition to being a modifier, this element is required with a required binding. The USCoreCommon library defines several functions for determining the status of an observation, as discussed in the Status section below.
+
+### Search Parameters
+
+USCore defines the following mandatory search parameters:
+
+* patient, category
+* patient, code
+* patient, category, date
+
+In addition, the following optional search parameters are described:
+
+* patient, category, status
+* patient, category, _lastUpdated
+* patient, code, date
+
+### Cross-Version Considerations
+
+Generally, new versions of USCore since 3.1.1 have introduced additional profiles, but have not impacted representation of existing profiles. As of 7.0.0, there are generally:
+
+* vital signs (including vital signs described in the base FHIR specification, as well as additional vital signs profiles)
+* clinical results
+  * laboratory results
+* screening assessments
+* simple observations
+
+### Common Elements and Functions
+
+#### Status
+
+The USCoreCommon library defines functions and terminology declarations to support determining status of an observation:
+
+* `isResulted()`: returns true if the status is `final`, `amended`, or `corrected`
+* `isFinal()`
+* `isAmended()`
+* `isCorrected()`
+
+In addition, the USCoreElements library defines expressions for accessing the various USCore profiles, such as:
+
+* `"All Laboratory Results"`
+* `"Resulted Laboratory Results"`
+* `"Pediatric BMI for Age"`
+
+In general, the expressions to retrieve observations for a particular profile include the `.resulted()` function to ensure only final, amended, or corrected observations are returned.
 
 > NOTE: Content for this page was adapted from the [QICore Authoring Patterns - Laboratory Result](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0#laboratory-result) topic.
 
-> TODO: does it make sense to pull all the observations onto a single page? maybe vitals together but not others
