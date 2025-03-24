@@ -21,47 +21,54 @@ This implementation guide does not:
 
 ### Contents
 
-* [Background](background.html)
-* [Use Cases](use-cases.html)
-* [Architectural Guidance](architectural-guidance.html)
-* [Query Management](query-management.html)
-* [Examples](examples.html)
-* [Tooling Support](tooling-support.html)
-* [Testing](testing.html)
-* [Artifacts](artifacts.html)
-* [Changes](changes.html)
-* [Downloads](downloads.html)
+* **[Background](background.html)**
+* **[Use Cases](use-cases.html)**
+* **Guidance**
+  * **[Architectural Guidance](architectural-guidance.html)**
+  * **[Query Management](query-management.html)**
+  * **[Authoring](authoring.html)**
+  * **[Patterns](patterns.html)**
+  * **[Examples](examples.html)**
+  * **[Usage](usage.html)**
+* **[Testing](testing.html)**
+* **[Tooling Support](tooling-support.html)**
+* **[Artifact Index](artifacts.html)**
+* **Support**
+  * **[Changes](changes.html)**
+  * **[Downloads](downloads.html)**
+  * **[License](license.html)**
 
-### Roadmap
+### Acknowledgements
 
-Ballot Schedule:
+This Implementation Guide was made possible by the thoughtful contributions of the following people and organizations:
 
-* FHIR IG Proposal to FMG: February 2nd
-* THO Content Freeze: February 16
-* NIB Deadline: February 23
-* Connectathon Proposals: March 11
-* Consensus Group Signup: March 3
-* FHIR Core Ballot Freeze: March 18
-* WG IG Approval: March 18 - April 3
-* Final Content Deadline: March 30
-* FHIR Connectathon: May 10
-* May WGM: May 12
+* Mike Gould, Zeomega
+* Yan Heras, Optimum eHealth
+* Kyle Johnsen, Epic
+* Crystal Kallem, Point of Care Partners
+* Lloyd McKenzie, Dogwood Consulting
+* Viet Nguyen, HL7
+* Rob Reynolds, Smile Digital Health
+* Brenin Rhodes, Smile Digital Health
+* Bryn Rhodes, Smile Digital Health
 
-Call Schedule:
+### Dependencies
 
-* 2/10
-  * Roadmap/Ballot Planning Review
-  * Versioning Approach Discussion
-* 2/24
-  * Testing Resources and Patterns
-  * Versioning Libraries and Documentation
-* 3/10
-  * Architectural Guidance Review
-  * Authoring Documentation Review
-  * Patterns Review
-* 3/24
-  * Final Feedback/QA Review Prior to Ballot
+{% include dependency-table-short.xhtml %}
 
+### Cross Version Analysis
+
+{% include cross-version-analysis.xhtml %}
+
+### Global Profiles
+
+{% include globals-table.xhtml %}
+
+### IP Statements
+
+{% include ip-statements.xhtml %}
+
+<!--
 TODO:
 
 * Testing
@@ -84,3 +91,4 @@ TODO:
   * ServiceRequest
 * Authoring Documentation
   * Workflow diagram illustrating tooling and pattern touchpoints
+-->

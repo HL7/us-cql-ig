@@ -2,13 +2,13 @@
   <li><a href="index.html">IG Home</a></li>
   <li><a href="background.html">Background</a></li>
   <li><a href="use-cases.html">Use Cases</a></li>
-  <li><a href="architectural-guidance.html">Architectural Guidance</a></li>
   <li class="dropdown">
     <a data-toggle="dropdown" href="query-management.html" class="dropdown-toggle">
-      Query Management<b class="caret">
+      Guidance<b class="caret">
         </b>
     </a>
     <ul class="dropdown-menu">
+      <li><a href="architectural-guidance.html">Architectural Guidance</a></li>
       <li><a href="query-management.html">General Guidance</a></li>
       <li><a href="authoring.html">Authoring</a></li>
       <li><a href="patterns.html">Patterns</a></li>

@@ -29,8 +29,8 @@
 <page key="changes" name="Changes"/>
 <page key="patterns-condition" name="Condition Patterns"/>
 <page key="patterns-coverage" name="Coverage Patterns"/>
-<page key="examples" name="Downloads"/>
 <page key="downloads" name="Downloads"/>
+<page key="examples" name="Examples"/>
 <page key="index" name="Home"/>
 <page key="patterns-lab" name="Lab Patterns"/>
 <page key="license" name="License"/>

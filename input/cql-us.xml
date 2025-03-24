@@ -52,11 +52,6 @@
     <packageId value="hl7.fhir.uv.sdc"/>
     <version value="current"/>
   </dependsOn>
-  <dependsOn id="cqf">
-    <uri value="http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common"/>
-    <packageId value="fhir.cqf.common"/>
-    <version value="dev"/>
-  </dependsOn>
   <dependsOn id="uscore">
     <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
     <packageId value="hl7.fhir.us.core"/>
@@ -198,12 +193,10 @@
       <code value="find-other-resources"/>
       <value value="true"/>
     </parameter>
-    <!-- This parameter indicates to the publisher that it should translate and package CQL libraries. See the example library resources for more -->
-    <!-- Disabling because the publisher tooling does not know how to deal with FHIRHelpers and FHIR-ModelInfo in this IG -->
-    <!-- parameter>
+    <parameter>
       <code value="path-binary"/>
       <value value="input/cql"/>
-    </parameter-->
+    </parameter>
     <parameter>
       <code value="path-resource"/>
       <value value="input/resources/device"/>
@@ -224,11 +217,33 @@
       <code value="path-suppressed-warnings"/>
       <value value="input/ignoreWarnings.txt"/>
     </parameter>
-    <!-- Allow the domain CPG. This does prevent a few of the errors,
-    but the canonical URLs for extensions and profiles from this domain still result in errors... -->
     <parameter>
-      <code value="extension-domain"/>
-      <value value="http://hl7.org/fhir/uv/cpg"/>
+      <code value="apply-contact"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-publisher"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-version"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-jurisdiction"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-license"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-copyright"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-wg"/>
+      <value value="true"/>
     </parameter>
 <!-- Uncomment one or more of these if you want to limit which syntaxes are supported or want to disable the display of mappings
     <parameter>
