@@ -1,6 +1,6 @@
 {
   "resourceType": "MedicationRequest",
-  "id": "MedRequest-insulin",
+  "id": "uscore-patient-4-med-request-example",
   "status": "active",
   "intent": "order",
   "medicationCodeableConcept": {

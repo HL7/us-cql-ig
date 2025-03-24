@@ -17,8 +17,6 @@ code "Body surface area": '8277-6' from "LOINC" display 'Intensive care unit'
 code "Member Number": 'MB' from "Identifier Type"
 
 parameter "MedicationRequest" USCore.MedicationRequestProfile
-parameter "MedicationRequest Id" List<System.String> 
-  default { 'example', 'negation-example', 'self-tylenol', 'uscore-mo2-with-dosage', 'uscore-mo2', 'uscore-mo3', 'uscore-mo2-with-dosage-continued-therapy', 'MedRequest-example', 'MedRequest-insulin' }     // TODO: remove defaults for production use
 
 context Patient
 
@@ -90,12 +88,23 @@ define "Code of Requested Drug":
   "Medication Requested" M
     return M.code
 
+define "Retrieve Medication Request test parameter":
+  // The VSCode extension doesn't support parameters
+  // When executing CQL with the VSCode extension retrieve the resource specific for the test case
+  //   the list of resource ids match the resources from the test case folders
+  singleton from ([USCore.MedicationRequestProfile] MR where MR.id in { 
+    'example',
+    'example-continued-therapy',
+    'example-new-therapy',
+    'uscore-patient-1-med-request-example',
+    'uscore-patient-2-med-request-example',
+    'uscore-patient-3-med-request-example',
+    'uscore-patient-4-med-request-example'})
+
 define "Most Recent Medication Request":
   Coalesce(
     MedicationRequest,
-    First([USCore.MedicationRequestProfile] MR
-      where MR.id in "MedicationRequest Id"
-      sort by authoredOn desc)
+    "Retrieve Medication Request test parameter"
   )
 
 define "Medication Request References":
