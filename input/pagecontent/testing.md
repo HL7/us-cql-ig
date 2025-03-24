@@ -15,11 +15,12 @@ define "Patient Name":
   UCE."Name - First Middle(s) Last"
 ```
 
-And the `Parameters-expected-results` resource has the following parameter indicating the expected result for the `minimal-patient-example` test case:
+And the `expected-results` Parameters resource has the following parameter indicating the expected result for the `minimal-patient-example` test case:
 
 ```json
 {
     "resourceType": "Parameters",
+    "id": "expected-results",
     "parameter": [
         ...
         {
