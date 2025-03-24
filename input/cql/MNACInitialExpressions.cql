@@ -1,11 +1,11 @@
-library MNACInitialExpressions version '0.1.0'
+library MNACInitialExpressions
 
 using USCore version '3.1.1'
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1'
-include USCoreCommon version '0.1.0' called UC
-include USCoreElements version '0.1.0' called UCE
+include USCoreCommon called UC
+include USCoreElements called UCE
 
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 codesystem "ICD10": 'http://hl7.org/fhir/sid/icd-10-cm'

@@ -4,7 +4,7 @@
 in QICore as fluent functions in CQL, as well as common terminology and functions
 used in writing CQL with FHIR and QICore profiles.
 */
-library USCoreCommon version '0.1.0'
+library USCoreCommon
 
 using USCore version '3.1.1'
 using FHIR version '4.0.1'

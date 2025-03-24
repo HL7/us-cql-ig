@@ -1,15 +1,15 @@
-library MBODAInitialExpressions version '0.1.0'
+library MBODAInitialExpressions
 
 using USCore version '3.1.1'
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1'
-include USCoreCommon version '0.1.0' called UC
-include USCoreElements version '0.1.0' called UCE
+include USCoreCommon called UC
+include USCoreElements called UCE
 
 //CumulativeMedicationDuration was created as part of the US ECQM and CDC Opioid Guideline development 
 //http://fhir.org/guides/cdc/opioid-mme-r4
-include CumulativeMedicationDuration version '3.1.000' called CMD
+include CumulativeMedicationDuration called CMD
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'

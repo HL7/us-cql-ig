@@ -1,11 +1,11 @@
-library ExamplePatientAndCoverageInitialExpressions version '0.1.0'
+library ExamplePatientAndCoverageInitialExpressions
 
 using USCore version '3.1.1'
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1'
-include USCoreCommon version '0.1.0' called UC
-include USCoreElements version '0.1.0' called UCE
+include USCoreCommon called UC
+include USCoreElements called UCE
 
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 

@@ -1,0 +1,15 @@
+{
+  "resourceType": "Library",
+  "id": "USCoreCommonTests",
+  "url": "http://hl7.org/fhir/us/cql/Library/USCoreCommonTests",
+  "name": "USCoreCommonTests",
+  "type": {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/library-type",
+      "code": "logic-library"
+    } ]
+  },
+  "content": [ {
+    "id": "ig-loader-USCoreCommonTests.cql"
+  } ]
+}

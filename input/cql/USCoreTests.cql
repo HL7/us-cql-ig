@@ -2,11 +2,11 @@
 @description: This is a testing library used to validate capability of the CQL-to-ELM translator
 using the US Core model info. It is not intended as
 */
-library USCoreTests version '0.1.0'
+library USCoreTests
 
 using USCore version '3.1.1'
 
-include FHIRHelpers version '4.1.0'
+include FHIRHelpers version '4.0.1'
 
 codesystem "Marital Status Codes": 'http://terminology.hl7.org/CodeSystem/v3-MaritalStatus'
 codesystem "CDC Race and Ethnicity Codes": 'urn:oid:2.16.840.1.113883.6.238'

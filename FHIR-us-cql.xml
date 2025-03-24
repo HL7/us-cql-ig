@@ -4,7 +4,6 @@
 <artifactPageExtension value="-definitions"/>
 <artifactPageExtension value="-examples"/>
 <artifactPageExtension value="-mappings"/>
-<artifact id="Device/cqf-tooling" key="Device-cqf-tooling" name=""/>
 <artifact id="Library/CumulativeMedicationDuration" key="Library-CumulativeMedicationDuration" name="CumulativeMedicationDuration"/>
 <artifact id="Questionnaire/ExamplePatientAndCoverageQuestionnaire" key="Questionnaire-ExamplePatientAndCoverageQuestionnaire" name="Example Patient and Coverage Questionnaire"/>
 <artifact id="Library/ExamplePatientAndCoverageInitialExpressions" key="Library-ExamplePatientAndCoverageInitialExpressions" name="ExamplePatientAndCoverageInitialExpressions"/>
@@ -17,6 +16,7 @@
 <artifact id="Questionnaire/MNACQuestionnaire" key="Questionnaire-MNACQuestionnaire" name="Medical Necessity For Authorization Of Catheters"/>
 <artifact id="Library/UPPARFInitialExpressions" key="Library-UPPARFInitialExpressions" name="UPPARFInitialExpressions"/>
 <artifact id="Library/USCoreCommon" key="Library-USCoreCommon" name="USCoreCommon"/>
+<artifact id="Library/USCoreCommonTests" key="Library-USCoreCommonTests" name="USCoreCommonTests"/>
 <artifact id="Library/USCoreElements" key="Library-USCoreElements" name="USCoreElements"/>
 <artifact id="Library/USCoreTests" key="Library-USCoreTests" name="USCoreTests"/>
 <page key="NA" name="(NA)"/>

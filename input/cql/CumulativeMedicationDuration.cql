@@ -19,7 +19,7 @@ Fixed RolloutIntervals incorrectly eliminating duplicates
 v3.1.000
 updated to reflect changes from AU2022 QDM library changes _JKR
 */
-library CumulativeMedicationDuration version '3.1.000'
+library CumulativeMedicationDuration
 
 using USCore version '3.1.1'
 // NOTE: Including FHIR to handle MedicationDispense and MedicationAdministration (not in USCore 3.1.1)
@@ -28,9 +28,7 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1'
 
-// NOTE: Removed in favor of USCoreCommon
-//include QICoreCommon version '1.3.000'
-include USCoreCommon version '0.1.0'
+include USCoreCommon
 
 // These code systems are not known to the MAT environment yet, request to have them added submitted
 codesystem "V3TimingEvent": 'http://terminology.hl7.org/CodeSystem/v3-TimingEvent'
