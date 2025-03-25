@@ -6,6 +6,74 @@
             "valueString": "Chalmers"
         },
         {
+            "name": "Height",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 69.3,
+                "unit": "in_i"
+            }
+        },
+        {
+            "name": "Height in [in_i]",
+            "valueDecimal": 69.3
+        },
+        {
+            "name": "Weight",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 180.3,
+                "unit": "lb_av"
+            }
+        },
+        {
+            "name": "Weight in [lb_av]",
+            "valueDecimal": 180.3
+        },
+        {
+            "name": "BSA",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 1.99766631,
+                "unit": "m2"
+            }
+        },
+        {
+            "name": "BSA in m2",
+            "valueDecimal": 1.99766631
+        },
+        {
+            "name": "Calculated BSA - Mosteller",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 1.99766631,
+                "unit": "m2"
+            }
+        },
+        {
+            "name": "Height in cm",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 176.0,
+                "unit": "cm"
+            }
+        },
+        {
+            "name": "Weight in kg",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 81.78,
+                "unit": "kg"
+            }
+        },
+        {
+            "name": "Calculated BSA - DuBois and DuBois",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 1.98261332,
+                "unit": "m2"
+            }
+        },
+        {
             "name": "Diagnosis Codes",
             "resource": {
                 "resourceType": "Coding",

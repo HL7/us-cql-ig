@@ -8,9 +8,9 @@
   },
   "valueQuantity": {
     "value": 180.3,
-    "code": "lb",
+    "code": "[lb_av]",
     "system": "http://unitsofmeasure.org",
-    "unit": "lb"
+    "unit": "[lb_av]"
   },
   "code": {
     "coding": [

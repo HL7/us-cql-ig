@@ -6,6 +6,18 @@
             "valueString": "Elizabeth"
         },
         {
+            "name": "Height",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 69.2,
+                "unit": "in_i"
+            }
+        },
+        {
+            "name": "Height in [in_i]",
+            "valueDecimal": 69.2
+        },
+        {
             "name": "Weight",
             "resource": {
                 "resourceType": "Quantity",
@@ -18,11 +30,47 @@
             "valueDecimal": 176.81
         },
         {
+            "name": "BSA",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 1.97681408,
+                "unit": "m2"
+            }
+        },
+        {
+            "name": "BSA in m2",
+            "valueDecimal": 1.98
+        },
+        {
+            "name": "Calculated BSA - Mosteller",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 1.97681408,
+                "unit": "m2"
+            }
+        },
+        {
+            "name": "Height in cm",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 176.0,
+                "unit": "cm"
+            }
+        },
+        {
             "name": "Weight in kg",
             "resource": {
                 "resourceType": "Quantity",
-                "value": 80.2,
+                "value": 80.20,
                 "unit": "kg"
+            }
+        },
+        {
+            "name": "Calculated BSA - DuBois and DuBois",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 1.96624262,
+                "unit": "m2"
             }
         },
         {

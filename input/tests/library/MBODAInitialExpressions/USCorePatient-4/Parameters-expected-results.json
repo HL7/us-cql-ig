@@ -6,6 +6,74 @@
             "valueString": "du March\u00e9"
         },
         {
+            "name": "Height",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 69.4,
+                "unit": "in_i"
+            }
+        },
+        {
+            "name": "Height in [in_i]",
+            "valueDecimal": 69.4
+        },
+        {
+            "name": "Weight",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 180.4,
+                "unit": "lb_av"
+            }
+        },
+        {
+            "name": "Weight in [lb_av]",
+            "valueDecimal": 180.4
+        },
+        {
+            "name": "BSA",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 1.99966142,
+                "unit": "m2"
+            }
+        },
+        {
+            "name": "BSA in m2",
+            "valueDecimal": 1.99966142
+        },
+        {
+            "name": "Calculated BSA - Mosteller",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 1.99966142,
+                "unit": "m2"
+            }
+        },
+        {
+            "name": "Height in cm",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 176.0,
+                "unit": "cm"
+            }
+        },
+        {
+            "name": "Weight in kg",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 81.83,
+                "unit": "kg"
+            }
+        },
+        {
+            "name": "Calculated BSA - DuBois and DuBois",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 1.98312839,
+                "unit": "m2"
+            }
+        },
+        {
             "name": "Diagnosis Codes",
             "resource": {
                 "resourceType": "Coding",

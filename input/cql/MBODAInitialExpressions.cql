@@ -26,7 +26,6 @@ define "Last Name":
 // TODO: Error: Could not resolve data provider for package 'java.util'.
 // define "First Name":
 //   Patient.name.given.first()
-
 define "Allergies":
   UCE."Active Confirmed Allergies and Intolerances".code.codes.display 
 
@@ -36,11 +35,20 @@ define "Height":
 define "Height in [in_i]":
   "Height".value
 
+define "Height in cm":
+  convert("Height") to 'cm'
+
+define "Weight Most Recent":
+  (UCE."All Body Weight Measurements").mostRecent() as "observation-bodyweight"
+
 define "Weight":
   convert (((UCE."All Body Weight Measurements").mostRecent() as "observation-bodyweight").value) to '[lb_av]'
 
 define "Weight in [lb_av]":
   "Weight".value
+
+define "Weight in kg":
+  convert("Weight") to 'kg'
 
 define "BMI":
   (UCE."All Body Mass Index Measurements").value
@@ -58,12 +66,6 @@ define "BSA in m2":
 define "Calculated BSA - Mosteller":
   UCE.CalculateBSA('Mosteller', "Height", "Weight")
   //((("Weight"*"Height")/3131).value)^0.5
-
-define "Height in cm":
-  convert("Height") to 'cm'
-
-define "Weight in kg":
-  convert("Weight") to 'kg'
 
 define "Calculated BSA - DuBois and DuBois":
   UCE.CalculateBSA('DuBois and DuBois', "Height", "Weight")
@@ -87,6 +89,9 @@ define "Medication Name":
 define "Code of Requested Drug":
   "Medication Requested" M
     return M.code
+
+define MRs:
+  [USCore.MedicationRequestProfile]
 
 define "Retrieve Medication Request test parameter":
   // The VSCode extension doesn't support parameters
