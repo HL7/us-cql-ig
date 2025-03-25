@@ -3,12 +3,14 @@
   "id": "USCoreCommon",
   "url": "http://hl7.org/fhir/us/cql/Library/USCoreCommon",
   "name": "USCoreCommon",
+  "title": "US Core Common",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/library-type",
       "code": "logic-library"
     } ]
   },
+  "description": "This library defines functions to expose extensions defined in USCore as fluent functions in CQL, as well as common terminology and functions used in writing CQL with FHIR and USCore profiles.",
   "content": [ {
     "id": "ig-loader-USCoreCommon.cql"
   } ]

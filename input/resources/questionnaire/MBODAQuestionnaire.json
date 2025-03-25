@@ -29,13 +29,14 @@
     }
   ],
   "url": "http://hl7.org/fhir/us/cql/Questionnaire/MBODAQuestionnaire",
-  "version": "0.1.0",
   "name": "MBODAQuestionnaire",
-  "title": "Medical Benefit Outpatient Drug Authorization Form",
+  "title": "Example Medical Benefit Outpatient Drug Authorization Questionnaire",
   "status": "active",
   "experimental": true,
   "date": "2023-08-14T00:00:00+00:00",
   "description": "Drugs administered by healthcare professionals in an outpatient setting are covered under the Medical Benefit. Information on drugs requiring prior authorization can be found on NaviNet.net or the For Providers section of the Geisinger Health Plan website.",
+  "purpose": "This questionnaire is defined to provide an illustrative example of a prior authorization questionnaire based on existing industry prior-authorization forms.",
+  "copyright": "This content is derived from the following source: https://www.geisinger.org/-/media/OneGeisinger/Files/PDFs/Provider/NaviNet/Forms/medical-benefit-outpatient-drug-authorization-form-050819.pdf?sc_lang=en&hash=6EDE27E13FCCB5731E081FC49B85359D",
   "item": [
     {
       "linkId": "patient-info",

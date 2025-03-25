@@ -2,7 +2,16 @@ This implementation guide includes several worked examples of prior authorizatio
 
 {% include list-questionnaires.xhtml %}
 
-Other potential examples to be worked include:
+The examples above are derived from prior-authorization forms freely available from industry health plans:
+
+* [Humana Genetic/molecular testing preauthorization (GMTP)](https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=1986712)
+* [Geisinger Medical Benefit Outpatient Drug Authorization Form (MBODA)](https://www.geisinger.org/-/media/OneGeisinger/Files/PDFs/Provider/NaviNet/Forms/medical-benefit-outpatient-drug-authorization-form-050819.pdf?sc_lang=en&hash=6EDE27E13FCCB5731E081FC49B85359D)
+* [Medical Necessity for Authorization of Catheters (MNAC)](https://www.hca.wa.gov/assets/billers-and-providers/13-760.pdf)
+* [Humana Uniform Pharmacy Prior Authorization Request Form (UPPARF)](https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=4136509)
+
+#### Other Potential Examples
+
+The following links provide other potential examples to be worked include:
 
 * [https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=2787759](https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=2787759)
 * [https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=1830868](https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=1830868)
@@ -10,34 +19,19 @@ Other potential examples to be worked include:
 * [https://www.uhcprovider.com/en/resource-library/maternity-support.html](https://www.uhcprovider.com/en/resource-library/maternity-support.html)
 * [https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/medical-policies/Knee-Arthroplasty-Adults.pdf](https://www.blueshieldca.com/content/dam/bsca/en/provider/docs/medical-policies/Knee-Arthroplasty-Adults.pdf)
 
-
-
 Complex questionnaires:
-https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=4728932
-
-https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=5106036
+* [https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=4728932](https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=4728932)
+* [https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=5106036](https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=5106036)
 
 State questionnaires:
-https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=5029375
-
-https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=4136509
-
-https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=4197323
-
-Genetic testing:
-https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=1986712
+* [https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=5029375](https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=5029375)
+* [https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=4197323](https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=4197323)
 
 Cohere Humana: - select Humana dropdown and type to find a list of several questionnaires
-https://payerinfo.zendesk.com/hc/en-us/categories/10629830321047-Fax-Forms
+* [https://payerinfo.zendesk.com/hc/en-us/categories/10629830321047-Fax-Forms](https://payerinfo.zendesk.com/hc/en-us/categories/10629830321047-Fax-Forms)
 
 Geisinger:
-https://www.geisinger.org/health-plan/providers/forms-and-resources-for-providers
-
-Geisinger Outpatient Drug Authorization Form:
-https://www.geisinger.org/-/media/OneGeisinger/Files/PDFs/Provider/NaviNet/Forms/medical-benefit-outpatient-drug-authorization-form-050819.pdf?sc_lang=en&hash=6EDE27E13FCCB5731E081FC49B85359D
-
-Additional: - expand “Submitting Authorization Requests” and click on “Fax Forms”
-https://portal.healthhelp.com/landing/?p=8C06A8AB76BED882
+* [https://www.geisinger.org/health-plan/providers/forms-and-resources-for-providers](https://www.geisinger.org/health-plan/providers/forms-and-resources-for-providers)
 
 Potential Nut Allergy:
-https://fm.formularynavigator.com/FormularyNavigator/DocumentManager/Download?clientDocumentId=nU_SBgZRGEKjIxwVIRtrEQ
+* [https://fm.formularynavigator.com/FormularyNavigator/DocumentManager/Download?clientDocumentId=nU_SBgZRGEKjIxwVIRtrEQ](https://fm.formularynavigator.com/FormularyNavigator/DocumentManager/Download?clientDocumentId=nU_SBgZRGEKjIxwVIRtrEQ)

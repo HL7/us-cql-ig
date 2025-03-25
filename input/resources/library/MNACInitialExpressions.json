@@ -3,12 +3,15 @@
   "id": "MNACInitialExpressions",
   "url": "http://hl7.org/fhir/us/cql/Library/MNACInitialExpressions",
   "name": "MNACInitialExpressions",
+  "title": "Medical Necessity For Authorization Of Catheters Initial Expressions",
+  "experimental": true,
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/library-type",
       "code": "logic-library"
     } ]
   },
+  "description": "This library defines initial expressions for use in populating answers to questions in the Medical Necessity For Authorization Of Catheters example questionnaire.",
   "content": [ {
     "id": "ig-loader-MNACInitialExpressions.cql"
   } ]

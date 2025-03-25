@@ -3,12 +3,15 @@
   "id": "ExamplePatientAndCoverageInitialExpressions",
   "url": "http://hl7.org/fhir/us/cql/Library/ExamplePatientAndCoverageInitialExpressions",
   "name": "ExamplePatientAndCoverageInitialExpressions",
+  "title": "Example Patient And Coverage Initial Expression",
+  "experimental": true,
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/library-type",
       "code": "logic-library"
     } ]
   },
+  "description": "This library defines initial expressions for use in populating answers to questions in the Example Patient And Coverage questionnaire.",
   "content": [ {
     "id": "ig-loader-ExamplePatientAndCoverageInitialExpressions.cql"
   } ]

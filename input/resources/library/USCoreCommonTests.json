@@ -3,12 +3,15 @@
   "id": "USCoreCommonTests",
   "url": "http://hl7.org/fhir/us/cql/Library/USCoreCommonTests",
   "name": "USCoreCommonTests",
+  "title": "US Core Common Tests",
+  "experimental": true,
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/library-type",
       "code": "logic-library"
     } ]
   },
+  "description": "Tests for the expressions and functions defined in the US Core Common library.",
   "content": [ {
     "id": "ig-loader-USCoreCommonTests.cql"
   } ]

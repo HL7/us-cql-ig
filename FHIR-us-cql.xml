@@ -4,21 +4,21 @@
 <artifactPageExtension value="-definitions"/>
 <artifactPageExtension value="-examples"/>
 <artifactPageExtension value="-mappings"/>
-<artifact id="Library/CumulativeMedicationDuration" key="Library-CumulativeMedicationDuration" name="CumulativeMedicationDuration"/>
+<artifact id="Library/CumulativeMedicationDuration" key="Library-CumulativeMedicationDuration" name="Cumulative Medication Duration"/>
+<artifact id="Questionnaire/GMTPQuestionnaire" key="Questionnaire-GMTPQuestionnaire" name="Example Genetic/Molecular Testing Preauthorization Questionnaire"/>
+<artifact id="Questionnaire/UPPARFQuestionnaire" key="Questionnaire-UPPARFQuestionnaire" name="Example Humana Uniform Pharmacy Prior Authorization Request Form"/>
+<artifact id="Library/UPPARFInitialExpressions" key="Library-UPPARFInitialExpressions" name="Example Humana Uniform Pharmacy Prior Authorization Request Form Initial Expressions"/>
+<artifact id="Questionnaire/MBODAQuestionnaire" key="Questionnaire-MBODAQuestionnaire" name="Example Medical Benefit Outpatient Drug Authorization Questionnaire"/>
+<artifact id="Questionnaire/MNACQuestionnaire" key="Questionnaire-MNACQuestionnaire" name="Example Medical Necessity For Authorization Of Catheters Questionnaire"/>
+<artifact id="Library/ExamplePatientAndCoverageInitialExpressions" key="Library-ExamplePatientAndCoverageInitialExpressions" name="Example Patient And Coverage Initial Expression"/>
 <artifact id="Questionnaire/ExamplePatientAndCoverageQuestionnaire" key="Questionnaire-ExamplePatientAndCoverageQuestionnaire" name="Example Patient and Coverage Questionnaire"/>
-<artifact id="Library/ExamplePatientAndCoverageInitialExpressions" key="Library-ExamplePatientAndCoverageInitialExpressions" name="ExamplePatientAndCoverageInitialExpressions"/>
-<artifact id="Library/GMTPInitialExpressions" key="Library-GMTPInitialExpressions" name="GMTPInitialExpressions"/>
-<artifact id="Questionnaire/GMTPQuestionnaire" key="Questionnaire-GMTPQuestionnaire" name="Genetic/Molecular testing preauthorization request"/>
-<artifact id="Questionnaire/UPPARFQuestionnaire" key="Questionnaire-UPPARFQuestionnaire" name="Humana Uniform Pharmacy Prior Authorization Request Form"/>
-<artifact id="Library/MBODAInitialExpressions" key="Library-MBODAInitialExpressions" name="MBODAInitialExpressions"/>
-<artifact id="Library/MNACInitialExpressions" key="Library-MNACInitialExpressions" name="MNACInitialExpressions"/>
-<artifact id="Questionnaire/MBODAQuestionnaire" key="Questionnaire-MBODAQuestionnaire" name="Medical Benefit Outpatient Drug Authorization Form"/>
-<artifact id="Questionnaire/MNACQuestionnaire" key="Questionnaire-MNACQuestionnaire" name="Medical Necessity For Authorization Of Catheters"/>
-<artifact id="Library/UPPARFInitialExpressions" key="Library-UPPARFInitialExpressions" name="UPPARFInitialExpressions"/>
-<artifact id="Library/USCoreCommon" key="Library-USCoreCommon" name="USCoreCommon"/>
-<artifact id="Library/USCoreCommonTests" key="Library-USCoreCommonTests" name="USCoreCommonTests"/>
-<artifact id="Library/USCoreElements" key="Library-USCoreElements" name="USCoreElements"/>
-<artifact id="Library/USCoreTests" key="Library-USCoreTests" name="USCoreTests"/>
+<artifact id="Library/GMTPInitialExpressions" key="Library-GMTPInitialExpressions" name="Genetic/Molecular testing preauthorization Initial Expressions"/>
+<artifact id="Library/MBODAInitialExpressions" key="Library-MBODAInitialExpressions" name="Medical Benefit Outpatient Drug Authorization Initial Expressions"/>
+<artifact id="Library/MNACInitialExpressions" key="Library-MNACInitialExpressions" name="Medical Necessity For Authorization Of Catheters Initial Expressions"/>
+<artifact id="Library/USCoreCommon" key="Library-USCoreCommon" name="US Core Common"/>
+<artifact id="Library/USCoreCommonTests" key="Library-USCoreCommonTests" name="US Core Common Tests"/>
+<artifact id="Library/USCoreElements" key="Library-USCoreElements" name="US Core Elements"/>
+<artifact id="Library/USCoreTests" key="Library-USCoreTests" name="US Core Tests"/>
 <page key="NA" name="(NA)"/>
 <page key="many" name="(many)"/>
 <page key="patterns-allergy" name="Allergy Patterns"/>

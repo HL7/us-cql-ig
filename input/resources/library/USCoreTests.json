@@ -3,12 +3,15 @@
   "id": "USCoreTests",
   "url": "http://hl7.org/fhir/us/cql/Library/USCoreTests",
   "name": "USCoreTests",
+  "title": "US Core Tests",
+  "experimental": true,
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/library-type",
       "code": "logic-library"
     } ]
   },
+  "description": "This is a testing library used to validate capability of the CQL-to-ELM translator using the US Core model info.",
   "content": [ {
     "id": "ig-loader-USCoreTests.cql"
   } ]

@@ -268,7 +268,7 @@
       <value value="true"/>
     </parameter>
     <parameter>
-      <code value="apply-copyright"/>
+      <code value="default-copyright"/>
       <value value="true"/>
     </parameter>
     <parameter>

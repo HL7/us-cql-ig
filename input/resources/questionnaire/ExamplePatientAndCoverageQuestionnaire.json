@@ -71,7 +71,6 @@
     }
   ],
   "url": "http://hl7.org/fhir/us/cql/Questionnaire/ExamplePatientAndCoverageQuestionnaire",
-  "version": "0.1.0",
   "name": "ExamplePatientAndCoverageQuestionnaire",
   "title": "Example Patient and Coverage Questionnaire",
   "status": "active",

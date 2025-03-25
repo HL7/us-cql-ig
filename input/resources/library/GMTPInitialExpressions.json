@@ -3,12 +3,15 @@
   "id": "GMTPInitialExpressions",
   "url": "http://hl7.org/fhir/us/cql/Library/GMTPInitialExpressions",
   "name": "GMTPInitialExpressions",
+  "title": "Genetic/Molecular testing preauthorization Initial Expressions",
+  "experimental": true,
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/library-type",
       "code": "logic-library"
     } ]
   },
+  "description": "Initial expressions for use in populating answers to questions in the Genetic/Molecular testing preauthorization example questionnaire.",
   "content": [ {
     "id": "ig-loader-GMTPInitialExpressions.cql"
   } ]

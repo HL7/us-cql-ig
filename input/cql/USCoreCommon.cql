@@ -1,8 +1,8 @@
 /*
 @author: Bryn Rhodes
 @description: This library defines functions to expose extensions defined
-in QICore as fluent functions in CQL, as well as common terminology and functions
-used in writing CQL with FHIR and QICore profiles.
+in USCore as fluent functions in CQL, as well as common terminology and functions
+used in writing CQL with FHIR and USCore profiles.
 */
 library USCoreCommon
 

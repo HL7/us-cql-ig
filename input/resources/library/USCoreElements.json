@@ -3,12 +3,14 @@
   "id": "USCoreElements",
   "url": "http://hl7.org/fhir/us/cql/Library/USCoreElements",
   "name": "USCoreElements",
+  "title": "US Core Elements",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/library-type",
       "code": "logic-library"
     } ]
   },
+  "description": "A library of expressions, functions, and terminology declarations for use with FHIR in the US Realm.",
   "content": [ {
     "id": "ig-loader-USCoreElements.cql"
   } ]

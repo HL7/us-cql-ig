@@ -3,12 +3,15 @@
   "id": "MBODAInitialExpressions",
   "url": "http://hl7.org/fhir/us/cql/Library/MBODAInitialExpressions",
   "name": "MBODAInitialExpressions",
+  "title": "Medical Benefit Outpatient Drug Authorization Initial Expressions",
+  "experimental": true,
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/library-type",
       "code": "logic-library"
     } ]
   },
+  "description": "Initial expressions for use in populating answers to questions in the Medical Benefit Outpatient Drug Authorization example questionnaire.",
   "content": [ {
     "id": "ig-loader-MBODAInitialExpressions.cql"
   } ]

@@ -3,12 +3,15 @@
   "id": "CumulativeMedicationDuration",
   "url": "http://hl7.org/fhir/us/cql/Library/CumulativeMedicationDuration",
   "name": "CumulativeMedicationDuration",
+  "title": "Cumulative Medication Duration",
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/library-type",
       "code": "logic-library"
     } ]
   },
+  "description": "This library provides cumulative medication duration calculation logic for use with FHIR medication prescription, administration, and dispensing resources. The logic here follows the guidance provided as part of the 5.6 version of Quality Data Model.",
+  "usage": "Note that the logic here assumes single-instruction dosing information. Split-dosing, tapering, and other more complex dosing instructions are not handled.",
   "content": [ {
     "id": "ig-loader-CumulativeMedicationDuration.cql"
   } ]
