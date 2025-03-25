@@ -18,6 +18,7 @@
 <artifact id="Library/USCoreCommon" key="Library-USCoreCommon" name="US Core Common"/>
 <artifact id="Library/USCoreCommonTests" key="Library-USCoreCommonTests" name="US Core Common Tests"/>
 <artifact id="Library/USCoreElements" key="Library-USCoreElements" name="US Core Elements"/>
+<artifact id="Library/USCore-ModelInfo" key="Library-USCore-ModelInfo" name="US Core Model Information"/>
 <artifact id="Library/USCoreTests" key="Library-USCoreTests" name="US Core Tests"/>
 <page key="NA" name="(NA)"/>
 <page key="many" name="(many)"/>
