@@ -5,7 +5,7 @@ This discussion assumes the following:
 * A Questionnaire resource with any number of `item` elements, nested to any degree
 * A Questionnaire may include any number of `initialExpression`, `candidateExpression` and `calculatedExpression` extensions referencing CQL expressions to be evaluated
 
-In addition, this guidance is provided in addition to the conformance expectations and guidance described in [Pre-populating QuestionnaireResponses](https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#pre-populating-questionnaireresponses) in the DTR implementation guide.
+This guidance is provided as a complement to the conformance expectations and guidance described in [Pre-populating QuestionnaireResponses](https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#pre-populating-questionnaireresponses) in the DTR implementation guide.
 
 ### Initial Data Retrieval
 
@@ -22,7 +22,7 @@ TODO: Intrinsic library with names driven by linkIds that contains all the in-li
 * Optimizing for initial question display
 * Managing query inter-dependencies to maximize performance
 
-TODO: Provide guidance about making the determination between sending libraries up front versus questionnaire specific libraries (https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#adaptive-form-considerations)
+TODO: Provide guidance about making the determination between sending libraries up front versus questionnaire specific libraries (https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#adaptive-form-considerations)
 
 ### Additional Data Retrieval and Flow Control
 
@@ -32,7 +32,7 @@ TODO: Provide guidance about making the determination between sending libraries 
 
 ### Terminology Considerations
 
-https://build.fhir.org/ig/HL7/davinci-dtr/specification.html#value-set-and-code-system-guidance
+https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#value-set-and-code-system-guidance
 
 Note that questionnaires may reference value sets that are not included in the questionnaire package. In particular, best practice for value sets that do not have expansions (for example because the value set definition is more concisely expressed as a condition, or the value set is too large) is that they not be included in the questionnaire package.
 

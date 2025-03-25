@@ -2,7 +2,7 @@ US Core defines [US Core Allergy Intolerance](https://build.fhir.org/ig/HL7/US-C
 
 This captures allergies / adverse reactions associated with a patient.
 
-The codes come from a set of common substances for allergy documentation in SNOMED and RXNORM (US Core 3.1.1: https://hl7.org/fhir/us/core/STU3.1.1/ValueSet-us-core-allergy-substance.html, US Core 6.1.0: https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1186.8/expansion).
+The codes come from a set of common substances for allergy documentation in SNOMED and RXNORM (US Core 3.1.1: {{site.data.fhir.ver.uscore3}}/ValueSet-us-core-allergy-substance.html, US Core 6.1.0: https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1186.8/expansion).
 
 ### Modifier Elements
 
@@ -22,6 +22,10 @@ USCore requires searching by:
 In addition, servers may support searching by:
 
 * clinical-status
+
+> NOTE: For discussion on how to manage search parameters with terminology, see the [Terminology Considerations](architectural-guidance.html#terminology-considerations) discussion in the Architectural Guidance topic.
+
+> NOTE: For discussion on how to manage optional search parameters, see the [Performant Data Access](architectural-guidance.html#performant-data-access) discussion in the Architectural Guidance topic.
 
 ### Cross-Version Considerations
 

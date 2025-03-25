@@ -1,4 +1,4 @@
-US Core defines [US Core Observation](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-lab.html) to record laboratory observations.
+US Core defines [US Core Observation]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-lab.html) to record laboratory observations.
 
 Observation codes will be LOINC. Result values will generally be represented in different ways, according to the type of lab result. The LOINC code itself will often describe the expected representation of possible values for a given observation or test result.
 
@@ -23,6 +23,10 @@ In addition, the following optional search parameters are described:
 * patient, category, status
 * patient, category, _lastUpdated
 * patient, code, date
+
+> NOTE: For discussion on how to manage search parameters with terminology, see the [Terminology Considerations](architectural-guidance.html#terminology-considerations) discussion in the Architectural Guidance topic.
+
+> NOTE: For discussion on how to manage optional search parameters, see the [Performant Data Access](architectural-guidance.html#performant-data-access) discussion in the Architectural Guidance topic.
 
 ### Cross-Version Considerations
 

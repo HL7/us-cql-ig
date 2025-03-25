@@ -1,4 +1,4 @@
-US Core defines [US Core ServiceRequest](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-servicerequest.html) to track the proposal / planning / ordering of a service, and [US Core Procedure](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-procedure.html) to track performing a service.
+US Core defines [US Core ServiceRequest]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-servicerequest.html) to track the proposal / planning / ordering of a service, and [US Core Procedure]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-procedure.html) to track performing a service.
 
 Typical procedure codes include SNOMED-CT, CPT, HCPCS II, ICD-10-PCS, CDT, and LOINC.
 
@@ -26,6 +26,10 @@ In addition, the following optional parameters are defined:
 
 * patient, status
 * patient, code, authored
+
+> NOTE: For discussion on how to manage search parameters with terminology, see the [Terminology Considerations](architectural-guidance.html#terminology-considerations) discussion in the Architectural Guidance topic.
+
+> NOTE: For discussion on how to manage optional search parameters, see the [Performant Data Access](architectural-guidance.html#performant-data-access) discussion in the Architectural Guidance topic.
 
 ### Cross-Version Considerations
 

@@ -22,7 +22,7 @@ There are no significant backwards-compatibility issues between versions for the
 
 #### Member ID
 
-The [USCore 6.1 Coverage Profile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-coverage.html) defines a slice on identifier called `memberid` that can be used to access the patient's member id
+The [USCore 6.1 Coverage Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-coverage.html) defines a slice on identifier called `memberid` that can be used to access the patient's member id
 
 ```cql
 define "Covered Member ID":

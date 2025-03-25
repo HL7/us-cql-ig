@@ -1,4 +1,4 @@
-US Core defines [US Core MedicationRequest](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medicationrequest.html) to record a patient's medication prescription or order, as well as self-reported medications.
+US Core defines [US Core MedicationRequest]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-medicationrequest.html) to record a patient's medication prescription or order, as well as self-reported medications.
 
 MedicationRequest can either use a code which will be RXNORM plus an optional NDC (https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4/expansion), or use a reference to a more detailed Medication resource (which also uses RXNORM plus optional NDC).
 
@@ -25,6 +25,10 @@ In addition, the following optional parameters are defined:
 
 * patient, intent, encounter
 * patient, intent, authoredOn
+
+> NOTE: For discussion on how to manage search parameters with terminology, see the [Terminology Considerations](architectural-guidance.html#terminology-considerations) discussion in the Architectural Guidance topic.
+
+> NOTE: For discussion on how to manage optional search parameters, see the [Performant Data Access](architectural-guidance.html#performant-data-access) discussion in the Architectural Guidance topic.
 
 ### Cross-Version Considerations
 

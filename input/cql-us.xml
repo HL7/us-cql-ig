@@ -40,7 +40,7 @@
   <dependsOn id="cql">
     <uri value="http://hl7.org/fhir/uv/cql/ImplementationGuide/hl7.fhir.uv.cql"/>
     <packageId value="hl7.fhir.uv.cql"/>
-    <version value="current"/>
+    <version value="2.0.0-ballot"/>
   </dependsOn>
   <dependsOn id="crmi">
     <uri value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/hl7.fhir.uv.crmi"/>
@@ -50,12 +50,21 @@
   <dependsOn id="sdc">
     <uri value="http://hl7.org/fhir/uv/sdc/ImplementationGuide/hl7.fhir.uv.sdc"/>
     <packageId value="hl7.fhir.uv.sdc"/>
-    <version value="current"/>
+    <version value="4.0.0-ballot"/>
   </dependsOn>
-  <dependsOn id="uscore">
+  <dependsOn id="uscore7">
     <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
     <packageId value="hl7.fhir.us.core"/>
-    <version value="3.1.1"/>
+    <version value="7.0.0"/>
+  </dependsOn>
+  <dependsOn id="uscore6">
+    <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
+    <packageId value="hl7.fhir.us.core.v610"/>
+    <version value="6.1.0"/>
+  </dependsOn>
+  <dependsOn id="uscore3">
+    <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
+    <packageId value="hl7.fhir.us.core.v311"/>
   </dependsOn>
   <definition>
     <page>
@@ -247,7 +256,7 @@
       <value value="true"/>
     </parameter>
     <parameter>
-      <code value="apply-version"/>
+      <code value="default-version"/>
       <value value="true"/>
     </parameter>
     <parameter>

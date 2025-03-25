@@ -10,7 +10,7 @@ NOTE: Cardinality determines whether and how many values may appear for a given 
 
 #### Must Support Elements
 
-In addition, elements in FHIR resources and profiles may be marked _must support_, meaning that implementations are required to provide values for the element if they are present in the system. To ensure expression logic can be evaluated correctly, expressions should only make use of elements that are marked must support (or otherwise have a reasonable expectation of being present). For a complete discussion of this aspect, refer to the [MustSupport Flag](https://hl7.org/fhir/us/core/must-support.html) topic in the US Core Implementation Guide.
+In addition, elements in FHIR resources and profiles may be marked _must support_, meaning that implementations are required to provide values for the element if they are present in the system. To ensure expression logic can be evaluated correctly, expressions should only make use of elements that are marked must support (or otherwise have a reasonable expectation of being present). For a complete discussion of this aspect, refer to the [MustSupport Flag]({{site.data.fhir.ver.uscore7}}/must-support.html) topic in the US Core Implementation Guide.
 
 #### Modifier Elements
 
@@ -56,9 +56,21 @@ define "Active Confirmed Allergies and Intolerances":
   "All Allergies and Intolerances".allergyActive().allergyConfirmed()
 ```
 
+> NOTE: For discussion on how to manage search parameters with terminology, see the [Terminology Considerations](architectural-guidance.html#terminology-considerations) discussion in the Architectural Guidance topic.
+
+> NOTE: For discussion on how to manage optional search parameters, see the [Performant Data Access](architectural-guidance.html#performant-data-access) discussion in the Architectural Guidance topic.
+
 ### Context Questions
 
 The following topics discuss issues related to types of questions that will be common to multiple questionnaires, and may potentially already be known from context.
+
+Note that the ExamplePatientAndCoverage questionnaire is an illustration of how some of this information might be determined if it is not already known from context, leaving these types of context questions out of the rest of the examples as would normally be expected in an electronic prior authorization flow.
+
+#### SubscriberId/MemberId
+
+The Coverage resource includes a `subscriberId` element; however, this is expected to be the Subscriber ID associated with the already established Member ID (individual). That is to say Subscriber ID is the plan-level identifier for an individual that has the plan, whereas Member ID is specific to the individual beneficiaries of the plan.
+
+Note that some plans do not establish individual Member IDs and instead use a combination of SubscriberId and individual identifying information.
 
 #### Billing/Servicing Provider
 

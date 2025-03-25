@@ -1,6 +1,6 @@
 ### Introduction
 
-This implementation guide contains architectural guidance and re-usable libraries that facilitate the use of CQL with FHIR in the US Realm, with an initial use case of Prior Authorization Support Questionnaires as described in the [DaVinci Documentation Templates and Rules (DTR)](https://hl7.org/fhir/us/davinci-dtr/) implementation guide. Much of the guidance and content presented here is built on work done in the quality measurement domain, including patterns established by measure developers as part of testing and developing quality measures for use with FHIR. These patterns have been generalized to support US Core as well as harmonized to be usable across use cases.
+This implementation guide contains architectural guidance and re-usable libraries that facilitate the use of [Clinical Quality Language (CQL)](http://cql.hl7.org) with FHIR in the US Realm, with an initial use case of Prior Authorization Support Questionnaires as described in the [DaVinci Documentation Templates and Rules (DTR)](https://hl7.org/fhir/us/davinci-dtr/) implementation guide. Much of the guidance and content presented here is built on work done in the quality measurement domain, including patterns established by measure developers as part of testing and developing quality measures for use with FHIR. These patterns have been generalized to support US Core as well as harmonized to be usable across use cases.
 
 ### Scope of Use
 
@@ -75,7 +75,7 @@ This Implementation Guide was made possible by the thoughtful contributions of t
 TODO:
 
 * Testing
-  * Test Cases Parameters Resources (https://build.fhir.org/ig/HL7/cql-ig/conformance.html#fhir-type-mapping)
+  * Test Cases Parameters Resources ({{site.data.fhir.ver.cql}}/conformance.html#fhir-type-mapping)
   * Test Case Inputs expressed as Parameters in each test case (Parameters-input.json)
   * Unit Tests for Common Calculations (USCoreElementsTests.cql - BSA testing)
   * Remove Practitioner/Organization/Provider-related questions from example questionnaires (move to ExamplePatientAndCoverage)
