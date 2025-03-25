@@ -13,7 +13,7 @@ codesystem "Verification Status": 'http://terminology.hl7.org/CodeSystem/conditi
 codesystem "Condition Clinical": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
 codesystem "ICD10": 'http://hl7.org/fhir/sid/icd-10-cm' 
 
-valueset "ICD10 vs": 'http://hl7.org/fhir/sid/icd-10-cm/ValueSet'
+valueset "ICD10 vs": 'http://hl7.org/fhir/ValueSet/icd-10'
 
 code "ICD10 example code": 'example' from "ICD10"
 code "Member Number": 'MB' from "Identifier Type"
