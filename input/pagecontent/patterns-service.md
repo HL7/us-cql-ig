@@ -39,7 +39,7 @@ Note that 3.1.1 does not define a profile for ServiceRequest, so the direct FHIR
 
 #### Requested Services
 
-> NOTE: In the prior auth use case (https://build.fhir.org/ig/cqframework/cqf-us/use-case-pa.html), the workflow is generally being conducted in the context of 1 or more order, so you'll want to start by working off that context before searching the FHIR server for service requests.
+> NOTE: In the [prior auth use case](use-case-pa.html), the workflow is generally being conducted in the context of 1 or more order, so you'll want to start by working off that context before searching the FHIR server for service requests.
 
 <!--
 > TODO: in UCE we want a few wrappers for common things people would want from a ServiceRequest (procedure code, who/where requested it, who/where is performing it), however these are currently built on ```UCE."Most Recent ServiceRequest"``` which could be pulling the wrong data. We need our functions structured to support working on the data in context during DTR.

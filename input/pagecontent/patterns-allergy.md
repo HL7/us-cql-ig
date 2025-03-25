@@ -1,4 +1,4 @@
-US Core defines [US Core Allergy Intolerance](https://build.fhir.org/ig/HL7/US-Core/StructureDefinition-us-core-allergyintolerance.html).
+US Core defines [US Core Allergy Intolerance]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-allergyintolerance.html).
 
 This captures allergies / adverse reactions associated with a patient.
 

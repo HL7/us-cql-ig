@@ -1,4 +1,4 @@
-USCore defines the [USCore Coverage]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-coverage.html)
+USCore defines the [USCore Coverage]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-coverage.html)
 
 ### Modifier Elements
 

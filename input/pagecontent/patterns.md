@@ -22,13 +22,13 @@ The following table lists the patterns page for each profile:
 
 |US Core Profile|Patterns|
 |----|----|
-|[USCore AllergyIntolerance]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-allergyintolerance.html)|[AllergyIntolerance Patterns](patterns-allergy.html)|
-|[USCore Condition]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-condition.html)|[Condition Patterns](patterns-condition.html)|
-|[USCore Coverage]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-coverage.html)|[Coverage Patterns](patterns-coverage.html)|
-|[USCore Medication]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medication.html)|[Medication Patterns](patterns-medication.html)|
-|[USCore Observation Lab]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html)|[Observation Lab Patterns](patterns-lab.html)|
-|[USCore Patient]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-patient.html)|[Patient Patterns](patterns-patient.html)|
-|[USCore Service]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-service.html)|[Service Patterns](patterns-service.html)|
+|[USCore AllergyIntolerance]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-allergyintolerance.html)|[AllergyIntolerance Patterns](patterns-allergy.html)|
+|[USCore Condition]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-condition.html)|[Condition Patterns](patterns-condition.html)|
+|[USCore Coverage]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-coverage.html)|[Coverage Patterns](patterns-coverage.html)|
+|[USCore Medication]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-medication.html)|[Medication Patterns](patterns-medication.html)|
+|[USCore Observation Lab]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-observation-lab.html)|[Observation Lab Patterns](patterns-lab.html)|
+|[USCore Patient]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-patient.html)|[Patient Patterns](patterns-patient.html)|
+|[USCore Service]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-service.html)|[Service Patterns](patterns-service.html)|
 
 Elements from current example questionnaires:
 
