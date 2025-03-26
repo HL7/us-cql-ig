@@ -1,6 +1,6 @@
 {
   "resourceType": "MedicationRequest",
-  "id": "example-1",
+  "id": "example-new-therapy",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest",

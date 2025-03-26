@@ -90,9 +90,6 @@ define "Code of Requested Drug":
   "Medication Requested" M
     return M.code
 
-define MRs:
-  [USCore.MedicationRequestProfile]
-
 define "Retrieve Medication Request test parameter":
   // The VSCode extension doesn't support parameters
   // When executing CQL with the VSCode extension retrieve the resource specific for the test case
