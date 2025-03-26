@@ -8,9 +8,9 @@
   },
   "valueQuantity": {
     "value": 69.3,
-    "code": "in",
+    "code": "[in_i]",
     "system": "http://unitsofmeasure.org",
-    "unit": "in"
+    "unit": "[in_i]"
   },
   "code": {
     "coding": [

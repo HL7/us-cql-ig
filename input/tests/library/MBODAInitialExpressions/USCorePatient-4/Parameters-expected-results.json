@@ -2,152 +2,97 @@
     "resourceType": "Parameters",
     "parameter": [
         {
-            "name": "Allergies",
-            "valueString": "[]"
-        },
-        {
-            "name": "Anticipated/actual date of service",
-            "valueString": "null"
-        },
-        {
-            "name": "BMI",
-            "valueString": "[]"
-        },
-        {
-            "name": "BSA",
-            "valueString": "null 'm2'"
-        },
-        {
-            "name": "BSA in m2",
-            "valueString": "null"
-        },
-        {
-            "name": "Calculated BSA - DuBois and DuBois",
-            "valueString": "null 'm2'"
-        },
-        {
-            "name": "Calculated BSA - Mosteller",
-            "valueString": "null 'm2'"
-        },
-        {
-            "name": "Code of Requested Drug",
-            "valueString": "[]"
-        },
-        {
-            "name": "Diagnosis Codes",
-            "valueString": "[Concept {\n\tCode { code: G20, system: http://hl7.org/fhir/sid/icd-10-cm, version: null, display: Parkinson's disease }\n}]"
-        },
-        {
-            "name": "Diagnosis Descriptions",
-            "valueString": "[Parkinson's disease]"
-        },
-        {
-            "name": "Expected Therapy Length",
-            "valueString": "null"
-        },
-        {
-            "name": "Height",
-            "valueString": "null"
-        },
-        {
-            "name": "Height in [in_i]",
-            "valueString": "null"
-        },
-        {
-            "name": "Height in cm",
-            "valueString": "null"
-        },
-        {
-            "name": "Initial date of therapy",
-            "valueString": "null"
-        },
-        {
             "name": "Last Name",
             "valueString": "du March\u00e9"
         },
         {
-            "name": "Medication Dose",
-            "valueString": "null"
+            "name": "Height",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 69.4,
+                "unit": "in_i"
+            }
         },
         {
-            "name": "Medication Frequency",
-            "valueString": "null"
-        },
-        {
-            "name": "Medication Frequency Period",
-            "valueString": "null"
-        },
-        {
-            "name": "Medication Frequency value",
-            "valueString": "null"
-        },
-        {
-            "name": "Medication Name",
-            "valueString": "[]"
-        },
-        {
-            "name": "Medication Request Period",
-            "valueString": "null"
-        },
-        {
-            "name": "Medication Request References",
-            "valueString": "null"
-        },
-        {
-            "name": "Medication Requested",
-            "valueString": "[]"
-        },
-        {
-            "name": "Medication Route",
-            "valueString": "null"
-        },
-        {
-            "name": "Most Recent BSA",
-            "valueString": "null"
-        },
-        {
-            "name": "Most Recent Medication Request",
-            "valueString": "null"
-        },
-        {
-            "name": "Most Recent Medication Request dosageInstruction",
-            "valueString": "null"
-        },
-        {
-            "name": "Most Recent Medication Request dosageInstruction.doseAndRate",
-            "valueString": "null"
-        },
-        {
-            "name": "New therapy",
-            "valueString": "true"
-        },
-        {
-            "name": "New therapy code",
-            "valueString": "Code { code: NewMedication, system: null, version: null, display: New Medication }"
-        },
-        {
-            "name": "Patient",
-            "valueString": "Patient(id=USCorePatient-4)"
-        },
-        {
-            "name": "Prior Prescription",
-            "valueString": "null"
-        },
-        {
-            "name": "Quantity or Number of requested Visits",
-            "valueString": "null"
+            "name": "Height in [in_i]",
+            "valueDecimal": 69.4
         },
         {
             "name": "Weight",
-            "valueString": "null"
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 180.4,
+                "unit": "lb_av"
+            }
         },
         {
             "name": "Weight in [lb_av]",
-            "valueString": "null"
+            "valueDecimal": 180.4
+        },
+        {
+            "name": "BSA",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 1.99966142,
+                "unit": "m2"
+            }
+        },
+        {
+            "name": "BSA in m2",
+            "valueDecimal": 1.99966142
+        },
+        {
+            "name": "Calculated BSA - Mosteller",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 1.99966142,
+                "unit": "m2"
+            }
+        },
+        {
+            "name": "Height in cm",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 176.0,
+                "unit": "cm"
+            }
         },
         {
             "name": "Weight in kg",
-            "valueString": "null"
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 81.83,
+                "unit": "kg"
+            }
+        },
+        {
+            "name": "Calculated BSA - DuBois and DuBois",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 1.98312839,
+                "unit": "m2"
+            }
+        },
+        {
+            "name": "Diagnosis Codes",
+            "resource": {
+                "resourceType": "Coding",
+                "code": "G20",
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "display": "Parkinson's disease"
+            }
+        },
+        {
+            "name": "New therapy",
+            "valueBoolean": true
+        },
+        {
+            "name": "New therapy code",
+            "resource": {
+                "resourceType": "Coding",
+                "code": "NewMedication",
+                "display": "New Medication"
+            }
         }
     ]
 }

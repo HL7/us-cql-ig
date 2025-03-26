@@ -1,6 +1,11 @@
 {
   "resourceType": "MedicationRequest",
-  "id": "MedRequest-insulin",
+  "id": "uscore-patient-2-med-request-example",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+    ]
+  },
   "status": "active",
   "intent": "order",
   "medicationCodeableConcept": {
@@ -14,7 +19,7 @@
     "text": "Humulin N"
   },
   "subject": {
-    "reference": "Patient/USCorePatient-1"
+    "reference": "Patient/USCorePatient-2"
   },
   "authoredOn": "2015-03-25T19:32:52-05:00",
   "requester": {
