@@ -91,6 +91,30 @@
             "valueString": "Burn of ear"
         },
         {
+            "name": "Medication Frequency value",
+            "valueInteger": 3
+        },
+        {
+            "name": "Medication Frequency Period",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 1.0,
+                "unit": "d"
+            }
+        },
+        {
+            "name": "Medication Frequency",
+            "valueString": "3x per 1 d"
+        },
+        {
+            "name": "Quantity or Number of requested Visits",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 100.0,
+                "unit": "mL"
+            }
+        },
+        {
             "name": "New therapy",
             "valueBoolean": true
         },
@@ -101,6 +125,25 @@
                 "code": "NewMedication",
                 "display": "New Medication"
             }
+        },
+        {
+            "name": "Medication Request Period",
+            "value": "Interval[2015-03-25, 2015-03-30]",
+            "result_type": "date"
+        },
+        {
+            "name": "Expected Therapy Length",
+            "resource": {
+                "resourceType": "Quantity",
+                "value": 5.0,
+                "unit": "d"
+            }
+        },
+        {
+            "name": "Anticipated/actual date of service",
+            "value": "2015-03-25",
+            "result_type": "date"
         }
+
     ]
 }
