@@ -76,8 +76,7 @@
   "status": "active",
   "experimental": true,
   "date": "2023-10-12T00:00:00+00:00",
-  "description": "Automated online preauthorization is available for some tests. Please log into the Availity Portal at Availity.com for a list of available questionnaires. If the appropriate questionnaire is not available, please complete this form.",
-  "purpose": "This questionnaire is defined to provide an illustrative example of a prior authorization questionnaire based on existing industry prior-authorization forms.",
+  "description": "This is an example of a prior authorization questionnaire developed based on an existing industry prior-authorization form.",
   "copyright": "This content is derived from the following source: https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=1986712",
   "item": [
     {

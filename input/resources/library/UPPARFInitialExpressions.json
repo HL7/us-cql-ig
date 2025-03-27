@@ -3,7 +3,7 @@
   "id": "UPPARFInitialExpressions",
   "url": "http://hl7.org/fhir/us/cql/Library/UPPARFInitialExpressions",
   "name": "UPPARFInitialExpressions",
-  "title": "Example Humana Uniform Pharmacy Prior Authorization Request Form Initial Expressions",
+  "title": "Expression Library for the Uniform Pharmacy Prior Authorization Request Form Example",
   "experimental": true,
   "type": {
     "coding": [ {
@@ -11,7 +11,7 @@
       "code": "logic-library"
     } ]
   },
-  "description": "Initial expressions for use in populating answers to questions in the Example Humana Uniform Pharmacy Prior Authorization Request Form example questionnaire.",
+  "description": "Initial expressions for use in populating answers to questions in the Example Uniform Pharmacy Prior Authorization Request Form example questionnaire.",
   "content": [ {
     "id": "ig-loader-UPPARFInitialExpressions.cql"
   } ]

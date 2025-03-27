@@ -11,24 +11,30 @@ This guidance is provided as a complement to the conformance expectations and gu
 
 #### Data Access Within CQL
 
-All data access within CQL occurs within the [Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve) expression. When CQL is packaged within a Library resource, these retrieves are surfaced as `dataRequirement` elements, allowing the complete data expectations for the CQL within the library to be communicated. However, this represents the total data requirements for the library, whereas the Questionnaire may only reference some of the expressions in the library, or the initial state of the Questionnaire may be such that only a subset of questions are enabled and therefore need population.
+All data access within CQL occurs within the [Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve) expression. When CQL is packaged within a Library resource, these retrieves are surfaced as `dataRequirement` elements according to the mapping defined in the [Data Requirements]({{site.data.fhir.ver.cql}}/conformance.html#parameters-and-data-requirements) of the Using CQL With FHIR IG. These data requirements allow the complete data expectations for the CQL within the library to be communicated. However, these elements in the Library resource represent the total data requirements for the library, whereas the Questionnaire may only reference some of the expressions in the library, or the initial state of the Questionnaire may be such that only a subset of questions are enabled and therefore need population.
 
 To address this, static analysis of the CQL can be used to determine the set of data requirements for an expression (or set of expressions), as described in the [Artifact Data Requirements](https://cql.hl7.org/05-languagesemantics.html#artifact-data-requirements) section of the CQL specification. The [DataRequirementsProcessor](https://github.com/cqframework/clinical_quality_language/blob/master/Src/java/elm-fhir/src/main/java/org/cqframework/cql/elm/requirements/fhir/DataRequirementsProcessor.java) provides an implementation of this capability. This component can accept a list of the expressions that should be analyzed to determine data requirements.
 
-TODO: Intrinsic library with names driven by linkIds that contains all the in-line CQL expressions and this is the library used to do dependency tracing
+Note that this process of analyzing data requirements is simplified by the practice of having all the expressions in a given questionnaire reference a single CQL library, the "primary artifact library". This approach is used in measure development and provides a way to organize content per artifact. Expressions from other libraries can still be used, but must be referenced by declaring a passthrough expression in the primary artifact library. This can be an undue burden for questionnaire authors, so this is not considered best-practice for questionnaires. However, all the examples in this implementation guide take this approach to simplify data requirements analysis processing.
+
+In addition to gathering the _effective_ data requirements through dependency tracing of specific expressions, data requirements can be _collapsed_ (i.e. minimized to eliminate duplicate or overlapping requests). These techniques can be combined to ensure that applications can minimize the number of queries used to retrieve data necessary to evaluate the CQL logic within the questionnaire.
+
+#### Mapping Data Requirements
+
+
 
 * Minimizing the number of queries
 * Leveraging server-side filters
 * Optimizing for initial question display
 * Managing query inter-dependencies to maximize performance
 
-TODO: Provide guidance about making the determination between sending libraries up front versus questionnaire specific libraries (https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#adaptive-form-considerations)
-
 ### Additional Data Retrieval and Flow Control
 
 * Managing queries that depend on user-entered data
 * Managing when queries need to be re-run
 * Guidance on adaptive query capabilities
+
+TODO: Provide guidance about making the determination between sending libraries up front versus questionnaire specific libraries (https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#adaptive-form-considerations)
 
 ### Terminology Considerations
 
@@ -118,7 +124,7 @@ In addition, multi-threading requests to the server can reduce the overall time 
 
 ### Conventions
 
-As with any content development effort, to facilitate readability and maintainability of CQL, best-practice is to following conventions established by the community:
+As with any content development effort, to facilitate readability and maintainability of CQL, best-practice is to follow and contribute to the conventions established by the community:
 
 * **[Conventions](https://cql.hl7.org/14-g-formattingconventions.html)**: Overall formatting conventions and best practices
 * **[Using CQL]({{site.data.fhir.ver.cql}}/using-cql.html)**: Best-practices and conformance requirements for using CQL with FHIR

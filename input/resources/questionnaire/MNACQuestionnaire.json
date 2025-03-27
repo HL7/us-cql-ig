@@ -55,8 +55,7 @@
   "status": "active",
   "experimental": true,
   "date": "2024-01-17T00:00:00+00:00",
-  "description": "The Health Care Authority requires this form for all clients requesting sterile closed catheter.",
-  "purpose": "This questionnaire is defined to provide an illustrative example of a prior authorization questionnaire based on existing industry prior-authorization forms.",
+  "description": "This is an example of a prior authorization questionnaire developed based on an existing industry prior-authorization form.",
   "copyright": "This content is derived from the following source: https://www.hca.wa.gov/assets/billers-and-providers/13-760.pdf",
   "item": [
     {

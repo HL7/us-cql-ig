@@ -3,7 +3,7 @@
   "id": "MNACInitialExpressions",
   "url": "http://hl7.org/fhir/us/cql/Library/MNACInitialExpressions",
   "name": "MNACInitialExpressions",
-  "title": "Medical Necessity For Authorization Of Catheters Initial Expressions",
+  "title": "Expression Library for the Medical Necessity For Authorization Of Catheters Example",
   "experimental": true,
   "type": {
     "coding": [ {

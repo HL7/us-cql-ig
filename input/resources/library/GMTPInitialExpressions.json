@@ -3,7 +3,7 @@
   "id": "GMTPInitialExpressions",
   "url": "http://hl7.org/fhir/us/cql/Library/GMTPInitialExpressions",
   "name": "GMTPInitialExpressions",
-  "title": "Genetic/Molecular testing preauthorization Initial Expressions",
+  "title": "Expression Library for the Genetic/Molecular testing preauthorization Example",
   "experimental": true,
   "type": {
     "coding": [ {

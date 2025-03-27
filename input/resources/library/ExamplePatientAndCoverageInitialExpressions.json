@@ -3,7 +3,7 @@
   "id": "ExamplePatientAndCoverageInitialExpressions",
   "url": "http://hl7.org/fhir/us/cql/Library/ExamplePatientAndCoverageInitialExpressions",
   "name": "ExamplePatientAndCoverageInitialExpressions",
-  "title": "Example Patient And Coverage Initial Expression",
+  "title": "Expression Library for the Example Patient And Coverage Questionnaire",
   "experimental": true,
   "type": {
     "coding": [ {

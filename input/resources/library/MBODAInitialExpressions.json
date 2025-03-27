@@ -3,7 +3,7 @@
   "id": "MBODAInitialExpressions",
   "url": "http://hl7.org/fhir/us/cql/Library/MBODAInitialExpressions",
   "name": "MBODAInitialExpressions",
-  "title": "Medical Benefit Outpatient Drug Authorization Initial Expressions",
+  "title": "Expression Library for the Medical Benefit Outpatient Drug Authorization Example",
   "experimental": true,
   "type": {
     "coding": [ {
