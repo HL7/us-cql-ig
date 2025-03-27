@@ -1,9 +1,10 @@
 {
   "resourceType": "MedicationRequest",
-  "id": "example-continued-therapy",
+  "id": "example-new-therapy",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest"
+      "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest",
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
     ]
   },
   "text": {
@@ -13,14 +14,14 @@
   "status": "active",
   "intent": "order",
   "medicationReference": {
-    "reference": "Medication/example-continued-therapy"
+    "reference": "Medication/example-new-therapy"
   },
   "subject": {
-    "reference": "Patient/example-continued-therapy"
+    "reference": "Patient/example-new-therapy"
   },
   "authoredOn": "2015-03-25T19:32:52-05:00",
   "requester": {
-    "reference": "Practitioner/example-continued-therapy"
+    "reference": "Practitioner/example-new-therapy"
   },
   "dosageInstruction": [
     {
