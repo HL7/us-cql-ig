@@ -19,15 +19,6 @@ Note that this process of analyzing data requirements is simplified by the pract
 
 In addition to gathering the _effective_ data requirements through dependency tracing of specific expressions, data requirements can be _collapsed_ (i.e. minimized to eliminate duplicate or overlapping requests). These techniques can be combined to ensure that applications can minimize the number of queries used to retrieve data necessary to evaluate the CQL logic within the questionnaire.
 
-#### Mapping Data Requirements
-
-
-
-* Minimizing the number of queries
-* Leveraging server-side filters
-* Optimizing for initial question display
-* Managing query inter-dependencies to maximize performance
-
 ### Additional Data Retrieval and Flow Control
 
 * Managing queries that depend on user-entered data

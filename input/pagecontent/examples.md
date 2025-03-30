@@ -2,12 +2,7 @@ This implementation guide includes several worked examples of prior authorizatio
 
 {% include list-questionnaires.xhtml %}
 
-The examples above are derived from prior-authorization forms freely available from industry health plans. Links to the original download source for each questionnaire are provided below. In addition, to ensure the source content for these examples is available, the actual downloaded contents are preserved in the github repository and linked here as well.
-
-* [Humana Genetic/molecular testing preauthorization (GMTP)](https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=1986712) [Persisted Copy](https://github.com/HL7/us-cql-ig/blob/main/docs/GMTPQuestionnairePriorAuthForm.pdf)
-* [Geisinger Medical Benefit Outpatient Drug Authorization Form (MBODA)](https://www.geisinger.org/-/media/OneGeisinger/Files/PDFs/Provider/NaviNet/Forms/medical-benefit-outpatient-drug-authorization-form-050819.pdf?sc_lang=en&hash=6EDE27E13FCCB5731E081FC49B85359D) [Persisted Copy](https://github.com/HL7/us-cql-ig/blob/main/docs/medical-benefit-outpatient-drug-authorization-form-050819.pdf)
-* [Medical Necessity for Authorization of Catheters (MNAC)](https://www.hca.wa.gov/assets/billers-and-providers/13-760.pdf) [Persisted Copy](https://github.com/HL7/us-cql-ig/blob/main/docs/MNACQuestionnairePriorAuthForm.pdf)
-* [Humana Uniform Pharmacy Prior Authorization Request Form (UPPARF)](https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=4136509) [Persisted Copy](https://github.com/HL7/us-cql-ig/blob/main/docs/MEDICARE-PA-form-Col-drug.pdf)
+The examples above are informed by the prior-authorization use case. Additional examples not included in this implementation guide are available in the github source repository.
 
 #### Other Potential Examples
 

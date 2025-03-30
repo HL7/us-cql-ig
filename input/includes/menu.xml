@@ -22,7 +22,7 @@
     </a>
     <ul class="dropdown-menu">
       <li><a href="architectural-guidance.html">Architectural Guidance</a></li>
-      <li><a href="query-management.html">General Guidance</a></li>
+      <li><a href="query-management.html">Query Management</a></li>
       <li><a href="authoring.html">Authoring</a></li>
       <li><a href="patterns.html">Patterns</a></li>
       <li><a href="examples.html">Examples</a></li>

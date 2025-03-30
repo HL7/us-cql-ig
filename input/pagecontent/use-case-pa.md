@@ -1,10 +1,10 @@
+The  inclusion and support of the Prior Authorization Questionnaire use case in this implementation guide is made possible by the thoughtful contribution of the Da Vinci member organizations. 
+
 The following links provide general background information about prior-authorization scenarios:
 
 * [Prior Authorization and Pre-Claim Review Program Stats (cms.gov)](https://www.cms.gov/files/document/prior-authorization-and-pre-claim-review-program-statistics.pdf)
 * [Prior Authorization for Certain Hospital Outpatient Department (OPD) Services \| CMS](https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-and-pre-claim-review-initiatives/prior-authorization-certain-hospital-outpatient-department-opd-services)
-<!-- Commenting out for now
 * [Preauthorization and Notification Lists for Healthcare Providers - Humana](https://provider.humana.com/coverage-claims/prior-authorizations/prior-authorization-lists)
--->
 
 This topic is focused on how CQL is used to support this use case.
 
@@ -16,19 +16,19 @@ The questionnaire examples and associated libraries for population expressions i
 <img src="dtr-data-flow.svg"/>
 </div>
 
-1. DTR Launch: [Retrieving Launch Context Information](https://hl7.org/us/davinci-dtr/STU2.1/specification.html#retrieving-launch-context-information)
-2. $questionnaire-package: [Retrieving Questionnaire Packages](https://hl7.org/us/davinci-dtr/STU2.1/specification.html#retrieving-questionnaire-packages)
-3. Questionnaire Package Bundle(s): [DTRQuestionnairePackageBundle](https://hl7.org/us/davinci-dtr/STU2.1/StructureDefinition-DTR-QPackageBundle.html)
-4. Questionnaire Pre-Population: [Pre-Populating Questionnaire Responses](https://hl7.org/us/davinci-dtr/STU2.1/specification.html#pre-populating-questionnaireresponses)
-5. FHIR API Calls (resulting from questionnaire pre-population): [Retrieval of FHIR Resources](https://hl7.org/us/davinci-dtr/STU2.1/specification.html#retrieval-of-patient-fhir-resources-to-supply-to-cql-execution-engine)
+1. DTR Launch: [Retrieving Launch Context Information](https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#retrieving-launch-context-information)
+2. $questionnaire-package: [Retrieving Questionnaire Packages](https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#retrieving-questionnaire-packages)
+3. Questionnaire Package Bundle(s): [DTRQuestionnairePackageBundle](https://hl7.org/fhir/us/davinci-dtr/STU2.1/StructureDefinition-DTR-QPackageBundle.html)
+4. Questionnaire Pre-Population: [Pre-Populating Questionnaire Responses](https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#pre-populating-questionnaireresponses)
+5. FHIR API Calls (resulting from questionnaire pre-population): [Retrieval of FHIR Resources](https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#retrieval-of-patient-fhir-resources-to-supply-to-cql-execution-engine)
 
-As described in the [Documentation Templates and Rules (DTR)](https://hl7.org/us/davinci-dtr/STU2.1) implementation guide, the DTR process can be used for a broad range of use cases, including launching from a <a href="https://hl7.org/us/davinci-dtr/STU2.1/usecases.html#relation-to-coverage-requirements-discovery-crd">Coverage Requirements Discovery (CRD)</a> response, as well as requesting documents as described in the <a href="https://hl7.org/us/davinci-dtr/STU2.1/usecases.html#relation-to-clinical-data-exchange-cdex">Relationship to Clinical Data Exchange</a> topic.
+As described in the [Documentation Templates and Rules (DTR)](https://hl7.org/fhir/us/davinci-dtr/STU2.1) implementation guide, the DTR process can be used for a broad range of use cases, including launching from a <a href="https://hl7.org/fhir/us/davinci-dtr/STU2.1/usecases.html#relation-to-coverage-requirements-discovery-crd">Coverage Requirements Discovery (CRD)</a> response, as well as requesting documents as described in the <a href="https://hl7.org/fhir/us/davinci-dtr/STU2.1/usecases.html#relation-to-clinical-data-exchange-cdex">Relationship to Clinical Data Exchange</a> topic.
 
-This diagram is a simplification of the overall DTR <a href="https://hl7.org/us/davinci-dtr/STU2.1/specification.html#overview">Overview Sequence Diagram</a>. This diagram is focusing on the interactions from the perspective of Clinical Quality Language (CQL) authoring and evaluation.
+This diagram is a simplification of the overall DTR <a href="https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#overview">Overview Sequence Diagram</a>. This diagram is focusing on the interactions from the perspective of Clinical Quality Language (CQL) authoring and evaluation.
 
 [Structured Data Capture (SDC)]({{site.data.fhir.ver.sdc}}) documents the use of several extensions for supporting CQL-based calculation and form behavior within a Questionnaire in the <a href="{{site.data.fhir.ver.sdc}}/behavior.html#calculations">Form Behavior and Calculation</a> topic.
 
-In addition, the DTR specification provides additional guidance and conformance requirements on the use of CQL within DTR Questionnaires in the <a href="https://hl7.org/us/davinci-dtr/STU2.1/specification.html#use-of-cql">Use of CQL</a> topic.
+In addition, the DTR specification provides additional guidance and conformance requirements on the use of CQL within DTR Questionnaires in the <a href="https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#use-of-cql">Use of CQL</a> topic.
 
 The content and questionnaires in this IG are expected to already have resolved the question of coverage determination, and are focused on a particular individual represented as a Patient. If prior authorization is not required then the DTR process will not occur.
 
@@ -49,11 +49,11 @@ CQL used in this operation:
     * For example, a Patient context specified in the DTR launch context will be correlated with an sdc-questionnaire-launchContext extension with a name of <code>patient</code> and a type of <code>Patient</code>, and thereby established as the <a href="https://cql.hl7.org/02-authorsguide.html#context">Patient context</a> for the CQL expressions specified in the Questionnaire. It would be the responsibility of the DTR application to reconcile such launch contexts.
 * May declare additional parameters through the SDC Launch Context extension.
     * For example, an Encounter context specified in the DTR launch context may be correlated with an `sdc-questionnaire-launchContext` extension with a name of <code>encounter</code> and a type of <code>Encounter</code>, and thereby passed as a named parameter to CQL expressions specified in the Questionnaire.
-    * Additionally, since this ValueSet is extensible, a Coverage context specified in the DTR launch context may be correlated with an `sdc-questionnaire-launchContext` extension with a name of <code>PrimaryCoverage</code> and a type of <code>Coverage</code>, and thereby passed as a named parameter to CQL expressions specified in the Questionnaire.
+    * Additionally, since the binding to the Questionnaire Launch Context ValueSet is extensible, a Coverage context specified in the DTR launch context may be correlated with an `sdc-questionnaire-launchContext` extension with a name of <code>PrimaryCoverage</code> and a type of <code>Coverage</code>, and thereby passed as a named parameter to CQL expressions specified in the Questionnaire.
 
 Generally, the SDC <a href="{{site.data.fhir.ver.sdc}}/StructureDefinition-sdc-questionnaire-initialExpression.html">Initial Expression</a> extension will be used to pre-populate a given item in the QuestionnaireResponse. This is how CQL expressions are specified in the Questionnaire.
 
-Additionally, the SDC <a href="{{site.data.fhir.ver.sdc}}/StructureDefinition-sdc-questionnaire-itemPopulationContext.html">Item Population Context</a> extension can be used with a CQL expression to provide context when populating group items.
+Additionally, the SDC <a href="{{site.data.fhir.ver.sdc}}/StructureDefinition-sdc-questionnaire-itemPopulationContext.html">Item Population Context</a> extension can be used with a CQL expression to provide context when populating group items (i.e. group items whose sub-items are populated with the values of sub-elements of a value with multiple elements (e.g. HumanName, Address, or BackboneElement)).
 
 #### CQL Processing to Determine Form Behavior
 

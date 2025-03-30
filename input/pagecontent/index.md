@@ -8,7 +8,7 @@ The intent of this guide is to support the use of CQL with FHIR in the US Realm 
 
 * Providing architectural guidance for the evaluation of CQL expressions in the context of artifacts such as questionnaires, quality measures, and decision support rules.
 * Providing re-usable libraries of CQL expressions to retrieve data for common use cases in the US Realm
-* Providing guidance for managing CQL expressions that may involve retrieval of data from multiple versions of US Core
+* Providing guidance for managing CQL expressions that may involve retrieval of data from multiple versions of the US Core implementation guide
 * Gathering requirements for tooling to simplify the authoring of questionnaires that use CQL
 
 #### Out of Scope
@@ -16,7 +16,7 @@ The intent of this guide is to support the use of CQL with FHIR in the US Realm 
 This implementation guide does not:
 
 * Define or mandate the use of any particular subsets of CQL
-* Define functions for the retrieval of simple elements from already retrieved FHIR resources (e.g. Patient.gender)
+* Define functions for the retrieval of simple elements from already retrieved FHIR resources (e.g. Patient.birthDate)
 * Define expectations for certification that require the use of any of the helper libraries provided in this implementation guide
 
 ### Contents
@@ -24,6 +24,10 @@ This implementation guide does not:
 * **[Background](background.html)**
 * **[Use Cases](use-cases.html)**
   * **[Prior-Authorization Questionnaires](use-case-pa.html)**
+  * **[Quality Measurement and Reporting](use-case-cqm.html)**
+  * **[Clinical Decision Support](use-case-cds.html)**
+  * **[Clinical Guidelines](use-case-cpg.html)**
+  * **[Public Health Case Reporting](use-case-ph.html)**
 * **Guidance**
   * **[Architectural Guidance](architectural-guidance.html)**
   * **[Query Management](query-management.html)**
@@ -43,6 +47,7 @@ This implementation guide does not:
 
 This Implementation Guide was made possible by the thoughtful contributions of the following people and organizations:
 
+* [The DaVinci Project Member Organizations](https://www.hl7.org/about/davinci/index.cfm?ref=common)
 * Raj Godavarthi, MCG Health
 * Mike Gould, Zeomega
 * Yan Heras, Optimum eHealth
