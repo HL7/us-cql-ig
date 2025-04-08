@@ -1,0 +1,787 @@
+Delivered-To: bryn@smiledigitalhealth.com
+Received: by 2002:a59:d7ae:0:b0:4bf:a657:d88c with SMTP id dc14csp3113022vqb;
+        Tue, 1 Apr 2025 11:49:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCUZsi66NGbs5f3tJzlUPsrU+X4Jr7wd2iy3nFSiJK3LTUnG6hQwR/Cr9js6D1UmvGNLFpzB@smiledigitalhealth.com
+X-Google-Smtp-Source: AGHT+IF+Qpt4M+oFUggm618vk84HWzkhtGbGsDS0B7Z488iqTCjvIiua6oJQ0JbxeknSiZXKKTcX
+X-Received: by 2002:a05:690c:e1a:b0:6fb:b8a1:d3bb with SMTP id 00721157ae682-703a3ee4f42mr59376057b3.17.1743533373246;
+        Tue, 01 Apr 2025 11:49:33 -0700 (PDT)
+Return-Path: <copyrights@humana.com>
+Received: from mx0b-00496301.pphosted.com (mx0b-00496301.pphosted.com. [205.220.174.38])
+        by mx.google.com with ESMTPS id 00721157ae682-7023a9f7572si103896507b3.194.2025.04.01.11.49.33
+        for <bryn@smiledigitalhealth.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 01 Apr 2025 11:49:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of copyrights@humana.com designates 205.220.174.38 as permitted sender) client-ip=205.220.174.38;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@humana.com header.s=pfpt05012023 header.b=Y3iLojS2;
+       dkim=pass header.i=@humana.com header.s=20170223 header.b=dnCbEbI+;
+       arc=fail (body hash mismatch);
+       spf=pass (google.com: domain of copyrights@humana.com designates 205.220.174.38 as permitted sender) smtp.mailfrom=copyrights@humana.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=humana.com
+Received: from pps.filterd (m0193131.ppops.net [127.0.0.1])
+	by mx0a-00496301.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 531ITb6B028957
+	for <bryn@smiledigitalhealth.com>; Tue, 1 Apr 2025 14:49:33 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=humana.com; h=
+	content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt05012023; bh=8ao9j5FN04M3kJwZFc4MM
+	TI4OiR0SzPizXb1ivTS4jk=; b=Y3iLojS2UcAdTRYkcPBkGL5erTzpuBs+JyYeb
+	QVD9tBVYpn3I9og/MS776GKrLaHrt+4GLN4yr4F8qwwAZFd2ndc+GMtmFql+8CTy
+	iwjkfXJMU7n6exEVivIoNZdoHhws6QsqqLV2itn4I0fKn3e02um8eQbONggb44b/
+	f/136LL/WDQ94zzNaeHo4J5JQHo2JCRH2n038zaYVveyqirTGTzOQ2cJilHX1edZ
+	U4VmPsthtscBSOd+MGcjLbVrxROE+ehJXiQ6q+2fkIClH9e9z3h6X5sCB96FT/d6
+	IL4/NUAZ3m40KgvUVdhEmUbrRbjzUGcqoZnVDJkbYVmCCaSBA==
+Received: from simaxp11.rsc.humad.com (outbound1.humana.com [205.145.64.115] (may be forged))
+	by mx0a-00496301.pphosted.com (PPS) with ESMTPS id 45rgw9tbv6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT)
+	for <bryn@smiledigitalhealth.com>; Tue, 01 Apr 2025 14:49:32 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=humana.com; s=20170223; l=1; t=1743533366; x=1746125366;
+ i=copyrights@humana.com; h=From:To:Date:Message-ID; bh=OXPgIukyI
+ PkhLBjQ0MVDrnwwnkZkDak6SgMU3pmfURI=; b=dnCbEbI+gEFswnCvL/U4f6psu
+ vm+uI59m7pKg6lA1yPKEPYeCVzkihgpetxpn/Z7u0wnf5KaZz57ix3Dd+0QBWpFT
+ NQmdjzkOPvzMXeB2FDvgD8KySDamcPtsU5/GfaiN9lG6Ljdd0gLiwDNNZtHAextH
+ hlHxO5J7BFA+0Qr5q28yOVNp0xVJyg3PgR2jFU8t5ly8m91zhI5GX5+6eegdcR0J
+ fPx+O6U9fusuAowmRh9U5M4mP14KvUesD5hKHvNl5g4XfJSnGkxR8Gu9wzi+6lzh
+ y8/Z50o+Yi8caxhBxaQpqIuWxuYHSUiXXE9XI+7l7vv7h9XGT8sExZisk9QAA==
+X-WSS-ID: 0SU1YYC-0M-J4E-02
+X-M-MSG: 
+Received: from haraka01-inline-east-api-pop.app.spop.sjc.shn (send1.mail.api-pop.i-shn.net [35.169.47.31])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by simaxp11.rsc.humad.com (Postfix) with ESMTPS id 29B8A1D30334
+	for <bryn@smiledigitalhealth.com>; Tue,  1 Apr 2025 14:49:23 -0400 (EDT)
+Received: from NAM04-BN8-obe.outbound.protection.outlook.com (mail-bn8nam04lp2044.outbound.protection.outlook.com [104.47.74.44])
+	by haraka01-inline-east-api-pop.app.spop.sjc.shn (Haraka/2.8.24) with ESMTPS id 7FD35A47-3BF6-4A74-BFDF-31C72F3102DB.1
+	envelope-from <copyrights@humana.com>
+	(version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES256-GCM-SHA384 verify=FAIL);
+	Tue, 01 Apr 2025 18:49:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MA33Iqx4BnJV8tPhoi1+rimlAzM+9YgYuvEYHvPrQjtbfBfhBQlJB6uCuEkJcISYZeQWQGPdhOdrU9KjQCq+437+32Imu14pshZcfegwTpEUuAbXtgc0qRlll2wY2F1LYM8EDcoeLw62DoTlJxs2C16m6J1SxyAo0mrCiNTQwflYztdXr4BNI6jkXl2VdtfPQc5DtqR/6kIBQ1ZpSLfSaOj5bZka8FtpHHugyCH8oPlViNed+H3G92lQLQzAgmfXTiWkv5UaRIyRzU1pzoAqfTD+lFBCBd5AnIvM5o2b2GKKNs3PXqXsENhRtgdqWoIQJClzYI0KlOQ8J/7q/L2VyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=n1MRfvqF7LQJ2wUjnTH2HONGuLO94tPPqVr2tPmyKU8=;
+ b=pshGa27ValYi0aIcCDwcqMN6v/nCSpZMAvFTxov909vxvpKrlqXW2EUtTK+WVdzdxzYnUXla5yiZU/Iutz/xOLq1CEVSjguYzfjYWTeC0fvTuQfiAujuEbm9t/Cmr+YjvvyuGya6QTn54AfDrFsokQane5t3CwlDZFuoM7REXmmeQIjmSC1cYHTWwwvcq0Uykg1YUHGLYaj4zWITukaZ9yuj9Z5XcoPGRPnCqorY3z/svNT4/msIeJFRvppsBlK482k0tDUJubV8ROJMJ/OtnbezFWHqrgKGIUQXs9CSKfXhpnJ16aBTdf4AW9QfPrbn5DIBBRz3soTd7FuMyHG0Jw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=humana.com; dmarc=pass action=none header.from=humana.com;
+ dkim=pass header.d=humana.com; arc=none
+Received: from DS0PR15MB5721.namprd15.prod.outlook.com (2603:10b6:8:143::18)
+ by PH3PPF86254B51F.namprd15.prod.outlook.com (2603:10b6:518:1::4b4) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.44; Tue, 1 Apr
+ 2025 18:49:26 +0000
+Received: from DS0PR15MB5721.namprd15.prod.outlook.com
+ ([fe80::1db5:bd8a:9e9e:5904]) by DS0PR15MB5721.namprd15.prod.outlook.com
+ ([fe80::1db5:bd8a:9e9e:5904%3]) with mapi id 15.20.8583.038; Tue, 1 Apr 2025
+ 18:49:26 +0000
+From: copyrights <copyrights@humana.com>
+To: copyrights <copyrights@humana.com>,
+        Bryn Rhodes
+	<bryn@smiledigitalhealth.com>,
+        Sondra Wojciak <swojciak@humana.com>
+Subject: RE: Prior-Authorization Forms Copyright Question
+Thread-Topic: Prior-Authorization Forms Copyright Question
+Thread-Index: AQHbndNFqYj73gvXt0Gas8rOkWh2G7OHdAbAgAe9XgA=
+Date: Tue, 1 Apr 2025 18:49:26 +0000
+Message-ID:
+ <DS0PR15MB57214170065A5C5B828E9320AAAC2@DS0PR15MB5721.namprd15.prod.outlook.com>
+References:
+ <CAM19drR0V=_JNaegs0YNOUSecu=0YoLbdeaTQn53rTAw4WH=zw@mail.gmail.com>
+ <DS0PR15MB57219147AD09DF552BE75B7AAAA12@DS0PR15MB5721.namprd15.prod.outlook.com>
+In-Reply-To:
+ <DS0PR15MB57219147AD09DF552BE75B7AAAA12@DS0PR15MB5721.namprd15.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator:
+msip_labels:
+ MSIP_Label_e2b6c078-73cb-4371-8a5b-e9fc18accbf8_ActionId=4869cc6e-135a-4387-a405-bf7748fb1728;MSIP_Label_e2b6c078-73cb-4371-8a5b-e9fc18accbf8_ContentBits=0;MSIP_Label_e2b6c078-73cb-4371-8a5b-e9fc18accbf8_Enabled=true;MSIP_Label_e2b6c078-73cb-4371-8a5b-e9fc18accbf8_Method=Standard;MSIP_Label_e2b6c078-73cb-4371-8a5b-e9fc18accbf8_Name=INTERNAL;MSIP_Label_e2b6c078-73cb-4371-8a5b-e9fc18accbf8_SetDate=2025-03-27T20:35:55Z;MSIP_Label_e2b6c078-73cb-4371-8a5b-e9fc18accbf8_SiteId=56c62bbe-8598-4b85-9e51-1ca753fa50f2;MSIP_Label_e2b6c078-73cb-4371-8a5b-e9fc18accbf8_Tag=10,
+ 3, 0, 1;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DS0PR15MB5721:EE_|PH3PPF86254B51F:EE_
+x-ms-office365-filtering-correlation-id: e0d82943-73b4-418a-aff6-08dd714ded59
+x-internalmessage: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|376014|1800799024|366016|38070700018|7053199007|4013099003|4053099003|13003099007|8096899003;
+x-microsoft-antispam-message-info:
+ =?utf-8?B?YWkycjk1RU5GVkltSWdyWWxwWGVZYUlnVld2cExySkxyZmNBRFk3aENoVHA0?=
+ =?utf-8?B?ckkzeGJOSm9JcFRHRFdQNW5HVDdhZGJZS0NCcUwvUkVFbkx6eGN4aWNBQTNT?=
+ =?utf-8?B?SFVRcVg3dUYvQ0hPTFdYYWJMVk9zNG13TFZQdkZSN1ZpekV4cHAzelgyZ0hk?=
+ =?utf-8?B?azV4NWlKSG9BRVgzZHJudVBsZjRkNkNZQzFsczk1TURFdGZkdjdBWFZLZzN2?=
+ =?utf-8?B?aUp5VnJkYkcwY05DNkJQK1dCbWJja0lURE9uVUFUd241RWJMRFZhZ2ljbm5y?=
+ =?utf-8?B?VTlUaXZYeG03dStUT080Wk1IdUxGWXdQcXhqWGpPc1dzR3dodUs0VVNHa1o1?=
+ =?utf-8?B?V0pKNWErZy9aVkVnUjlYc2E4RVVTNlhCbkR6K3FkUkUzNTYzeXVkRmJoNnhh?=
+ =?utf-8?B?ckxmc29TMi8rOWlUWGxTeHYyME84cUZOOFRPRmt5aUdLQ3FFbWRaTEZ3d2E3?=
+ =?utf-8?B?d1lBVjd5VkY0L2RjdW5jR284Vk9FTWZCQ1BLN0hoc0x2ZXIxbk5UdGpBemc2?=
+ =?utf-8?B?Und2WmNnNk5yNDgvS2dSazQ5MXlLamMzSUxCeDNnRDZMOXdzc0lYZ1E1aHdx?=
+ =?utf-8?B?RzY5MnI5VVNXa0w0SStlemVIaDc2Tm9JZUM4S0x5b0FTS1hnSzBzZk0rT1Za?=
+ =?utf-8?B?OGJMS0xWMGJZZ0x4aHpzZUQyZkJsenFKWFV3REdZMUFKZG5JSUw5OTdnaTJ2?=
+ =?utf-8?B?UEJadHZzTjlsYnF0RWtkU2ZWV0w1bEMxcDF2WW93cHNkTENjdGw3MkQyZGph?=
+ =?utf-8?B?Y0w5bm9xRlNqVENSQjEwZC9OTTYxZkorYnFhZUticFB4TkM5aFh4SUhFSnV1?=
+ =?utf-8?B?ZVV0K21mK2dQN2Y2c3ZJelNNOGRGR2d1UG5GdkhuZGFWYkRwSnd6d2RYa1JW?=
+ =?utf-8?B?MmpURzlnRWR3Zlp5cWNFdjNERE94azk2aUZadlpwajl2THNBSTBxRHd0dXNY?=
+ =?utf-8?B?djlHTTc5M3RwcGJhY2p0LzFyMmtzY2RMdjJzWkR3RG12UmhOZ3UzMEgrZHYx?=
+ =?utf-8?B?TkhaeXpoQ29rNEUyUjYvR1E2VS90WUptTHpqZjMzcmoxUUR6MVVyR2FlLzFz?=
+ =?utf-8?B?WWJjdGtac2orZDNwN1pLQzdYVXVvcklSTytsSkFESlQ2YmY3bFgrZlZmYXc3?=
+ =?utf-8?B?V3o3djc2ZjdySEVPb3R2UlA5MGRwOUVxT1pHR1R4aFVkL3l1MS9PTmxqQkZ2?=
+ =?utf-8?B?allvT01UYjBRTGh6SlB0RnNNT2xMWVFzbDJTNitLalRXQkVTdXRmQWQ1NFNT?=
+ =?utf-8?B?N2RZZ0tPcmszaDQxZGcrOVVLYTd4Vi8xcDdUcVVZVGFhZGNBWm94aHdVSFdK?=
+ =?utf-8?B?OXN0aGJaTnNpVkRnblNNbWlBQWpnemlmRFVJeHloK0lGUzZncXM0VmZleGhr?=
+ =?utf-8?B?K3Z2SkVtNG54M1U5dTZndlV6TUMzQWdnbG15Vno2YkkwUmJiVkFpaFRXcU5Y?=
+ =?utf-8?B?MklhVDdRc2RSd0hheWdOSU8rbm1wZTJXU29ZWXpiZW96dmg0TjRBTFhGTkMz?=
+ =?utf-8?B?TEF0RzAzUjNmSjdJZEJMbjZnTUF3ZEwxOUw4ZlJQZEIvekdwQmxrZkVkMUxs?=
+ =?utf-8?B?SXlzV084bWVPWTFndzdHbDFUTTF3MmF3Uk9XM3F6YVdXNXN5NmZKVWVjUDQv?=
+ =?utf-8?B?Q2dCZUsybjhrTytpV21qT2YrTmJyNUQ3bjAyd3dSUFNhUFNpRzh5YXowZmlp?=
+ =?utf-8?B?ZEZlNmNFU3FlcXgzZHpSMjNaRG8yYTRtUjFFK1R3RGZiZlFNeGN1TzFBajgw?=
+ =?utf-8?B?RkZUZEZ1YUV4N3I2VDZMNUxMek01QTFud2JKcjR3RGUwVFlYVEVzb3h5SWww?=
+ =?utf-8?B?UlgxNVhUTTZHQTVXQU8wUGxRVytpYUFOeElIczRVTU9INmFnUkQrbkpTd0JS?=
+ =?utf-8?B?Wm5laEpXS2RTdTlTSFhsMkh6OG5DdXdHWmNoQW80VFVZa3c9PQ==?=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR15MB5721.namprd15.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(38070700018)(7053199007)(4013099003)(4053099003)(13003099007)(8096899003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?utf-8?B?ZTFXamEyU3FRRFJXelA4U1oxY2tscUE4eno0MVZBbGREV1VxcHRXTTFpMWtp?=
+ =?utf-8?B?bjBCTG5pdmJLU09nc2NkYW1RaUdMTERacmtQclpudDdqWTQ3VDVYOE9ObVFh?=
+ =?utf-8?B?a1RiZXNXQytJL2ZrdDRIZktzaDJ2OUk1S2lyZHFZTXYxTUx3TEdpNkN3ZnA5?=
+ =?utf-8?B?TmNKUzRMNERxRHF5UVBoVVdCS0Z2ZXRSck5NV3ZrT09JdlhzTThtQ1pad1lO?=
+ =?utf-8?B?ZzFjb1gwQUgrQ2hkNnpiMG9NM3oyVy83OFNYNjgyRjdydjZicDBnV05yL0tu?=
+ =?utf-8?B?L1ZWUmZ6SFNlOVF3SFozTjNLMlgrdW1LWVBDRXdwWll6cyt0ZVVTTlZaQmJv?=
+ =?utf-8?B?UlYwcjR5WjVnSHkwcGZicGRWZVpDd045Q2NPaHNDbEJOWlkrYXlra0l5Q0ox?=
+ =?utf-8?B?M0x0amxHc2ZoSmx3NGd5Q3RqbXA1TUFvUVh1eEZlY0xSbDY3NzRWckErSnRE?=
+ =?utf-8?B?ZWQ2OGtCS1FNekg4YjMwREJtVjBpVkVmUjZrY3J2U2tWTWNlb3lZdzc1eFY4?=
+ =?utf-8?B?ZTdvMDJGNG5GMkVkRW56ZW5pZmd2Mk9kbThHeXRtMmFPTTNVc0ZlYVlqUzNP?=
+ =?utf-8?B?QU02WlEzbXNmYUdwUzBnSml3TnVJbG1UWUZHUnk0RWhXQ1JSanVNWENqQmh3?=
+ =?utf-8?B?V0FvVFVkLzY1aHZ5c1BacWEySzlHYnltcllIQVNtTkpjaXpCOGZOTlc3ek9W?=
+ =?utf-8?B?OHNCS1JZQ25qZW5DVVBCaFdvWlB6bEY2cEJXc21vNThKQ3JQbjVlZnFHQ3Zr?=
+ =?utf-8?B?VXVGa0swclJ0NUtQR0ZTSkFYUTVjRlp6ZGhYQS9wdGI3dC9SeXlZbHdEQU9K?=
+ =?utf-8?B?OXVCcThaSkVsZDRsd2FaMWllMlpidGcyTmcrOWFGVXR0VmNSU0V0eGowTjdy?=
+ =?utf-8?B?OHVLQWM5SnNlYkFXdFdDbFRSOU1jcG1jQzEwSk01UWlxRkh6cFJoM0ZMSW0r?=
+ =?utf-8?B?bjA4UHVHS1NIWWJpR0JBSjdUUk4wUFFURWI0YWxnT0dYVzBGZ3F0Mkt1c3Bq?=
+ =?utf-8?B?MmVCUWpmRFRBbE9jeVFZUjNBd015UUdOVW1ib1M0UjZxMmE1M0xXV1VLTE5m?=
+ =?utf-8?B?YjNRQVdtL25vdXorZEpuYVRrODRWRDlsR2UwUU1VZXoyS2N3Kzd1UExJNTFU?=
+ =?utf-8?B?UklLYWIrTFFpaXdsSlRvOEQrZTdZSDV4U1htcDJTakM0clZtOXpMU3lFYTNr?=
+ =?utf-8?B?ZGJBRm9yeG9aWFlBRENNZmt3a2ZDcTVlYU1HV3JLUVpJM2dsTmJYOXg4MUx5?=
+ =?utf-8?B?TkNVRmJzeUZkQzFwNW1sYUdRdHpYOGpPVGkrSUJJUFpSZFFUY3R0QzlnVlE0?=
+ =?utf-8?B?YTBpU2RwOUJXdEkvVEk2V2Eyck4vRDltb2FxdGs5cy8xSEtSZWhteDdHTDdk?=
+ =?utf-8?B?d0RYUVg0RHBOVWkxT09kNmoyOGFoemQra0loaW05Rm9QQmdtd28zbFAwMi9h?=
+ =?utf-8?B?MEdxQnVuaWdieHlSTnNoTjZ1eUxPVTQ3ajBBdnBoaTBSMHA2STNZUzcrSmQy?=
+ =?utf-8?B?cXdHazZOMDZGYlB4UHJMd1FadENaZmt6SnMzUzEwZjBFUW03ODloelZMdC9t?=
+ =?utf-8?B?d1FQQWQwMnhpa3Z5MWgybS9RS2xUYVpDdDJ1eDVqeE5oOWsxcEdJWkRvcldk?=
+ =?utf-8?B?WmJtclZnanFNK1U2VUhWUWVaZGxUMlVybWNoMUp0MzM0QWEycG1KWlJqWkdT?=
+ =?utf-8?B?R05OYmZ1ZlBZUGwwaGFtaFdNblQ3WXNzSkJwb01rQ3VaQWFUVUVwcTVoTHlO?=
+ =?utf-8?B?dEQ4a2t4YWVrT216ZWpxbGJnOEd2Q09aTjYyYmpnU1FqSWp1Tkc0aUhiMCtK?=
+ =?utf-8?B?WGhMUU40Um13ZHM1NG5oQkhWYWNGaEVGdTB6TVduOHZtaFFBUWx0VVMranRp?=
+ =?utf-8?B?S2FsRlV5MHc4K0MwRWlxUlVsNUJja1c2V24zRU92ck16ekQ4OHJablhoeVBw?=
+ =?utf-8?B?WmM5MTJhdHFXYlJFNkFkcTlFa1BObXUzYk5nMStuL25jY2N6L0QwRHlrS3JZ?=
+ =?utf-8?B?VVB4NDQ4a242WVNxOWhud0VGTUlTUEU4SGh0TnFnMEI4YmZRTFl4MUh0RTJP?=
+ =?utf-8?B?aytxbnYxUVNaS3d3cE1zRXpGL05zcURlazNZT0pONWo4TDdMNGh4MUYyeUp2?=
+ =?utf-8?Q?HHeXBTJkPCE6tZ+SJ4exWT60X?=
+Content-Type: multipart/related;
+	boundary="_004_DS0PR15MB57214170065A5C5B828E9320AAAC2DS0PR15MB5721namp_";
+	type="multipart/alternative"
+MIME-Version: 1.0
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0:
+	1xvxZdlxH9tesdEwcTNoXJNmolEyxhKUxOZ354+Yt9vEVEb/zDU5N1uiMxA/mwgnzHgvGrEFAin7CLsanQTSp8jmj7+lULQtPHBwuM/TadQNbZQdNDJ6OxaHfxb1sLKSUIKtzbL5k+0ILbgBvNoh5Nfu5noZXON8tmZikELEMLaH5AspyJILA8e7SpqsJIlsOcb33a6anpFDOlLsrnvOKc49YgLx3J8oZgFLBMW4tZ3M73tFEO3fuBmHYGxetI+8OxNJssmOsGdkOPJca3TTlAK0FgYG1RYI6kiMHQDQ2xYf9LVtW+uvOw+nHL/pQ74vRlrnLDDwQD9lu42K5Y1vVfoyAWwRuuZY7VnCHUkTsiBVHnSpXm52tosvW7AKBzlK3UB/gUdpxJwe/5hvWPLmBP2eXrrMY5aMfzaWEPcNGbBeFtKQ6FVPLB+1BzTNxaCg2NGt7zwT0Gqx5yizMoTVD/13lCsU9cXGqEIzHL1Uku6rHtockyvZ2qsBPgJbLCAuZ5NrtcgMP0IOh6v0BXu+akiS77iTgUwoHMndpc4B5RHf8U5WLybkQH1wxFIV37KDJml9wDfBFzhVqXqQm8fECsTbXB/S6Rkp71eZciJVUyfJS9fS2fJB0+Vp2UffjBPV
+X-OriginatorOrg: humana.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR15MB5721.namprd15.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e0d82943-73b4-418a-aff6-08dd714ded59
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Apr 2025 18:49:26.4784
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 56c62bbe-8598-4b85-9e51-1ca753fa50f2
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: nB3tDjWrpCiyLvf7TVduFXIj/7DoHJGIqoiydgInrMj/CbyfRGaA8+y77byiYcq1yCyGsjrf/i3cOq7A1twhPQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH3PPF86254B51F
+Original-Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=humana.com;
+X-SHN-DLP-SCAN: success
+X-Proofpoint-GUID: muRz0qrDleeCgtX-7HalVRxOIcKDk45G
+X-Proofpoint-ORIG-GUID: muRz0qrDleeCgtX-7HalVRxOIcKDk45G
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-01_07,2025-04-01_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=10
+ suspectscore=0 bulkscore=0 impostorscore=0 phishscore=0 adultscore=0
+ spamscore=0 priorityscore=1501 mlxlogscore=999 malwarescore=0 mlxscore=0
+ clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502280000 definitions=main-2504010115
+
+--_004_DS0PR15MB57214170065A5C5B828E9320AAAC2DS0PR15MB5721namp_
+Content-Type: multipart/alternative;
+	boundary="_000_DS0PR15MB57214170065A5C5B828E9320AAAC2DS0PR15MB5721namp_"
+
+--_000_DS0PR15MB57214170065A5C5B828E9320AAAC2DS0PR15MB5721namp_
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+
+Bryn,
+You can use our prior authorization forms downloaded from the Humana site a=
+s examples, so long as you indicate the source of the example content and i=
+ndicate the contest in example only and not intended or appropriate for use=
+ in production applications.
+
+Thanks
+Sondra
+
+
+
+
+Sondra Wojciak
+Senior Paralegal | IP and Corporate Governance
+Law Department |Humana Inc.
+Mobile 502.432.2296 | Office 502.580.2822
+[cid:image001.png@01DBA315.4240DF30]
+Humana.com
+
+
+
+
+
+From: copyrights <copyrights@humana.com>
+Sent: Thursday, March 27, 2025 4:37 PM
+To: Bryn Rhodes <bryn@smiledigitalhealth.com>; copyrights <copyrights@human=
+a.com>
+Subject: RE: Prior-Authorization Forms Copyright Question
+
+Bryn,
+Your request is being reviewed by the appropriate team in the law departmen=
+t. They will have an answer in the next few days.
+
+Sondra Wojciak
+
+Sondra Wojciak
+Senior Paralegal | IP and Corporate Governance
+Law Department |Humana Inc.
+Mobile 502.432.2296 | Office 502.580.2822
+[cid:image001.png@01DBA315.4240DF30]
+Humana.com
+
+
+
+
+From: Bryn Rhodes <bryn@smiledigitalhealth.com<mailto:bryn@smiledigitalheal=
+th.com>>
+Sent: Tuesday, March 25, 2025 6:14 PM
+To: copyrights <copyrights@humana.com<mailto:copyrights@humana.com>>
+Subject: Prior-Authorization Forms Copyright Question
+
+Hello, My name is Bryn Rhodes and I am a Health Level 7 International Stand=
+ards Editor. I am currently working on a specification to help implementers=
+ express prior authorization questionnaires in a digital format. As part of=
+ this process, we
+
+Hello,
+
+My name is Bryn Rhodes and I am a Health Level 7 International Standards Ed=
+itor. I am currently working on a specification to help implementers expres=
+s prior authorization questionnaires in a digital format. As part of this p=
+rocess, we have created several examples based on forms that we obtained fr=
+om this site:
+
+https://www.humana.com/pharmacy/prior-authorization-medication-approvals
+
+We are trying to make sure we are respecting intellectual property rights, =
+and so we are reaching out to seek approval to use prior authorization form=
+s as examples in our specification.
+
+The forms we are using don't have any specific copyright or disclaimer noti=
+ces, so we are going by this general copyright policy:
+
+https://www.humana.com/legal/disclaimer-and-licensure#copyright
+
+May we use prior authorization forms downloaded from the Humana site as exa=
+mples in our specification, so long as we are A) clearly indicate the sourc=
+e of the example content, and B) clearly indicate that the content is examp=
+le only and not intended or appropriate for use in production applications?
+
+Thank you in advance for your consideration.
+
+Regards,
+Bryn Rhodes
+bryn@smiledigitalhealth.com<mailto:bryn@smiledigitalhealth.com>
+
+The information transmitted is intended only for the person or entity to wh=
+ich it is addressed
+and may contain CONFIDENTIAL material.  If you receive this material/inform=
+ation in error,
+please contact the sender and delete or destroy the material/information.
+
+Humana Inc. and its subsidiaries comply with applicable Federal civil right=
+s laws and
+do not discriminate on the basis of race, color, national origin, ancestry,=
+ age, disability, sex,
+marital status, gender, sexual orientation, gender identity, or religion. H=
+umana Inc. and its subsidiaries do not
+exclude people or treat them differently because of race, color, national o=
+rigin, ancestry, age,
+disability, sex, marital status, gender, sexual orientation, gender identit=
+y, or religion.
+
+English: ATTENTION: If you do not speak English, language assistance servic=
+es, free
+of charge, are available to you. Call 1=E2=80=90877=E2=80=90320=E2=80=90123=
+5 (TTY: 711).
+
+Espa=C3=B1ol (Spanish): ATENCI=C3=93N: Si habla espa=C3=B1ol, tiene a su di=
+sposici=C3=B3n servicios
+gratuitos de asistencia ling=C3=BC=C3=ADstica. Llame al 1=E2=80=90877=E2=80=
+=90320=E2=80=901235 (TTY: 711).
+
+=E7=B9=81=E9=AB=94=E4=B8=AD=E6=96=87(Chinese):=E6=B3=A8=E6=84=8F:=E5=A6=82=
+=E6=9E=9C=E6=82=A8=E4=BD=BF=E7=94=A8=E7=B9=81=E9=AB=94=E4=B8=AD=E6=96=87,=
+=E6=82=A8=E5=8F=AF=E4=BB=A5=E5=85=8D=E8=B2=BB=E7=8D=B2=E5=BE=97=E8=AA=9E=E8=
+=A8=80=E6=8F=B4=E5=8A=A9
+=E6=9C=8D=E5=8B=99=E3=80=82=E8=AB=8B=E8=87=B4=E9=9B=BB 1=E2=80=90877=E2=80=
+=90320=E2=80=901235 (TTY: 711)=E3=80=82
+
+Krey=C3=B2l Ayisyen (Haitian Creole): ATANSION: Si w pale Krey=C3=B2l Ayisy=
+en, gen s=C3=A8vis =C3=A8d
+pou lang ki disponib gratis pou ou. Rele 1=E2=80=90877=E2=80=90320=E2=80=90=
+1235 (TTY: 711).
+
+Polski (Polish): UWAGA: Je=C5=BCeli m=C3=B3wisz po polsku, mo=C5=BCesz skor=
+zysta=C4=87 z bezp=C5=82atnej
+pomocy j=C4=99zykowej. Zadzwo=C5=84 pod numer 1=E2=80=90877=E2=80=90320=E2=
+=80=901235 (TTY: 711).
+
+=ED=95=9C=EA=B5=AD=EC=96=B4 (Korean): =EC=A3=BC=EC=9D=98: =ED=95=9C=EA=B5=
+=AD=EC=96=B4=EB=A5=BC =EC=82=AC=EC=9A=A9=ED=95=98=EC=8B=9C=EB=8A=94 =EA=B2=
+=BD=EC=9A=B0, =EC=96=B8=EC=96=B4 =EC=A7=80=EC=9B=90 =EC=84=9C=EB=B9=84=EC=
+=8A=A4=EB=A5=BC =EB=AC=B4=EB=A3=8C=EB=A1=9C
+=EC=9D=B4=EC=9A=A9=ED=95=98=EC=8B=A4 =EC=88=98 =EC=9E=88=EC=8A=B5=EB=8B=88=
+=EB=8B=A4. 1=E2=80=90877=E2=80=90320=E2=80=901235 (TTY: 711)=EB=B2=88=EC=9C=
+=BC=EB=A1=9C =EC=A0=84=ED=99=94=ED=95=B4 =EC=A3=BC=EC=8B=AD=EC=8B=9C=EC=98=
+=A4.
+
+--_000_DS0PR15MB57214170065A5C5B828E9320AAAC2DS0PR15MB5721namp_
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="utf-8"
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Aptos Display";}
+@font-face
+	{font-family:Aptos;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+span.EmailStyle22
+	{mso-style-type:personal-compose;
+	font-family:"Aptos",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-US" link=3D"blue" vlink=3D"purple" style=3D"word-wrap:brea=
+k-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">Bryn,<o:p></o:p></s=
+pan></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">You can use our pri=
+or authorization forms downloaded from the Humana site as examples, so long=
+ as you indicate the source of the example content and indicate the contest=
+ in example only and not intended or
+ appropriate for use in production applications. <o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><br>
+Thanks<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">Sondra<o:p></o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:#5C9A1B;mso-ligatures:standa=
+rdcontextual">Sondra Wojciak</span></b><span style=3D"mso-ligatures:standar=
+dcontextual"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;color:#3A3B3D;mso-li=
+gatures:standardcontextual">Senior Paralegal | IP and Corporate Governance<=
+o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;color:#3A3B3D;mso-li=
+gatures:standardcontextual">Law Department |Humana Inc.<o:p></o:p></span></=
+p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;color:#3A3B3D;mso=
+-ligatures:standardcontextual">Mobile</span></b><span style=3D"font-size:11=
+.0pt;color:#3A3B3D;mso-ligatures:standardcontextual"> 502.432.2296
+</span><span style=3D"font-size:11.0pt;color:#53575A;mso-ligatures:standard=
+contextual">|</span><span style=3D"font-size:11.0pt;color:#414042;mso-ligat=
+ures:standardcontextual">
+</span><b><span style=3D"font-size:11.0pt;color:#3A3B3D;mso-ligatures:stand=
+ardcontextual">Office</span></b><span style=3D"font-size:11.0pt;color:#3A3B=
+3D;mso-ligatures:standardcontextual"> 502.580.2822</span><span style=3D"fon=
+t-size:11.0pt;color:#53575A;mso-ligatures:standardcontextual"><o:p></o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ap=
+tos Display&quot;,sans-serif;color:#53575A"><img width=3D"82" height=3D"18"=
+ style=3D"width:.8583in;height:.1916in" id=3D"_x0000_i1026" src=3D"cid:imag=
+e001.png@01DBA315.4240DF30"><b><span style=3D"mso-ligatures:standardcontext=
+ual"><o:p></o:p></span></b></span></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;color:#3A3B3D;mso=
+-ligatures:standardcontextual">Humana.com<o:p></o:p></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;color:#53575A;mso=
+-ligatures:standardcontextual"><o:p>&nbsp;</o:p></span></b></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;font-family:&quot=
+;Calibri&quot;,sans-serif">From:</span></b><span style=3D"font-size:11.0pt;=
+font-family:&quot;Calibri&quot;,sans-serif"> copyrights &lt;copyrights@huma=
+na.com&gt;
+<br>
+<b>Sent:</b> Thursday, March 27, 2025 4:37 PM<br>
+<b>To:</b> Bryn Rhodes &lt;bryn@smiledigitalhealth.com&gt;; copyrights &lt;=
+copyrights@humana.com&gt;<br>
+<b>Subject:</b> RE: Prior-Authorization Forms Copyright Question<o:p></o:p>=
+</span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">Bryn,<o:p></o:p></s=
+pan></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">Your request is bei=
+ng reviewed by the appropriate team in the law department. They will have a=
+n answer in the next few days.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt">Sondra Wojciak<o:p>=
+</o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:#5C9A1B">Sondra Wojciak</spa=
+n></b><o:p></o:p></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;color:#3A3B3D">Senio=
+r Paralegal | IP and Corporate Governance<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt;color:#3A3B3D">Law D=
+epartment |Humana Inc.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;color:#3A3B3D">Mo=
+bile</span></b><span style=3D"font-size:11.0pt;color:#3A3B3D"> 502.432.2296
+</span><span style=3D"font-size:11.0pt;color:#53575A">|</span><span style=
+=3D"font-size:11.0pt;color:#414042">
+</span><b><span style=3D"font-size:11.0pt;color:#3A3B3D">Office</span></b><=
+span style=3D"font-size:11.0pt;color:#3A3B3D"> 502.580.2822</span><span sty=
+le=3D"font-size:11.0pt;color:#53575A"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:10.0pt;font-family:&quot;Ap=
+tos Display&quot;,sans-serif;color:#53575A"><img width=3D"82" height=3D"18"=
+ style=3D"width:.8583in;height:.1916in" id=3D"Picture_x0020_3" src=3D"cid:i=
+mage001.png@01DBA315.4240DF30"></span><b><span style=3D"font-size:10.0pt;fo=
+nt-family:&quot;Aptos Display&quot;,sans-serif;color:#53575A"><o:p></o:p></=
+span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;color:#3A3B3D">Hu=
+mana.com<o:p></o:p></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;color:#53575A"><o=
+:p>&nbsp;</o:p></span></b></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;font-family:&quot=
+;Calibri&quot;,sans-serif">From:</span></b><span style=3D"font-size:11.0pt;=
+font-family:&quot;Calibri&quot;,sans-serif"> Bryn Rhodes &lt;<a href=3D"mai=
+lto:bryn@smiledigitalhealth.com">bryn@smiledigitalhealth.com</a>&gt;
+<br>
+<b>Sent:</b> Tuesday, March 25, 2025 6:14 PM<br>
+<b>To:</b> copyrights &lt;<a href=3D"mailto:copyrights@humana.com">copyrigh=
+ts@humana.com</a>&gt;<br>
+<b>Subject:</b> Prior-Authorization Forms Copyright Question<o:p></o:p></sp=
+an></p>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white">Hello, My name is Bryn Rhodes and I am a Health=
+ Level 7 International Standards Editor. I am currently working on a specif=
+ication to help implementers express prior
+ authorization questionnaires in a digital format. As part of this process,=
+ we<o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal" style=3D"mso-line-height-alt:.75pt"><span style=3D"f=
+ont-size:1.0pt;color:white"><o:p></o:p></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Hello,<o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">My name is Bryn Rhodes and I am a Health Level 7 Int=
+ernational Standards Editor. I am currently working on a specification to h=
+elp implementers express prior authorization questionnaires in a digital fo=
+rmat. As part of this process, we
+ have created several examples based on forms that we obtained from this si=
+te:<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><a href=3D"https://www.humana.com/pharmacy/prior-aut=
+horization-medication-approvals">https://www.humana.com/pharmacy/prior-auth=
+orization-medication-approvals</a><o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">We are trying to make sure we are respecting intelle=
+ctual property rights, and so we are reaching out to seek approval to use p=
+rior authorization forms as examples in our specification.<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">The forms we are using don't have any specific copyr=
+ight or disclaimer notices, so we are going by this general copyright polic=
+y:<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><a href=3D"https://www.humana.com/legal/disclaimer-a=
+nd-licensure#copyright">https://www.humana.com/legal/disclaimer-and-licensu=
+re#copyright</a><o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">May we use prior authorization forms downloaded from=
+ the Humana site as examples in our specification, so long as we are A) cle=
+arly indicate the source of the example content, and B) clearly indicate th=
+at the content is example only and
+ not intended or appropriate for use in production applications?<o:p></o:p>=
+</p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Thank you in advance for your consideration.<o:p></o=
+:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Regards,<br>
+Bryn Rhodes<o:p></o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><a href=3D"mailto:bryn@smiledigitalhealth.com">bryn@=
+smiledigitalhealth.com</a><o:p></o:p></p>
+</div>
+</div>
+</div>
+
+<DIV>
+The information transmitted is intended only for the person or entity to wh=
+ich it is addressed<BR>
+and may contain CONFIDENTIAL material.  If you receive this material/inform=
+ation in error,<BR>
+please contact the sender and delete or destroy the material/information.<B=
+R>
+<BR>
+Humana Inc. and its subsidiaries comply with applicable Federal civil right=
+s laws and<BR>
+do not discriminate on the basis of race, color, national origin, ancestry,=
+ age, disability, sex,<BR>
+marital status, gender, sexual orientation, gender identity, or religion. H=
+umana Inc. and its subsidiaries do not<BR>
+exclude people or treat them differently because of race, color, national o=
+rigin, ancestry, age,<BR>
+disability, sex, marital status, gender, sexual orientation, gender identit=
+y, or religion.<BR>
+<BR>
+English: ATTENTION: If you do not speak English, language assistance servic=
+es, free<BR>
+of charge, are available to you. Call 1&#x2010;877&#x2010;320&#x2010;1235 (=
+TTY: 711).<BR>
+<BR>
+Espa&ntilde;ol (Spanish): ATENCI&Oacute;N: Si habla espa&ntilde;ol, tiene a=
+ su disposici&oacute;n servicios<BR>
+gratuitos de asistencia ling&uuml;&iacute;stica. Llame al 1&#x2010;877&#x20=
+10;320&#x2010;1235 (TTY: 711).<BR>
+<BR>
+&#x7E41;&#x9AD4;&#x4E2D;&#x6587;(Chinese):&#x6CE8;&#x610F;:&#x5982;&#x679C;=
+&#x60A8;&#x4F7F;&#x7528;&#x7E41;&#x9AD4;&#x4E2D;&#x6587;,&#x60A8;&#x53EF;&#=
+x4EE5;&#x514D;&#x8CBB;&#x7372;&#x5F97;&#x8A9E;&#x8A00;&#x63F4;&#x52A9;<BR>
+&#x670D;&#x52D9;&#x3002;&#x8ACB;&#x81F4;&#x96FB; 1&#x2010;877&#x2010;320&#x=
+2010;1235 (TTY: 711)&#x3002;<BR>
+<BR>
+Krey&ograve;l Ayisyen (Haitian Creole): ATANSION: Si w pale Krey&ograve;l A=
+yisyen, gen s&egrave;vis &egrave;d<BR>
+pou lang ki disponib gratis pou ou. Rele 1&#x2010;877&#x2010;320&#x2010;123=
+5 (TTY: 711).<BR>
+<BR>
+Polski (Polish): UWAGA: Je&#x17C;eli m&oacute;wisz po polsku, mo&#x17C;esz =
+skorzysta&#x107; z bezp&#x142;atnej<BR>
+pomocy j&#x119;zykowej. Zadzwo&#x144; pod numer 1&#x2010;877&#x2010;320&#x2=
+010;1235 (TTY: 711).<BR>
+<BR>
+&#xD55C;&#xAD6D;&#xC5B4; (Korean): &#xC8FC;&#xC758;: &#xD55C;&#xAD6D;&#xC5B=
+4;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC2DC;&#xB294; &#xACBD;&#xC6B0;, &#xC5=
+B8;&#xC5B4; &#xC9C0;&#xC6D0; &#xC11C;&#xBE44;&#xC2A4;&#xB97C; &#xBB34;&#xB8=
+CC;&#xB85C;<BR>
+&#xC774;&#xC6A9;&#xD558;&#xC2E4; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.=
+ 1&#x2010;877&#x2010;320&#x2010;1235 (TTY: 711)&#xBC88;&#xC73C;&#xB85C; &#x=
+C804;&#xD654;&#xD574; &#xC8FC;&#xC2ED;&#xC2DC;&#xC624;.<BR>
+</DIV></body>
+</html>
+
+--_000_DS0PR15MB57214170065A5C5B828E9320AAAC2DS0PR15MB5721namp_--
+
+--_004_DS0PR15MB57214170065A5C5B828E9320AAAC2DS0PR15MB5721namp_
+Content-Type: image/png; name="image001.png"
+Content-Description: image001.png
+Content-Disposition: inline; filename="image001.png"; size=4852;
+	creation-date="Tue, 01 Apr 2025 18:49:26 GMT";
+	modification-date="Tue, 01 Apr 2025 18:49:26 GMT"
+Content-ID: <image001.png@01DBA315.4240DF30>
+Content-Transfer-Encoding: base64
+
+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
+RU5ErkJggg==
+
+--_004_DS0PR15MB57214170065A5C5B828E9320AAAC2DS0PR15MB5721namp_--

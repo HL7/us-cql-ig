@@ -2,7 +2,7 @@ This implementation guide includes several worked examples of prior authorizatio
 
 {% include list-questionnaires.xhtml %}
 
-The examples above are informed by the prior-authorization use case. Additional examples not included in this implementation guide are available in the github source repository.
+The examples above are informed by freely available prior-authorization forms downloaded from Humana's prior authorization support portal and used with permission. These examples demonstrate the use of CQL expressions as part of the prior-authorization use case.
 
 #### Other Potential Examples
 

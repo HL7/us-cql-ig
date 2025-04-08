@@ -76,6 +76,8 @@ This Implementation Guide was made possible by the thoughtful contributions of t
 
 {% include ip-statements.xhtml %}
 
+Many of the examples in this implementation guide are informed by prior-authorization forms freely available on the internet and used with permission.
+
 <!--
 TODO:
 

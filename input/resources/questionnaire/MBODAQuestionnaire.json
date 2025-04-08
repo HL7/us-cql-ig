@@ -35,7 +35,7 @@
   "experimental": true,
   "date": "2023-08-14T00:00:00+00:00",
   "description": "This is an example of a prior authorization questionnaire developed based on an existing industry prior-authorization form.",
-  "copyright": "This content is derived from the following source: https://www.geisinger.org/-/media/OneGeisinger/Files/PDFs/Provider/NaviNet/Forms/medical-benefit-outpatient-drug-authorization-form-050819.pdf?sc_lang=en&hash=6EDE27E13FCCB5731E081FC49B85359D",
+  "copyright": "This content is is informed by the following source, used with permission: https://www.geisinger.org/-/media/OneGeisinger/Files/PDFs/Provider/NaviNet/Forms/medical-benefit-outpatient-drug-authorization-form-050819.pdf?sc_lang=en&hash=6EDE27E13FCCB5731E081FC49B85359D",
   "item": [
     {
       "linkId": "patient-info",
