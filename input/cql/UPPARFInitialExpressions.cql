@@ -25,6 +25,22 @@ parameter "MedicationRequest" USCore.MedicationRequestProfile
 
 context Patient
 
+define "Retrieve Medication Request test parameter":
+  // The VSCode extension doesn't support parameters
+  // When executing CQL with the VSCode extension retrieve the resource specific for the test case
+  //   the list of resource ids match the resources from the test case folders
+  singleton from ([USCore.MedicationRequestProfile] MR where MR.id in { 
+    'reference-nizatidine',                 // from tests/library/UPPARFInitialExpressions/example/MedicationRequest-new-reference-nizatidine.json
+    'MedicationRequest-1-nizatidine',       // from tests/library/UPPARFInitialExpressions/Patient-example-UPPARF-1/MedicationRequest-1-nizatidine.json
+    'MedicationRequest-lisinopril-example'  // from tests/library/UPPARFInitialExpressions/Patient-example-UPPARF-2/MedicationRequest-lisinopril-example.json
+  })
+
+define "Medication Request":
+  Coalesce(
+    MedicationRequest,
+    "Retrieve Medication Request test parameter"
+  )
+
 define "Urgency":
 "Most Recent Medication Request".priority P
   return (
@@ -154,9 +170,9 @@ define "Most Recent Medication":
 singleton from (
   UCE."All Medications" M
     where EndsWith(("Most Recent Medication Request".medication as USCore.Reference).reference, M.id))
- 
+
 define "Most Recent Medication Request":
-  MedicationRequest
+  "Medication Request"
   // UCE."Most Recent Medication Request"
 
 define "Prior Prescription":

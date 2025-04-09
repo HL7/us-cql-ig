@@ -13,21 +13,36 @@ code "Member Number": 'MB' from "Identifier Type"
 code "Subscriber Number": 'SN' from "Identifier Type"
 
 parameter "Coverage" FHIR.Coverage
-parameter "Coverage Id" List<System.String> 
-  default { 'minimal-coverage-example' }    // TODO: remove defaults for production use
-
 parameter "ServiceRequest" FHIR.ServiceRequest
-parameter "ServiceRequest Id" List<System.String> 
-  default { 'minimal-service-request-example' }     // TODO: remove defaults for production use
 
 context Patient
 
-// Patient
+define "Retrieve Service Request test parameter":
+  // The VSCode extension doesn't support parameters
+  // When executing CQL with the VSCode extension retrieve the resource specific for the test case
+  //   the list of resource ids match the resources from the test case folders
+  singleton from ([FHIR.ServiceRequest] SR where SR.id in { 
+    'minimal-service-request-example'
+  })
+
+define "Service Request":
+  Coalesce(
+    ServiceRequest,
+    "Retrieve Service Request test parameter"
+  )
+
+define "Retrieve Coverage test parameter":
+  // The VSCode extension doesn't support parameters
+  // When executing CQL with the VSCode extension retrieve the resource specific for the test case
+  //   the list of resource ids match the resources from the test case folders
+  singleton from ([FHIR.Coverage] CV where CV.id in { 
+    'minimal-coverage-example'
+  })
+
 define "Member Coverage":
   Coalesce(
     Coverage,
-    singleton from ([FHIR.Coverage] CV
-      where CV.id in "Coverage Id")
+    "Retrieve Coverage test parameter"
   )
 
 define "Patient Name":
@@ -74,15 +89,8 @@ define "Member ID":
 define "Policy Number":
   UCE.PolicyNumber("Member Coverage").value
 
-define "Most Recent ServiceRequest":
-  Coalesce(
-    ServiceRequest,
-    singleton from ([FHIR.ServiceRequest] SR
-      where SR.id in "ServiceRequest Id")
-  )
-
 define "Requesting Provider":
-  UCE.RequestingProvider("Most Recent ServiceRequest")
+  UCE.RequestingProvider("Service Request")
 
 define "Requesting Provider Name":
   "Requesting Provider".name.family
@@ -104,7 +112,7 @@ define "Requesting Provider Fax":
   return T.value
 
 define "Servicing Provider":
-  UCE.ServicingProvider("Most Recent ServiceRequest")
+  UCE.ServicingProvider("Service Request")
 
 define "Servicing Provider Name":
   "Servicing Provider".name

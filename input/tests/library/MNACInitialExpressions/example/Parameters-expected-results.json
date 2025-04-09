@@ -2,92 +2,68 @@
     "resourceType": "Parameters",
     "parameter": [
         {
-            "name": "Additional Comment",
-            "valueString": "TBD"
-        },
-        {
-            "name": "All ServiceRequests",
-            "valueString": "[ServiceRequest(id=service-request-USCorePatient), ServiceRequest(id=service-request-2-USCorePatient)]"
-        },
-        {
-            "name": "Antibiotics Used",
-            "valueString": "[]"
-        },
-        {
-            "name": "Catheterization Frequency",
-            "valueString": "TBD"
-        },
-        {
-            "name": "Check Symptoms",
-            "valueString": "TBD"
-        },
-        {
-            "name": "Date",
-            "valueString": "2025-02-10"
-        },
-        {
             "name": "Date of Request",
-            "valueString": "dateTime"
-        },
-        {
-            "name": "Dates of UTIs",
-            "valueString": "[]"
+            "valueDateTime": "2023-11-29T19:32:52Z"
         },
         {
             "name": "Diagnosis",
             "valueString": "UTI"
         },
         {
+            "name": "Item Requested",
+            "valueString": "Molecular genetic test (procedure)"
+        },
+        {
+            "name": "Item Requested",
+            "valueString": "Encounter for screening for other disorder"
+        },
+        {
+            "name": "Item Requested",
+            "valueString": "Unlisted molecular pathology procedure"
+        },
+        {
+            "name": "UTI in Last Year",
+            "valueBoolean": true
+        },
+        {
+            "name": "Dates of UTIs",
+            "valueDateTime": "2025-01-05"
+        },
+        {
+            "name": "Check Symptoms",
+            "valueString": "TBD"
+        },
+        {
             "name": "Fever Temperature",
             "valueString": "TBD"
         },
         {
-            "name": "Item Requested",
-            "valueString": "[Molecular genetic test (procedure),  Encounter for screening for other disorder, Unlisted molecular pathology procedure]"
+            "name": "Catheterization Frequency",
+            "valueString": "TBD"
         },
         {
-            "name": "Lab Reports UTIs",
-            "valueString": "[]"
-        },
-        {
-            "name": "Most Recent ServiceRequest",
-            "valueString": "ServiceRequest(id=service-request-USCorePatient)"
-        },
-        {
-            "name": "Patient",
-            "valueString": "Patient(id=example)"
-        },
-        {
-            "name": "Physician Fax",
-            "valueString": "null"
+            "name": "Additional Comment",
+            "valueString": "TBD"
         },
         {
             "name": "Physician Name",
-            "valueString": "null"
+            "valueString": "Voigt"
         },
         {
             "name": "Physician Telephone",
-            "valueString": "null"
+            "valueString": "(03) 123 645"
+        },
+        {
+            "name": "Physician Fax",
+            "valueString": "(03) 123 654 234"
         },
         {
             "name": "Referring Physician Telephone",
             "valueString": "TBD"
         },
         {
-            "name": "Requesting Physician",
-            "valueString": "null"
-        },
-        {
-            "name": "SR Related Condition",
-            "valueString": "[Condition(id=related-Condition)]"
-        },
-        {
-            "name": "UTI Diagnostic Reports Last Year",
-            "valueString": "[]"
-        },
-        {
-            "name": "UTI in Last Year",
-            "valueString": "false"
+            "name": "Date",
+            "valueDate": "2025-04-08"
         }
     ]
 }

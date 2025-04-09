@@ -2,13 +2,6 @@
     "resourceType": "Parameters",
     "parameter": [
         {
-            "name": "Member Coverage",
-            "resource": {
-                "resourceType": "FHIR.Coverage",
-                "id": "minimal-coverage-example"
-            }
-        },
-        {
             "name": "Patient Name",
             "valueString": "Peter James Chalmers"
         },
@@ -18,13 +11,7 @@
         },
         {
             "name": "Birth Sex",
-            "valueString": "M",
-            "extension": [
-                {
-                    "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
-                    "valueCode" : "M"
-                }
-            ]
+            "valueString": "M"
         },
         {
             "name": "Medical Record Number",
@@ -44,7 +31,7 @@
         },
         {
             "name": "City",
-            "valueString": "PleasantVille"
+            "valueString": "Pleasantville"
         },
         {
             "name": "State",
@@ -63,20 +50,6 @@
             "valueString": "34567"
         },
         {
-            "name": "Most Recent ServiceRequest",
-            "resource": {
-                "resourceType": "FHIR.ServiceRequest",
-                "id": "minimal-service-request-example"
-            }
-        },
-        {
-            "name": "Requesting Provider",
-            "resource": {
-                "resourceType": "USCore.PractitionerProfile",
-                "id": "minimal-practitioner-example"
-            }
-        },
-        {
             "name": "Requesting Provider Name",
             "valueString": "Smart"
         },
@@ -86,7 +59,15 @@
         },
         {
             "name": "Requesting Provider Address",
-            "valueString": "8914 115TH ST, Richmond Hill, NY 12345"
+            "valueString": "8914 115TH ST"
+        },
+        {
+            "name": "Requesting Provider Address",
+            "valueString": "Richmond Hill"
+        },
+        {
+            "name": "Requesting Provider Address",
+            "valueString": "NY 12345"
         },
         {
             "name": "Requesting Provider NPI",
@@ -95,40 +76,6 @@
         {
             "name": "Requesting Provider Fax",
             "valueString": "345-416-5672"
-        },
-        {
-            "name": "Servicing Provider",
-            "resource": {
-                "resourceType": "USCore.OrganizationProfile",
-                "id": "minimal-organization-example"
-            }
-        },
-        {
-            "name": "Servicing Provider Name",
-            "valueString": "Example Organization"
-        },
-        {
-            "name": "Servicing Provider Phone",
-            "valueString": "(+1) 734-677-7777"
-        },
-        {
-            "name": "Servicing Provider Address",
-            "valueString": "3300 Washtenaw Avenue, Suite 227 Amherst, MA 01002"
-        },
-        {
-            "name": "Servicing Provider NPI",
-            "valueString": "1407071236"
-        },
-        {
-            "name": "Servicing Provider Fax",
-            "valueString": ""
-        },
-        {
-            "name": "Patient",
-            "resource": {
-                "resourceType": "USCore.Patient",
-                "id": "minimal-patient-example"
-            }
         }
     ]
 }
