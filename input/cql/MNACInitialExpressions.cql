@@ -19,8 +19,21 @@ parameter "ServiceRequest" FHIR.ServiceRequest
 
 context Patient
 
+define "Retrieve Service Request test parameter":
+  // The VSCode extension doesn't support parameters
+  // When executing CQL with the VSCode extension retrieve the resource specific for the test case
+  //   the list of resource ids match the resources from the test case folders
+  singleton from ([FHIR.ServiceRequest] SR where SR.id in { 
+    'service-request-example'})
+
+define "Service Request":
+  Coalesce(
+    ServiceRequest,
+    "Retrieve Service Request test parameter"
+  )
+
 define "Date of Request":
-  ServiceRequest.authoredOn.value
+  "Service Request".authoredOn.value
 
 //https://www.hca.wa.gov/assets/billers-and-providers/13-760.pdf
 
@@ -28,7 +41,7 @@ define "Diagnosis":
   First("SR Related Condition".code).text.value
 
 define "Item Requested":
-  ServiceRequest.code.coding.display.value
+  "Service Request".code.coding.display.value
 
 define "UTI in Last Year":
   Exists("UTI Diagnostic Reports Last Year")
@@ -80,7 +93,7 @@ define "Date":
 
 define "SR Related Condition":
   [FHIR.Condition] C
-  where EndsWith(First(ServiceRequest.reasonReference.reference.value), C.id)
+  where EndsWith(First("Service Request".reasonReference.reference.value), C.id)
 
 define "UTI Diagnostic Reports Last Year":
   [FHIR.DiagnosticReport] C
@@ -90,7 +103,7 @@ define "UTI Diagnostic Reports Last Year":
 define "Requesting Physician":
   singleton from (
     [USCore.PractitionerProfile] P
-  where EndsWith(ServiceRequest.requester.reference, P.id))
+  where EndsWith("Service Request".requester.reference, P.id))
 
 define function Fax(contactPoints List<USCore.ContactPoint>):
   singleton from (contactPoints P where P.system = 'fax')
