@@ -1,7 +1,7 @@
 library USCoreCommonTests
 
-using USCore version '3.1.1'
 using FHIR version '4.0.1'
+using USCore version '7.0.0'
 
 include USCoreCommon called UC
 
