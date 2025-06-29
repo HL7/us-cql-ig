@@ -6,9 +6,19 @@
             "valueString": "Elizabeth"
         },
         {
+            "name": "Allergies",
+            "_valueString": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
             "name": "Height",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 69.2,
                 "unit": "in_i"
             }
@@ -18,68 +28,94 @@
             "valueDecimal": 69.2
         },
         {
-            "name": "Weight",
+            "name": "Height in cm",
+            "valueQuantity": {
+                "value": 176.0,
+                "unit": "cm"
+            }
+        },
+        {
+            "name": "Weight Most Recent",
             "resource": {
-                "resourceType": "Quantity",
+                "resourceType": "Reference",
+                "id": "Observation/example-weight"
+            }
+        },
+        {
+            "name": "Weight",
+            "valueQuantity": {
                 "value": 176.81073427227182,
                 "unit": "lb_av"
             }
         },
         {
             "name": "Weight in [lb_av]",
-            "valueDecimal": 176.81
+            "valueDecimal": 176.81073427227182
+        },
+        {
+            "name": "Weight in kg",
+            "valueQuantity": {
+                "value": 80.2,
+                "unit": "kg"
+            }
+        },
+        {
+            "name": "BMI",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Most Recent BSA",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
         },
         {
             "name": "BSA",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 1.97681408,
                 "unit": "m2"
             }
         },
         {
             "name": "BSA in m2",
-            "valueDecimal": 1.98
+            "valueDecimal": 1.97681408
         },
         {
             "name": "Calculated BSA - Mosteller",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 1.97681408,
                 "unit": "m2"
             }
         },
         {
-            "name": "Height in cm",
-            "resource": {
-                "resourceType": "Quantity",
-                "value": 176.0,
-                "unit": "cm"
-            }
-        },
-        {
-            "name": "Weight in kg",
-            "resource": {
-                "resourceType": "Quantity",
-                "value": 80.20,
-                "unit": "kg"
-            }
-        },
-        {
             "name": "Calculated BSA - DuBois and DuBois",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 1.96624262,
                 "unit": "m2"
             }
         },
         {
             "name": "Diagnosis Codes",
-            "resource": {
-                "resourceType": "Coding",
-                "code": "O24.414",
-                "system": "http://hl7.org/fhir/sid/icd-10-cm",
-                "display": "Gestational diabetes mellitus in pregnancy, insulin controlled"
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "code": "O24.414",
+                        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                        "display": "Gestational diabetes mellitus in pregnancy, insulin controlled"
+                    }
+                ]
             }
         },
         {
@@ -88,7 +124,168 @@
         },
         {
             "name": "Diagnosis Descriptions",
-            "valueString": "insulin controlled"
+            "valueString": " insulin controlled"
+        },
+        {
+            "name": "Medication Requested",
+            "resource": {
+                "resourceType": "Reference",
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Name",
+            "_valueString": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Code of Requested Drug",
+            "valueCodeableConcept": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Retrieve Medication Request test parameter",
+            "resource": {
+                "resourceType": "Reference",
+                "id": "MedicationRequest/uscore-patient-2-med-request-example"
+            }
+        },
+        {
+            "name": "Most Recent Medication Request",
+            "resource": {
+                "resourceType": "Reference",
+                "id": "MedicationRequest/uscore-patient-2-med-request-example"
+            }
+        },
+        {
+            "name": "Medication Request References",
+            "_valueString": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Most Recent Medication Request dosageInstruction",
+            "resource": {
+                "resourceType": "Reference",
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Most Recent Medication Request dosageInstruction.doseAndRate",
+            "resource": {
+                "resourceType": "Reference",
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Dose",
+            "valueRange": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Route",
+            "valueCodeableConcept": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Frequency value",
+            "_valueInteger": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Frequency Period",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Frequency",
+            "_valueString": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Quantity or Number of requested Visits",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Prior Prescription",
+            "resource": {
+                "resourceType": "Reference",
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
         },
         {
             "name": "New therapy",
@@ -96,10 +293,53 @@
         },
         {
             "name": "New therapy code",
-            "resource": {
-                "resourceType": "Coding",
+            "valueCoding": {
                 "code": "NewMedication",
                 "display": "New Medication"
+            }
+        },
+        {
+            "name": "Initial date of therapy",
+            "_valueDateTime": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Request Period",
+            "valuePeriod": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Expected Therapy Length",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Anticipated/actual date of service",
+            "_valueDate": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
             }
         }
     ]

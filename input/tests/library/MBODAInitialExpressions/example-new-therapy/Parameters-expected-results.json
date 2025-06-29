@@ -11,8 +11,7 @@
         },
         {
             "name": "Height",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 43.9,
                 "unit": "in_i"
             }
@@ -22,9 +21,22 @@
             "valueDecimal": 43.9
         },
         {
-            "name": "Weight",
+            "name": "Height in cm",
+            "valueQuantity": {
+                "value": 112.0,
+                "unit": "cm"
+            }
+        },
+        {
+            "name": "Weight Most Recent",
             "resource": {
-                "resourceType": "Quantity",
+                "resourceType": "Reference",
+                "id": "Observation/weight-continued-therapy"
+            }
+        },
+        {
+            "name": "Weight",
+            "valueQuantity": {
                 "value": 44.3,
                 "unit": "lb_av"
             }
@@ -34,56 +46,69 @@
             "valueDecimal": 44.3
         },
         {
+            "name": "Weight in kg",
+            "valueQuantity": {
+                "value": 20.09414,
+                "unit": "kg"
+            }
+        },
+        {
+            "name": "BMI",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Most Recent BSA",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
             "name": "BSA",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 0.78812043,
                 "unit": "m2"
             }
         },
         {
             "name": "BSA in m2",
-            "valueDecimal": 0.79
+            "valueDecimal": 0.78812043
         },
         {
             "name": "Calculated BSA - Mosteller",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 0.78812043,
                 "unit": "m2"
             }
         },
         {
-            "name": "Height in cm",
-            "resource": {
-                "resourceType": "Quantity",
-                "value": 112.0,
-                "unit": "cm"
-            }
-        },
-        {
-            "name": "Weight in kg",
-            "resource": {
-                "resourceType": "Quantity",
-                "value": 20.09414,
-                "unit": "kg"
-            }
-        },
-        {
             "name": "Calculated BSA - DuBois and DuBois",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 0.78678104,
                 "unit": "m2"
             }
         },
         {
             "name": "Diagnosis Codes",
-            "resource": {
-                "resourceType": "Coding",
-                "code": "39065001",
-                "system": "http://snomed.info/sct",
-                "display": "Burn of ear"
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "code": "39065001",
+                        "system": "http://snomed.info/sct",
+                        "display": "Burn of ear"
+                    }
+                ]
             }
         },
         {
@@ -91,13 +116,107 @@
             "valueString": "Burn of ear"
         },
         {
+            "name": "Medication Requested",
+            "resource": {
+                "resourceType": "Reference",
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Name",
+            "_valueString": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Code of Requested Drug",
+            "valueCodeableConcept": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Retrieve Medication Request test parameter",
+            "resource": {
+                "resourceType": "Reference",
+                "id": "MedicationRequest/example-new-therapy"
+            }
+        },
+        {
+            "name": "Most Recent Medication Request",
+            "resource": {
+                "resourceType": "Reference",
+                "id": "MedicationRequest/example-new-therapy"
+            }
+        },
+        {
+            "name": "Medication Request References",
+            "valueString": "Medication/example-new-therapy"
+        },
+        {
+            "name": "Most Recent Medication Request dosageInstruction",
+            "resource": {
+                "resourceType": "Reference",
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Most Recent Medication Request dosageInstruction.doseAndRate",
+            "resource": {
+                "resourceType": "Reference",
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Dose",
+            "valueQuantity": {
+                "value": 5.0,
+                "unit": "ml"
+            }
+        },
+        {
+            "name": "Medication Route",
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "code": "394899003",
+                        "system": "http://snomed.info/sct",
+                        "display": "oral administration of treatment"
+                    }
+                ]
+            }
+        },
+        {
             "name": "Medication Frequency value",
             "valueInteger": 3
         },
         {
             "name": "Medication Frequency Period",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 1.0,
                 "unit": "d"
             }
@@ -108,10 +227,21 @@
         },
         {
             "name": "Quantity or Number of requested Visits",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 100.0,
-                "unit": "mL"
+                "unit": "ml"
+            }
+        },
+        {
+            "name": "Prior Prescription",
+            "resource": {
+                "resourceType": "Reference",
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
             }
         },
         {
@@ -120,30 +250,39 @@
         },
         {
             "name": "New therapy code",
-            "resource": {
-                "resourceType": "Coding",
+            "valueCoding": {
                 "code": "NewMedication",
                 "display": "New Medication"
             }
         },
         {
+            "name": "Initial date of therapy",
+            "_valueDateTime": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
             "name": "Medication Request Period",
-            "value": "Interval[2015-03-25, 2015-03-30]",
-            "result_type": "date"
+            "valuePeriod": {
+                "start": "2015-03-25",
+                "end": "2015-03-30"
+            }
         },
         {
             "name": "Expected Therapy Length",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 5.0,
                 "unit": "d"
             }
         },
         {
             "name": "Anticipated/actual date of service",
-            "value": "2015-03-25",
-            "result_type": "date"
+            "valueDate": "2015-03-25"
         }
-
     ]
 }
