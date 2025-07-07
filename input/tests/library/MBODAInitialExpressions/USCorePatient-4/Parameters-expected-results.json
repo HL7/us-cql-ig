@@ -7,11 +7,17 @@
         },
         {
             "name": "Allergies",
-            "_valueString": {
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.String>"
+                }
+            ],
+            "_valueBoolean": {
                 "extension": [
                     {
-                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                        "valueCode": "unknown"
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
                     }
                 ]
             }
@@ -37,8 +43,44 @@
         {
             "name": "Weight Most Recent",
             "resource": {
-                "resourceType": "Reference",
-                "id": "Observation/example-weight"
+                "resourceType": "Observation",
+                "id": "example-weight",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/StructureDefinition/bodyweight"
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "vital-signs",
+                                "display": "Vital Signs"
+                            }
+                        ]
+                    }
+                ],
+                "valueQuantity": {
+                    "value": 180.4,
+                    "code": "[lb_av]",
+                    "system": "http://unitsofmeasure.org",
+                    "unit": "[lb_av]"
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "code": "29463-7",
+                            "system": "http://loinc.org",
+                            "display": "Body Weight"
+                        }
+                    ]
+                },
+                "status": "final",
+                "subject": {
+                    "reference": "Patient/USCorePatient-4"
+                },
+                "effectiveDateTime": "2023-02-28T00:00:00-00:00"
             }
         },
         {
@@ -61,11 +103,17 @@
         },
         {
             "name": "BMI",
-            "valueQuantity": {
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.Quantity>"
+                }
+            ],
+            "_valueBoolean": {
                 "extension": [
                     {
-                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                        "valueCode": "unknown"
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
                     }
                 ]
             }
@@ -124,34 +172,51 @@
         },
         {
             "name": "Medication Requested",
-            "resource": {
-                "resourceType": "Reference",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.Medication>"
+                }
+            ],
+            "_valueBoolean": {
                 "extension": [
                     {
-                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                        "valueCode": "unknown"
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
                     }
                 ]
             }
         },
         {
             "name": "Medication Name",
-            "_valueString": {
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.String>"
+                }
+            ],
+            "_valueBoolean": {
                 "extension": [
                     {
-                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                        "valueCode": "unknown"
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
                     }
                 ]
             }
         },
         {
             "name": "Code of Requested Drug",
-            "valueCodeableConcept": {
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.Concept>"
+                }
+            ],
+            "_valueBoolean": {
                 "extension": [
                     {
-                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                        "valueCode": "unknown"
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
                     }
                 ]
             }
@@ -159,15 +224,73 @@
         {
             "name": "Retrieve Medication Request test parameter",
             "resource": {
-                "resourceType": "Reference",
-                "id": "MedicationRequest/uscore-patient-4-med-request-example"
+                "resourceType": "MedicationRequest",
+                "id": "uscore-patient-4-med-request-example",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+                    ]
+                },
+                "status": "active",
+                "intent": "order",
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1806006",
+                            "display": "rotigotine Transdermal System [Neupro]"
+                        }
+                    ],
+                    "text": "rotigotine Transdermal System [Neupro]"
+                },
+                "subject": {
+                    "reference": "Patient/USCorePatient-4"
+                },
+                "authoredOn": "2016-03-25T19:32:52-05:00",
+                "requester": {
+                    "reference": "Practitioner/order-provider-USCorePatient-4"
+                },
+                "dosageInstruction": [
+                    {
+                        "text": "qhs"
+                    }
+                ]
             }
         },
         {
             "name": "Most Recent Medication Request",
             "resource": {
-                "resourceType": "Reference",
-                "id": "MedicationRequest/uscore-patient-4-med-request-example"
+                "resourceType": "MedicationRequest",
+                "id": "uscore-patient-4-med-request-example",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+                    ]
+                },
+                "status": "active",
+                "intent": "order",
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1806006",
+                            "display": "rotigotine Transdermal System [Neupro]"
+                        }
+                    ],
+                    "text": "rotigotine Transdermal System [Neupro]"
+                },
+                "subject": {
+                    "reference": "Patient/USCorePatient-4"
+                },
+                "authoredOn": "2016-03-25T19:32:52-05:00",
+                "requester": {
+                    "reference": "Practitioner/order-provider-USCorePatient-4"
+                },
+                "dosageInstruction": [
+                    {
+                        "text": "qhs"
+                    }
+                ]
             }
         },
         {
@@ -183,8 +306,13 @@
         },
         {
             "name": "Most Recent Medication Request dosageInstruction",
-            "resource": {
-                "resourceType": "Reference",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "FHIR.Dosage"
+                }
+            ],
+            "_valueBoolean": {
                 "extension": [
                     {
                         "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
@@ -195,8 +323,13 @@
         },
         {
             "name": "Most Recent Medication Request dosageInstruction.doseAndRate",
-            "resource": {
-                "resourceType": "Reference",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "FHIR.Dosage.DoseAndRate"
+                }
+            ],
+            "_valueBoolean": {
                 "extension": [
                     {
                         "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
@@ -273,8 +406,13 @@
         },
         {
             "name": "Prior Prescription",
-            "resource": {
-                "resourceType": "Reference",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "FHIR.MedicationRequest"
+                }
+            ],
+            "_valueBoolean": {
                 "extension": [
                     {
                         "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
@@ -296,11 +434,17 @@
         },
         {
             "name": "Initial date of therapy",
-            "_valueDateTime": {
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.DateTime>"
+                }
+            ],
+            "_valueBoolean": {
                 "extension": [
                     {
-                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                        "valueCode": "unknown"
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
                     }
                 ]
             }
