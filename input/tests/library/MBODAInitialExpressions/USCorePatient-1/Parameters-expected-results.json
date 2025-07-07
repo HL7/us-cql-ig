@@ -11,8 +11,7 @@
         },
         {
             "name": "Height",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 69.1,
                 "unit": "in_i"
             }
@@ -22,68 +21,136 @@
             "valueDecimal": 69.1
         },
         {
-            "name": "Weight",
+            "name": "Height in cm",
+            "valueQuantity": {
+                "value": 176.0,
+                "unit": "cm"
+            }
+        },
+        {
+            "name": "Weight Most Recent",
             "resource": {
-                "resourceType": "Quantity",
+                "resourceType": "Observation",
+                "id": "example-weight",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/StructureDefinition/bodyweight"
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "vital-signs",
+                                "display": "Vital Signs"
+                            }
+                        ]
+                    }
+                ],
+                "valueQuantity": {
+                    "value": 80,
+                    "code": "kg",
+                    "system": "http://unitsofmeasure.org",
+                    "unit": "kg"
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "code": "29463-7",
+                            "system": "http://loinc.org",
+                            "display": "Body Weight"
+                        }
+                    ]
+                },
+                "status": "final",
+                "subject": {
+                    "reference": "Patient/USCorePatient-1"
+                },
+                "effectiveDateTime": "2023-02-23T00:00:00-00:00"
+            }
+        },
+        {
+            "name": "Weight",
+            "valueQuantity": {
                 "value": 176.36980974790205,
                 "unit": "lb_av"
             }
         },
         {
             "name": "Weight in [lb_av]",
-            "valueDecimal": 176.37
+            "valueDecimal": 176.36980974790205
+        },
+        {
+            "name": "Weight in kg",
+            "valueQuantity": {
+                "value": 80.0,
+                "unit": "kg"
+            }
+        },
+        {
+            "name": "BMI",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.Quantity>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Most Recent BSA",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
         },
         {
             "name": "BSA",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 1.97292062,
                 "unit": "m2"
             }
         },
         {
             "name": "BSA in m2",
-            "valueDecimal": 1.97
+            "valueDecimal": 1.97292062
         },
         {
             "name": "Calculated BSA - Mosteller",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 1.97292062,
                 "unit": "m2"
             }
         },
         {
-            "name": "Height in cm",
-            "resource": {
-                "resourceType": "Quantity",
-                "value": 176.0,
-                "unit": "cm"
-            }
-        },
-        {
-            "name": "Weight in kg",
-            "resource": {
-                "resourceType": "Quantity",
-                "value": 80.0,
-                "unit": "kg"
-            }
-        },
-        {
             "name": "Calculated BSA - DuBois and DuBois",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 1.9641572,
                 "unit": "m2"
             }
         },
         {
             "name": "Diagnosis Codes",
-            "resource": {
-                "resourceType": "Coding",
-                "code": "I10",
-                "system": "http://hl7.org/fhir/sid/icd-10-cm",
-                "display": "Essential (primary) hypertension"
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "code": "I10",
+                        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                        "display": "Essential (primary) hypertension"
+                    }
+                ]
             }
         },
         {
@@ -91,15 +158,315 @@
             "valueString": "Essential (primary) hypertension"
         },
         {
+            "name": "Medication Requested",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.Medication>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Name",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.String>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Code of Requested Drug",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.Concept>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Retrieve Medication Request test parameter",
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "id": "uscore-patient-1-med-request-example",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+                    ]
+                },
+                "status": "active",
+                "intent": "order",
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "582620",
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "display": "Nizatidine 15 MG/ML Oral Solution [Axid]"
+                        }
+                    ],
+                    "text": "Nizatidine 15 MG/ML Oral Solution [Axid]"
+                },
+                "subject": {
+                    "reference": "Patient/USCorePatient-1"
+                },
+                "authoredOn": "2015-03-25T19:32:52-05:00",
+                "requester": {
+                    "reference": "Practitioner/order-provider-USCorePatient-1"
+                },
+                "dosageInstruction": [
+                    {
+                        "text": "bid"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Most Recent Medication Request",
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "id": "uscore-patient-1-med-request-example",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+                    ]
+                },
+                "status": "active",
+                "intent": "order",
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "code": "582620",
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "display": "Nizatidine 15 MG/ML Oral Solution [Axid]"
+                        }
+                    ],
+                    "text": "Nizatidine 15 MG/ML Oral Solution [Axid]"
+                },
+                "subject": {
+                    "reference": "Patient/USCorePatient-1"
+                },
+                "authoredOn": "2015-03-25T19:32:52-05:00",
+                "requester": {
+                    "reference": "Practitioner/order-provider-USCorePatient-1"
+                },
+                "dosageInstruction": [
+                    {
+                        "text": "bid"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Request References",
+            "_valueString": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Most Recent Medication Request dosageInstruction",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "FHIR.Dosage"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Most Recent Medication Request dosageInstruction.doseAndRate",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "FHIR.Dosage.DoseAndRate"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Dose",
+            "valueRange": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Route",
+            "valueCodeableConcept": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Frequency value",
+            "_valueInteger": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Frequency Period",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Frequency",
+            "_valueString": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Quantity or Number of requested Visits",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Prior Prescription",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "FHIR.MedicationRequest"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
             "name": "New therapy",
             "valueBoolean": true
         },
         {
             "name": "New therapy code",
-            "resource": {
-                "resourceType": "Coding",
+            "valueCoding": {
                 "code": "NewMedication",
                 "display": "New Medication"
+            }
+        },
+        {
+            "name": "Initial date of therapy",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.DateTime>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Request Period",
+            "valuePeriod": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Expected Therapy Length",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Anticipated/actual date of service",
+            "_valueDate": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
             }
         }
     ]

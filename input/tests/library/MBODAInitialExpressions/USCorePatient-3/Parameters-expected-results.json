@@ -6,9 +6,25 @@
             "valueString": "Chalmers"
         },
         {
+            "name": "Allergies",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.String>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
             "name": "Height",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 69.3,
                 "unit": "in_i"
             }
@@ -18,9 +34,58 @@
             "valueDecimal": 69.3
         },
         {
-            "name": "Weight",
+            "name": "Height in cm",
+            "valueQuantity": {
+                "value": 176.0,
+                "unit": "cm"
+            }
+        },
+        {
+            "name": "Weight Most Recent",
             "resource": {
-                "resourceType": "Quantity",
+                "resourceType": "Observation",
+                "id": "example-weight",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/StructureDefinition/bodyweight"
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                                "code": "vital-signs",
+                                "display": "Vital Signs"
+                            }
+                        ]
+                    }
+                ],
+                "valueQuantity": {
+                    "value": 180.3,
+                    "code": "[lb_av]",
+                    "system": "http://unitsofmeasure.org",
+                    "unit": "[lb_av]"
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "code": "29463-7",
+                            "system": "http://loinc.org",
+                            "display": "Body Weight"
+                        }
+                    ]
+                },
+                "status": "final",
+                "subject": {
+                    "reference": "Patient/USCorePatient-3"
+                },
+                "effectiveDateTime": "2023-02-28T00:00:00-00:00"
+            }
+        },
+        {
+            "name": "Weight",
+            "valueQuantity": {
                 "value": 180.3,
                 "unit": "lb_av"
             }
@@ -30,9 +95,43 @@
             "valueDecimal": 180.3
         },
         {
+            "name": "Weight in kg",
+            "valueQuantity": {
+                "value": 81.78,
+                "unit": "kg"
+            }
+        },
+        {
+            "name": "BMI",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.Quantity>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Most Recent BSA",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
             "name": "BSA",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 1.99766631,
                 "unit": "m2"
             }
@@ -43,43 +142,28 @@
         },
         {
             "name": "Calculated BSA - Mosteller",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 1.99766631,
                 "unit": "m2"
             }
         },
         {
-            "name": "Height in cm",
-            "resource": {
-                "resourceType": "Quantity",
-                "value": 176.0,
-                "unit": "cm"
-            }
-        },
-        {
-            "name": "Weight in kg",
-            "resource": {
-                "resourceType": "Quantity",
-                "value": 81.78,
-                "unit": "kg"
-            }
-        },
-        {
             "name": "Calculated BSA - DuBois and DuBois",
-            "resource": {
-                "resourceType": "Quantity",
+            "valueQuantity": {
                 "value": 1.98261332,
                 "unit": "m2"
             }
         },
         {
             "name": "Diagnosis Codes",
-            "resource": {
-                "resourceType": "Coding",
-                "code": "E11.618",
-                "system": "http://hl7.org/fhir/sid/icd-10-cm",
-                "display": "Type 2 diabetes mellitus with other diabetic arthropathy"
+            "valueCodeableConcept": {
+                "coding": [
+                    {
+                        "code": "E11.618",
+                        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                        "display": "Type 2 diabetes mellitus with other diabetic arthropathy"
+                    }
+                ]
             }
         },
         {
@@ -87,15 +171,315 @@
             "valueString": "Type 2 diabetes mellitus with other diabetic arthropathy"
         },
         {
+            "name": "Medication Requested",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.Medication>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Name",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.String>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Code of Requested Drug",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.Concept>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Retrieve Medication Request test parameter",
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "id": "uscore-patient-3-med-request-example",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+                    ]
+                },
+                "status": "active",
+                "intent": "order",
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "647241",
+                            "display": "metformin Extended Release Oral Tablet [Glumetza]"
+                        }
+                    ],
+                    "text": "metformin Extended Release Oral Tablet [Glumetza]"
+                },
+                "subject": {
+                    "reference": "Patient/USCorePatient-3"
+                },
+                "authoredOn": "2016-03-25T19:32:52-05:00",
+                "requester": {
+                    "reference": "Practitioner/order-provider-USCorePatient-3"
+                },
+                "dosageInstruction": [
+                    {
+                        "text": "qhs"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Most Recent Medication Request",
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "id": "uscore-patient-3-med-request-example",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+                    ]
+                },
+                "status": "active",
+                "intent": "order",
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "647241",
+                            "display": "metformin Extended Release Oral Tablet [Glumetza]"
+                        }
+                    ],
+                    "text": "metformin Extended Release Oral Tablet [Glumetza]"
+                },
+                "subject": {
+                    "reference": "Patient/USCorePatient-3"
+                },
+                "authoredOn": "2016-03-25T19:32:52-05:00",
+                "requester": {
+                    "reference": "Practitioner/order-provider-USCorePatient-3"
+                },
+                "dosageInstruction": [
+                    {
+                        "text": "qhs"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Request References",
+            "_valueString": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Most Recent Medication Request dosageInstruction",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "FHIR.Dosage"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Most Recent Medication Request dosageInstruction.doseAndRate",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "FHIR.Dosage.DoseAndRate"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Dose",
+            "valueRange": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Route",
+            "valueCodeableConcept": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Frequency value",
+            "_valueInteger": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Frequency Period",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Frequency",
+            "_valueString": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Quantity or Number of requested Visits",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Prior Prescription",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "FHIR.MedicationRequest"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
             "name": "New therapy",
             "valueBoolean": true
         },
         {
             "name": "New therapy code",
-            "resource": {
-                "resourceType": "Coding",
+            "valueCoding": {
                 "code": "NewMedication",
                 "display": "New Medication"
+            }
+        },
+        {
+            "name": "Initial date of therapy",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.DateTime>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Medication Request Period",
+            "valuePeriod": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Expected Therapy Length",
+            "valueQuantity": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Anticipated/actual date of service",
+            "_valueDate": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
             }
         }
     ]
