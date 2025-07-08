@@ -37,6 +37,13 @@ define "Patient history":
       abatement: ToString(if prevalence.hasEnd() then end of prevalence else null)
     }
 
+/*
+@linkId: history|patient-history
+*/
+define "Patient history including age at diagnosis":
+  "Patient history" H
+    return H.diagnosis & (', ' + H.ageAtOnset + ' yrs') & (', abated ' + H.abatement)
+
 define "Billing Provider Name":
   "Billing Provider".name
 
