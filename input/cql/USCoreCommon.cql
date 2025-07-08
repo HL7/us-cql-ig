@@ -9,14 +9,11 @@ library USCoreCommon
 using FHIR version '4.0.1'
 using USCore version '7.0.0'
 
-include FHIRHelpers version '2.0.0-ballot'
-include FHIRCommon version '2.0.0-ballot'
-//include fhir.uv.cql.FHIRHelpers version '2.0.0-ballot'
-//include fhir.uv.cql.FHIRCommon version '2.0.0-ballot'
+include hl7.fhir.uv.cql.FHIRHelpers version '4.0.1'
+include hl7.fhir.uv.cql.FHIRCommon version '2.0.0'
 
 codesystem "CVX": 'http://hl7.org/fhir/sid/cvx'
 codesystem "ActCode": 'http://terminology.hl7.org/CodeSystem/v3-ActCode'
-codesystem "ObservationStatusCodes": 'http://hl7.org/fhir/observation-status'
 codesystem "USCoreConditionCategory": 'http://hl7.org/fhir/us/core/CodeSystem/condition-category'
 codesystem "CDC Race and Ethnicity Codes": 'urn:oid:2.16.840.1.113883.6.238'
 codesystem "CommunicationCategoryCodeSystem": 'http://terminology.hl7.org/CodeSystem/communication-category'
@@ -40,22 +37,6 @@ code "virtual": 'VR' from ActCode display 'VR'
 // Condition Category Codes
 code "health-concern": 'health-concern' from "USCoreConditionCategory" display 'Health Concern'
 
-// MedicationRequest Category Codes
-code "Inpatient": 'inpatient' from "MedicationRequestCategory" display 'Inpatient'
-code "Outpatient": 'outpatient' from "MedicationRequestCategory" display 'Outpatient'
-code "Community": 'community' from "MedicationRequestCategory" display 'Community'
-code "Discharge": 'discharge' from "MedicationRequestCategory" display 'Discharge'
-
-// Observation Status Codes
-code "observation-registered": 'registered' from "ObservationStatusCodes" display 'Registered'
-code "observation-preliminary": 'preliminary' from "ObservationStatusCodes" display 'Preliminary'
-code "observation-final": 'final' from "ObservationStatusCodes" display 'Final'
-code "observation-amended": 'amended' from "ObservationStatusCodes" display 'Amended'
-code "observation-corrected": 'corrected' from "ObservationStatusCodes" display 'Corrected'
-code "observation-cancelled": 'cancelled' from "ObservationStatusCodes" display 'Cancelled'
-code "observation-entered-in-error": 'entered-in-error' from "ObservationStatusCodes" display 'Entered in Error'
-code "observation-unknown": 'unknown' from "ObservationStatusCodes" display 'Unknown'
-
 code "Systolic Blood Pressure": '8480-6' from FHIRCommon.LOINC
 code "Diastolic Blood Pressure": '8462-4' from FHIRCommon.LOINC
 code "BMI": '39156-5' from FHIRCommon.LOINC
@@ -63,30 +44,30 @@ code "BMI": '39156-5' from FHIRCommon.LOINC
 context Patient
 
 define fluent function race(patient Patient):
-  (patient.extension('http://hl7.org/fhir/us/core/StructureDefinition/us-core-race')) E
+  (patient.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-race')) E
     return {
-      ombCategory: (E.extensions('ombCategory')) ombCategory return ombCategory.value as FHIR.Coding,
-      detailed: (E.extensions('detailed')) detailed return detailed.value as FHIR.Coding,
-      text: E.extension('text').value as FHIR.string
+      ombCategory: (E.exts('ombCategory')) o return o.value as FHIR.Coding,
+      detailed: (E.exts('detailed')) d return d.value as FHIR.Coding,
+      text: E.ext('text').value as FHIR.string
     }
 
 define fluent function ethnicity(patient Patient):
-  (patient.extension('http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity')) E
+  (patient.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity')) E
     return {
-      ombCategory: E.extension('ombCategory').value as FHIR.Coding,
-      detailed: (E.extensions('detailed')) detailed return detailed.value as FHIR.Coding,
-      text: E.extension('text').value as FHIR.string
+      ombCategory: E.ext('ombCategory').value as FHIR.Coding,
+      detailed: (E.exts('detailed')) d return d.value as FHIR.Coding,
+      text: E.ext('text').value as FHIR.string
     }
 
 define fluent function tribalAffiliation(patient Patient):
-  (patient.extension('http://hl7.org/fhir/us/core/StructureDefinition/us-core-tribal-affiliation')) E
+  (patient.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-tribal-affiliation')) E
     return {
-      tribalAffiliation: E.extension('tribalAffiliation').value as CodeableConcept,
-      isEnrolled: E.extension('isEnrolled').value as boolean
+      tribalAffiliation: E.ext('tribalAffiliation').value as CodeableConcept,
+      isEnrolled: E.ext('isEnrolled').value as boolean
     }
 
 define fluent function birthSex(patient Patient):
-  patient.extension('http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex').value as FHIR.code
+  patient.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex').value as FHIR.code
 
 define fluent function systolic(bloodPressureProfile BloodPressureProfile):
   singleton from (
@@ -98,5 +79,14 @@ define fluent function diastolic(bloodPressureProfile BloodPressureProfile):
   singleton from (
     bloodPressureProfile.component C
       where C.code ~ "Diastolic Blood Pressure"
+  )
+
+/*
+@description: Returns true if the given condition is a health concern
+*/
+define fluent function isHealthConcern(condition FHIR.Condition):
+  exists (
+    condition.category C
+      where C ~ "health-concern"
   )
 

@@ -40,7 +40,7 @@
   <dependsOn id="cql">
     <uri value="http://hl7.org/fhir/uv/cql/ImplementationGuide/hl7.fhir.uv.cql"/>
     <packageId value="hl7.fhir.uv.cql"/>
-    <version value="2.0.0-ballot"/>
+    <version value="dev"/>
   </dependsOn>
   <dependsOn id="crmi">
     <uri value="http://hl7.org/fhir/uv/crmi/ImplementationGuide/hl7.fhir.uv.crmi"/>
@@ -255,6 +255,10 @@
     <parameter>
       <code value="apply-publisher"/>
       <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply-version"/>
+      <value value="false"/>
     </parameter>
     <parameter>
       <code value="default-version"/>

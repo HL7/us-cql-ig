@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<modelInfo name="USCore" version="7.0.0" url="http://hl7.org/fhir/us/core" targetUrl="http://hl7.org/fhir" targetQualifier="uscore" patientClassName="PatientProfile" patientBirthDatePropertyName="birthDate" xmlns="urn:hl7-org:elm-modelinfo:r1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<modelInfo name="USCore" version="8.0.0" url="http://hl7.org/fhir/us/core" targetUrl="http://hl7.org/fhir" targetQualifier="uscore" patientClassName="PatientProfile" patientBirthDatePropertyName="birthDate" xmlns="urn:hl7-org:elm-modelinfo:r1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <requiredModelInfo name="System" version="1.0.0"/>
     <requiredModelInfo name="FHIR" version="4.0.1"/>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="AllergyIntolerance" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance" label="AllergyIntolerance Profile" retrievable="true" primaryCodePath="code" baseType="FHIR.AllergyIntolerance">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ADIDocumentReferenceProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-adi-documentreference" label="US Core ADI DocumentReference Profile" target="DocumentReference" retrievable="true" baseType="FHIR.DocumentReference">
+        <element name="masterIdentifier" elementType="FHIR.Identifier"/>
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="status" elementType="FHIR.code"/>
+        <element name="docStatus" elementType="FHIR.ReferredDocumentStatus"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="category">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="subject" elementType="FHIR.Reference"/>
+        <element name="date" elementType="FHIR.instant"/>
+        <element name="author">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="authenticator" elementType="FHIR.Reference"/>
+        <element name="custodian" elementType="FHIR.Reference"/>
+        <element name="relatesTo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.DocumentReference.RelatesTo"/>
+        </element>
+        <element name="description" elementType="FHIR.string"/>
+        <element name="securityLabel">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="content">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.DocumentReference.Content"/>
+        </element>
+        <element name="context" elementType="USCore.DocumentReference.Context"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="AllergyIntolerance" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance" label="US Core AllergyIntolerance Profile" retrievable="true" primaryCodePath="code" baseType="FHIR.AllergyIntolerance">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -52,7 +82,8 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Annotation"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="BMIProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi" label="BMI Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="AuthenticationTimeExtension" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-authentication-time" label="US Core Authentication Time Extension" retrievable="false" baseType="FHIR.dateTime"/>
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="AverageBloodPressureProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-average-blood-pressure" label="US Core Average Blood Pressure Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -63,6 +94,60 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
         <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="category">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="code" elementType="FHIR.CodeableConcept"/>
+        <element name="subject" elementType="FHIR.Reference"/>
+        <element name="focus">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="encounter" elementType="FHIR.Reference"/>
+        <element name="effective">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="dateTime"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Period"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="issued" elementType="FHIR.instant"/>
+        <element name="performer">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="dataAbsentReason" elementType="FHIR.CodeableConcept"/>
+        <element name="interpretation">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="note">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Annotation"/>
+        </element>
+        <element name="bodySite" elementType="FHIR.CodeableConcept"/>
+        <element name="method" elementType="FHIR.CodeableConcept"/>
+        <element name="specimen" elementType="FHIR.Reference"/>
+        <element name="device" elementType="FHIR.Reference"/>
+        <element name="referenceRange">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.ReferenceRange"/>
+        </element>
+        <element name="hasMember">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="derivedFrom">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="component">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="BMIProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi" label="US Core BMI Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="basedOn">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="partOf">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="status" elementType="FHIR.Status"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -121,8 +206,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="BirthSexExtension" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex" label="Birth Sex Extension" retrievable="false" baseType="FHIR.code"/>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="BloodPressureProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure" label="Blood Pressure Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="BloodPressureProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure" label="US Core Blood Pressure Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -132,7 +216,7 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="status" elementType="FHIR.Status"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -191,7 +275,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="BodyHeightProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height" label="Body Height Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="BodyHeightProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height" label="US Core Body Height Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -201,7 +285,7 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="status" elementType="FHIR.Status"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -260,7 +344,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="BodyTemperatureProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-temperature" label="Body Temperature Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="BodyTemperatureProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-temperature" label="US Core Body Temperature Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -270,7 +354,7 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="status" elementType="FHIR.Status"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -329,7 +413,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="BodyWeightProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight" label="Body Weight Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="BodyWeightProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight" label="US Core Body Weight Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -339,7 +423,7 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="status" elementType="FHIR.Status"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -364,6 +448,77 @@
                 <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Quantity"/>
                 <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="CodeableConcept"/>
                 <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="string"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="boolean"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="integer"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Range"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Ratio"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="SampledData"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="time"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="dateTime"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Period"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="dataAbsentReason" elementType="FHIR.CodeableConcept"/>
+        <element name="interpretation">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="note">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Annotation"/>
+        </element>
+        <element name="bodySite" elementType="FHIR.CodeableConcept"/>
+        <element name="method" elementType="FHIR.CodeableConcept"/>
+        <element name="specimen" elementType="FHIR.Reference"/>
+        <element name="device" elementType="FHIR.Reference"/>
+        <element name="referenceRange">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.ReferenceRange"/>
+        </element>
+        <element name="hasMember">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="derivedFrom">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="component">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="CareExperiencePreferenceProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-care-experience-preference" label="US Core Care Experience Preference Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="basedOn">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="partOf">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="category">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="code" elementType="FHIR.CodeableConcept"/>
+        <element name="subject" elementType="FHIR.Reference"/>
+        <element name="focus">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="encounter" elementType="FHIR.Reference"/>
+        <element name="effective">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="dateTime"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Period"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Timing"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="instant"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="issued" elementType="FHIR.instant"/>
+        <element name="performer">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="value">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="string"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="CodeableConcept"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Quantity"/>
                 <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="boolean"/>
                 <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="integer"/>
                 <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Range"/>
@@ -453,7 +608,7 @@
         <element name="quantity" elementType="FHIR.SimpleQuantity"/>
         <element name="description" elementType="FHIR.string"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="CarePlanProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan" label="CarePlan Profile" target="CarePlan" retrievable="true" baseType="FHIR.CarePlan">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="CarePlanProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan" label="US Core CarePlan Profile" target="CarePlan" retrievable="true" baseType="FHIR.CarePlan">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -472,8 +627,8 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.CarePlanStatus"/>
-        <element name="intent" elementType="FHIR.CarePlanIntent"/>
+        <element name="status" elementType="FHIR.code"/>
+        <element name="intent" elementType="FHIR.code"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -506,11 +661,11 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Annotation"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="CareTeam" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam" label="CareTeam Profile" retrievable="true" primaryCodePath="category" baseType="FHIR.CareTeam">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="CareTeam" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam" label="US Core CareTeam Profile" retrievable="true" primaryCodePath="category" baseType="FHIR.CareTeam">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
-        <element name="status" elementType="FHIR.CareTeamStatus"/>
+        <element name="status" elementType="FHIR.code"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -560,7 +715,7 @@
         </element>
         <element name="type" elementType="FHIR.CodeableConcept"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ConditionEncounterDiagnosisProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-encounter-diagnosis" label="Condition Encounter Diagnosis Profile" target="Condition" retrievable="true" baseType="FHIR.Condition">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ConditionEncounterDiagnosisProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-encounter-diagnosis" label="US Core Condition Encounter Diagnosis Profile" target="Condition" retrievable="true" baseType="FHIR.Condition">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -607,7 +762,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Annotation"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ConditionProblemsHealthConcernsProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns" label="Condition Problems and Health Concerns Profile" target="Condition" retrievable="true" baseType="FHIR.Condition">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ConditionProblemsHealthConcernsProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns" label="US Core Condition Problems and Health Concerns Profile" target="Condition" retrievable="true" baseType="FHIR.Condition">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -679,7 +834,7 @@
         <element name="type" elementType="FHIR.CodeableConcept"/>
         <element name="period" elementType="FHIR.Period"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="CoverageProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-coverage" label="Coverage Profile" target="Coverage" retrievable="true" baseType="FHIR.Coverage">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="CoverageProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-coverage" label="US Core Coverage Profile" target="Coverage" retrievable="true" baseType="FHIR.Coverage">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -740,14 +895,14 @@
         <element name="comment" elementType="FHIR.string"/>
         <element name="link" elementType="FHIR.Reference"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="DiagnosticReportProfileLaboratoryReporting" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab" label="DiagnosticReport Profile for Laboratory Results Reporting" target="DiagnosticReport" retrievable="true" baseType="FHIR.DiagnosticReport">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="DiagnosticReportProfileLaboratoryReporting" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab" label="US Core DiagnosticReport Profile for Laboratory Results Reporting" target="DiagnosticReport" retrievable="true" baseType="FHIR.DiagnosticReport">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
         <element name="basedOn">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.DiagnosticReportStatus"/>
+        <element name="status" elementType="FHIR.code"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -787,14 +942,14 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Attachment"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="DiagnosticReportProfileNoteExchange" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note" label="DiagnosticReport Profile for Report and Note Exchange" target="DiagnosticReport" retrievable="true" baseType="FHIR.DiagnosticReport">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="DiagnosticReportProfileNoteExchange" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note" label="US Core DiagnosticReport Profile for Report and Note Exchange" target="DiagnosticReport" retrievable="true" baseType="FHIR.DiagnosticReport">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
         <element name="basedOn">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.DiagnosticReportStatus"/>
+        <element name="status" elementType="FHIR.code"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -855,12 +1010,12 @@
         <element name="code" elementType="FHIR.DocumentRelationshipType"/>
         <element name="target" elementType="FHIR.Reference"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="DocumentReferenceProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference" label="DocumentReference Profile" target="DocumentReference" retrievable="true" baseType="FHIR.DocumentReference">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="DocumentReferenceProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference" label="US Core DocumentReference Profile" target="DocumentReference" retrievable="true" baseType="FHIR.DocumentReference">
         <element name="masterIdentifier" elementType="FHIR.Identifier"/>
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
-        <element name="status" elementType="FHIR.DocumentReferenceStatus"/>
+        <element name="status" elementType="FHIR.code"/>
         <element name="docStatus" elementType="FHIR.ReferredDocumentStatus"/>
         <element name="type" elementType="FHIR.CodeableConcept"/>
         <element name="category">
@@ -928,7 +1083,7 @@
         <element name="status" elementType="FHIR.EncounterStatus"/>
         <element name="period" elementType="FHIR.Period"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="EncounterProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" label="Encounter Profile" target="Encounter" retrievable="true" baseType="FHIR.Encounter">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="EncounterProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" label="US Core Encounter Profile" target="Encounter" retrievable="true" baseType="FHIR.Encounter">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -979,10 +1134,9 @@
         <element name="serviceProvider" elementType="FHIR.Reference"/>
         <element name="partOf" elementType="FHIR.Reference"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="EthnicityExtension" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity" label="Ethnicity Extension" retrievable="false" baseType="FHIR.Extension">
-        <element name="url" elementType="FHIR.uri"/>
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="EthnicityExtension" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity" label="US Core Ethnicity Extension" retrievable="false" baseType="FHIR.Extension">
+        <element name="url" elementType="USCore.uri"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="GenderIdentityExtension" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity" label="Gender Identity Extension" retrievable="false" baseType="FHIR.CodeableConcept"/>
     <typeInfo xsi:type="ClassInfo" namespace="USCore" name="Goal.Target" retrievable="false" baseType="FHIR.Goal.Target">
         <element name="measure" elementType="FHIR.CodeableConcept"/>
         <element name="detail">
@@ -1003,11 +1157,11 @@
             </elementTypeSpecifier>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="GoalProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal" label="Goal Profile" target="Goal" retrievable="true" baseType="FHIR.Goal">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="GoalProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal" label="US Core Goal Profile" target="Goal" retrievable="true" baseType="FHIR.Goal">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
-        <element name="lifecycleStatus" elementType="FHIR.GoalLifecycleStatus"/>
+        <element name="lifecycleStatus" elementType="FHIR.code"/>
         <element name="achievementStatus" elementType="FHIR.CodeableConcept"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
@@ -1040,7 +1194,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="HeadCircumferenceProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-head-circumference" label="Head Circumference Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="HeadCircumferenceProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-head-circumference" label="US Core Head Circumference Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1050,7 +1204,7 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="status" elementType="FHIR.Status"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -1109,7 +1263,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="HeartRateProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate" label="Heart Rate Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="HeartRateProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate" label="US Core Heart Rate Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1119,7 +1273,7 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="status" elementType="FHIR.Status"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -1212,11 +1366,11 @@
         <element name="detail" elementType="FHIR.Reference"/>
         <element name="reported" elementType="FHIR.boolean"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ImmunizationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization" label="Immunization Profile" target="Immunization" retrievable="true" baseType="FHIR.Immunization">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ImmunizationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization" label="US Core Immunization Profile" target="Immunization" retrievable="true" baseType="FHIR.Immunization">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
-        <element name="status" elementType="FHIR.ImmunizationStatus"/>
+        <element name="status" elementType="FHIR.code"/>
         <element name="statusReason" elementType="FHIR.CodeableConcept"/>
         <element name="vaccineCode" elementType="FHIR.CodeableConcept"/>
         <element name="patient" elementType="FHIR.Reference"/>
@@ -1267,7 +1421,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Immunization.ProtocolApplied"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ImplantableDeviceProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device" label="Implantable Device Profile" target="Device" retrievable="true" baseType="FHIR.Device">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ImplantableDeviceProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device" label="US Core Implantable Device Profile" target="Device" retrievable="true" baseType="FHIR.Device">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1313,7 +1467,8 @@
         </element>
         <element name="parent" elementType="FHIR.Reference"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="LaboratoryResultObservationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab" label="Laboratory Result Observation Profile" target="Observation" retrievable="true" baseType="USCore.ObservationClinicalResultProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="InterpreterNeededExtension" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-interpreter-needed" label="US Core Interpreter Needed Extension" retrievable="false" baseType="FHIR.Coding"/>
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="LaboratoryResultObservationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab" label="US Core Laboratory Result Observation Profile" target="Observation" retrievable="true" baseType="USCore.ObservationClinicalResultProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1397,7 +1552,7 @@
         <element name="latitude" elementType="FHIR.decimal"/>
         <element name="altitude" elementType="FHIR.decimal"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="LocationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-location" label="Location Profile" target="Location" retrievable="true" baseType="FHIR.Location">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="LocationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-location" label="US Core Location Profile" target="Location" retrievable="true" baseType="FHIR.Location">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1442,8 +1597,8 @@
         <element name="isActive" elementType="FHIR.boolean"/>
         <element name="strength" elementType="FHIR.Ratio"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="MedicationAdherenceExtension" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication-adherence" label="Medication Adherence Extension" retrievable="false" baseType="FHIR.Extension">
-        <element name="url" elementType="FHIR.uri"/>
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="MedicationAdherenceExtension" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication-adherence" label="US Core Medication Adherence Extension" retrievable="false" baseType="FHIR.Extension">
+        <element name="url" elementType="USCore.uri"/>
     </typeInfo>
     <typeInfo xsi:type="ClassInfo" namespace="USCore" name="MedicationDispense.Performer" retrievable="false" baseType="FHIR.MedicationDispense.Performer">
         <element name="function" elementType="FHIR.CodeableConcept"/>
@@ -1459,7 +1614,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="MedicationDispenseProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense" label="MedicationDispense Profile" target="MedicationDispense" retrievable="true" baseType="FHIR.MedicationDispense">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="MedicationDispenseProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense" label="US Core MedicationDispense Profile" target="MedicationDispense" retrievable="true" baseType="FHIR.MedicationDispense">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1515,7 +1670,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="MedicationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication" label="Medication Profile" target="Medication" retrievable="true" baseType="FHIR.Medication">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="MedicationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication" label="US Core Medication Profile" target="Medication" retrievable="true" baseType="FHIR.Medication">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1551,13 +1706,13 @@
         </element>
         <element name="reason" elementType="FHIR.CodeableConcept"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="MedicationRequestProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest" label="MedicationRequest Profile" target="MedicationRequest" retrievable="true" baseType="FHIR.MedicationRequest">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="MedicationRequestProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest" label="US Core MedicationRequest Profile" target="MedicationRequest" retrievable="true" baseType="FHIR.MedicationRequest">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
-        <element name="status" elementType="FHIR.MedicationRequestStatus"/>
+        <element name="status" elementType="FHIR.code"/>
         <element name="statusReason" elementType="FHIR.CodeableConcept"/>
-        <element name="intent" elementType="FHIR.MedicationRequestIntent"/>
+        <element name="intent" elementType="FHIR.code"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -1643,7 +1798,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
         <element name="referenceRange">
-            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.ReferenceRange"/>
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="http://hl7.org/fhir/StructureDefinition/Observation#Observation.referenceRange"/>
         </element>
     </typeInfo>
     <typeInfo xsi:type="ClassInfo" namespace="USCore" name="Observation.Component.Concentration" retrievable="false" baseType="USCore.Observation.Component"/>
@@ -1661,7 +1816,64 @@
         <element name="age" elementType="FHIR.Range"/>
         <element name="text" elementType="FHIR.string"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ObservationClinicalResultProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result" label="Observation Clinical Result Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ObservationADIDocumentationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-adi-documentation" label="US Core Observation ADI Documentation Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="basedOn">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="partOf">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="category">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="code" elementType="FHIR.CodeableConcept"/>
+        <element name="subject" elementType="FHIR.Reference"/>
+        <element name="focus">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="encounter" elementType="FHIR.Reference"/>
+        <element name="effective">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="dateTime"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Period"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Timing"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="instant"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="issued" elementType="FHIR.instant"/>
+        <element name="performer">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="value" elementType="FHIR.CodeableConcept"/>
+        <element name="dataAbsentReason" elementType="FHIR.CodeableConcept"/>
+        <element name="interpretation">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="note">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Annotation"/>
+        </element>
+        <element name="bodySite" elementType="FHIR.CodeableConcept"/>
+        <element name="method" elementType="FHIR.CodeableConcept"/>
+        <element name="specimen" elementType="FHIR.Reference"/>
+        <element name="device" elementType="FHIR.Reference"/>
+        <element name="referenceRange">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.ReferenceRange"/>
+        </element>
+        <element name="hasMember">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="derivedFrom">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="component">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ObservationClinicalResultProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result" label="US Core Observation Clinical Result Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1732,7 +1944,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ObservationOccupationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-occupation" label="Observation Occupation Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ObservationOccupationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-occupation" label="US Core Observation Occupation Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1789,7 +2001,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ObservationPregnancyIntentProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancyintent" label="Observation Pregnancy Intent Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ObservationPregnancyIntentProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancyintent" label="US Core Observation Pregnancy Intent Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1839,7 +2051,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ObservationPregnancyStatusProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus" label="Observation Pregnancy Status Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ObservationPregnancyStatusProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus" label="US Core Observation Pregnancy Status Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1889,7 +2101,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ObservationScreeningAssessmentProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-screening-assessment" label="Observation Screening Assessment Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ObservationScreeningAssessmentProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-screening-assessment" label="US Core Observation Screening Assessment Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1960,7 +2172,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ObservationSexualOrientationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-sexual-orientation" label="Observation Sexual Orientation Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ObservationSexualOrientationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-sexual-orientation" label="US Core Observation Sexual Orientation Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1970,7 +2182,7 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="status" elementType="FHIR.code"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -2039,7 +2251,7 @@
         </element>
         <element name="address" elementType="FHIR.Address"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="OrganizationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization" label="Organization Profile" target="Organization" retrievable="true" baseType="FHIR.Organization">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="OrganizationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization" label="US Core Organization Profile" target="Organization" retrievable="true" baseType="FHIR.Organization">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2086,7 +2298,7 @@
         <element name="other" elementType="FHIR.Reference"/>
         <element name="type" elementType="FHIR.LinkType"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="PatientProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" label="Patient Profile" target="Patient" retrievable="true" baseType="FHIR.Patient">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="PatientProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" label="US Core Patient Profile" target="Patient" retrievable="true" baseType="FHIR.Patient">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2132,7 +2344,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Patient.Link"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="PediatricBMIforAgeObservationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age" label="Pediatric BMI for Age Observation Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="PediatricBMIforAgeObservationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age" label="US Core Pediatric BMI for Age Observation Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2142,7 +2354,7 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="status" elementType="FHIR.Status"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -2201,7 +2413,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="PediatricHeadOccipitalFrontalCircumferencePercentileProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/head-occipital-frontal-circumference-percentile" label="Pediatric Head Occipital Frontal Circumference Percentile Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="PediatricHeadOccipitalFrontalCircumferencePercentileProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/head-occipital-frontal-circumference-percentile" label="US Core Pediatric Head Occipital Frontal Circumference Percentile Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2211,7 +2423,7 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="status" elementType="FHIR.Status"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -2270,7 +2482,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="PediatricWeightForHeightObservationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height" label="Pediatric Weight for Height Observation Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="PediatricWeightForHeightObservationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height" label="US Core Pediatric Weight for Height Observation Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2280,7 +2492,7 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="status" elementType="FHIR.Status"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -2347,7 +2559,7 @@
         <element name="period" elementType="FHIR.Period"/>
         <element name="issuer" elementType="FHIR.Reference"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="PractitionerProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner" label="Practitioner Profile" target="Practitioner" retrievable="true" baseType="FHIR.Practitioner">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="PractitionerProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner" label="US Core Practitioner Profile" target="Practitioner" retrievable="true" baseType="FHIR.Practitioner">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2385,7 +2597,7 @@
         <element name="description" elementType="FHIR.string"/>
         <element name="during" elementType="FHIR.Period"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="PractitionerRoleProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole" label="PractitionerRole Profile" target="PractitionerRole" retrievable="true" baseType="FHIR.PractitionerRole">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="PractitionerRoleProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole" label="US Core PractitionerRole Profile" target="PractitionerRole" retrievable="true" baseType="FHIR.PractitionerRole">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2428,7 +2640,7 @@
         <element name="actor" elementType="FHIR.Reference"/>
         <element name="onBehalfOf" elementType="FHIR.Reference"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ProcedureProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" label="Procedure Profile" target="Procedure" retrievable="true" baseType="FHIR.Procedure">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ProcedureProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" label="US Core Procedure Profile" target="Procedure" retrievable="true" baseType="FHIR.Procedure">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2444,7 +2656,7 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.ProcedureStatus"/>
+        <element name="status" elementType="FHIR.code"/>
         <element name="statusReason" elementType="FHIR.CodeableConcept"/>
         <element name="category" elementType="FHIR.CodeableConcept"/>
         <element name="code" elementType="FHIR.CodeableConcept"/>
@@ -2500,7 +2712,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="Provenance" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance" label="Provenance Profile" retrievable="true" baseType="FHIR.Provenance">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="Provenance" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance" label="US Core Provenance Profile" retrievable="true" baseType="FHIR.Provenance">
         <element name="target">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
@@ -2550,10 +2762,10 @@
         <element name="role" elementType="FHIR.ProvenanceEntityRole"/>
         <element name="what" elementType="FHIR.Reference"/>
         <element name="agent">
-            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Provenance.Agent"/>
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="http://hl7.org/fhir/StructureDefinition/Provenance#Provenance.agent"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="PulseOximetryProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry" label="Pulse Oximetry Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="PulseOximetryProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry" label="US Core Pulse Oximetry Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2563,7 +2775,7 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="status" elementType="FHIR.Status"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -2622,15 +2834,15 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="QuestionnaireResponseProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-questionnaireresponse" label="QuestionnaireResponse Profile" target="QuestionnaireResponse" retrievable="true"/>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="RaceExtension" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-race" label="Race Extension" retrievable="false" baseType="FHIR.Extension">
-        <element name="url" elementType="FHIR.uri"/>
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="QuestionnaireResponseProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-questionnaireresponse" label="US Core QuestionnaireResponse Profile" target="QuestionnaireResponse" retrievable="true"/>
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="RaceExtension" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-race" label="US Core Race Extension" retrievable="false" baseType="FHIR.Extension">
+        <element name="url" elementType="USCore.uri"/>
     </typeInfo>
     <typeInfo xsi:type="ClassInfo" namespace="USCore" name="RelatedPerson.Communication" retrievable="false" baseType="FHIR.RelatedPerson.Communication">
         <element name="language" elementType="FHIR.CodeableConcept"/>
         <element name="preferred" elementType="FHIR.boolean"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="RelatedPersonProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson" label="RelatedPerson Profile" target="RelatedPerson" retrievable="true" baseType="FHIR.RelatedPerson">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="RelatedPersonProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson" label="US Core RelatedPerson Profile" target="RelatedPerson" retrievable="true" baseType="FHIR.RelatedPerson">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2658,7 +2870,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.RelatedPerson.Communication"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="RespiratoryRateProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-respiratory-rate" label="Respiratory Rate Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="RespiratoryRateProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-respiratory-rate" label="US Core Respiratory Rate Profile" target="Observation" retrievable="true" baseType="USCore.VitalSignsProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2668,7 +2880,7 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="status" elementType="FHIR.Status"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -2727,7 +2939,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ServiceRequestProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest" label="ServiceRequest Profile" target="ServiceRequest" retrievable="true" baseType="FHIR.ServiceRequest">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="ServiceRequestProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest" label="US Core ServiceRequest Profile" target="ServiceRequest" retrievable="true" baseType="FHIR.ServiceRequest">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2815,8 +3027,8 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="SexExtension" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex" label="Sex Extension" retrievable="false" baseType="FHIR.code"/>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="SimpleObservationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation" label="Simple Observation Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="SexExtension" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex" label="US Core Sex Extension" retrievable="false" baseType="FHIR.Coding"/>
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="SimpleObservationProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation" label="US Core Simple Observation Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2887,7 +3099,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="SmokingStatusProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" label="Smoking Status Observation Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="SmokingStatusProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" label="US Core Smoking Status Observation Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2897,7 +3109,7 @@
         <element name="partOf">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
         </element>
-        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="status" elementType="FHIR.code"/>
         <element name="category">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </element>
@@ -3003,7 +3215,7 @@
             </elementTypeSpecifier>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="SpecimenProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-specimen" label="Specimen Profile" target="Specimen" retrievable="true" baseType="FHIR.Specimen">
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="SpecimenProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-specimen" label="US Core Specimen Profile" target="Specimen" retrievable="true" baseType="FHIR.Specimen">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -3032,10 +3244,149 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Annotation"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="TribalAffiliationExtension" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-tribal-affiliation" label="Tribal Affiliation Extension" retrievable="false" baseType="FHIR.Extension">
-        <element name="url" elementType="FHIR.uri"/>
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="TreatmentInterventionPreferenceProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-treatment-intervention-preference" label="US Core Treatment Intervention Preference Profile" target="Observation" retrievable="true" baseType="FHIR.Observation">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="basedOn">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="partOf">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="status" elementType="FHIR.ObservationStatus"/>
+        <element name="category">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="code" elementType="FHIR.CodeableConcept"/>
+        <element name="subject" elementType="FHIR.Reference"/>
+        <element name="focus">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="encounter" elementType="FHIR.Reference"/>
+        <element name="effective">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="dateTime"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Period"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Timing"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="instant"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="issued" elementType="FHIR.instant"/>
+        <element name="performer">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="value">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="string"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="CodeableConcept"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Quantity"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="boolean"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="integer"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Range"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Ratio"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="SampledData"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="time"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="dateTime"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Period"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="dataAbsentReason" elementType="FHIR.CodeableConcept"/>
+        <element name="interpretation">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="note">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Annotation"/>
+        </element>
+        <element name="bodySite" elementType="FHIR.CodeableConcept"/>
+        <element name="method" elementType="FHIR.CodeableConcept"/>
+        <element name="specimen" elementType="FHIR.Reference"/>
+        <element name="device" elementType="FHIR.Reference"/>
+        <element name="referenceRange">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.ReferenceRange"/>
+        </element>
+        <element name="hasMember">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="derivedFrom">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="component">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
+        </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="VitalSignsProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-vital-signs" label="Vital Signs Profile" target="Observation" retrievable="true" baseType="FHIR.Observation"/>
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="TribalAffiliationExtension" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-tribal-affiliation" label="US Core Tribal Affiliation Extension" retrievable="false" baseType="FHIR.Extension">
+        <element name="url" elementType="USCore.uri"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="USCore" name="VitalSignsProfile" identifier="http://hl7.org/fhir/us/core/StructureDefinition/us-core-vital-signs" label="US Core Vital Signs Profile" target="Observation" retrievable="true" baseType="FHIR.observation-vitalsigns">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="basedOn">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="partOf">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="status" elementType="FHIR.Status"/>
+        <element name="category">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="code" elementType="FHIR.CodeableConcept"/>
+        <element name="subject" elementType="FHIR.Reference"/>
+        <element name="focus">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="encounter" elementType="FHIR.Reference"/>
+        <element name="effective">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="dateTime"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Period"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="issued" elementType="FHIR.instant"/>
+        <element name="performer">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="value">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Quantity"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="CodeableConcept"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="string"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="boolean"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="integer"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Range"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Ratio"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="SampledData"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="time"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="dateTime"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Period"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="dataAbsentReason" elementType="FHIR.CodeableConcept"/>
+        <element name="interpretation">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="note">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Annotation"/>
+        </element>
+        <element name="bodySite" elementType="FHIR.CodeableConcept"/>
+        <element name="method" elementType="FHIR.CodeableConcept"/>
+        <element name="specimen" elementType="FHIR.Reference"/>
+        <element name="device" elementType="FHIR.Reference"/>
+        <element name="referenceRange">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.ReferenceRange"/>
+        </element>
+        <element name="hasMember">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="derivedFrom">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="component">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="USCore.Observation.Component"/>
+        </element>
+    </typeInfo>
     <contextInfo name="Patient" keyElement="id" birthDateElement="birthDate">
         <contextType namespace="USCore" name="PatientProfile"/>
     </contextInfo>
