@@ -1,23 +1,36 @@
 library USCoreCommonTests
 
-using USCore version '3.1.1'
 using FHIR version '4.0.1'
+using USCore version '7.0.0'
 
 include USCoreCommon called UC
 
 context Patient
 
-define TestEmail:
-  UC.Email(Patient.telecom).value
+//* _01_ define fluent function race(patient Patient):
+define _01_TestRace: Patient.race()
 
-define TestFax:
-  UC.Fax(Patient.telecom).value
+//* _02_ define fluent function ethnicity(patient Patient):
+define _02_TestEthnicity: Patient.ethnicity()
 
-define TestMobileNumber:
-  UC.Mobile(Patient.telecom).value
+//* _03_ define fluent function tribalAffiliation(patient Patient):
+define _03_TestTribalAffiliation: Patient.tribalAffiliation()
 
-define TestPager:
-  UC.Pager(Patient.telecom).value
+//* _04_ define fluent function birthSex(patient Patient):
+define _04_TestBirthSex: Patient.birthSex()
 
-define TestWorkNumber:
-  UC.Work(Patient.telecom).value
+//* _05_ define fluent function systolic(bloodPressureProfile BloodPressureProfile):
+define _05_TestSystolic:
+  [Observation] O
+    return O.systolic()
+
+//* _06_ define fluent function diastolic(bloodPressureProfile BloodPressureProfile):
+define _06_TestDiastolic:
+  [Observation] O
+    return O.diastolic()
+
+//* _07_ define fluent function isHealthConcern(condition FHIR.Condition):
+define _07_TestIsHealthConcern:
+  [Condition] C
+    where C.isHealthConcern()
+

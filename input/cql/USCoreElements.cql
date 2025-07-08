@@ -1,9 +1,10 @@
 library USCoreElements
 
-using USCore version '3.1.1'
 using FHIR version '4.0.1'
+using USCore version '7.0.0'
 
 include FHIRHelpers version '4.0.1'
+include FHIRCommon version '4.0.1'
 include USCoreCommon called UC
 
 codesystem "LOINC": 'http://loinc.org'
