@@ -2,24 +2,387 @@
     "resourceType": "Parameters",
     "parameter": [
         {
+            "name": "All Problem List Items",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.Condition>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Patient history",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<tuple<['diagnosis:FHIR.String', 'ageAtOnset:FHIR.String', 'onset:FHIR.String', 'abatement:FHIR.String']>>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Billing Provider Name",
+            "valueString": "Oak Street Billing Provider"
+        },
+        {
+            "name": "Billing Provider Phone",
+            "valueString": "+1 (123) 4567890"
+        },
+        {
+            "name": "Billing Provider Address",
+            "valueString": "TODO: remove hard-coded address"
+        },
+        {
+            "name": "Retrieve Member Coverage test parameter",
+            "resource": {
+                "resourceType": "Coverage",
+                "id": "Coverage-example-GMTP",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage"
+                    ]
+                },
+                "identifier": [
+                    {
+                        "system": "http://benefitsinc.com/certificate",
+                        "value": "12345"
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "MB"
+                                }
+                            ]
+                        },
+                        "value": "member-id-from-identifier-GMTP-example-patient-2"
+                    }
+                ],
+                "relationship": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+                            "code": "self",
+                            "display": "Self"
+                        }
+                    ]
+                },
+                "status": "active",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "urn:oid:2.16.840.1.113883.3.221.5",
+                            "code": "59",
+                            "display": "Other Private Insurance"
+                        }
+                    ]
+                },
+                "policyHolder": {
+                    "reference": "Patient/GMTP-example-patient-2"
+                },
+                "subscriber": {
+                    "reference": "Patient/GMTP-example-patient-2"
+                },
+                "beneficiary": {
+                    "reference": "Patient/GMTP-example-patient-2"
+                },
+                "payor": [
+                    {
+                        "reference": "Organization/Organization-example-1-GMTP"
+                    }
+                ]
+            }
+        },
+        {
             "name": "Member Coverage",
             "resource": {
-                "resourceType": "FHIR.Coverage",
-                "id": "Coverage-example-GMTP"
+                "resourceType": "Coverage",
+                "id": "Coverage-example-GMTP",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage"
+                    ]
+                },
+                "identifier": [
+                    {
+                        "system": "http://benefitsinc.com/certificate",
+                        "value": "12345"
+                    },
+                    {
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "MB"
+                                }
+                            ]
+                        },
+                        "value": "member-id-from-identifier-GMTP-example-patient-2"
+                    }
+                ],
+                "relationship": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+                            "code": "self",
+                            "display": "Self"
+                        }
+                    ]
+                },
+                "status": "active",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "urn:oid:2.16.840.1.113883.3.221.5",
+                            "code": "59",
+                            "display": "Other Private Insurance"
+                        }
+                    ]
+                },
+                "policyHolder": {
+                    "reference": "Patient/GMTP-example-patient-2"
+                },
+                "subscriber": {
+                    "reference": "Patient/GMTP-example-patient-2"
+                },
+                "beneficiary": {
+                    "reference": "Patient/GMTP-example-patient-2"
+                },
+                "payor": [
+                    {
+                        "reference": "Organization/Organization-example-1-GMTP"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Retrieve Service Request test parameter",
+            "resource": {
+                "resourceType": "ServiceRequest",
+                "id": "ServiceRequest-example-1-GMTP",
+                "identifier": [
+                    {
+                        "use": "official",
+                        "value": "t24680"
+                    }
+                ],
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"
+                    ]
+                },
+                "status": "completed",
+                "intent": "order",
+                "priority": "urgent",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "80146002",
+                            "display": "Excision of appendix (procedure)"
+                        }
+                    ],
+                    "text": "Excision of appendix (procedure)"
+                },
+                "subject": {
+                    "reference": "Patient/GMTP-example-patient-2"
+                },
+                "encounter": {
+                    "reference": "Encounter/Encounter-example-1-GMTP"
+                },
+                "requester": {
+                    "reference": "Practitioner/Practitioner-example-GMTP"
+                },
+                "performer": [
+                    {
+                        "reference": "Organization/Organization-example-1-GMTP"
+                    }
+                ],
+                "insurance": [
+                    {
+                        "reference": "Coverage/Coverage-example-GMTP"
+                    }
+                ],
+                "reasonReference": [
+                    {
+                        "reference": "Condition/appendicitis-GMTP-1"
+                    }
+                ],
+                "occurrenceDateTime": "2013-04-05",
+                "asNeededBoolean": true,
+                "authoredOn": "2013-04-04",
+                "reasonCode": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "163220003",
+                                "display": "On examination - abdominal pain - right iliac"
+                            }
+                        ]
+                    }
+                ],
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "66754008",
+                                "display": "Appendix structure"
+                            }
+                        ]
+                    }
+                ]
             }
         },
         {
             "name": "Most Recent ServiceRequest",
             "resource": {
-                "resourceType": "FHIR.ServiceRequest",
-                "id": "ServiceRequest-example-1-GMTP"
+                "resourceType": "ServiceRequest",
+                "id": "ServiceRequest-example-1-GMTP",
+                "identifier": [
+                    {
+                        "use": "official",
+                        "value": "t24680"
+                    }
+                ],
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"
+                    ]
+                },
+                "status": "completed",
+                "intent": "order",
+                "priority": "urgent",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "80146002",
+                            "display": "Excision of appendix (procedure)"
+                        }
+                    ],
+                    "text": "Excision of appendix (procedure)"
+                },
+                "subject": {
+                    "reference": "Patient/GMTP-example-patient-2"
+                },
+                "encounter": {
+                    "reference": "Encounter/Encounter-example-1-GMTP"
+                },
+                "requester": {
+                    "reference": "Practitioner/Practitioner-example-GMTP"
+                },
+                "performer": [
+                    {
+                        "reference": "Organization/Organization-example-1-GMTP"
+                    }
+                ],
+                "insurance": [
+                    {
+                        "reference": "Coverage/Coverage-example-GMTP"
+                    }
+                ],
+                "reasonReference": [
+                    {
+                        "reference": "Condition/appendicitis-GMTP-1"
+                    }
+                ],
+                "occurrenceDateTime": "2013-04-05",
+                "asNeededBoolean": true,
+                "authoredOn": "2013-04-04",
+                "reasonCode": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "163220003",
+                                "display": "On examination - abdominal pain - right iliac"
+                            }
+                        ]
+                    }
+                ],
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "66754008",
+                                "display": "Appendix structure"
+                            }
+                        ]
+                    }
+                ]
             }
         },
         {
             "name": "Billing Provider",
             "resource": {
-                "resourceType": "USCore.OrganizationProfile",
-                "id": "Organization-example-1-GMTP"
+                "resourceType": "Organization",
+                "id": "Organization-example-1-GMTP",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
+                        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+                    ]
+                },
+                "identifier": [
+                    {
+                        "system": "http://hl7.org/fhir/sid/us-npi",
+                        "value": "1689411712"
+                    }
+                ],
+                "active": true,
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                                "code": "team",
+                                "display": "Organizational team"
+                            }
+                        ]
+                    }
+                ],
+                "name": "Oak Street Billing Provider",
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "+1 (123) 4567890",
+                        "use": "mobile"
+                    },
+                    {
+                        "system": "fax",
+                        "value": "+1 (123) 4567890"
+                    }
+                ],
+                "address": [
+                    {
+                        "line": [
+                            "456 Oak Street"
+                        ],
+                        "city": "Anytown",
+                        "state": "MA",
+                        "postalCode": "54321",
+                        "country": "USA"
+                    }
+                ]
             }
         },
         {
@@ -35,16 +398,146 @@
             "valueDateTime": "2013-04-05"
         },
         {
+            "name": "Requested Test",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "FHIR.CodeableConcept"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
             "name": "Test ID",
-            "valueString": "t24680"
+            "valueString": "80146002"
         },
         {
             "name": "Test name",
             "valueString": "Excision of appendix (procedure)"
         },
         {
+            "name": "ALL ICD and CPT Test Codes",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.String>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Test ICD Codes",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.String>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Test CPT Codes",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.String>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Test Related Condition",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.Condition>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Diagnosis Descriptions",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.String>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
             "name": "Billing Provider different from Servicing Provider",
             "valueString": "No"
+        },
+        {
+            "name": "Clinical Trial Organization",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "FHIR.Organization"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "BillingProvider is Clinical Trial Organization",
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "unknown"
+                    }
+                ]
+            }
         },
         {
             "name": "Part of clinical trial",
@@ -57,8 +550,66 @@
         {
             "name": "Research Subject",
             "resource": {
-                "resourceType": "FHIR.ResearchSubject",
-                "id": "ResearchSubject-GMTP-1"
+                "resourceType": "ResearchSubject",
+                "id": "ResearchSubject-GMTP-1",
+                "individual": {
+                    "reference": "Patient/GMTP-example-patient-2"
+                },
+                "study": {
+                    "reference": "ResearchStudy/ResearchStudy-GMTP-1"
+                },
+                "status": "on-study"
+            }
+        },
+        {
+            "name": "Clinical Trial",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.ResearchStudy>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Clinical Trial ID",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.String>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Previous genetic testing for condition",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                    "valueString": "List<FHIR.String>"
+                }
+            ],
+            "_valueBoolean": {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                        "valueBoolean": true
+                    }
+                ]
             }
         }
     ]
