@@ -53,7 +53,7 @@ define "Name":
   Coalesce("Official Name", "Usual Name", "First Occurrence of Non-Official, Non-Usual Name")
 
 define "First Name":
-  "Name".given[0]
+  "Name".given.first()
 
 define "Middle Names":
   Combine(Skip("Name".given, 1), ' ')
@@ -390,6 +390,18 @@ define "All Body Height Measurements":
 
 define "All Body Height Measurements All Statuses":
   ["observation-bodyheight"] 
+
+define "Body Height Observations":
+  First(
+    [Observation] O
+      where exists (
+        O.code.coding C
+          where C.system = 'http://loinc.org'
+            and C.code = '8302-2'
+      )
+        and O.status in { 'final', 'amended', 'corrected' }
+      sort by issued desc
+  ).value
 
 // Head Circumference
 

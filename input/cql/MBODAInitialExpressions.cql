@@ -23,9 +23,9 @@ context Patient
 define "Last Name":
   UCE."Last Name"
 
-// TODO: Error: Could not resolve data provider for package 'java.util'.
-// define "First Name":
-//   Patient.name.given.first()
+define "First Name":
+  UCE."First Name"
+
 define "Allergies":
   UCE."Active Confirmed Allergies and Intolerances".code.codes.display 
 

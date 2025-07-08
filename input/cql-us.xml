@@ -37,6 +37,11 @@
   <packageId value="hl7.fhir.us.cql"/>
   <license value="CC0-1.0"/>
   <fhirVersion value="4.0.1"/>
+  <dependsOn id="cqf">
+    <uri value="http://fhir.org/guides/cqf/common/ImplementationGuide/fhir.cqf.common"/>
+    <packageId value="fhir.cqf.common"/>
+    <version value="4.0.1"/>
+  </dependsOn>
   <dependsOn id="cql">
     <uri value="http://hl7.org/fhir/uv/cql/ImplementationGuide/hl7.fhir.uv.cql"/>
     <packageId value="hl7.fhir.uv.cql"/>
