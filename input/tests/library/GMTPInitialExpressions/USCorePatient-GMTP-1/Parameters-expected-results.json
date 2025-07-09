@@ -58,57 +58,37 @@
         {
             "name": "Patient history",
             "part": [
-                {
-                    "name": "diagnosis",
-                    "extension": [
-                        {
-                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
-                            "valueString": "FHIR.String"
-                        }
-                    ],
-                    "_valueBoolean": {
-                        "extension": [
-                            {
-                                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                                "valueCode": "unknown"
-                            }
-                        ]
+                [
+                    {
+                        "name": "diagnosis",
+                        "valueString": "Type 2 diabetes mellitus with other diabetic arthropathy"
                     }
-                },
-                {
-                    "name": "ageAtOnset",
-                    "extension": [
-                        {
-                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
-                            "valueString": "FHIR.String"
-                        }
-                    ],
-                    "_valueBoolean": {
-                        "extension": [
-                            {
-                                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                                "valueCode": "unknown"
-                            }
-                        ]
+                ],
+                [
+                    {
+                        "name": "ageAtOnset",
+                        "valueString": "22"
                     }
-                },
-                {
-                    "name": "onset",
-                    "extension": [
-                        {
-                            "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
-                            "valueString": "FHIR.String"
-                        }
-                    ],
-                    "_valueBoolean": {
-                        "extension": [
-                            {
-                                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                                "valueCode": "unknown"
-                            }
-                        ]
+                ],
+                [
+                    {
+                        "name": "onset",
+                        "valueString": "2012-05-24T00:00:00"
                     }
-                }
+                ],
+                [
+                    {
+                        "name": "abatement",
+                        "_valueString": {
+                            "extension": [
+                                {
+                                    "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                                    "valueCode": "unknown"
+                                }
+                            ]
+                        }
+                    }
+                ]
             ]
         },
         {
