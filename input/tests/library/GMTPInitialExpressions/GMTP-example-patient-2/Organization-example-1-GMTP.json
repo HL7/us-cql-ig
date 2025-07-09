@@ -10,7 +10,7 @@
   "identifier": [
     {
       "system": "http://hl7.org/fhir/sid/us-npi",
-      "value": "1144221849"
+      "value": "1689411712"
     }
   ],
   "active": true,
@@ -39,9 +39,7 @@
   ],
   "address": [
     {
-      "line": [
-        "456 Oak Street"
-      ],
+      "line": ["456 Oak Street"],
       "city": "Anytown",
       "state": "MA",
       "postalCode": "54321",
