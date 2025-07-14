@@ -8,7 +8,7 @@
     "desc": "Release 1.0.0-ballot STU 1 Ballot",
     "descmd": "This STU v1.0.0-ballot is the initial ballot of the Common CQL Assets for FHIR (US-Based) implementation guide.",
     "first" : true,
-    "title" : "Common CQL Assets for FHIR (US-Based)",
+    "title" : "Common CQL Artifacts for FHIR (US-Based)",
     "ci-build": "http://build.fhir.org/ig/HL7/us-cql-ig",
     "category": "Quality/CDS",
     "introduction": "This implementation guide contains architectural guidance and re-usable libraries that facilitate the use of Clinical Quality Language (CQL) with FHIR in the US Realm, with an initial use case of Prior Authorization Support Questionnaires as described in the DaVinci Documentation Templates and Rules (DTR) implementation guide. Much of the guidance and content presented here is built on work done in the quality measurement domain, including patterns established by measure developers as part of testing and developing quality measures for use with FHIR. These patterns have been generalized to support US Core as well as harmonized to be usable across use cases."

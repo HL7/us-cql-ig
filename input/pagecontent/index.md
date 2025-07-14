@@ -4,12 +4,22 @@ This implementation guide contains architectural guidance and re-usable librarie
 
 ### Scope of Use
 
-The intent of this guide is to support the use of CQL with FHIR in the US Realm with a focus on:
+This guide supports the use of CQL with FHIR in the US Realm by:
 
 * Providing architectural guidance for the evaluation of CQL expressions in the context of artifacts such as questionnaires, quality measures, and decision support rules.
 * Providing re-usable libraries of CQL expressions to retrieve data for common use cases in the US Realm
 * Providing guidance for managing CQL expressions that may involve retrieval of data from multiple versions of the US Core implementation guide
 * Gathering requirements for tooling to simplify the authoring of questionnaires that use CQL
+
+The term artifact here refers to a FHIR resource that is definitional in nature or use such as a Questionnaire, or a Library (as opposed to a FHIR resource that is representing instance-specific data, such as an Observation). This implementation guide provides common artifacts that support the use of CQL with FHIR in the US Realm. The artifacts support a broad range of use cases across the healthcare domain, including prior-authorization, quality measurement and reporting, clinical decision support, computable guidelines, and public health case reporting. Any use of CQL within the US Realm could benefit from the artifacts provided here, as well as provide feedback to these artifacts, both in the form of proposed changes to existing artifacts, as well as proposing new artifacts that could be re-used across use cases.
+
+> NOTE: Although the current guidance has been developed based on the prior-authorization questionnaires as the first use case, the intent is to capture common patterns, guidance, and artifacts that are usable across use-cases.
+
+The artifacts provided by this implementation guide fall into three general categories:
+
+1. Common CQL: Libraries of re-usable CQL expressions, such as US Core Common and US Core Elements, that are intended to be used in production systems as shared artifacts
+2. Example Artifacts: Example content, such as the example Questionnaires, that are intended to illustrate how the shared artifacts may be used
+3. Tests: Test content that demonstrates expected behavior of the CQL and Example artifacts
 
 #### Out of Scope
 
@@ -37,7 +47,12 @@ This implementation guide does not:
   * **[Usage](usage.html)**
 * **[Testing](testing.html)**
 * **[Tooling Support](tooling-support.html)**
-* **[Artifact Index](artifacts.html)**
+* **CQL Artifacts**
+  * **[US Core Common](Library-USCoreCommon.html)**
+  * **[US Core Elements](Library-USCoreElements.html)**
+  * **[US Core Model Information](Library-USCore-ModelInfo.html)**
+  * **[Cumulative Medication Duration](Library-CumulativeMedicationDuration.html)**
+* **[FHIR Artifacts](artifacts.html)**
 * **Support**
   * **[Changes](changes.html)**
   * **[Downloads](downloads.html)**

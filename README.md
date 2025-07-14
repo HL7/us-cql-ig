@@ -1,6 +1,6 @@
-# Common CQL Assets for FHIR - US
+# Common CQL Artifacts for FHIR - US
 
-This repository contains the source for the HL7 Common CQL Assets for FHIR - US Implementation Guide.
+This repository contains the source for the HL7 Common CQL Artifacts for FHIR - US Implementation Guide.
 
 Continuous Integration Build: http://build.fhir.org/ig/HL7/us-cql-ig 
 

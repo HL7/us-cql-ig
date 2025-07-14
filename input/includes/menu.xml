@@ -31,7 +31,19 @@
   </li>
   <li><a href="testing.html">Testing</a></li>
   <li><a href="tooling-support.html">Tooling Support</a></li>
-  <li><a href="artifacts.html">Artifact Index</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="artifacts.html" class="dropdown-toggle">
+      CQL Artifacts<b class="caret">
+        </b>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="Library-USCoreCommon.html"></a>US Core Common</li>
+      <li><a href="Library-USCoreElements.html"></a>US Core Elements</li>
+      <li><a href="Library-USCore-ModelInfo.html"></a>US Core Model Information</li>
+      <li><a href="Library-CumulativeMedicationDuration.html">Cumulative Medication Duration</a></li>
+    </ul>
+  </li>
+  <li><a href="artifacts.html">FHIR Artifacts</a></li>
   <li class="dropdown">
     <a data-toggle="dropdown" href="#" class="dropdown-toggle">Support<b class="caret">
       </b>

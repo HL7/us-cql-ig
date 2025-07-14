@@ -16,7 +16,7 @@
   <url value="http://hl7.org/fhir/us/cql/ImplementationGuide/hl7.fhir.us.cql"/>
   <version value="1.0.0-ballot"/>
   <name value="CQLUSCommon"/>
-  <title value="Common CQL Assets for FHIR (US-Based)"/>
+  <title value="Common CQL Artifacts for FHIR (US-Based)"/>
   <status value="active"/>
   <experimental value="false"/>
   <publisher value="HL7 International / Clinical Decision Support"/>
@@ -26,7 +26,7 @@
       <value value="http://www.hl7.org/Special/committees/dss"/>
     </telecom>
   </contact>
-  <description value="This implementation guide contains common CQL assets for use with FHIR in US-realm environments, including the USCore-ModelInfo and USCommon libraries."/>
+  <description value="This implementation guide contains architectural guidance and re-usable libraries that facilitate the use of Clinical Quality Language (CQL) with FHIR in the US Realm, with an initial use case of Prior Authorization Support Questionnaires as described in the DaVinci Documentation Templates and Rules (DTR) implementation guide. Much of the guidance and content presented here is built on work done in the quality measurement domain, including patterns established by measure developers as part of testing and developing quality measures for use with FHIR. These patterns have been generalized to support US Core as well as harmonized to be usable across use cases."/>
   <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>
