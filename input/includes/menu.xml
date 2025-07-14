@@ -40,9 +40,9 @@
         </b>
     </a>
     <ul class="dropdown-menu">
-      <li><a href="Library-USCoreCommon.html"></a>US Core Common</li>
-      <li><a href="Library-USCoreElements.html"></a>US Core Elements</li>
-      <li><a href="Library-USCore-ModelInfo.html"></a>US Core Model Information</li>
+      <li><a href="Library-USCoreCommon.html">US Core Common</a></li>
+      <li><a href="Library-USCoreElements.html">US Core Elements</a></li>
+      <li><a href="Library-USCore-ModelInfo.html">US Core Model Information</a></li>
       <li><a href="Library-CumulativeMedicationDuration.html">Cumulative Medication Duration</a></li>
     </ul>
   </li>
