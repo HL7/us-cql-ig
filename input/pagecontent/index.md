@@ -62,6 +62,14 @@ This implementation guide does not:
 
 > NOTE: This implementation guide is informative, and therefore does not include a "Specification" topic like many other implementation guides do.
 
+### Roadmap
+
+Implementers of this content are encouraged to provide feedback through the usual mechanisms for feedback on HL7 FHIR Implementation Guides, by submitting an [issue](http://hl7.org/fhir-issues). For more information on how to submit feedback, refer to the [Specification Feedback](https://confluence.hl7.org/spaces/HL7/pages/19136736/Specification+Feedback) page in the HL7 confluence.
+
+Feedback submitted to this implementation guide is discussed and resolved in the [Clinical Decision Support](https://confluence.hl7.org/spaces/CDS/pages/40742690/Meeting+Index) weekly meeting.
+
+This implementation guide will be published for a two-year implementation period, during which time we will seek implementer feedback, applying as needed. The next ballot of this material will take place when the community indicates sufficient feedback and/or need for an updated release.
+
 ### Acknowledgements
 
 This Implementation Guide was made possible by the thoughtful contributions of the following people and organizations:
