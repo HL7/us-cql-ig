@@ -6,14 +6,14 @@ The content in this implementation guide is provided for reuse and proposed to h
 
 ### Scope of Use
 
-This guide supports the use of CQL with FHIR in the US Realm by:
+This guide is a [Content Implementation Guide](https://hl7.org/fhir/uv/crmi/introduction.html#content-igs) that supports the use of CQL with FHIR in the US Realm by:
 
 * Providing architectural guidance for the evaluation of CQL expressions in the context of artifacts such as questionnaires, quality measures, and decision support rules.
 * Providing re-usable libraries of CQL expressions to retrieve data for common use cases in the US Realm
 * Providing guidance for managing CQL expressions that may involve retrieval of data from multiple versions of the US Core implementation guide
 * Gathering requirements for tooling to simplify the authoring of questionnaires that use CQL
 
-The term artifact here refers to a FHIR resource that is definitional in nature or use such as a Questionnaire, or a Library (as opposed to a FHIR resource that is representing instance-specific data, such as an Observation). This implementation guide provides common artifacts that support the use of CQL with FHIR in the US Realm. The artifacts support a broad range of use cases across the healthcare domain, including prior-authorization, quality measurement and reporting, clinical decision support, computable guidelines, and public health case reporting. Any use of CQL within the US Realm could benefit from the artifacts provided here, as well as provide feedback to these artifacts, both in the form of proposed changes to existing artifacts, as well as proposing new artifacts that could be re-used across use cases.
+The term [_artifact_](https://hl7.org/fhir/uv/crmi/index.html#artifacts) here refers to a FHIR resource that is definitional in nature or use such as a Questionnaire, or a Library (as opposed to a FHIR resource that is representing instance-specific data, such as an Observation). This implementation guide provides common artifacts that support the use of CQL with FHIR in the US Realm. The artifacts support a broad range of use cases across the healthcare domain, including prior-authorization, quality measurement and reporting, clinical decision support, computable guidelines, and public health case reporting. Any use of CQL within the US Realm could benefit from the artifacts provided here, as well as provide feedback to these artifacts, both in the form of proposed changes to existing artifacts, as well as proposing new artifacts that could be re-used across use cases.
 
 Providing standardized CQL libraries will reduce burden by establishing best practices and reusable expressions for common questions across questionnaires, both currently and into the future. As well, these shared CQL artifacts will support a user with deep clinical knowledge but limited technical knowledge to be able to build and maintain CQL-based questionnaires. Open questionnaire authoring environments (i.e., LHC forms builder) exist and will enable the growth of CQL artifacts (see the [Tooling Support](tooling-support.html) page for further discussion).
 

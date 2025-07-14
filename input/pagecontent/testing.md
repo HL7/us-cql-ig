@@ -1,3 +1,5 @@
+> For [Content Implementation Guides](https://hl7.org/fhir/uv/crmi/introduction.html#content-igs) (i.e. implementation guides that primarily consist of knowledge artifacts) such as this one, best practice is to provide test content as part of the source repository, and as packaged bundles for ease of distribution. This is because 1) the number of test cases may be (and usually is for production-level content) quite large, resulting in large package files if test content is included, and 2) Test content is part of validating expected behavior, rather than directly needed for implementation, and so should be packaged separately to allow implementers to better manage dependency size and purpose. A future version of this implementation guide will consider using the [Related IGs](https://build.fhir.org/ig/FHIR/ig-guidance/branches/master/related-igs.html) feature of the FHIR packaging ecosystem to support distribution of test cases. Test content for this IG is currently accessible via the [Downloads](downloads.html) page.
+
 The following approaches can be used to test CQL-based Questionnaires:
 
 ### Unit Testing
@@ -32,7 +34,7 @@ And the `expected-results` Parameters resource has the following parameter indic
 }
 ```
 
-> Note that these tests are not included directly as resources in the implementation guide, since they are part of testing and not directly required for implementation. However, the test resources are included in the Postman collections described below.
+> Note that these tests are not included directly as resources in the implementation guide, since they are part of testing and not directly required for implementation. However, the test resources are included in _test bundles_ available on the [Downloads](downloads.html) page. 
 
 ### Integration Testing
 

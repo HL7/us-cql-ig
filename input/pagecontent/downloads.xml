@@ -45,4 +45,7 @@
 			</tr>
 		</tbody>
 	</table>
+	<p>
+	In addition, testing artifacts are available in the form of test bundles, one for each questionnaire in the IG repository: [Test Bundles](https://github.com/HL7/us-cql-ig/tree/main/bundles/questionnaire)
+	</p>
 </div>
