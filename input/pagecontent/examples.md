@@ -25,8 +25,5 @@ State questionnaires:
 Cohere Humana: - select Humana dropdown and type to find a list of several questionnaires
 * [https://payerinfo.zendesk.com/hc/en-us/categories/10629830321047-Fax-Forms](https://payerinfo.zendesk.com/hc/en-us/categories/10629830321047-Fax-Forms)
 
-Geisinger:
-* [https://www.geisinger.org/health-plan/providers/forms-and-resources-for-providers](https://www.geisinger.org/health-plan/providers/forms-and-resources-for-providers)
-
 Potential Nut Allergy:
 * [https://fm.formularynavigator.com/FormularyNavigator/DocumentManager/Download?clientDocumentId=nU_SBgZRGEKjIxwVIRtrEQ](https://fm.formularynavigator.com/FormularyNavigator/DocumentManager/Download?clientDocumentId=nU_SBgZRGEKjIxwVIRtrEQ)
