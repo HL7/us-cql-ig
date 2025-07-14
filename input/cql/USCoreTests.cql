@@ -4,7 +4,7 @@ using the US Core model info.
 */
 library USCoreTests
 
-using USCore version '3.1.1'
+using USCore version '7.0.0'
 
 include FHIRHelpers version '4.0.1'
 
