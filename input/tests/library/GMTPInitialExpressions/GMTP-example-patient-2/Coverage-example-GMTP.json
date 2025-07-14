@@ -23,6 +23,15 @@
       "value": "member-id-from-identifier-GMTP-example-patient-2"
     }
   ],
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+        "code": "self",
+        "display": "Self"
+      }
+    ]
+  },
   "status": "active",
   "type": {
     "coding": [

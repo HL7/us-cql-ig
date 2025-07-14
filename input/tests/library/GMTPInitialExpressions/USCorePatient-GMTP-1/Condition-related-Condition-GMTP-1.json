@@ -3,7 +3,7 @@
   "id": "related-Condition-GMTP-1",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
     ]
   },
   "clinicalStatus": {
