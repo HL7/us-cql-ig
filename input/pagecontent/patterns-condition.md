@@ -1,8 +1,8 @@
 USCore defines [USCore Condition Encounter Diagnosis]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-condition-encounter-diagnosis.html) and [USCore Condition Problems and Health Concerns]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-condition-problems-health-concerns.html).
 
-Many clinical systems make a distinction between the active conditions for a patient (i.e. the problem list or health concerns) and the diagnoses associated with an encounter. Problem list items and health concerns are typically documented with additional information about the condition such as prevalence period and clinical status, while encounter diagnoses typically have less information, usually only the diagnosis code as part of the encounter information. Within FHIR, both these types of data are represented using the Condition resource. The category element is used to indicate which kind of data the Condition represents, a problem list item, a health concern, or an encounter diagnosis.
+Many clinical systems make a distinction between the active conditions for a patient (i.e. the problem list or health concerns) and the diagnoses associated with an encounter. Problem list items and health concerns are typically documented with additional information about the condition such as prevalence period and clinical status, while encounter diagnoses typically have less information, usually only the diagnosis code as part of the encounter information. Within FHIR, both these types of data are represented using the Condition resource. The category element is used to indicate which kind of data the Condition represents, a problem list item, a health concern, or an encounter diagnosis. The [FHIRCommon]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html) has functions for distinguishing category if needed.
 
-Typical code systems for Condition.code include ICD-10, SNOMED, and LOINC. For historical conditions there will also be ICD-9.
+Typical code systems for `Condition.code` include ICD-10, SNOMED, and LOINC. For historical conditions there will also be ICD-9.
 
 ### Modifier Elements
 
@@ -43,7 +43,15 @@ define "All Conditions":
 
 ### Common Elements and Functions
 
-#### Associated Condition
+#### Category
+
+As noted above, many clinical systems make a distinction between "problem list items" and "encounter diagnoses". The category element can be used to distinguish these uses. US Core introduces the category of "health concern". The FHIRCommon library defines functions for determining the category of a condition, and US Core Common introduces `isHealthConcern`:
+
+* `isProblemListItem()`
+* `isEncounterDiagnosis()`
+* `isHealthConcern()`
+
+#### Relevant Condition
 
 Often the most relevant condition/diagnosis is available in the context of the workflow (such as ServiceRequest.reason or Encounter.reason). For prior auth the condition/diagnosis associated with the orders getting prior auth should already be known to the payer during CRD or PAS prior to returning the questionnaire, so it's best practice not to ask for it again in the questionnaire.
 
@@ -59,15 +67,48 @@ define "Active Diabetes Conditions":
 The USCoreCommon library defines functions and terminology declarations to facilitate common tests for the status elements of conditions:
 
 * `isActive()`: Returns true if `clinicalStatus` is one of `active`, `recurrence`, or `relapse`
-* `isConfirmed()`: Returns true if `verificationStatus` is `confirmed`
-* `isRefuted()` : Returns true if `verificationStatus` is `refuted`
 
-Note that if the status elements being tested in these functions are not present, they will in general return `null` (i.e. unknown), so care must be taken to ensure the correct interpretation in that case. For example:
+> NOTE: The `isActive()` function makes use of the `clinicalStatus` element of the `Condition`, which is the _current_ status of the `Condition` record. For retrospective cases (such as quality reporting), the logic may be evaluated on data that exists at the time of evaluation. This means that while a given condition may have been active during the measurement period, it might no longer be active when the measure is run. As such, the `isActive()` function should not be used in retrospective contexts. Instead, the most reliable way to determine whether a condition was active at some point in time is to use the [Onset, Abatement, and Prevalence Period](#onset-abatement-and-prevalence-period) elements as discussed below.
+
+#### Verified Conditions
+
+The `Condition` resource in FHIR has a `verificationStatus` element to represent, for example, whether the information has been confirmed. 
+
+* `isUnconfirmed()`
+* `isProvisional()`
+* `isDifferential()`
+* `isConfirmed()`
+* `isRefuted()`
+
+The element is not required, but if it is present, it is a modifier element, and has the potential to negate the information the `Condition` resource represents (e.g. refuted). For most usage, when artifact intent is looking for positive evidence of a condition, the verification statuses of `refuted` and `entered-in-error` should be excluded if `verificationStatus` is present:
 
 ```cql
-define "Not Refuted":
+define "Verified Conditions":
+  [Condition] VerifiedCondition
+    where VerifiedCondition.verificationStatus is not null implies
+      (VerifiedCondition.verificationStatus ~ "confirmed"
+        or VerifiedCondition.verificationStatus ~ "unconfirmed"
+        or VerifiedCondition.verificationStatus ~ "provisional"
+        or VerifiedCondition.verificationStatus ~ "differential"
+      )
+```
+
+To support reuse of this pattern, the `isVerified` fluent function can be used:
+
+```cql
+define fluent function isVerified(condition FHIR.Condition):
+  condition.verificationStatus is not null implies
+    (condition.verificationStatus ~ "confirmed"
+      or condition.verificationStatus ~ "unconfirmed"
+      or condition.verificationStatus ~ "provisional"
+      or condition.verificationStatus ~ "differential"
+    )
+```
+
+```cql
+define "Verified Conditions":
   UCE."All Conditions" Condition
-    where Condition.verificationStatus is not null implies not Condition.isRefuted()
+    where Condition.isVerified()
 ```
 
 #### Historical Conditions
@@ -106,11 +147,22 @@ Note that the USCore profiles for condition indicate that:
 
 Although all three are marked as Must Support, servers are not required to support all three.
 
-The USCoreCommon library defines the following functions for determining onset, abatement, and prevalence:
+#### Onset, Abatement, and Prevalence Period
+
+The `Condition` resource defines `onset` and `abatement` elements that specify the prevalence period of the condition. The elements can be specified as choices of various types to allow systems flexibility in the way that information is represented. The US Core profiles for `Condition` constrain those choices to only those that support actual computation of a prevalence period. The Common libraries define the following functions for determining onset, abatement, and prevalence:
 
 * `toInterval()`: returns an interval representation of a time-valued element (i.e. choice of time types)
 * `abatementInterval()`: returns the abatement interval of a condition
 * `prevalenceInterval()`: returns the prevalence interval of a condition (i.e. earliest onset through latest abatement if known)
+
+```cql
+define "Active Diabetes Conditions Onset Within A Year":
+  "Active Diabetes Conditions" Diabetes
+    where Diabetes.prevalenceInterval() starts 1 year on or before Today()
+```
+
+The `prevalenceInterval` function takes a `Condition` resource and returns the interval from the start of the onset to the end of the abatement. If the Condition is active (i.e. has a clinicalStatus of active, recurrence, or relapse), then the ending boundary of the interval is inclusive (i.e. closed). Otherwise, the ending boundary of the interval is exclusive (i.e. open). When looking for whether a condition was active at some point, use the `prevalenceInterval` function rather than looking at the status element only.
+
 
 > Some of this content is adapted from https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0#conditions
 
