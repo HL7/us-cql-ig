@@ -31,41 +31,43 @@ define fluent function ageInYearsAt(patient Patient, asOf Date):
 define fluent function ageInYears(patient Patient):
   CalculateAgeInYearsAt(date from Patient.birthDate, Today())
 
-define "Usual Name":
-  First(
-    Patient.name name
-      where name.use ~ 'usual'
-  )
+define fluent function usualName(Patient patient):
+  patient.name name
+    where name.use ~ 'usual'
+      and name.period is not null implies name.period includes Today()
+    sort by start of period desc
 
-define "Official Name":
-  First(
-    Patient.name name
-      where name.use ~ 'official'
-  )
+define fluent function officialName(Patient patient):
+  patient.name name
+    where name.use ~ 'official'
+      and name.period is not null implies name.period includes Today()
+    sort by start of period desc
 
-define "First Occurrence of Non-Official, Non-Usual Name":
+define fluent function firstNonOfficialNonUsualName(Patient patient):
   First(
-    Patient.name name
+    patient.name name
       where not(name.use ~ 'official') and not(name.use ~ 'usual')
+        and name.period is not null implies name.period includes Today()
+      sort by start of period desc
   )
 
-define "Name":
-  Coalesce("Official Name", "Usual Name", "First Occurrence of Non-Official, Non-Usual Name")
+define fluent function name(Patient patient):
+  Coalesce(patient.officialName().first(), patient.usualName().first(), patient.firstNonOfficialNonUsualName())
 
-define "First Name":
-  "Name".given.first()
+define fluent function firstName(name HumanName):
+  name.given.first()
 
-define "Middle Names":
-  Combine(Skip("Name".given, 1), ' ')
+define fluent function middleNames(name HumanName):
+  Combine(Skip(name.given, 1), ' ')
 
-define "Last Name":
-  "Name".family
+define fluent function lastName(name HumanName):
+  name.family
 
-define "Name - First Middle(s) Last":
-  Combine("Name".given, ' ') + ' ' + "Name".family
+define fluent function firstMiddleLast(name HumanName):
+  Combine(name.given, ' ') + ' ' + name.family
 
-define "Name - Last, First Middle(s)":
-  "Name".family + ', ' + Combine("Name".given, ' ')
+define fluent function lastFirstMiddle(name HumanName):
+  name.family + ', ' + Combine(name.given, ' ')
 
 // Allergy/Intolerance
 
