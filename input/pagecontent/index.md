@@ -33,13 +33,9 @@ This implementation guide does not:
 
 ### Contents
 
-* **[Background](background.html)**
-* **[Use Cases](use-cases.html)**
-  * **[Prior-Authorization Questionnaires](use-case-pa.html)**
-  * **[Quality Measurement and Reporting](use-case-cqm.html)**
-  * **[Clinical Decision Support](use-case-cds.html)**
-  * **[Clinical Guidelines](use-case-cpg.html)**
-  * **[Public Health Case Reporting](use-case-ph.html)**
+* **Background**
+  * **[Background](background.html)**
+  * **[Use Cases](use-cases.html)**
 * **Guidance**
   * **[Architectural Guidance](architectural-guidance.html)**
   * **[Query Management](query-management.html)**

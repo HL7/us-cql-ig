@@ -82,35 +82,35 @@
         <nameUrl value="background.html"/>
         <title value="Background"/>
         <generation value="markdown"/>
-      </page>
-      <page>
-        <nameUrl value="use-cases.html"/>
-        <title value="Use Cases"/>
-        <generation value="markdown"/>
         <page>
-          <nameUrl value="use-case-pa.html"/>
-          <title value="Prior Authorization Questionnaire Use Case"/>
+          <nameUrl value="use-cases.html"/>
+          <title value="Use Cases"/>
           <generation value="markdown"/>
-        </page>
-        <page>
-          <nameUrl value="use-case-cqm.html"/>
-          <title value="Quality Measurement and Reporting"/>
-          <generation value="markdown"/>
-        </page>
-        <page>
-          <nameUrl value="use-case-cds.html"/>
-          <title value="Clinical Decision Support"/>
-          <generation value="markdown"/>
-        </page>
-        <page>
-          <nameUrl value="use-case-cpg.html"/>
-          <title value="Clinical Guidelines"/>
-          <generation value="markdown"/>
-        </page>
-        <page>
-          <nameUrl value="use-case-ph.html"/>
-          <title value="Public Health Case Reporting"/>
-          <generation value="markdown"/>
+          <page>
+            <nameUrl value="use-case-pa.html"/>
+            <title value="Prior Authorization Questionnaire Use Case"/>
+            <generation value="markdown"/>
+          </page>
+          <page>
+            <nameUrl value="use-case-cqm.html"/>
+            <title value="Quality Measurement and Reporting"/>
+            <generation value="markdown"/>
+          </page>
+          <page>
+            <nameUrl value="use-case-cds.html"/>
+            <title value="Clinical Decision Support"/>
+            <generation value="markdown"/>
+          </page>
+          <page>
+            <nameUrl value="use-case-cpg.html"/>
+            <title value="Clinical Guidelines"/>
+            <generation value="markdown"/>
+          </page>
+          <page>
+            <nameUrl value="use-case-ph.html"/>
+            <title value="Public Health Case Reporting"/>
+            <generation value="markdown"/>
+          </page>
         </page>
       </page>
       <page>
