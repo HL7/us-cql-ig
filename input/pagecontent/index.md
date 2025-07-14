@@ -60,6 +60,8 @@ This implementation guide does not:
   * **[Downloads](downloads.html)**
   * **[License](license.html)**
 
+> NOTE: This implementation guide is informative, and therefore does not include a "Specification" topic like many other implementation guides do.
+
 ### Acknowledgements
 
 This Implementation Guide was made possible by the thoughtful contributions of the following people and organizations:
