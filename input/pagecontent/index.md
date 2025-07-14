@@ -51,12 +51,13 @@ This Guide is divided into several pages which are listed at the top of each pag
 * **Guidance**
   * **[Architectural Guidance](architectural-guidance.html)**
   * **[Query Management](query-management.html)**
+  * **[Testing](testing.html)**
+* **Authoring**
   * **[Authoring](authoring.html)**
   * **[Patterns](patterns.html)**
   * **[Examples](examples.html)**
   * **[Usage](usage.html)**
-* **[Testing](testing.html)**
-* **[Tooling Support](tooling-support.html)**
+  * **[Tooling Support](tooling-support.html)**
 * **CQL Artifacts**
   * **[US Core Common](Library-USCoreCommon.html)**
   * **[US Core Elements](Library-USCoreElements.html)**
@@ -64,15 +65,15 @@ This Guide is divided into several pages which are listed at the top of each pag
   * **[Cumulative Medication Duration](Library-CumulativeMedicationDuration.html)**
 * **[FHIR Artifacts](artifacts.html)**
 * **Support**
-  * **[Changes](changes.html)**
   * **[Downloads](downloads.html)**
   * **[License](license.html)**
+* **[Changes](changes.html)**
 
 > NOTE: This implementation guide is informative, and therefore does not include a "Specification" topic like many other implementation guides do.
 
 ### Roadmap
 
-Implementers of this content are encouraged to provide feedback through the usual mechanisms for feedback on HL7 FHIR Implementation Guides, by submitting an [issue](http://hl7.org/fhir-issues). For more information on how to submit feedback, refer to the [Specification Feedback](https://confluence.hl7.org/spaces/HL7/pages/19136736/Specification+Feedback) page in the HL7 confluence.
+Implementers of this content are encouraged to provide feedback through the usual mechanisms for feedback on HL7 FHIR Implementation Guides, by submitting an [issue](https://jira.hl7.org/secure/CreateIssueDetails!init.jspa?pid=10405&amp;issuetype=10600&amp;customfield_11302=FHIR-us-cql). To see the current status of the feedback for this specification, see the [US CQL Specification Dashboard](https://jira.hl7.org/secure/Dashboard.jspa?selectPageId=17807). For more information on how to submit feedback, refer to the [Specification Feedback](https://confluence.hl7.org/spaces/HL7/pages/19136736/Specification+Feedback) page in the HL7 confluence.
 
 Feedback submitted to this implementation guide is discussed and resolved in the [Clinical Decision Support](https://confluence.hl7.org/spaces/CDS/pages/40742690/Meeting+Index) weekly meeting.
 

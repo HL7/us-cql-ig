@@ -11,21 +11,29 @@
     </ul>
   </li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="query-management.html" class="dropdown-toggle">
+    <a data-toggle="dropdown" href="architectural-guidance.html" class="dropdown-toggle">
       Guidance<b class="caret">
         </b>
     </a>
     <ul class="dropdown-menu">
       <li><a href="architectural-guidance.html">Architectural Guidance</a></li>
       <li><a href="query-management.html">Query Management</a></li>
+      <li><a href="testing.html">Testing</a></li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="authoring.html" class="dropdown-toggle">
+      Authoring<b class="caret">
+        </b>
+    </a>
+    <ul class="dropdown-menu">
       <li><a href="authoring.html">Authoring</a></li>
       <li><a href="patterns.html">Patterns</a></li>
       <li><a href="examples.html">Examples</a></li>
       <li><a href="usage.html">Usage</a></li>
+      <li><a href="tooling-support.html">Tooling Support</a></li>
     </ul>
   </li>
-  <li><a href="testing.html">Testing</a></li>
-  <li><a href="tooling-support.html">Tooling Support</a></li>
   <li class="dropdown">
     <a data-toggle="dropdown" href="artifacts.html" class="dropdown-toggle">
       CQL Artifacts<b class="caret">
@@ -66,7 +74,16 @@
         <a target="_blank" href="http://hl7.org/fhir/us/core">US Core</a>
       </li>
       <li>
-        <a href="changes.html">Changes</a>
+        <a target="_blank" href="https://chat.fhir.org/#narrow/channel/179220-cql">Discussion Forum</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://confluence.hl7.org/spaces/CDS/pages/256516986/DaVinci+CQL+Questionnaire+Support">Project Page</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://jira.hl7.org/secure/Dashboard.jspa?selectPageId=17807">Specification Dashboard</a>
+      </li>
+      <li>
+        <a target="_blank" href="https://jira.hl7.org/secure/CreateIssueDetails!init.jspa?pid=10405&amp;issuetype=10600&amp;customfield_11302=FHIR-us-cql">Propose a Change</a>
       </li>
       <li>
         <a href="downloads.html">Downloads</a>
@@ -76,4 +93,5 @@
       </li>
     </ul>
   </li>
+  <li><a href="changes.html">Changes</a></li>
 </ul>
