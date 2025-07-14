@@ -68,6 +68,13 @@
     <version value="3.1.1"/>
   </dependsOn-->
   <definition>
+    <resource>
+      <reference>
+        <reference value="Parameters/uscore-7-0-0-modelinfo-settings"/>
+      </reference>
+      <name value="USCore700ModelInfoSettings"/>
+      <description value="US Core 7.0.0 Model Information Settings"/>
+    </resource>
     <page>
       <!-- The root will always be toc.html - the template will force it if you don't do it -->
       <nameUrl value="toc.html"/>
@@ -117,81 +124,86 @@
         <nameUrl value="architectural-guidance.html"/>
         <title value="Architectural Guidance"/>
         <generation value="markdown"/>
-      </page>
-      <page>
-        <nameUrl value="query-management.html"/>
-        <title value="Query Management"/>
-        <generation value="markdown"/>
         <page>
-          <nameUrl value="authoring.html"/>
-          <title value="Authoring Documentation"/>
+          <nameUrl value="query-management.html"/>
+          <title value="Query Management"/>
           <generation value="markdown"/>
         </page>
         <page>
-          <nameUrl value="patterns.html"/>
-          <title value="Patterns"/>
+          <nameUrl value="testing.html"/>
+          <title value="Testing"/>
           <generation value="markdown"/>
-          <page>
-            <nameUrl value="patterns-overall.html"/>
-            <title value="Overall Patterns"/>
-            <generation value="markdown"/>
-          </page>
-          <page>
-            <nameUrl value="patterns-allergy.html"/>
-            <title value="Allergy Patterns"/>
-            <generation value="markdown"/>
-          </page>
-          <page>
-            <nameUrl value="patterns-condition.html"/>
-            <title value="Condition Patterns"/>
-            <generation value="markdown"/>
-          </page>
-          <page>
-            <nameUrl value="patterns-coverage.html"/>
-            <title value="Coverage Patterns"/>
-            <generation value="markdown"/>
-          </page>
-          <page>
-            <nameUrl value="patterns-lab.html"/>
-            <title value="Lab Patterns"/>
-            <generation value="markdown"/>
-          </page>
-          <page>
-            <nameUrl value="patterns-medication.html"/>
-            <title value="Medication Patterns"/>
-            <generation value="markdown"/>
-          </page>
-          <page>
-            <nameUrl value="patterns-patient.html"/>
-            <title value="Patient Patterns"/>
-            <generation value="markdown"/>
-          </page>
-          <page>
-            <nameUrl value="patterns-service.html"/>
-            <title value="Service Patterns"/>
-            <generation value="markdown"/>
-          </page>
+        </page>
+      </page>
+      <page>
+        <nameUrl value="authoring.html"/>
+        <title value="Authoring Documentation"/>
+        <generation value="markdown"/>
+      <page>
+        <nameUrl value="patterns.html"/>
+        <title value="Patterns"/>
+        <generation value="markdown"/>
+        <page>
+          <nameUrl value="patterns-overall.html"/>
+          <title value="Overall Patterns"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="patterns-allergy.html"/>
+          <title value="Allergy Patterns"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="patterns-condition.html"/>
+          <title value="Condition Patterns"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="patterns-coverage.html"/>
+          <title value="Coverage Patterns"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="patterns-lab.html"/>
+          <title value="Lab Patterns"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="patterns-medication.html"/>
+          <title value="Medication Patterns"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="patterns-patient.html"/>
+          <title value="Patient Patterns"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="patterns-service.html"/>
+          <title value="Service Patterns"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="examples.html"/>
+          <title value="Examples"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="tooling-support.html"/>
+          <title value="Tooling Support"/>
+          <generation value="markdown"/>
         </page>
         <page>
           <nameUrl value="usage.html"/>
           <title value="Usage"/>
           <generation value="markdown"/>
         </page>
+        <page>
+          <nameUrl value="uscore-modelinfo.html"/>
+          <title value="US Core Model Information"/>
+          <generation value="markdown"/>
+        </page>
       </page>
-      <page>
-        <nameUrl value="examples.html"/>
-        <title value="Examples"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <nameUrl value="tooling-support.html"/>
-        <title value="Tooling Support"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <nameUrl value="testing.html"/>
-        <title value="Testing"/>
-        <generation value="markdown"/>
       </page>
       <page>
         <nameUrl value="changes.html"/>
@@ -234,6 +246,10 @@
     <parameter>
       <code value="path-resource"/>
       <value value="input/resources/library"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/resources/parameters"/>
     </parameter>
     <parameter>
       <code value="path-resource"/>

@@ -61,7 +61,7 @@ This Guide is divided into several pages which are listed at the top of each pag
 * **CQL Artifacts**
   * **[US Core Common](Library-USCoreCommon.html)**
   * **[US Core Elements](Library-USCoreElements.html)**
-  * **[US Core Model Information](Library-USCore-ModelInfo.html)**
+  * **[US Core Model Information](uscore-modelinfo.html)**
   * **[Cumulative Medication Duration](Library-CumulativeMedicationDuration.html)**
 * **[FHIR Artifacts](artifacts.html)**
 * **Support**
