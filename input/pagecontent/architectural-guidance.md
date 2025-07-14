@@ -82,7 +82,7 @@ However, use of this approach requires that the EHR's FHIR server 1) supports th
 [base]/Observation?subject=Patient/123&category=laboratory
 ```
 
-2. Performing the expansion and in-lining the codes
+2\. Performing the expansion and in-lining the codes
 
 ```
 [base]/Observation?subject=Patient/123&code=12345,23456,34567
