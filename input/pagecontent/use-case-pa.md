@@ -16,19 +16,19 @@ The questionnaire examples and associated libraries for population expressions i
 <img src="dtr-data-flow.svg"/>
 </div>
 
-1. DTR Launch: [Retrieving Launch Context Information](https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#retrieving-launch-context-information)
-2. $questionnaire-package: [Retrieving Questionnaire Packages](https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#retrieving-questionnaire-packages)
-3. Questionnaire Package Bundle(s): [DTRQuestionnairePackageBundle](https://hl7.org/fhir/us/davinci-dtr/STU2.1/StructureDefinition-DTR-QPackageBundle.html)
-4. Questionnaire Pre-Population: [Pre-Populating Questionnaire Responses](https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#pre-populating-questionnaireresponses)
-5. FHIR API Calls (resulting from questionnaire pre-population): [Retrieval of FHIR Resources](https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#retrieval-of-patient-fhir-resources-to-supply-to-cql-execution-engine)
+1. DTR Launch: [Retrieving Launch Context Information](https://hl7.org/fhir/us/davinci-dtr/specification.html#retrieving-launch-context-information)
+2. $questionnaire-package: [Retrieving Questionnaire Packages](https://hl7.org/fhir/us/davinci-dtr/specification.html#retrieving-questionnaire-packages)
+3. Questionnaire Package Bundle(s): [DTRQuestionnairePackageBundle](https://hl7.org/fhir/us/davinci-dtr/StructureDefinition-DTR-QPackageBundle.html)
+4. Questionnaire Pre-Population: [Pre-Populating Questionnaire Responses](https://hl7.org/fhir/us/davinci-dtr/specification.html#pre-populating-questionnaireresponses)
+5. FHIR API Calls (resulting from questionnaire pre-population): [Retrieval of FHIR Resources](https://hl7.org/fhir/us/davinci-dtr/specification.html#retrieval-of-patient-fhir-resources-to-supply-to-cql-execution-engine)
 
-As described in the [Documentation Templates and Rules (DTR)](https://hl7.org/fhir/us/davinci-dtr/STU2.1) implementation guide, the DTR process can be used for a broad range of use cases, including launching from a <a href="https://hl7.org/fhir/us/davinci-dtr/STU2.1/usecases.html#relation-to-coverage-requirements-discovery-crd">Coverage Requirements Discovery (CRD)</a> response, as well as requesting documents as described in the <a href="https://hl7.org/fhir/us/davinci-dtr/STU2.1/usecases.html#relation-to-clinical-data-exchange-cdex">Relationship to Clinical Data Exchange</a> topic.
+As described in the [Documentation Templates and Rules (DTR)](https://hl7.org/fhir/us/davinci-dtr) implementation guide, the DTR process can be used for a broad range of use cases, including launching from a <a href="https://hl7.org/fhir/us/davinci-dtr/usecases.html#relation-to-coverage-requirements-discovery-crd">Coverage Requirements Discovery (CRD)</a> response, as well as requesting documents as described in the <a href="https://hl7.org/fhir/us/davinci-dtr/usecases.html#relation-to-clinical-data-exchange-cdex">Relationship to Clinical Data Exchange</a> topic.
 
-This diagram is a simplification of the overall DTR <a href="https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#overview">Overview Sequence Diagram</a>. This diagram is focusing on the interactions from the perspective of Clinical Quality Language (CQL) authoring and evaluation.
+This diagram is a simplification of the overall DTR <a href="https://hl7.org/fhir/us/davinci-dtr/specification.html#overview">Overview Sequence Diagram</a>. This diagram is focusing on the interactions from the perspective of Clinical Quality Language (CQL) authoring and evaluation.
 
 [Structured Data Capture (SDC)]({{site.data.fhir.ver.sdc}}) documents the use of several extensions for supporting CQL-based calculation and form behavior within a Questionnaire in the <a href="{{site.data.fhir.ver.sdc}}/behavior.html#calculations">Form Behavior and Calculation</a> topic.
 
-In addition, the DTR specification provides additional guidance and conformance requirements on the use of CQL within DTR Questionnaires in the <a href="https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#use-of-cql">Use of CQL</a> topic.
+In addition, the DTR specification provides additional guidance and conformance requirements on the use of CQL within DTR Questionnaires in the <a href="https://hl7.org/fhir/us/davinci-dtr/specification.html#use-of-cql">Use of CQL</a> topic.
 
 The content and questionnaires in this IG are expected to already have resolved the question of coverage determination, and are focused on a particular individual represented as a Patient. If prior authorization is not required then the DTR process will not occur.
 

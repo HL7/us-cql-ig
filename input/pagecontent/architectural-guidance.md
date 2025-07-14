@@ -5,7 +5,7 @@ This discussion assumes the following:
 * A Questionnaire resource with any number of `item` elements, nested to any degree
 * A Questionnaire may include any number of `initialExpression`, `candidateExpression` and `calculatedExpression` extensions referencing CQL expressions to be evaluated
 
-This guidance is provided as a complement to the conformance expectations and guidance described in [Pre-populating QuestionnaireResponses](https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#pre-populating-questionnaireresponses) in the DTR implementation guide.
+This guidance is provided as a complement to the conformance expectations and guidance described in [Pre-populating QuestionnaireResponses](https://hl7.org/fhir/us/davinci-dtr/specification.html#pre-populating-questionnaireresponses) in the DTR implementation guide.
 
 ### Initial Data Retrieval
 
@@ -25,11 +25,11 @@ In addition to gathering the _effective_ data requirements through dependency tr
 * Managing when queries need to be re-run
 * Guidance on adaptive query capabilities
 
-TODO: Provide guidance about making the determination between sending libraries up front versus questionnaire specific libraries (https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#adaptive-form-considerations)
+TODO: Provide guidance about making the determination between sending libraries up front versus questionnaire specific libraries (https://hl7.org/fhir/us/davinci-dtr/specification.html#adaptive-form-considerations)
 
 ### Terminology Considerations
 
-https://hl7.org/fhir/us/davinci-dtr/STU2.1/specification.html#value-set-and-code-system-guidance
+https://hl7.org/fhir/us/davinci-dtr/specification.html#value-set-and-code-system-guidance
 
 Note that questionnaires may reference value sets that are not included in the questionnaire package. In particular, best practice for value sets that do not have expansions (for example because the value set definition is more concisely expressed as a condition, or the value set is too large) is that they not be included in the questionnaire package.
 
