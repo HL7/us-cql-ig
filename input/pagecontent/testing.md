@@ -43,6 +43,7 @@ Based on the DTR sequence diagram, the following 3 integration test scenarios ar
 1. Questionnaire Package Response
 2. EHR FHIR Queries
 3. Questionnaire Populate
+4. Next Question (Adaptive Questionnaire Testing)
 
 #### Questionnaire Package Response
 
@@ -62,3 +63,6 @@ The source repository for this implementation guide contains Postman collections
 
 [Postman Collections](https://github.com/HL7/us-cql-ig/tree/master/postman)
 
+#### Next Question (Adaptive Questionnaire Testing)
+
+For systems that support adaptive questionnaires, testing this capability can be accomplished with a REST client (such as Postman) and a FHIR server that implements the Questionnaire/$next-question operation.
