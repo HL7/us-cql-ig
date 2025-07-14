@@ -7,10 +7,10 @@
 <artifactPageExtension value="-mappings"/>
 <artifact id="Library/CumulativeMedicationDuration" key="Library-CumulativeMedicationDuration" name="Cumulative Medication Duration"/>
 <artifact deprecated="true" id="Questionnaire/GMTPQuestionnaire" key="Questionnaire-GMTPQuestionnaire" name="Example Genetic/Molecular Testing Preauthorization Questionnaire"/>
-<artifact deprecated="true" id="Questionnaire/UPPARFQuestionnaire" key="Questionnaire-UPPARFQuestionnaire" name="Example Humana Uniform Pharmacy Prior Authorization Request Form"/>
 <artifact deprecated="true" id="Questionnaire/MBODAQuestionnaire" key="Questionnaire-MBODAQuestionnaire" name="Example Medical Benefit Outpatient Drug Authorization Questionnaire"/>
 <artifact deprecated="true" id="Questionnaire/MNACQuestionnaire" key="Questionnaire-MNACQuestionnaire" name="Example Medical Necessity For Authorization Of Catheters Questionnaire"/>
 <artifact id="Questionnaire/ExamplePatientAndCoverageQuestionnaire" key="Questionnaire-ExamplePatientAndCoverageQuestionnaire" name="Example Patient and Coverage Questionnaire"/>
+<artifact deprecated="true" id="Questionnaire/UPPARFQuestionnaire" key="Questionnaire-UPPARFQuestionnaire" name="Example Uniform Pharmacy Prior Authorization Request Form"/>
 <artifact id="Library/ExamplePatientAndCoverageInitialExpressions" key="Library-ExamplePatientAndCoverageInitialExpressions" name="Expression Library for the Example Patient And Coverage Questionnaire"/>
 <artifact id="Library/GMTPInitialExpressions" key="Library-GMTPInitialExpressions" name="Expression Library for the Genetic/Molecular testing preauthorization Example"/>
 <artifact id="Library/MBODAInitialExpressions" key="Library-MBODAInitialExpressions" name="Expression Library for the Medical Benefit Outpatient Drug Authorization Example"/>
