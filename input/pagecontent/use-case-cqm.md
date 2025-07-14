@@ -3,7 +3,7 @@ Clinical Quality Language has been in use in the quality measurement domain for 
 For more detailed information on this use case, see:
 
 * [QI Core](http://hl7.org/fhir/us/qicore): Quality improvement profiles, derived from US Core, adding additional information and in support of quality improvement use cases
-* [Quality Measures](http://hl7.org/fhir/us/cqfmeasures): Quality Measures implementation guide, describes how to use FHIR Clinical Reasoning and CQL to represent structured and computable quality measure specifications
+* [Quality Measures](https://hl7.org/fhir/uv/cqm/2025Jan/): Quality Measures implementation guide, describes how to use FHIR Clinical Reasoning and CQL to represent structured and computable quality measure specifications
 * [Data Exchange for Quality Measures](http://hl7.org/fhir/us/davinci-deqm): Data Exchange for Quality Measures, describes how to use quality measure specifications to exchange data-of-interest for quality measures, as well as calculate and report quality measures.
 
 Measure specifications for use in the US Realm can make use of content from this implementation guide as these patterns and libraries are refined through implementation experience.
