@@ -1,9 +1,23 @@
 {
   "resourceType": "Library",
   "id": "USCoreCommon",
+  "extension": [ {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger" : 3
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode" : "cds"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "informative"
+    } ],
   "url": "http://hl7.org/fhir/us/cql/Library/USCoreCommon",
   "name": "USCoreCommon",
   "title": "US Core Common",
+  "status": "active",
+  "experimental": false,
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/library-type",
@@ -11,6 +25,11 @@
     } ]
   },
   "description": "This library defines functions to expose extensions defined in USCore as fluent functions in CQL, as well as common terminology and functions used in writing CQL with FHIR and USCore profiles.",
+  "topic": [ {
+    "text": "FHIR"
+  }, {
+    "text": "CQL"
+  } ],
   "content": [ {
     "id": "ig-loader-USCoreCommon.cql"
   } ]

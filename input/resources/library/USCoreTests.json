@@ -1,9 +1,22 @@
 {
   "resourceType": "Library",
   "id": "USCoreTests",
+  "extension": [ {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger" : 3
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode" : "cds"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "informative"
+    } ],
   "url": "http://hl7.org/fhir/us/cql/Library/USCoreTests",
   "name": "USCoreTests",
   "title": "US Core Tests",
+  "status": "active",
   "experimental": true,
   "type": {
     "coding": [ {
@@ -12,6 +25,11 @@
     } ]
   },
   "description": "This is a testing library used to validate capability of the CQL-to-ELM translator using the US Core model info.",
+  "topic": [ {
+    "text": "FHIR"
+  }, {
+    "text": "CQL"
+  } ],
   "content": [ {
     "id": "ig-loader-USCoreTests.cql"
   } ]

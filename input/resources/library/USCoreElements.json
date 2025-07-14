@@ -1,9 +1,23 @@
 {
   "resourceType": "Library",
   "id": "USCoreElements",
+  "extension": [ {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger" : 3
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode" : "cds"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "informative"
+    } ],
   "url": "http://hl7.org/fhir/us/cql/Library/USCoreElements",
   "name": "USCoreElements",
   "title": "US Core Elements",
+  "status": "active",
+  "experimental": false,
   "type": {
     "coding": [ {
       "system": "http://terminology.hl7.org/CodeSystem/library-type",
@@ -11,6 +25,11 @@
     } ]
   },
   "description": "A library of expressions, functions, and terminology declarations for use with FHIR in the US Realm.",
+  "topic": [ {
+    "text": "FHIR"
+  }, {
+    "text": "CQL"
+  } ],
   "content": [ {
     "id": "ig-loader-USCoreElements.cql"
   } ]

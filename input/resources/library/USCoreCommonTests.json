@@ -1,9 +1,22 @@
 {
   "resourceType": "Library",
   "id": "USCoreCommonTests",
+  "extension": [ {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger" : 3
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode" : "cds"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "informative"
+    } ],
   "url": "http://hl7.org/fhir/us/cql/Library/USCoreCommonTests",
   "name": "USCoreCommonTests",
   "title": "US Core Common Tests",
+  "status": "active",
   "experimental": true,
   "type": {
     "coding": [ {
@@ -12,6 +25,11 @@
     } ]
   },
   "description": "Tests for the expressions and functions defined in the US Core Common library.",
+  "topic": [ {
+    "text": "FHIR"
+  }, {
+    "text": "CQL"
+  } ],
   "content": [ {
     "id": "ig-loader-USCoreCommonTests.cql"
   } ]
