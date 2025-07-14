@@ -8,6 +8,8 @@ This topic documents a set of capabilities gathered from community engagement an
 
 This topic describes questionnaire-related authoring capabilities that would be needed to support creation of prior-authorization questionnaires:
 
+> NOTE: Items in **bold** are not currently supported by the LHC Forms Builder (see below)
+
 * Create and maintain questionnaires
     * Edit basic (shareable) metadata including title, url, status and version
     * Edit advanced (publishable) metadata including description, purpose, approvalDate, lastReviewDate, **useContext**
@@ -27,7 +29,8 @@ This topic describes questionnaire-related authoring capabilities that would be 
 * Create groups of questions
     * Arbitrary nesting of groups
 
-The [LHC Forms Builder](https://lhcformbuilder.nlm.nih.gov/) is an open-source questionnaire authoring environment that supports most of this capability (items in bold are not currently supported)
+The [LHC Forms Builder](https://lhcformbuilder.nlm.nih.gov/) is an open-source questionnaire authoring environment that supports most of this capability. Items in the above list in **bold** are not currently supported.
+
 
 #### CQL Support
 
