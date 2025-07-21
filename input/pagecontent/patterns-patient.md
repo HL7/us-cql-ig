@@ -33,7 +33,7 @@ define "Patient Age Between 50 and 75":
   Patient.ageInYears() between 50 and 75
 ```
 
-> NOTE: The [AgeInYearsAt](https://cql.hl7.org/09-b-cqlreference.html#ageat) function in CQL uses the data model (QICore in this case) to understand how to access the patient's birth date information.
+> NOTE: The [AgeInYearsAt](https://cql.hl7.org/09-b-cqlreference.html#ageat) function in CQL uses the data model (US Core in this case) to understand how to access the patient's birth date information.
 
 > NOTE: CQL supports age calculation functions using both `Date` and `DateTime` values. In both cases the function is shorthand for a date/datetime duration calculation. If the `DateTime` overloads are used, note that the timezone offset is considered and there may be edge cases that result in unexpected results, depending on how large the timezone offset is from the execution timestamp. To avoid these edge cases, best practice is to use the `date from` extractor as shown in the above pattern to ensure the `Date` calculation is used.
 
@@ -55,17 +55,17 @@ US Core defines extensions for representing the race and ethnicity of a patient 
 ```cql
 define "Patient Race Includes Alaska Native":
   Patient P
-    where exists (P.race.ombCategory C where C ~ "American Indian or Alaska Native")
-      and exists (P.race.detailed C where C ~ "Alaska Native")
+    where exists (P.race().ombCategory C where C ~ "American Indian or Alaska Native")
+      and exists (P.race().detailed C where C ~ "Alaska Native")
 ```
 
-> NOTE: CQL uses the data model (USCore in this case) to understand how to access patient information using the `Patient` definition. This definition is available in `Patient` contexts.
+> NOTE: CQL uses the data model (US Core in this case) to understand how to access patient information using the `Patient` definition. This definition is available in `Patient` contexts.
 
 #### Patient deceased
 
 Some elements in USCore profiles allow for values to be represented in different ways. For example, the `deceased` element allows values of `Boolean` and `DateTime`. This means that the value of the `deceased` element for any particular patient may be either a Boolean (`true` or `false`) or a DateTime. In FHIR and CQL, these types of elements are called _choice_ types.
 
-> NOTE: Because the USCore model is using CQL system-defined types (see the [FHIR Type Mapping]({{site.data.fhir.ver.cql}}/conformance.html#fhir-type-mapping) topic in the Using CQL With FHIR IG), the spelling of the types uses the CQL type names (e.g. `Boolean` rather than `boolean`).
+> NOTE: Because the US Core model is using CQL system-defined types (see the [FHIR Type Mapping]({{site.data.fhir.ver.cql}}/conformance.html#fhir-type-mapping) topic in the Using CQL With FHIR IG), the spelling of the types uses the CQL type names (e.g. `Boolean` rather than `boolean`).
 
 When accessing choice types in CQL expressions, authors can typically just treat the element as the type they are interested in accessing. For example:
 
@@ -81,5 +81,5 @@ In the first expression, the `deceased` element is treated as a Boolean, whereas
 
 > NOTE: No value conversions take place when accessing choice types, when using the "Patient Is Deceased" expression above, for example, if the Patient record has a DateTime value for the deceased element, the result of that expression will be `null`.
 
-> NOTE: Content for this page was adapted from the [QICore Authoring Patterns - Patient](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns---QICore-v4.1.1#patient) topic.
+> NOTE: Content for this page was adapted from the [QICore Authoring Patterns - Patient](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns---QICore-v6.0.0#patient) topic.
 

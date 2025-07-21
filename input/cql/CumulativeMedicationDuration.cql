@@ -5,15 +5,15 @@ resources. The logic here follows the guidance provided as part of the 5.6
 version of Quality Data Model.
 @comment: Note that the logic here assumes single-instruction dosing information.
 Split-dosing, tapering, and other more complex dosing instructions are not handled.
+Note also that this logic is not US-specific, this library is a candidate for promotion to
+universal realm.
 */
 library CumulativeMedicationDuration
 
-using USCore version '7.0.0'
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.1'
-
-include USCoreCommon
+include hl7.fhir.uv.cql.FHIRHelpers version '4.0.1'
+include hl7.fhir.uv.cql.FHIRCommon version '2.0.0'
 
 // These code systems are not known to the MAT environment yet, request to have them added submitted
 codesystem "V3TimingEvent": 'http://terminology.hl7.org/CodeSystem/v3-TimingEvent'
@@ -47,28 +47,28 @@ code "EVE.late": 'EVE.late' from EventTiming //	Late Evening	Event occurs during
 code "NIGHT": 'NIGHT' from EventTiming //	Night	Event occurs during the night. The exact time is unspecified and established by institution convention or patient interpretation.
 code "PHS": 'PHS' from EventTiming //	After Sleep	Event occurs [offset] after subject goes to sleep. The exact time is unspecified and established by institution convention or patient interpretation.
 
-code "Every eight hours (qualifier value)": '307469008' from USCoreCommon."SNOMEDCT" display 'Every eight hours (qualifier value)'
-code "Every eight to twelve hours (qualifier value)": '396140003' from USCoreCommon."SNOMEDCT" display 'Every eight to twelve hours (qualifier value)'
-code "Every forty eight hours (qualifier value)": '396131002' from USCoreCommon."SNOMEDCT" display 'Every forty eight hours (qualifier value)'
-code "Every forty hours (qualifier value)": '396130001' from USCoreCommon."SNOMEDCT" display 'Every forty hours (qualifier value)'
-code "Every four hours (qualifier value)": '225756002' from USCoreCommon."SNOMEDCT" display 'Every four hours (qualifier value)'
-code "Every seventy two hours (qualifier value)": '396143001' from USCoreCommon."SNOMEDCT" display 'Every seventy two hours (qualifier value)'
-code "Every six hours (qualifier value)": '307468000' from USCoreCommon."SNOMEDCT" display 'Every six hours (qualifier value)'
-code "Every six to eight hours (qualifier value)": '396139000' from USCoreCommon."SNOMEDCT" display 'Every six to eight hours (qualifier value)'
-code "Every thirty six hours (qualifier value)": '396126004' from USCoreCommon."SNOMEDCT" display 'Every thirty six hours (qualifier value)'
-code "Every three to four hours (qualifier value)": '225754004' from USCoreCommon."SNOMEDCT" display 'Every three to four hours (qualifier value)'
-code "Every three to six hours (qualifier value)": '396127008' from USCoreCommon."SNOMEDCT" display 'Every three to six hours (qualifier value)'
-code "Every twelve hours (qualifier value)": '307470009' from USCoreCommon."SNOMEDCT" display 'Every twelve hours (qualifier value)'
-code "Every twenty four hours (qualifier value)": '396125000' from USCoreCommon."SNOMEDCT" display 'Every twenty four hours (qualifier value)'
-code "Every two to four hours (qualifier value)": '225752000' from USCoreCommon."SNOMEDCT" display 'Every two to four hours (qualifier value)'
-code "Four times daily (qualifier value)": '307439001' from USCoreCommon."SNOMEDCT" display 'Four times daily (qualifier value)'
-code "Once daily (qualifier value)": '229797004' from USCoreCommon."SNOMEDCT" display 'Once daily (qualifier value)'
-code "One to four times a day (qualifier value)": '396109005' from USCoreCommon."SNOMEDCT" display 'One to four times a day (qualifier value)'
-code "One to three times a day (qualifier value)": '396108002' from USCoreCommon."SNOMEDCT" display 'One to three times a day (qualifier value)'
-code "One to two times a day (qualifier value)": '396107007' from USCoreCommon."SNOMEDCT" display 'One to two times a day (qualifier value)'
-code "Three times daily (qualifier value)": '229798009' from USCoreCommon."SNOMEDCT" display 'Three times daily (qualifier value)'
-code "Twice a day (qualifier value)": '229799001' from USCoreCommon."SNOMEDCT" display 'Twice a day (qualifier value)'
-code "Two to four times a day (qualifier value)": '396111001' from USCoreCommon."SNOMEDCT" display 'Two to four times a day (qualifier value)'
+code "Every eight hours (qualifier value)": '307469008' from FHIRCommon."SNOMEDCT" display 'Every eight hours (qualifier value)'
+code "Every eight to twelve hours (qualifier value)": '396140003' from FHIRCommon."SNOMEDCT" display 'Every eight to twelve hours (qualifier value)'
+code "Every forty eight hours (qualifier value)": '396131002' from FHIRCommon."SNOMEDCT" display 'Every forty eight hours (qualifier value)'
+code "Every forty hours (qualifier value)": '396130001' from FHIRCommon."SNOMEDCT" display 'Every forty hours (qualifier value)'
+code "Every four hours (qualifier value)": '225756002' from FHIRCommon."SNOMEDCT" display 'Every four hours (qualifier value)'
+code "Every seventy two hours (qualifier value)": '396143001' from FHIRCommon."SNOMEDCT" display 'Every seventy two hours (qualifier value)'
+code "Every six hours (qualifier value)": '307468000' from FHIRCommon."SNOMEDCT" display 'Every six hours (qualifier value)'
+code "Every six to eight hours (qualifier value)": '396139000' from FHIRCommon."SNOMEDCT" display 'Every six to eight hours (qualifier value)'
+code "Every thirty six hours (qualifier value)": '396126004' from FHIRCommon."SNOMEDCT" display 'Every thirty six hours (qualifier value)'
+code "Every three to four hours (qualifier value)": '225754004' from FHIRCommon."SNOMEDCT" display 'Every three to four hours (qualifier value)'
+code "Every three to six hours (qualifier value)": '396127008' from FHIRCommon."SNOMEDCT" display 'Every three to six hours (qualifier value)'
+code "Every twelve hours (qualifier value)": '307470009' from FHIRCommon."SNOMEDCT" display 'Every twelve hours (qualifier value)'
+code "Every twenty four hours (qualifier value)": '396125000' from FHIRCommon."SNOMEDCT" display 'Every twenty four hours (qualifier value)'
+code "Every two to four hours (qualifier value)": '225752000' from FHIRCommon."SNOMEDCT" display 'Every two to four hours (qualifier value)'
+code "Four times daily (qualifier value)": '307439001' from FHIRCommon."SNOMEDCT" display 'Four times daily (qualifier value)'
+code "Once daily (qualifier value)": '229797004' from FHIRCommon."SNOMEDCT" display 'Once daily (qualifier value)'
+code "One to four times a day (qualifier value)": '396109005' from FHIRCommon."SNOMEDCT" display 'One to four times a day (qualifier value)'
+code "One to three times a day (qualifier value)": '396108002' from FHIRCommon."SNOMEDCT" display 'One to three times a day (qualifier value)'
+code "One to two times a day (qualifier value)": '396107007' from FHIRCommon."SNOMEDCT" display 'One to two times a day (qualifier value)'
+code "Three times daily (qualifier value)": '229798009' from FHIRCommon."SNOMEDCT" display 'Three times daily (qualifier value)'
+code "Twice a day (qualifier value)": '229799001' from FHIRCommon."SNOMEDCT" display 'Twice a day (qualifier value)'
+code "Two to four times a day (qualifier value)": '396111001' from FHIRCommon."SNOMEDCT" display 'Two to four times a day (qualifier value)'
 
 parameter ErrorLevel String default 'Warning'
 
@@ -259,7 +259,7 @@ considered appropriate statuses, depending on the use case, typically `completed
 
 NOTE: Updated return to use "date from end of boundsPeriod" to ensure result is Interval<Date>
 */
-define function MedicationRequestPeriodTest(Request USCore."MedicationRequestProfile"):
+define function MedicationRequestPeriod(Request MedicationRequest):
   Request R
     let
       dosage: singleton from R.dosageInstruction,
@@ -271,8 +271,7 @@ define function MedicationRequestPeriodTest(Request USCore."MedicationRequestPro
       doseQuantity: doseAndRate.dose,
       dose: Coalesce(end of doseRange, doseQuantity),
       dosesPerDay: Coalesce(ToDaily(frequency, period), Count(timing.repeat.timeOfDay), 1.0),
-      boundsPeriod: timing.repeat.bounds as Interval<DateTime>,
-      expectedDaysSupply: R.dispenseRequest.expectedSupplyDuration.value,
+      boundsPeriod: timing.repeat.bounds as Period,
       // TODO: this isn't working as expected, convert results in null
       //daysSupply: (convert(R.dispenseRequest.expectedSupplyDuration) to days).value,
       daysSupply: (R.dispenseRequest.expectedSupplyDuration).value,
@@ -281,53 +280,14 @@ define function MedicationRequestPeriodTest(Request USCore."MedicationRequestPro
       startDate:
         Coalesce(
           date from start of boundsPeriod,
-          date from R.authoredOn
-          // TODO: accessing the validityPeriod field is causing QICore to be depended on and results in an error when evaluating
-          // ,
-          // date from start of R.dispenseRequest.validityPeriod
-        ),
-      totalDaysSupplied: Coalesce(daysSupply, quantity.value / (dose.value * dosesPerDay)) * (1 + refills)
-    return { dosage: dosage, doseAndRate: doseAndRate, timing: timing, frequency: frequency, period: period,
-      doseRange: doseRange, doseQuantity: doseQuantity, dose: dose, dosesPerDay: dosesPerDay, boundsPeriod: boundsPeriod,
-      expectedDaysSupply: expectedDaysSupply, daysSupply: daysSupply, quantity: quantity, refills: refills, startDate: startDate, totalDaysSupplied: totalDaysSupplied,
-      requestPeriod: if startDate is not null and totalDaysSupplied is not null then
-        Interval[startDate, startDate + Quantity(totalDaysSupplied - 1, 'day') ]
-      else if startDate is not null and boundsPeriod."high" is not null then
-        Interval[startDate, date from end of boundsPeriod]
-      else
-        null}
-
-define function MedicationRequestPeriod(Request USCore."MedicationRequestProfile"):
-  Request R
-    let
-      dosage: singleton from R.dosageInstruction,
-      doseAndRate: singleton from dosage.doseAndRate,
-      timing: dosage.timing,
-      frequency: Coalesce(timing.repeat.frequencyMax, timing.repeat.frequency),
-      period: Quantity(timing.repeat.period, timing.repeat.periodUnit),
-      doseRange: doseAndRate.dose,
-      doseQuantity: doseAndRate.dose,
-      dose: Coalesce(end of doseRange, doseQuantity),
-      dosesPerDay: Coalesce(ToDaily(frequency, period), Count(timing.repeat.timeOfDay), 1.0),
-      boundsPeriod: timing.repeat.bounds as Interval<DateTime>,
-      // TODO: this isn't working as expected, convert results in null
-      //daysSupply: (convert(R.dispenseRequest.expectedSupplyDuration) to days).value,
-      daysSupply: (R.dispenseRequest.expectedSupplyDuration).value,
-      quantity: R.dispenseRequest.quantity,
-      refills: Coalesce(R.dispenseRequest.numberOfRepeatsAllowed, 0),
-      startDate:
-        Coalesce(
-          date from start of boundsPeriod,
-          date from R.authoredOn
-          // TODO: accessing the validityPeriod field is causing QICore to be depended on and results in an error when evaluating
-          // ,
-          // date from start of R.dispenseRequest.validityPeriod
+          date from R.authoredOn,
+          date from start of R.dispenseRequest.validityPeriod
         ),
       totalDaysSupplied: Coalesce(daysSupply, quantity.value / (dose.value * dosesPerDay)) * (1 + refills)
     return
       if startDate is not null and totalDaysSupplied is not null then
         Interval[startDate, startDate + Quantity(totalDaysSupplied - 1, 'day') ]
-      else if startDate is not null and boundsPeriod."high" is not null then
+      else if startDate is not null and boundsPeriod."end" is not null then
         Interval[startDate, date from end of boundsPeriod]
       else
         null
@@ -414,7 +374,7 @@ This may take the form of an "original creation date", but may also be a "status
 status of an existing dispense. That discussion is ongoing, so until that is resolved, this logic will return
 null if whenPrepared/whenHandedOver are not available.
 */
-define function MedicationDispensePeriod(Dispense "MedicationDispense"):
+define function MedicationDispensePeriod(Dispense MedicationDispense):
   Dispense D
     let
       dosage: singleton from D.dosageInstruction,
@@ -470,7 +430,7 @@ period has a start, the result will be
 NOTE: Therapeutic duration needs to be established and until a way is implemented to
 do that based on the medication, this logic is incomplete and should not be used.
 */
-define function MedicationAdministrationPeriod(Administration "MedicationAdministration"):
+define function MedicationAdministrationPeriod(Administration MedicationAdministration):
   Administration M
     let
       therapeuticDuration: TherapeuticDuration(Administration.medication),
@@ -524,12 +484,9 @@ Then, we define a function that allows us to calculate based on the various medi
 types:
 */
 
-define function MedicationPeriod(
-  medication Choice<USCore."MedicationRequestProfile",
-    "MedicationDispense"
-  >):
+define function MedicationPeriod(medication Choice<MedicationRequest, MedicationDispense>):
   case
-    when medication is USCore."MedicationRequestProfile" then MedicationRequestPeriod(medication)
+    when medication is MedicationRequest then MedicationRequestPeriod(medication)
     when medication is MedicationDispense then MedicationDispensePeriod(medication)
     else null
   end
@@ -548,10 +505,7 @@ Calculations that combine dosages from different types of medications (such as M
 or Average MME) require further consideration.
 */
 
-define function CumulativeMedicationDuration(
-  Medications List<Choice<USCore."MedicationRequestProfile",
-    "MedicationDispense"
-  >>):
+define function CumulativeMedicationDuration(Medications List<Choice<MedicationRequest, MedicationDispense>>):
   CumulativeDuration((
       Medications M
         where M is MedicationRequest

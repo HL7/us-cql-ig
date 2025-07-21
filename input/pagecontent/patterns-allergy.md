@@ -1,8 +1,8 @@
 US Core defines [US Core Allergy Intolerance]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-allergyintolerance.html).
 
-This captures allergies / adverse reactions associated with a patient.
+This profile is used to capture allergies / adverse reactions associated with a patient. By default, the primary terminology filter for AllergyIntolerance is `code`.
 
-The codes come from a set of common substances for allergy documentation in SNOMED and RXNORM (US Core 3.1.1: {{site.data.fhir.ver.uscore3}}/ValueSet-us-core-allergy-substance.html, US Core 6.1.0: https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1186.8/expansion).
+The codes come from a set of common substances for allergy documentation in SNOMED and RXNORM: https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1186.8/expansion).
 
 ### Modifier Elements
 
@@ -36,6 +36,24 @@ There are no significant differences between the 3.1.1, 6.1.0, and 7.0.0 version
 #### Current allergies
 
 To get all confirmed active allergies, ```UCE."Active Confirmed Allergies and Intolerances"``` can be used. 
+
+Current allergies to specific substances can make use of the terminology filter as part of the retrieve:
+
+```cql
+define "Statin Allergy Intolerance":
+  [USCore."AllergyIntolerance": "Statin Allergen"] StatinAllergyIntolerance
+    where StatinAllergyIntolerance.isActive()
+```
+
+> NOTE: Because the AllergyIntolerance profile does not constraint the values of the `clinicalStatus` or `verificationStatus` elements, authors must consider the possible values of these elements to ensure the expression matches intent.
+
+In retrospective cases, the logic will be evaluated on data that exists at the time of evaluation. This means that while a given allergy/intolerance may have been active during the retrospective period, it might no longer be active when the logic is evaluated.
+
+#### No known allergies
+
+To check if a patient has confirmed they have no known allergies, use ```UCE."No Known Allergies (Confirmed)"```. This will check for SNOMED 716186003 (No known allergy (situation)) as advised in US Core.
+
+US Core also supports documenting ```UCE."No Known Allergies (Not Asked)"```, which also uses the No known allergy (situation) SNOMED code, but the instance uses the `uncomfirmed` verification status.
 
 ##### Contrast dye allergy:
 
@@ -85,9 +103,5 @@ define "AllergicToDrugX":
   UCE."Active Confirmed Allergies and Intolerances" A
     where A.code ~ "DrugX"
 ```
-
-#### No known allergies
-
-To check if a patient has confirmed they have no known allergies, use ```UCE."No Known Allergies (Confirmed)"```. This will check for SNOMED 716186003 (No known allergy (situation)) as advised in US Core.
 
 > NOTE: Content for this page was adapted from the [QICore Authoring Patterns - Allergies](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0#allergies) topic.

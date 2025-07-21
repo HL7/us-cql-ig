@@ -21,6 +21,7 @@
 <artifact id="Library/USCoreElements" key="Library-USCoreElements" name="US Core Elements"/>
 <artifact id="Library/USCore-ModelInfo" key="Library-USCore-ModelInfo" name="US Core Model Information"/>
 <artifact id="Library/USCoreTests" key="Library-USCoreTests" name="US Core Tests"/>
+<artifact id="Parameters/uscore-7-0-0-modelinfo-settings" key="Parameters-uscore-7-0-0-modelinfo-settings" name="USCore700ModelInfoSettings"/>
 <page key="NA" name="(NA)"/>
 <page key="many" name="(many)"/>
 <page key="patterns-allergy" name="Allergy Patterns"/>
@@ -50,6 +51,7 @@
 <page key="toc" name="Table of Contents"/>
 <page key="testing" name="Testing"/>
 <page key="tooling-support" name="Tooling Support"/>
+<page key="uscore-modelinfo" name="US Core Model Information"/>
 <page key="usage" name="Usage"/>
 <page key="use-cases" name="Use Cases"/>
 </specification>

@@ -20,14 +20,13 @@ There are no significant backwards-compatibility issues between versions for the
 
 ### Common Elements and Functions
 
-#### Member ID
+#### Member or Subscriber ID
 
-The [USCore 6.1 Coverage Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-coverage.html) defines a slice on identifier called `memberid` that can be used to access the patient's member id
+The USCore Coverage Profile defines a slice on identifier called `memberid` that can be used to access the patient's member id
 
 ```cql
 define "Covered Member ID":
   Coverage.memberId()
 ```
 
-#### Subscriber ID
-
+In addition, the profile defines an invariant that either the `memberId` slice or `subscriberId` must be present.

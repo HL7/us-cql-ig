@@ -1,4 +1,4 @@
-US Core defines [US Core Observation]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-lab.html) to record laboratory observations.
+US Core defines [US Core Laboratory Result Observation]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-observation-lab.html) to record laboratory observations.
 
 Observation codes will be LOINC. Result values will generally be represented in different ways, according to the type of lab result. The LOINC code itself will often describe the expected representation of possible values for a given observation or test result.
 

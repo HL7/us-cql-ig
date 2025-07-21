@@ -69,15 +69,15 @@ define fluent function tribalAffiliation(patient Patient):
 define fluent function birthSex(patient Patient):
   patient.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex').value as FHIR.code
 
-define fluent function systolic(bloodPressureProfile BloodPressureProfile):
+define fluent function systolic(bloodPressure Observation):
   singleton from (
-    bloodPressureProfile.component C
+    bloodPressure.component C
       where C.code ~ "Systolic Blood Pressure"
   )
 
-define fluent function diastolic(bloodPressureProfile BloodPressureProfile):
+define fluent function diastolic(bloodPressure Observation):
   singleton from (
-    bloodPressureProfile.component C
+    bloodPressure.component C
       where C.code ~ "Diastolic Blood Pressure"
   )
 

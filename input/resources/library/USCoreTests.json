@@ -29,6 +29,8 @@
     "text": "FHIR"
   }, {
     "text": "CQL"
+  }, {
+    "text": "Unit Tests"
   } ],
   "content": [ {
     "id": "ig-loader-USCoreTests.cql"
