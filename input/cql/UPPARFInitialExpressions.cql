@@ -106,6 +106,10 @@ First (
   ).value
 
 //TODO: what is DEA?
+// A DEA number is used to identify the prescriber who is licensed to prescribe controlled substances.
+// A prescriber needs a unique DEA numbers for every jurisdiction they are licensed.
+// Every DEA number is made up of two letters, six numbers, and one check digit
+// https://www.careerstep.com/blog/news/dea-numbers-what-do-they-mean/#:~:text=The%20DEA%20number%20is%20also,a%20manufacturer%2C%20etc.).
 define "Prescriber DEA":
   null
 

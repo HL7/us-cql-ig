@@ -1,93 +1,458 @@
 {
-  "resourceType": "Patient",
-  "id": "Patient-example-UPPARF-2",
-  "meta": {
-    "profile": [
-      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
-    ]
-  },
-  "identifier": [
-    {
-      "use": "usual",
-      "type": {
-        "coding": [
-          {
-            "code": "MR",
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "display": "Medical Record Number"
-          }
-        ]
-      },
-      "system": "urn:oid:1.2.36.146.595.217.0.1",
-      "value": "12345678",
-      "period": {
-        "start": "2002-05-06"
-      },
-      "assigner": {
-        "display": "Acme Healthcare"
-      }
-    }
-  ],
-  "active": true,
-  "name": [
-    {
-      "family": "du Marché",
-      "_family": {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix",
-            "valueString": "VV"
-          }
-        ]
-      },
-      "given": [
-        "Bénédicte"
-      ]
-    }
-  ],
-  "telecom": [
-    {
-      "system": "phone",
-      "value": "+33 (237) 998327"
-    },
-    {
-      "system": "email",
-      "value": "example.patient.two@gmail.com"
-    }
-  ],
-  "address": [
-    {
-      "use": "home",
-      "type": "both",
-      "line": [
-        "534 Erewhon St"
-      ],
-      "city": "PleasantVille",
-      "district": "Rainbow",
-      "state": "VT",
-      "postalCode": "3999",
-      "period": {
-        "start": "1974-12-25"
-      }
-    }
-  ],
-  "gender": "female",
-  "birthDate": "1936-12-25",
-  "_birthDate": {
-    "extension": [
+  "resourceType": "Parameters",
+  "parameter": [
       {
-        "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
-        "valueDateTime": "1936-12-25T14:35:45-05:00"
-      }
-    ]
-  },
-  "deceasedBoolean": false,
-  "maritalStatus": {
-    "coding": [
+          "name": "Urgency",
+          "valueString": "Not Urgent"
+      },
       {
-        "code": "M",
-        "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus"
+          "name": "Most Recent Medication Name",
+          "valueString": "lisinopril oral 10 mg"
+      },
+      {
+          "name": "Is Opioid Treatment",
+          "_valueBoolean": {
+              "extension": [
+                  {
+                      "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                      "valueCode": "unknown"
+                  }
+              ]
+          }
+      },
+      {
+          "name": "Is First Prior Authentication",
+          "valueBoolean": true
+      },
+      {
+          "name": "Initial Request Date",
+          "_valueDateTime": {
+              "extension": [
+                  {
+                      "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                      "valueCode": "unknown"
+                  }
+              ]
+          }
+      },
+      {
+          "name": "Is First Request > 12 Months",
+          "_valueBoolean": {
+              "extension": [
+                  {
+                      "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                      "valueCode": "unknown"
+                  }
+              ]
+          }
+      },
+      {
+          "name": "Prescription Date",
+          "valueDateTime": "2021-06-24"
+      },
+      {
+          "name": "Prescriber Name",
+          "valueString": "Kathy"
+      },
+      {
+          "name": "Prescriber Fax",
+          "valueString": "(55) 123 654 234"
+      },
+      {
+          "name": "Prescriber Phone",
+          "valueString": "(55) 123 645"
+      },
+      {
+          "name": "Prescriber Pager",
+          "valueString": "111111"
+      },
+      {
+          "name": "Prescriber Address",
+          "valueString": "TODO: remove hard coded address"
+      },
+      {
+          "name": "Prescriber Contact",
+          "valueString": "TODO: remove hard coded contact"
+      },
+      {
+          "name": "Prescriber NPI",
+          "valueString": "1245319599"
+      },
+      {
+          "name": "Prescriber DEA",
+          "_valueString": {
+              "extension": [
+                  {
+                      "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                      "valueCode": "unknown"
+                  }
+              ]
+          }
+      },
+      {
+          "name": "Prescriber Tax ID",
+          "valueString": "1tg1556"
+      },
+      {
+          "name": "Prescriber Specialty",
+          "valueString": "General Practice"
+      },
+      {
+          "name": "Prescriber Email Address",
+          "valueString": "practitioner.example@gmail.com"
+      },
+      {
+          "name": "Request Type",
+          "valueString": "New Request"
+      },
+      {
+          "name": "ICD 10 Codes",
+          "extension": [
+              {
+                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                  "valueString": "List<FHIR.String>"
+              }
+          ],
+          "_valueBoolean": {
+              "extension": [
+                  {
+                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                      "valueBoolean": true
+                  }
+              ]
+          }
+      },
+      {
+          "name": "Diagnosis Descriptions",
+          "extension": [
+              {
+                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                  "valueString": "List<FHIR.String>"
+              }
+          ],
+          "_valueBoolean": {
+              "extension": [
+                  {
+                      "url": "http://hl7.org/fhir/StructureDefinition/cqf-isEmptyList",
+                      "valueBoolean": true
+                  }
+              ]
+          }
+      },
+      {
+          "name": "Unit Volume of Named Drugs",
+          "valueString": "10mg"
+      },
+      {
+          "name": "Dose",
+          "valueString": "10"
+      },
+      {
+          "name": "Route",
+          "_valueString": {
+              "extension": [
+                  {
+                      "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                      "valueCode": "unknown"
+                  }
+              ]
+          }
+      },
+      {
+          "name": "Most Recent Dosage Instruction",
+          "extension": [
+              {
+                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                  "valueString": "FHIR.Dosage"
+              }
+          ],
+          "_valueBoolean": {
+              "extension": [
+                  {
+                      "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                      "valueCode": "unknown"
+                  }
+              ]
+          }
+      },
+      {
+          "name": "Frequency",
+          "valueString": "1 times per 1d"
+      },
+      {
+          "name": "Refills",
+          "valueInteger": 1
+      },
+      {
+          "name": "Today",
+          "valueDate": "2025-07-18"
+      },
+      {
+          "name": "Dosage Value as String",
+          "valueString": "10"
+      },
+      {
+          "name": "Dosage Unit",
+          "valueString": "mg"
+      },
+      {
+          "name": "Most Recent Medication",
+          "resource": {
+              "resourceType": "Medication",
+              "id": "Medication-lisinopril-example",
+              "meta": {
+                  "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication"
+                  ]
+              },
+              "code": {
+                  "coding": [
+                      {
+                          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                          "code": "206765",
+                          "display": "Lisinopril 10 MG Oral Tablet [Prinivil]"
+                      }
+                  ],
+                  "text": "lisinopril oral 10 mg"
+              }
+          }
+      },
+      {
+          "name": "Most Recent Medication Request",
+          "resource": {
+              "resourceType": "MedicationRequest",
+              "id": "MedicationRequest-lisinopril-example",
+              "meta": {
+                  "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+                  ]
+              },
+              "status": "active",
+              "priority": "routine",
+              "intent": "order",
+              "reportedBoolean": true,
+              "medicationReference": {
+                  "reference": "Medication/Medication-lisinopril-example",
+                  "display": "Lisinopril 10 MG Oral Tablet [Prinivil]"
+              },
+              "subject": {
+                  "reference": "Patient/Patient-example-UPPARF-2"
+              },
+              "authoredOn": "2021-06-24",
+              "requester": {
+                  "reference": "Practitioner/Practitioner-example"
+              },
+              "dispenseRequest": {
+                  "numberOfRepeatsAllowed": 1,
+                  "quantity": {
+                      "value": 10,
+                      "code": "mg",
+                      "system": "http://unitsofmeasure.org",
+                      "unit": "mg"
+                  },
+                  "expectedSupplyDuration": {
+                      "value": 15,
+                      "code": "d",
+                      "system": "http://unitsofmeasure.org",
+                      "unit": "days"
+                  }
+              },
+              "dosageInstruction": [
+                  {
+                      "timing": {
+                          "repeat": {
+                              "frequency": 1,
+                              "period": 1,
+                              "periodUnit": "d"
+                          }
+                      },
+                      "site": {
+                          "coding": [
+                              {
+                                  "code": "447964005",
+                                  "system": "http://snomed.info/sct"
+                              }
+                          ]
+                      },
+                      "route": {
+                          "coding": [
+                              {
+                                  "code": "394899003",
+                                  "system": "http://snomed.info/sct",
+                                  "display": "oral administration of treatment"
+                              }
+                          ]
+                      },
+                      "doseAndRate": [
+                          {
+                              "type": {
+                                  "coding": [
+                                      {
+                                          "code": "ordered",
+                                          "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                                          "display": "Ordered"
+                                      }
+                                  ]
+                              },
+                              "doseQuantity": {
+                                  "value": 10,
+                                  "code": "mg",
+                                  "system": "http://unitsofmeasure.org",
+                                  "unit": "mg"
+                              }
+                          }
+                      ]
+                  }
+              ]
+          }
+      },
+      {
+          "name": "Prior Prescription",
+          "extension": [
+              {
+                  "url": "http://hl7.org/fhir/StructureDefinition/cqf-cqlType",
+                  "valueString": "FHIR.MedicationRequest"
+              }
+          ],
+          "_valueBoolean": {
+              "extension": [
+                  {
+                      "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                      "valueCode": "unknown"
+                  }
+              ]
+          }
+      },
+      {
+          "name": "Requester",
+          "resource": {
+              "resourceType": "Practitioner",
+              "id": "Practitioner-example",
+              "meta": {
+                  "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+                  ]
+              },
+              "identifier": [
+                  {
+                      "system": "http://hl7.org.fhir/sid/us-npi",
+                      "value": "1245319599"
+                  },
+                  {
+                      "system": "urn:oid:2.16.840.1.113883.4.4",
+                      "value": "1tg1556"
+                  }
+              ],
+              "name": [
+                  {
+                      "family": "Kathy",
+                      "given": [
+                          "Fielding"
+                      ],
+                      "prefix": [
+                          "Dr"
+                      ]
+                  }
+              ],
+              "address": [
+                  {
+                      "use": "work",
+                      "line": [
+                          "1080 FIRST COLONIAL RD"
+                      ],
+                      "city": "Virginia Beach",
+                      "state": "VA",
+                      "postalCode": "21454-2406"
+                  }
+              ],
+              "telecom": [
+                  {
+                      "system": "phone",
+                      "value": "(55) 123 645",
+                      "use": "mobile"
+                  },
+                  {
+                      "system": "pager",
+                      "value": "111111"
+                  },
+                  {
+                      "system": "fax",
+                      "value": "(55) 123 654 234"
+                  },
+                  {
+                      "system": "email",
+                      "value": "practitioner.example@gmail.com"
+                  }
+              ]
+          }
+      },
+      {
+          "name": "RequesterRole",
+          "resource": {
+              "resourceType": "PractitionerRole",
+              "id": "PractitionerRole-example",
+              "meta": {
+                  "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+                  ]
+              },
+              "identifier": [
+                  {
+                      "system": "http://www.acme.org/practitionerroles",
+                      "value": "31"
+                  }
+              ],
+              "active": true,
+              "period": {
+                  "start": "1995"
+              },
+              "practitioner": {
+                  "reference": "Practitioner/Practitioner-example",
+                  "display": "Dr Kathy Fielding"
+              },
+              "organization": {
+                  "reference": "Organization/Organization-example"
+              },
+              "code": [
+                  {
+                      "coding": [
+                          {
+                              "system": "http://nucc.org/provider-taxonomy",
+                              "code": "261QP2300X",
+                              "display": "Primary Care Clinic/Center"
+                          }
+                      ]
+                  }
+              ],
+              "specialty": [
+                  {
+                      "coding": [
+                          {
+                              "system": "http://nucc.org/provider-taxonomy",
+                              "code": "1223G0001X",
+                              "display": "General Practice Dentistry"
+                          }
+                      ]
+                  }
+              ],
+              "telecom": [
+                  {
+                      "system": "phone",
+                      "value": "(55) 123 645"
+                  }
+              ]
+          }
+      },
+      {
+          "name": "Start Date and Length",
+          "_valueString": {
+              "extension": [
+                  {
+                      "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                      "valueCode": "unknown"
+                  }
+              ]
+          }
       }
-    ]
-  }
+  ]
 }
