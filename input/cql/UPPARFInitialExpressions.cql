@@ -4,6 +4,7 @@ using USCore version '7.0.0'
 using FHIR version '4.0.1'
 
 include hl7.fhir.uv.cql.FHIRHelpers version '4.0.1'
+include hl7.fhir.uv.cql.FHIRCommon version '2.0.0'
 include USCoreCommon called UC
 include USCoreElements called UCE
 include CumulativeMedicationDuration called CMD 
@@ -51,7 +52,7 @@ define "Urgency":
 //TODO: name could also be retrieved by MedicationRequest as a codeable concept if there is no reference
 define "Most Recent Medication Name":
   "Most Recent Medication" M
-    return M.code.display
+    return Combine(((M.code.coding) C return C.display), '|')
 
 define "Is Opioid Treatment":
 null //TBD
@@ -65,7 +66,7 @@ define "Initial Request Date":
 if not "Is First Prior Authentication" then
     singleton from (
     UCE."All Medication Requests" M
-      where EndsWith(("Most Recent Medication Request".priorPrescription as USCore.Reference).reference, M.id)
+      where EndsWith(("Most Recent Medication Request".priorPrescription).reference, M.id)
       return M.authoredOn
     )
   else 
@@ -84,13 +85,13 @@ define "Prescriber Name":
    //TODO: prefix, suffix and given do not work as expected.
 
 define "Prescriber Fax":
-  UC.Fax(Requester.telecom).value
+  Fax(Requester.telecom).value
 
 define "Prescriber Phone":
-  UC.Mobile(Requester.telecom).value
+  Mobile(Requester.telecom).value
 
 define "Prescriber Pager":
-  UC.Pager(Requester.telecom).value
+  Pager(Requester.telecom).value
 
 define "Prescriber Address":
 'TODO: remove hard coded address'
@@ -120,10 +121,10 @@ First (
   ).value
 
 define "Prescriber Specialty":
-First(RequesterRole.specialty.codes).display
+First(RequesterRole.specialty.coding).display
 
 define "Prescriber Email Address":
-  UC.Email(Requester.telecom).value
+  Email(Requester.telecom).value
 
 define "Request Type":
 //TODO: is this logic correct?
@@ -131,12 +132,12 @@ if "Is First Prior Authentication" then
   'New Request' else 'Reauthorization'
 
 define "ICD 10 Codes":
-  UCE."Active Confirmed Problem List Items".code.codes C
+  UCE."Active Confirmed Problem List Items".code.coding C
   where C.system ~ "ICD10 example code".system //"ICD10".id
   return C.code
 
 define "Diagnosis Descriptions":
-  UCE."Active Confirmed Problem List Items".code.display
+  Combine(((UCE."Active Confirmed Problem List Items".code.coding) C return C.display), ', ')
 
 define "Unit Volume of Named Drugs":
   "Dosage Value as String" + "Dosage Unit"
@@ -145,7 +146,7 @@ define "Dose":
   "Dosage Value as String"
 
 define "Route": 
-  First("Most Recent Medication Request".dosageInstruction).route.display
+  Combine(((First("Most Recent Medication Request".dosageInstruction).route.coding) C return C.display), ', ')
 
 define "Most Recent Dosage Instruction":
   singleton from ("Most Recent Medication Request".dosageInstruction)
@@ -163,17 +164,17 @@ define "Today":
   Today()
 
 define "Dosage Value as String":
-  ToString(("Most Recent Medication Request".dosageInstruction.doseAndRate[0].dose as System.Quantity).value)
+  ToString(("Most Recent Medication Request".dosageInstruction.doseAndRate[0].dose).value)
 
 define "Dosage Unit":
-  ("Most Recent Medication Request".dosageInstruction.doseAndRate[0].dose as System.Quantity).unit
+  ("Most Recent Medication Request".dosageInstruction.doseAndRate[0].dose).unit
 
 //helper definitions
 //TODO: medications are not necessarily a reference but could also be represented by a codeable concept
 define "Most Recent Medication":
 singleton from (
   UCE."All Medications" M
-    where EndsWith(("Most Recent Medication Request".medication as USCore.Reference).reference, M.id))
+    where EndsWith(("Most Recent Medication Request".medication).reference, M.id))
 
 define "Most Recent Medication Request":
   "Medication Request"
@@ -193,3 +194,15 @@ define "RequesterRole":
 //IMPORTANT NOTE: Missing the entire (or majority) of the "Prior Authorization Request for Drug Benefit" section of the quesstionnaire. Expect errors on Postman regarding the items in this section.
 define "Start Date and Length":
   null as System.String
+
+define function Pager(contactPoints List<ContactPoint>):
+  singleton from (contactPoints P where P.system = 'pager')
+
+define function Mobile(contactPoints List<ContactPoint>):
+  singleton from (contactPoints P where P.system = 'mobile')
+
+define function Email(contactPoints List<ContactPoint>):
+  singleton from (contactPoints P where P.system = 'email')
+
+define function Fax(contactPoints List<ContactPoint>):
+  singleton from (contactPoints P where P.system = 'fax')

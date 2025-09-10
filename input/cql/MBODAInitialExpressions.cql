@@ -4,6 +4,7 @@ using USCore version '7.0.0'
 using FHIR version '4.0.1'
 
 include hl7.fhir.uv.cql.FHIRHelpers version '4.0.1'
+include hl7.fhir.uv.cql.FHIRCommon version '2.0.0'
 include USCoreCommon called UC
 include USCoreElements called UCE
 
@@ -20,32 +21,29 @@ parameter "MedicationRequest" USCore.MedicationRequestProfile
 
 context Patient
 
-define "Last Name":
-  UCE."Last Name"
+// define "Last Name":
+//   UCE.lastName
 
-define "First Name":
-  UCE."First Name"
+// define "First Name":
+//   UCE."First Name"
 
 define "Allergies":
-  UCE."Active Confirmed Allergies and Intolerances".code.codes.display 
+  UCE."Active Confirmed Allergies and Intolerances".code.coding.first().display 
 
 define "Height":
-  convert (((UCE."All Body Height Measurements").mostRecent() as "observation-bodyheight").value) to '[in_i]'
+  ((UCE."All Body Height Measurements").mostRecent()).value
 
 define "Height in [in_i]":
-  "Height".value
+  convert ("Height") to '[in_i]'
 
 define "Height in cm":
   convert("Height") to 'cm'
 
-define "Weight Most Recent":
-  (UCE."All Body Weight Measurements").mostRecent() as "observation-bodyweight"
-
 define "Weight":
-  convert (((UCE."All Body Weight Measurements").mostRecent() as "observation-bodyweight").value) to '[lb_av]'
+  (UCE."All Body Weight Measurements").mostRecent().value
 
 define "Weight in [lb_av]":
-  "Weight".value
+  convert ("Weight") to '[lb_av]'
 
 define "Weight in kg":
   convert("Weight") to 'kg'
@@ -76,15 +74,15 @@ define "Diagnosis Codes":
 
 define "Diagnosis Descriptions":
   "Diagnosis Codes" ConceptItem
-    return Combine(((ConceptItem.codes) C return C.display), '|')
+    return Combine(((ConceptItem.coding) C return C.display), '|')
 
 define "Medication Requested":
   UCE."All Medications" M
-    where EndsWith(("Most Recent Medication Request".medication as USCore.Reference).reference, M.id)
+    where EndsWith(("Most Recent Medication Request".medication).reference, M.id)
 
 define "Medication Name":
   "Medication Requested" M
-    return M.code.display
+    return Combine(((M.code.coding) C return C.display), '|')
 
 define "Code of Requested Drug":
   "Medication Requested" M
@@ -110,7 +108,7 @@ define "Most Recent Medication Request":
   )
 
 define "Medication Request References":
-  ("Most Recent Medication Request".medication as USCore.Reference).reference
+  ("Most Recent Medication Request".medication).reference
 
 define "Most Recent Medication Request dosageInstruction":
   // TODO: should this really be a singleton?
@@ -163,7 +161,7 @@ define "New therapy code":
 define "Initial date of therapy":
   if not "New therapy" then
     UCE."All Medication Requests" M
-      where EndsWith(("Most Recent Medication Request".priorPrescription as USCore.Reference).reference, M.id)
+      where EndsWith(("Most Recent Medication Request".priorPrescription).reference, M.id)
       return M.authoredOn
   else 
     null

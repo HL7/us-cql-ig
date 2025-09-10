@@ -46,22 +46,22 @@ define "Member Coverage":
   )
 
 define "Patient Name":
-  UCE."Name - First Middle(s) Last"
+  Patient.officialName().first().firstMiddleLast()
 
 define "Date of Birth":
   Patient.birthDate
 
 define "Birth Sex":
-  Patient.birthsex
+  Patient.gender
 
 define "Medical Record Number":
-  UCE."Medical Record Number"
+  Patient.medicalRecordNumber()
 
 define "Phone Number":
-  UC.Mobile(Patient.telecom).value
+  Mobile(Patient.telecom).value
 
 define "Email Address":
-  UC.Email(Patient.telecom).value
+  Email(Patient.telecom).value
 
 define "Address":
   (singleton from Patient.address).line
@@ -82,12 +82,12 @@ define "Postal Code":
 // TODO: is there a need to check for coverage period and order? 
 //       also, do we need to check that the payor organization is the same as the source of the prior auth form?
 define "Member ID":
-  UCE.MemberID("Member Coverage").value
+  "Member Coverage".memberID()
 
 // TODO: is there a need to check for coverage period and order?
 //       also do we need to check that the payor organization is the same as the source of the prior auth form?
 define "Policy Number":
-  UCE.PolicyNumber("Member Coverage").value
+  "Member Coverage".policyNumber()
 
 define "Requesting Provider":
   UCE.RequestingProvider("Service Request")
@@ -96,7 +96,7 @@ define "Requesting Provider Name":
   "Requesting Provider".name.family
 
 define "Requesting Provider Phone":
-  UC.Work("Requesting Provider".telecom).value
+  Work("Requesting Provider".telecom).value
 
 define "Requesting Provider Address":
   (singleton from "Requesting Provider".address).line
@@ -107,9 +107,7 @@ define "Requesting Provider NPI":
   return I.value
 
 define "Requesting Provider Fax":
-  "Requesting Provider".telecom T
-  where T.system = 'fax'
-  return T.value
+  Fax("Requesting Provider".telecom).value
 
 define "Servicing Provider":
   UCE.ServicingProvider("Service Request")
@@ -118,7 +116,7 @@ define "Servicing Provider Name":
   "Servicing Provider".name
 
 define "Servicing Provider Phone":
-  UC.Work("Servicing Provider".telecom).value
+  Work("Servicing Provider".telecom).value
 
 define "Servicing Provider Address":
   (singleton from "Servicing Provider".address).text
@@ -129,6 +127,16 @@ define "Servicing Provider NPI":
   return I.value
 
 define "Servicing Provider Fax":
-  "Servicing Provider".telecom T
-  where T.system = 'fax'
-  return T.value
+  Fax("Servicing Provider".telecom).value
+
+define function Work(contactPoints List<ContactPoint>):
+  singleton from (contactPoints P where P.system = 'work')
+
+define function Mobile(contactPoints List<ContactPoint>):
+  singleton from (contactPoints P where P.system = 'mobile')
+
+define function Email(contactPoints List<ContactPoint>):
+  singleton from (contactPoints P where P.system = 'email')
+
+define function Fax(contactPoints List<ContactPoint>):
+  singleton from (contactPoints P where P.system = 'fax')

@@ -4,6 +4,7 @@ using USCore version '7.0.0'
 using FHIR version '4.0.1'
 
 include hl7.fhir.uv.cql.FHIRHelpers version '4.0.1' called FHIRHelpers
+include hl7.fhir.uv.cql.FHIRCommon version '2.0.0'
 include USCoreCommon called UC
 include USCoreElements called UCE
 
@@ -27,12 +28,12 @@ TODO: Does "age at diagnosis" mean "age at onset" or is it really asking for whe
 TODO: Is there a version of patient history that is reusable here?
 */
 define "Patient history":
-  UCE."All Problem List Items" C
+  "All Problem List Items" C
     let prevalence: C.prevalenceInterval()
     where C.isConfirmed()
     return {
-      diagnosis: C.code.display,
-      ageAtOnset: ToString(AgeInYearsAt(start of prevalence)),
+      diagnosis: C.code.coding.first().code,
+      ageAtOnset: ToString(Patient.ageInYearsAt(ToDate(start of prevalence))),
       onset: ToString(start of prevalence),
       abatement: ToString(if prevalence.hasEnd() then end of prevalence else null)
     }
@@ -48,7 +49,7 @@ define "Billing Provider Name":
   "Billing Provider".name
 
 define "Billing Provider Phone":
-  UC.Mobile("Billing Provider".telecom).value
+  "Billing Provider".telecom.value
 
 define "Billing Provider Address":
   { 'TODO: remove hard-coded address' }
