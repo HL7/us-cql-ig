@@ -15,7 +15,7 @@
     } ],
     "url": "http://hl7.org/fhir/us/cql/Library/USCore-ModelInfo",
     "version": "7.0.0",
-    "name": "USCoreModelInfo",
+    "name": "USCore",
     "title": "US Core Model Information",
     "status": "active",
     "experimental": false,
