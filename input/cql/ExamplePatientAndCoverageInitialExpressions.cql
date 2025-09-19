@@ -130,10 +130,10 @@ define "Servicing Provider Fax":
   Fax("Servicing Provider".telecom).value
 
 define function Work(contactPoints List<ContactPoint>):
-  singleton from (contactPoints P where P.system = 'work')
+  singleton from (contactPoints P where P.system = 'phone' and P.use = 'work')
 
 define function Mobile(contactPoints List<ContactPoint>):
-  singleton from (contactPoints P where P.system = 'mobile')
+  singleton from (contactPoints P where P.system = 'phone' and P.use = 'mobile')
 
 define function Email(contactPoints List<ContactPoint>):
   singleton from (contactPoints P where P.system = 'email')

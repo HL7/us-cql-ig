@@ -74,7 +74,11 @@ define "Diagnosis Codes":
 
 define "Diagnosis Descriptions":
   "Diagnosis Codes" ConceptItem
-    return Combine(((ConceptItem.coding) C return C.display), '|')
+    return
+      if ConceptItem.coding is null then
+        ConceptItem.text.value
+      else
+        Combine(ConceptItem.coding.display, '|')
 
 define "Medication Requested":
   UCE."All Medications" M
