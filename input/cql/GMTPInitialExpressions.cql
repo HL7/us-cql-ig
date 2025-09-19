@@ -49,7 +49,9 @@ define "Billing Provider Name":
   "Billing Provider".name
 
 define "Billing Provider Phone":
-  "Billing Provider".telecom.value
+  "Billing Provider".telecom T
+  where T.system = 'phone'
+  return T.value
 
 define "Billing Provider Address":
   { 'TODO: remove hard-coded address' }
