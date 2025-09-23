@@ -73,7 +73,7 @@ define "Physician Name":
   "Requesting Physician".name.family 
 
 define "Physician Telephone":
-  UC.Mobile("Requesting Physician".telecom).value
+  Mobile("Requesting Physician".telecom).value
 
 define "Physician Fax":
   Fax("Requesting Physician".telecom).value
@@ -105,5 +105,8 @@ define "Requesting Physician":
     [USCore.PractitionerProfile] P
   where EndsWith("Service Request".requester.reference, P.id))
 
-define function Fax(contactPoints List<USCore.ContactPoint>):
+define function Fax(contactPoints List<ContactPoint>):
   singleton from (contactPoints P where P.system = 'fax')
+
+define function Mobile(contactPoints List<ContactPoint>):
+  singleton from (contactPoints P where P.system = 'mobile')

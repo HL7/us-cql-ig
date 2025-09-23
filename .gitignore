@@ -26,3 +26,4 @@ Thumbs.db
 # test files #
 ##############
 /input/tests/results
+*.jar

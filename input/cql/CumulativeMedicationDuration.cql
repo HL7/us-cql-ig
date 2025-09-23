@@ -267,9 +267,12 @@ define function MedicationRequestPeriod(Request MedicationRequest):
       timing: dosage.timing,
       frequency: Coalesce(timing.repeat.frequencyMax, timing.repeat.frequency),
       period: Quantity(timing.repeat.period, timing.repeat.periodUnit),
-      doseRange: doseAndRate.dose,
+      //doseRange: doseAndRate.dose,
       doseQuantity: doseAndRate.dose,
-      dose: Coalesce(end of doseRange, doseQuantity),
+      // This is causing the following exception to occur when dose has a valueQuantity:
+      // Cannot cast a value of type org.hl7.fhir.r4.model.Quantity as Quantity - use String, Integer, Decimal, or Ratio values.
+      //dose: Coalesce(end of doseRange, doseQuantity),
+      dose: doseQuantity,
       dosesPerDay: Coalesce(ToDaily(frequency, period), Count(timing.repeat.timeOfDay), 1.0),
       boundsPeriod: timing.repeat.bounds as Period,
       // TODO: this isn't working as expected, convert results in null
