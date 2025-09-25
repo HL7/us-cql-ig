@@ -49,12 +49,14 @@ define "Billing Provider Name":
   "Billing Provider".name
 
 define "Billing Provider Phone":
-  "Billing Provider".telecom T
-  where T.system = 'phone'
-  return T.value
+  "Billing Provider".work()
 
 define "Billing Provider Address":
-  { 'TODO: remove hard-coded address' }
+  First(
+    "Billing Provider".address address
+      where address.use in { 'billing', 'work' }
+        and address.period is not null implies address.period includes Today()
+  )
 
 define "Retrieve Member Coverage test parameter":
   // When executing CQL with the VSCode extension retrieve the resource specific for the test case

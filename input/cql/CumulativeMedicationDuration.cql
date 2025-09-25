@@ -267,12 +267,10 @@ define function MedicationRequestPeriod(Request MedicationRequest):
       timing: dosage.timing,
       frequency: Coalesce(timing.repeat.frequencyMax, timing.repeat.frequency),
       period: Quantity(timing.repeat.period, timing.repeat.periodUnit),
-      //doseRange: doseAndRate.dose,
-      doseQuantity: doseAndRate.dose,
-      // This is causing the following exception to occur when dose has a valueQuantity:
-      // Cannot cast a value of type org.hl7.fhir.r4.model.Quantity as Quantity - use String, Integer, Decimal, or Ratio values.
-      //dose: Coalesce(end of doseRange, doseQuantity),
-      dose: doseQuantity,
+      doseRange: doseAndRate.dose as FHIR.Range,
+      doseQuantity: doseAndRate.dose as FHIR.SimpleQuantity,
+
+      dose: Coalesce(end of doseRange, doseQuantity),
       dosesPerDay: Coalesce(ToDaily(frequency, period), Count(timing.repeat.timeOfDay), 1.0),
       boundsPeriod: timing.repeat.bounds as Period,
       // TODO: this isn't working as expected, convert results in null
@@ -385,8 +383,8 @@ define function MedicationDispensePeriod(Dispense MedicationDispense):
       timing: dosage.timing,
       frequency: Coalesce(timing.repeat.frequencyMax, timing.repeat.frequency),
       period: Quantity(timing.repeat.period, timing.repeat.periodUnit),
-      doseRange: doseAndRate.dose,
-      doseQuantity: doseAndRate.dose,
+      doseRange: doseAndRate.dose as FHIR.Range,
+      doseQuantity: doseAndRate.dose as FHIR.SimpleQuantity,
       dose: Coalesce(end of doseRange, doseQuantity),
       daysSupply: (convert D.daysSupply to days).value,
       dosesPerDay: Coalesce(ToDaily(frequency, period), Count(timing.repeat.timeOfDay), 1.0),

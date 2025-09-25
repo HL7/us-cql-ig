@@ -75,6 +75,14 @@
       <name value="USCore700ModelInfoSettings"/>
       <description value="US Core 7.0.0 Model Information Settings"/>
     </resource>
+    <!--resource>
+      <reference>
+        <reference value="Library/CumulativeMedicationDuration"/>
+      </reference>
+      <name value="CumulativeMedicationDuration"/>
+      <description value="Cumulative Medication Duration Calculation Logic"/>
+      <exampleBoolean value="true"/>
+    </resource-->
     <page>
       <!-- The root will always be toc.html - the template will force it if you don't do it -->
       <nameUrl value="toc.html"/>
@@ -240,6 +248,10 @@
       <value value="input/cql"/>
     </parameter>
     <parameter>
+      <code value="path-expansion-params"/>
+      <value value="resources/parameters/Parameters-manifest.json"/>
+    </parameter>
+    <parameter>
       <code value="path-resource"/>
       <value value="input/resources/device"/>
     </parameter>
@@ -255,11 +267,11 @@
       <code value="path-resource"/>
       <value value="input/resources/questionnaire"/>
     </parameter>
-    <!-- Commented out because the base FHIR template now includes knowledge artifact templates -->
-    <!--parameter>
-      <code value="path-liquid"/>
+    <!-- Uncommented to use the 0.4.9-cibuild version of the templates -->
+    <parameter>
+      <code value="path-liquid-ig"/>
       <value value="templates\liquid"/>
-    </parameter-->
+    </parameter>
     <parameter>
       <code value="path-suppressed-warnings"/>
       <value value="input/ignoreWarnings.txt"/>
@@ -295,6 +307,14 @@
     <parameter>
       <code value="apply-wg"/>
       <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="pin-canonicals"/>
+      <value value="pin-all"/>
+    </parameter>
+    <parameter>
+      <code value="pin-manifest"/>
+      <value value="manifest"/>
     </parameter>
 <!-- Uncomment one or more of these if you want to limit which syntaxes are supported or want to disable the display of mappings
     <parameter>

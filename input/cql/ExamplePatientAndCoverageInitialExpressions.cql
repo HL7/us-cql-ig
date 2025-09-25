@@ -46,34 +46,34 @@ define "Member Coverage":
   )
 
 define "Patient Name":
-  Patient.officialName().first().firstMiddleLast()
+  Patient.name()
 
 define "Date of Birth":
   Patient.birthDate
 
 define "Birth Sex":
-  Patient.gender
+  Patient.birthSex()
 
 define "Medical Record Number":
   Patient.medicalRecordNumber()
 
 define "Phone Number":
-  Mobile(Patient.telecom).value
+  Patient.telecom.where(system = 'phone').first().value
 
 define "Email Address":
-  Email(Patient.telecom).value
+  Patient.telecom.where(system = 'email').first().value
 
 define "Address":
-  (singleton from Patient.address).line
+  Patient.address.where(use = 'home').first()
 
 define "City":
-  Patient.address.city
+  "Address".city
 
 define "State":
-  Patient.address.state
+  "Address".state
 
 define "Postal Code":
-  Patient.address.postalCode
+  "Address".postalCode
 
 // Coverage
 // define "Coverage":
@@ -99,7 +99,7 @@ define "Requesting Provider Phone":
   Work("Requesting Provider".telecom).value
 
 define "Requesting Provider Address":
-  (singleton from "Requesting Provider".address).line
+  "Requesting Provider".address.first().line
 
 define "Requesting Provider NPI":
   "Requesting Provider".identifier I 

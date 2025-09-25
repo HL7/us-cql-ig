@@ -25,23 +25,26 @@ context Patient
 
 // Patient Patterns
 
-define fluent function ageInDaysAt(patient Patient, asOf Date):
-  CalculateAgeInDaysAt(Patient.birthDate, asOf)
+define fluent function ageInDaysAt(patient Patient, asOf DateTime):
+  CalculateAgeInDaysAt(Patient.birthDate, date from asOf)
 
 define fluent function ageInDays(patient Patient):
   CalculateAgeInDaysAt(Patient.birthDate, Today())
 
-define fluent function ageInMonthsAt(patient Patient, asOf Date):
-  CalculateAgeInMonthsAt(Patient.birthDate, asOf)
+define fluent function ageInMonthsAt(patient Patient, asOf DateTime):
+  CalculateAgeInMonthsAt(Patient.birthDate, date from asOf)
 
 define fluent function ageInMonths(patient Patient):
   CalculateAgeInMonthsAt(Patient.birthDate, Today())
 
-define fluent function ageInYearsAt(patient Patient, asOf Date):
-  CalculateAgeInYearsAt(Patient.birthDate, asOf)
+define fluent function ageInYearsAt(patient Patient, asOf DateTime):
+  CalculateAgeInYearsAt(Patient.birthDate, date from asOf)
 
 define fluent function ageInYears(patient Patient):
   CalculateAgeInYearsAt(Patient.birthDate, Today())
+
+define fluent function name(patient Patient):
+  Coalesce(patient.officialName().first(), patient.usualName().first(), patient.firstNonOfficialNonUsualName())
 
 define fluent function usualName(patient Patient):
   patient.name name
@@ -95,6 +98,30 @@ define fluent function firstNonOfficialNonUsualName(practitioner Practitioner):
     practitioner.name name
       where not(name.use ~ 'official') and not(name.use ~ 'usual')
         and name.period is not null implies name.period includes Today()
+      sort by start of period desc
+  )
+
+define fluent function mobile(patient Patient):
+  First(
+    patient.telecom telecom
+      where telecom.use = 'mobile'
+        and telecom.period is not null implies telecom.period includes Today()
+      sort by start of period desc
+  )
+
+define fluent function mobile(practitioner Practitioner):
+  First(
+    practitioner.telecom telecom
+      where telecom.use = 'mobile'
+        and telecom.period is not null implies telecom.period includes Today()
+      sort by start of period desc
+  )
+
+define fluent function work(organization Organization):
+  First(
+    organization.telecom telecom
+      where telecom.use = 'work'
+        and telecom.period is not null implies telecom.period includes Today()
       sort by start of period desc
   )
 

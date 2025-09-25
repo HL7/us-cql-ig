@@ -1,0 +1,10 @@
+{
+    "resourceType": "Parameters",
+    "id": "expected-results",
+    "parameter": [
+        {
+            "name": "CumulativeDuration",
+            "valueInteger": "30"
+        }
+    ]
+}
