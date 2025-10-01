@@ -1,20 +1,18 @@
 > For [Content Implementation Guides](https://hl7.org/fhir/uv/crmi/introduction.html#content-igs) (i.e. implementation guides that primarily consist of knowledge artifacts) such as this one, best practice is to provide test content as part of the source repository, and as packaged bundles for ease of distribution. This is because 1) the number of test cases may be (and usually is for production-level content) quite large, resulting in large package files if test content is included, and 2) Test content is part of validating expected behavior, rather than directly needed for implementation, and so should be packaged separately to allow implementers to better manage dependency size and purpose. A future version of this implementation guide will consider using the [Related IGs](https://build.fhir.org/ig/FHIR/ig-guidance/branches/master/related-igs.html) feature of the FHIR packaging ecosystem to support distribution of test cases. Test content for this IG is currently accessible via the [Downloads](downloads.html) page.
 
-The following approaches can be used to test CQL-based Questionnaires:
-
 ### Unit Testing
 
-As with all CQL-based artifact development, CQL libraries used in CQL-based Questionnaires should be tested with focused test cases that ensure expected behavior. These are effectively "unit tests" for the CQL library, and can be authored and validated with the VSCode CQL Plugin:
+CQL libraries should be tested with focused test cases that ensure expected behavior. These are effectively "unit tests" for the CQL library, and can be authored and validated with the VSCode CQL Plugin:
 
 [User's Guide - Adding Test Data](https://github.com/cqframework/vscode-cql/wiki/User-Guide#adding-test-data)
 
-Each of the libraries in this implementation guide have associated test cases defined in the input/tests/library directory. Each library under test has a folder named the same as the library, and each of these folders has sub-folders corresponding to test cases for the library.
+Each of the libraries in this implementation guide have associated test cases defined in the `input/tests/library` directory. Each library under test has a folder with the same name as the library, and each of these folders has sub-folders corresponding to test cases for the library.
 
 Each of the test cases is a single patient with all the resources for that test case, as well as an `expected-results` Parameters resource that defines the expected results for each expression in the library. For example, the `ExamplePatientAndCoverageInitialExpressions` library has the following expression declaration:
 
 ```cql
 define "Patient Name":
-  UCE."Name - First Middle(s) Last"
+  Patient.name()
 ```
 
 And the `expected-results` Parameters resource has the following parameter indicating the expected result for the `minimal-patient-example` test case:
@@ -38,24 +36,26 @@ And the `expected-results` Parameters resource has the following parameter indic
 
 ### Integration Testing
 
-Based on the DTR sequence diagram, the following 3 integration test scenarios are identified:
+#### Prior-Authorization Questionnaires
 
-![Integration Test Scenarios](Integration-Test-Scenarios.png)
+For integration testing of prior-authorization questionnaires, based on the DTR sequence diagram, the following 4 integration test scenarios are identified:
+
+{% include img.html img="Integration-Test-Scenarios.png" caption="Integration Test Scenarios" %}
 
 1. Questionnaire Package Response
 2. EHR FHIR Queries
 3. Questionnaire Populate
 4. Next Question (Adaptive Questionnaire Testing)
 
-#### Questionnaire Package Response
+##### Questionnaire Package Response
 
 The [DTR Inferno Test Kit](https://inferno.healthit.gov/test-kits/davinci-dtr/) supports verifying the result of the $questionnaire-package operation:
 
-#### EHR FHIR Queries
+##### EHR FHIR Queries
 
 The [DTR SMART on FHIR App](https://github.com/HL7-DaVinci/dtr) has facilities for end-to-end testing of the DaVinci DTR questionnaire use case, including questionnaire population and EHR FHIR queries.
 
-#### Questionnaire Populate
+##### Questionnaire Populate
 
 The Questionnaire populate aspect can be tested with a REST client (such as Postman) and a FHIR server that implements the Questionnaire/$populate operation.
 
@@ -65,6 +65,22 @@ The source repository for this implementation guide contains Postman collections
 
 [Postman Collections](https://github.com/HL7/us-cql-ig/tree/master/postman)
 
-#### Next Question (Adaptive Questionnaire Testing)
+##### Next Question (Adaptive Questionnaire Testing)
 
 For systems that support adaptive questionnaires, testing this capability can be accomplished with a REST client (such as Postman) and a FHIR server that implements the Questionnaire/$next-question operation.
+
+#### Quality Measures
+
+For direct integration testing of quality measures, tools such as CURL or Postman can be used to perform the measure evaluation, as described in this content IG walkthrough topic:
+
+* [Running the Quality Measure](https://github.com/cqframework/cqf-ccc/blob/master/WALKTHROUGH.md#running-the-quality-measure)
+
+For integration testing of quality measures, tools such as the eCQM Measure Reporting Client can be used to support integration testing:
+
+* [Measure Reporting Client](https://github.com/cqframework/ecqm-measure-test)
+
+#### Decision Support
+
+For direct integration testing of decision support, tools such as CURL or Postman can be used to perform the decision support evaluation, as described in this content IG walkthrough topic:
+
+* [Running the Decision Support](https://github.com/cqframework/cqf-ccc/blob/master/WALKTHROUGH.md#running-the-decision-support)
