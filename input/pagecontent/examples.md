@@ -1,3 +1,5 @@
+### Prior-Authorization Questionnaire Examples
+
 This implementation guide includes several worked examples of prior authorization questionnaires:
 
 {% include list-questionnaires.xhtml %}
@@ -6,6 +8,16 @@ The examples above are informed by freely available prior-authorization forms do
 
 For information on how these examples can be tested, see the [Testing](testing.html) page in this implementation guide.
 
+### Examples for Other Use Cases
+
+Examples for other use cases are maintained as part of specifications detailing those use cases:
+
+* [Quality Measure Examples](https://hl7.org/fhir/uv/cqm/examples.html)
+* [Clinical Practice Guideline Examples](https://hl7.org/fhir/uv/cpg/examples.html)
+* [Opioid Prescribing Support](https://build.fhir.org/ig/cqframework/opioid-cds-r4/)
+* [Public Health Reporting](https://hl7.org/fhir/us/ecr/artifacts.html#12)
+
+<!--
 #### Other Potential Examples
 
 The following links provide other potential examples to be worked include:
@@ -29,3 +41,4 @@ Cohere Humana: - select Humana dropdown and type to find a list of several quest
 
 Potential Nut Allergy:
 * [https://fm.formularynavigator.com/FormularyNavigator/DocumentManager/Download?clientDocumentId=nU_SBgZRGEKjIxwVIRtrEQ](https://fm.formularynavigator.com/FormularyNavigator/DocumentManager/Download?clientDocumentId=nU_SBgZRGEKjIxwVIRtrEQ)
+-->
