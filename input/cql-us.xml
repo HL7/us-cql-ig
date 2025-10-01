@@ -14,7 +14,7 @@
     <valueString value="resources-spreadsheet.xml"/>
   </extension>-->
   <url value="http://hl7.org/fhir/us/cql/ImplementationGuide/hl7.fhir.us.cql"/>
-  <version value="1.0.0-ballot"/>
+  <version value="1.0.0"/>
   <name value="CQLUSCommon"/>
   <title value="Common CQL Artifacts for FHIR (US-Based)"/>
   <status value="active"/>
@@ -74,6 +74,15 @@
       </reference>
       <name value="USCore700ModelInfoSettings"/>
       <description value="US Core 7.0.0 Model Information Settings"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Parameters/manifest"/>
+      </reference>
+      <name value="Input Expansion Parameters"/>
+      <description value="The input expansion parameters resource for this implementation guide, specifying SNOMED Edition and version. This resource will be contained within the published implementation guide with all pinned references."/>
+      <exampleBoolean value="false"/>
     </resource>
     <!--resource>
       <reference>
@@ -221,7 +230,7 @@
       <page>
         <nameUrl value="downloads.html"/>
         <title value="Downloads"/>
-        <generation value="html"/>
+        <generation value="markdown"/>
       </page>
       <page>
         <nameUrl value="license.html"/>

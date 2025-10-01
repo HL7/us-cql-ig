@@ -5,6 +5,7 @@
 <artifactPageExtension value="-definitions"/>
 <artifactPageExtension value="-examples"/>
 <artifactPageExtension value="-mappings"/>
+<artifact id="Parameters/manifest" key="Library-CumulativeMedicationDuration" name=""/>
 <artifact id="Library/CumulativeMedicationDuration" key="Library-CumulativeMedicationDuration" name="Cumulative Medication Duration"/>
 <artifact id="Library/CumulativeMedicationDurationTests" key="Library-CumulativeMedicationDurationTests" name="Cumulative Medication Duration Tests"/>
 <artifact deprecated="true" id="Questionnaire/GMTPQuestionnaire" key="Questionnaire-GMTPQuestionnaire" name="Example Genetic/Molecular Testing Preauthorization Questionnaire"/>

@@ -1,4 +1,4 @@
-US Core defines [US Core ServiceRequest]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-servicerequest.html) to track the proposal / planning / ordering of a service, and [US Core Procedure]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-procedure.html) to track performing a service.
+US Core defines [US Core ServiceRequest]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-servicerequest.html) to track the proposal / planning / ordering of a service, and [US Core Procedure]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-procedure.html) to track performing a service.
 
 Typical procedure codes include SNOMED-CT, CPT, HCPCS II, ICD-10-PCS, CDT, and LOINC.
 
