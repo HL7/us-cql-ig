@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ballotUrl="http://hl7.org/fhir/us/cql/2025May" ciUrl="http://build.fhir.org/ig/HL7/us-cql-ig" defaultVersion="1.0.0-ballot" defaultWorkgroup="cds" gitUrl="https://github.com/HL7/us-cql-ig" url="http://hl7.org/fhir/us/cql">
+<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ballotUrl="http://hl7.org/fhir/us/cql/2025May" ciUrl="http://build.fhir.org/ig/HL7/us-cql-ig" defaultVersion="1.0.0" defaultWorkgroup="cds" gitUrl="https://github.com/HL7/us-cql-ig" url="http://hl7.org/fhir/us/cql">
 <version code="current" url="http://build.fhir.org/ig/HL7/us-cql-ig"/>
+<version code="1.0.0" url="http://hl7.org/fhir/us/cql/1.0.0"/>
 <version code="1.0.0-ballot" url="http://hl7.org/fhir/us/cql/2025May"/>
 <artifactPageExtension value="-definitions"/>
 <artifactPageExtension value="-examples"/>
 <artifactPageExtension value="-mappings"/>
-<artifact id="Parameters/manifest" key="Library-CumulativeMedicationDuration" name=""/>
 <artifact id="Library/CumulativeMedicationDuration" key="Library-CumulativeMedicationDuration" name="Cumulative Medication Duration"/>
 <artifact id="Library/CumulativeMedicationDurationTests" key="Library-CumulativeMedicationDurationTests" name="Cumulative Medication Duration Tests"/>
 <artifact deprecated="true" id="Questionnaire/GMTPQuestionnaire" key="Questionnaire-GMTPQuestionnaire" name="Example Genetic/Molecular Testing Preauthorization Questionnaire"/>
@@ -18,6 +18,7 @@
 <artifact id="Library/MBODAInitialExpressions" key="Library-MBODAInitialExpressions" name="Expression Library for the Medical Benefit Outpatient Drug Authorization Example"/>
 <artifact id="Library/MNACInitialExpressions" key="Library-MNACInitialExpressions" name="Expression Library for the Medical Necessity For Authorization Of Catheters Example"/>
 <artifact id="Library/UPPARFInitialExpressions" key="Library-UPPARFInitialExpressions" name="Expression Library for the Uniform Pharmacy Prior Authorization Request Form Example"/>
+<artifact id="Parameters/manifest" key="Parameters-manifest" name="Input Expansion Parameters"/>
 <artifact id="Library/USCoreCommon" key="Library-USCoreCommon" name="US Core Common"/>
 <artifact id="Library/USCoreCommonTests" key="Library-USCoreCommonTests" name="US Core Common Tests"/>
 <artifact id="Library/USCoreElements" key="Library-USCoreElements" name="US Core Elements"/>
