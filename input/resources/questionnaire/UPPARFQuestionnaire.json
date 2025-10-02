@@ -32,7 +32,7 @@
         {
           "url": "name",
           "valueCoding": {
-            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "system": "http://example.org/fhir/CodeSystem/additionalLaunchContext",
             "code": "MedicationRequest",
             "display": "MedicationRequest"
           }
@@ -74,12 +74,14 @@
       "answerOption": [
         {
           "valueCoding": {
+            "system": "http://example.org/fhir/CodeSystem/UPPARFQuestionnaire-urgency",
             "code": "urgent",
             "display": "Urgent"
           }
         },
         {
           "valueCoding": {
+            "system": "http://example.org/fhir/CodeSystem/UPPARFQuestionnaire-urgency",
             "code": "routine",
             "display": "Non-Urgent"
           }

@@ -32,7 +32,7 @@
         {
           "url": "name",
           "valueCoding": {
-            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "system": "http://example.org/fhir/CodeSystem/additionalLaunchContext",
             "code": "Coverage",
             "display": "Coverage"
           }
@@ -53,7 +53,7 @@
         {
           "url": "name",
           "valueCoding": {
-            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "system": "http://example.org/fhir/CodeSystem/additionalLaunchContext",
             "code": "ServiceRequest",
             "display": "ServiceRequest"
           }

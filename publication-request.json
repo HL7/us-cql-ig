@@ -4,8 +4,8 @@
     "path": "http://hl7.org/fhir/us/cql/1.0.0",
     "mode": "milestone",
     "status": "informative",
-    "sequence": "STU 1",
-    "desc": "Edition 1.0.0",
-    "descmd": "This 1.0.0 edition is the initial publication of the Common CQL Artifacts for FHIR (US-Based) implementation guide.",
+    "sequence": "Informative 1",
+    "desc": "This 1.0.0 edition is the initial publication of the Common CQL Artifacts for FHIR (US-Based) implementation guide, providing shareable libraries of CQL logic for use with FHIR systems support US Core version 7, 6.1.0, and 3.1.1.",
+    "descmd": "This 1.0.0 edition is the initial publication of the Common CQL Artifacts for FHIR (US-Based) implementation guide, providing shareable libraries of CQL logic for use with FHIR systems support US Core version 7, 6.1.0, and 3.1.1.",
     "first" : false
 }

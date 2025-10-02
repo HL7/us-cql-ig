@@ -280,12 +280,14 @@
           "answerOption": [
             {
               "valueCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MBODAQuestionnaire-medication-info-new-med",
                 "code": "NewMedication",
                 "display": "New Medication"
               }
             },
             {
               "valueCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MBODAQuestionnaire-medication-info-new-med",
                 "code": "ContinuedTherapy",
                 "display": "Continuation of therapy"
               }
@@ -310,6 +312,7 @@
               "question": "medication-info|new-med",
               "operator": "=",
               "answerCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MBODAQuestionnaire-medication-info-new-med",
                 "code": "ContinuedTherapy"
               }
             }

@@ -32,7 +32,7 @@
         {
           "url": "name",
           "valueCoding": {
-            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "system": "http://example.org/fhir/CodeSystem/additionalLaunchContext",
             "code": "Coverage",
             "display": "Coverage"
           }
@@ -53,7 +53,7 @@
         {
           "url": "name",
           "valueCoding": {
-            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "system": "http://example.org/fhir/CodeSystem/additionalLaunchContext",
             "code": "ServiceRequest",
             "display": "ServiceRequest"
           }
@@ -91,30 +91,14 @@
       ],
       "linkId": "billing-provider-question",
       "text": "Is the billing provider/referring lab different from servicing provider?",
-      "type": "choice",
-      "answerOption": [
-        {
-          "valueCoding": {
-            "code": "Y",
-            "display": "Yes"
-          }
-        },
-        {
-          "valueCoding": {
-            "code": "N",
-            "display": "No"
-          }
-        }
-      ],
+      "type": "boolean",
       "item": [
         {
           "enableWhen": [
             {
               "question": "billing-provider-question",
               "operator": "=",
-              "answerCoding": {
-                "code": "Y"
-              }
+              "answerBoolean": true
             }
           ],
           "linkId": "billing-provider-info",
@@ -307,21 +291,7 @@
           ],
           "linkId": "clinical-trial-question",
           "text": "Is the requested test part of a clinical trial?",
-          "type": "choice",
-          "answerOption": [
-            {
-              "valueCoding": {
-                "code": "Y",
-                "display": "Yes"
-              }
-            },
-            {
-              "valueCoding": {
-                "code": "N",
-                "display": "No"
-              }
-            }
-          ],
+          "type": "boolean",
           "item": [
             {
               "extension": [
@@ -337,9 +307,7 @@
                 {
                   "question": "clinical-trial-question",
                   "operator": "=",
-                  "answerCoding": {
-                    "code": "Y"
-                  }
+                  "answerBoolean": true
                 }
               ],
               "linkId": "clinical-trial|yes-clinial-trial",

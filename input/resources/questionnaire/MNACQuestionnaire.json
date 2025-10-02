@@ -32,7 +32,7 @@
         {
           "url": "name",
           "valueCoding": {
-            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "system": "http://example.org/fhir/CodeSystem/additionalLaunchContext",
             "code": "ServiceRequest",
             "display": "ServiceRequest"
           }
@@ -138,21 +138,7 @@
           ],
           "linkId": "uti-history|uti-last-year",
           "text": "The patient has|had documented recurrent urinary tract infections while on a program of clean cathing, twice within a 12 month period prior to beginning sterile cathing",
-          "type": "choice",
-          "answerOption": [
-            {
-              "valueCoding": {
-                "code": "Yes",
-                "display": "Yes"
-              }
-            },
-            {
-              "valueCoding": {
-                "code": "No",
-                "display": "No"
-              }
-            }
-          ]
+          "type": "boolean"
         },
         {
           "extension": [
@@ -168,9 +154,7 @@
             {
               "question": "uti-history|uti-last-year",
               "operator": "=",
-              "answerCoding": {
-                "code": "true"
-              }
+              "answerBoolean": true
             }
           ],
           "linkId": "uti-history|uti-dates",
@@ -191,9 +175,7 @@
             {
               "question": "uti-history|uti-last-year",
               "operator": "=",
-              "answerCoding": {
-                "code": "true"
-              }
+              "answerBoolean": true
             }
           ],
           "linkId": "uti-history|antibiotics-used",
@@ -224,42 +206,49 @@
           "answerOption": [
             {
               "valueCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MNACQuestionnaire-symptoms-info-symptoms",
                 "code": "Fever",
                 "display": "Fever; state temperature in degree"
               }
             },
             {
               "valueCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MNACQuestionnaire-symptoms-info-symptoms",
                 "code": "UrinaryUrgencyFrequency",
                 "display": "Change in urinary urgency, frequency, or incontinence"
               }
             },
             {
               "valueCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MNACQuestionnaire-symptoms-info-symptoms",
                 "code": "AutonomicDysreflexia",
                 "display": "Appearance of new or increase in autonomic dysreflexia"
               }
             },
             {
               "valueCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MNACQuestionnaire-symptoms-info-symptoms",
                 "code": "PhysicalSignsProstatitis",
                 "display": "Physical signs of prostatitis, epididymitis, orchitis"
               }
             },
             {
               "valueCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MNACQuestionnaire-symptoms-info-symptoms",
                 "code": "Immunosuppressed",
                 "display": "The patient is immunosuppressed"
               }
             },
             {
               "valueCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MNACQuestionnaire-symptoms-info-symptoms",
                 "code": "Pyuria",
                 "display": "Pyuria"
               }
             },
             {
               "valueCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MNACQuestionnaire-symptoms-info-symptoms",
                 "code": "SystemicLeukocytosis",
                 "display": "Systemic leukocytosis"
               }
@@ -289,6 +278,7 @@
               "question": "symptoms-info|symptoms",
               "operator": "=",
               "answerCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MNACQuestionnaire-symptoms-info-symptoms",
                 "code": "Fever"
               }
             }
@@ -320,24 +310,28 @@
           "answerOption": [
             {
               "valueCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MNACQuestionnaire-catheterization-frequency-frequency",
                 "code": "2-4Times",
                 "display": "2-4 times"
               }
             },
             {
               "valueCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MNACQuestionnaire-catheterization-frequency-frequency",
                 "code": "4-6Times",
                 "display": "4-6 times"
               }
             },
             {
               "valueCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MNACQuestionnaire-catheterization-frequency-frequency",
                 "code": "6-8Times",
                 "display": "6-8 times"
               }
             },
             {
               "valueCoding": {
+                "system": "http://example.org/fhir/CodeSystem/MNACQuestionnaire-catheterization-frequency-frequency",
                 "code": "8TimesOrMore",
                 "display": "8 times or more"
               }
