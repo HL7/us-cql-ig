@@ -1,7 +1,7 @@
 {
     "package-id" : "hl7.fhir.us.cql",
     "version": "1.0.0",
-    "path": "http://hl7.org/fhir/us/cql/1.0.0",
+    "path": "http://hl7.org/fhir/us/cql/Informative1",
     "mode": "milestone",
     "status": "informative",
     "sequence": "Informative 1",
