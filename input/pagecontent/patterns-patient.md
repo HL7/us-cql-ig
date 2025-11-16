@@ -66,8 +66,8 @@ Patient.birthTime()
 Patient.birthDateTime()
 ```
 
-* [`.birthTime()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,birthTime,-(patient%20Patient)
-* [`.birthDateTime()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,birthDateTime,-(patient%20Patient)
+* [`.birthTime()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,birthTime,-%28patient%20Patient)
+* [`.birthDateTime()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,birthDateTime,-%28patient%20Patient)
 
 #### Patient age
 
@@ -135,5 +135,5 @@ In the first expression, the `deceased` element is treated as a Boolean, whereas
 
 > NOTE: No value conversions take place when accessing choice types, when using the "Patient Is Deceased" expression above, for example, if the Patient record has a DateTime value for the deceased element, the result of that expression will be `null`.
 
-> NOTE: Content for this page was adapted from the [QICore Authoring Patterns - Patient](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns---QICore-v6.0.0#patient) topic.
+> NOTE: Content for this page was adapted from the [QICore Authoring Patterns - Patient](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0#patient) topic.
 
