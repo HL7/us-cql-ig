@@ -36,18 +36,18 @@ Patient.name()
 
 The name function is just the first official, usual, or non-official non-usual name that is defined for the Patient. The avaiable name functions defined in the US Core Elements library are:
 
-* [`.name()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,name,-(patient%20Patient))
-* [`.usualName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,usualName,-(patient%20Patient)
-* [`.officialName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,officialName,-(patient%20Patient)
-* [`.firstNonOfficialNonUsualName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstNonOfficialNonUsualName,-(patient%20Patient)
+* [`.name()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,name,-%28patient%20Patient)
+* [`.usualName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,usualName,-%28patient%20Patient)
+* [`.officialName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,officialName,-%28patient%20Patient)
+* [`.firstNonOfficialNonUsualName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstNonOfficialNonUsualName,-%28patient%20Patient)
 
 In addition, the library defines functions for common use cases for the HumanName type:
 
-* [`.firstName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstName,-(name%20HumanName)
-* [`.middleNames()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,middleNames,-(name%20HumanName)
-* [`.lastName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,lastName,-(name%20HumanName)
-* [`.firstMiddleLast()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstMiddleLast,-(name%20HumanName)
-* [`.lastFirstMiddle()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,lastFirstMiddle,-(name%20HumanName)
+* [`.firstName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstName,-%28name%20HumanName)
+* [`.middleNames()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,middleNames,-%28name%20HumanName)
+* [`.lastName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,lastName,-%28name%20HumanName)
+* [`.firstMiddleLast()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstMiddleLast,-%28name%20HumanName)
+* [`.lastFirstMiddle()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,lastFirstMiddle,-%28name%20HumanName)
 
 #### Patient birthDate
 
@@ -80,12 +80,12 @@ define "Patient Age Between 50 and 75":
 
 The US Core Elements library defines the following patient age calculation functions:
 
-* [`.ageInDaysAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInDaysAt,-(patient%20Patient)
-* [`.ageInDays()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInDays,-(patient%20Patient)
-* [`.ageInMonthsAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInMonthsAt,-(patient%20Patient)
-* [`.ageInMonths()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInMonths,-(patient%20Patient)
-* [`.ageInYearsAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInYearsAt,-(patient%20Patient)
-* [`.ageInYears()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInYears,-(patient%20Patient)
+* [`.ageInDaysAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInDaysAt,-%28patient%20Patient)
+* [`.ageInDays()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInDays,-%28patient%20Patient)
+* [`.ageInMonthsAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInMonthsAt,-%28patient%20Patient)
+* [`.ageInMonths()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInMonths,-%28patient%20Patient)
+* [`.ageInYearsAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInYearsAt,-%28patient%20Patient)
+* [`.ageInYears()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInYears,-%28patient%20Patient)
 
 > NOTE: The [AgeInYearsAt](https://cql.hl7.org/09-b-cqlreference.html#ageat) function in CQL uses the data model (US Core in this case) to understand how to access the patient's birth date information.
 
