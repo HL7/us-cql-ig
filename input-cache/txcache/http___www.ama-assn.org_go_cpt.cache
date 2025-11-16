@@ -56,3 +56,64 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://www.ama-assn.org/go/cpt"
+    }]
+  }
+}}####
+e: {
+  "from-server" : true,
+  "error" : "Error from https://tx.fhir.org/r4: The code System \"http://www.ama-assn.org/go/cpt\" has a grammar, and cannot be enumerated directly"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "language": "en", "url": "http://terminology.hl7.org/ValueSet/cpt-all", "version": "1.0.0"}####
+e: {
+  "source" : tx.fhir.org,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "url" : "http://terminology.hl7.org/ValueSet/cpt-all",
+  "version" : "1.0.0",
+  "name" : "AmaCPTAllCodes",
+  "title" : "AMA CPT All Codes",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-08-05T16:43:13+10:00",
+  "immutable" : true,
+  "expansion" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
+      "valueBoolean" : true
+    }],
+    "identifier" : "urn:uuid:5b40b909-e0e6-434d-b4a3-4874f6fcada3",
+    "timestamp" : "2025-10-22T17:55:33.407Z",
+    "total" : 0,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "displayLanguage",
+      "valueCode" : "en"
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

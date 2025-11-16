@@ -71,3 +71,75 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10",
+      "concept" : [{
+        "code" : "123456",
+        "display" : "DIAG-1"
+      },
+      {
+        "code" : "123457",
+        "display" : "DIAG-1a"
+      },
+      {
+        "code" : "987654",
+        "display" : "DIAG-2"
+      },
+      {
+        "code" : "123987",
+        "display" : "DIAG-3"
+      },
+      {
+        "code" : "112233",
+        "display" : "DIAG-4"
+      },
+      {
+        "code" : "997755",
+        "display" : "DIAG-5"
+      },
+      {
+        "code" : "321789",
+        "display" : "DIAG-6"
+      }]
+    }]
+  }
+}}####
+e: {
+  "source" : tx.fhir.org,
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:d67c5b1e-c36d-4713-aee7-0cc91d8fe078",
+    "timestamp" : "2025-10-22T17:55:31.469Z",
+    "total" : 0,
+    "offset" : 0,
+    "parameter" : [{
+      "name" : "excludeNested",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
+      "name" : "used-codesystem",
+      "valueUri" : "http://hl7.org/fhir/sid/icd-10|2019-covid-expanded"
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://hl7.org/fhir/sid/icd-10|2019-covid-expanded"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
