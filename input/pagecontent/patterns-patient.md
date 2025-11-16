@@ -24,6 +24,51 @@ There are no significant backwards-compatibility issues between versions for the
 
 ### Common Elements and Functions
 
+#### Patient name
+
+Although patient name will typically already be known and established by application context, patterns for accessing and displaying patient name are provided for applications that may still need to establish, discover, or display this information.
+
+Because FHIR allows for multiple names for different uses, as well as different usage periods, the _name_ of a patient is not always straightforward to determine. For completeness, the US Core Elements library defines several functions for accessing the name of a Patient. In the most common case, the `.name()` function can be used:
+
+```cql
+Patient.name()
+```
+
+The name function is just the first official, usual, or non-official non-usual name that is defined for the Patient. The avaiable name functions defined in the US Core Elements library are:
+
+* [`.name()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,name,-(patient%20Patient))
+* [`.usualName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,usualName,-(patient%20Patient)
+* [`.officialName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,officialName,-(patient%20Patient)
+* [`.firstNonOfficialNonUsualName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstNonOfficialNonUsualName,-(patient%20Patient)
+
+In addition, the library defines functions for common use cases for the HumanName type:
+
+* [`.firstName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstName,-(name%20HumanName)
+* [`.middleNames()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,middleNames,-(name%20HumanName)
+* [`.lastName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,lastName,-(name%20HumanName)
+* [`.firstMiddleLast()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstMiddleLast,-(name%20HumanName)
+* [`.lastFirstMiddle()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,lastFirstMiddle,-(name%20HumanName)
+
+#### Patient birthDate
+
+Typically, patient birthDate is just represented using the birthDate element:
+
+```cql
+Patient.birthDate
+```
+
+However, FHIR also defines a `birthTime` extension, and applications that want to consider this level of specificity when determining patient age can make use of this extension.
+
+Since the birthTime extension is defined in the extensions pack, it can be used anywhere, and the FHIRCommon CQL library defines a function for accessing it, as well as a function for accessing the birthDate as a dateTime, considering this birthTime extension if present:
+
+```cql
+Patient.birthTime()
+Patient.birthDateTime()
+```
+
+* [`.birthTime()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,birthTime,-(patient%20Patient)
+* [`.birthDateTime()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,birthDateTime,-(patient%20Patient)
+
 #### Patient age
 
 Patient information includes the birth date, and CQL provides a built-in function to calculate the age of a patient, either current age (i.e. as of now), or _as of_ a particular date. In quality improvement artifacts, age is typically calculated _as of_ a particular date. In the context of a Questionnaire, this is typically just today's date, and can be accessed using the `ageInYears()` function:
@@ -32,6 +77,15 @@ Patient information includes the birth date, and CQL provides a built-in functio
 define "Patient Age Between 50 and 75":
   Patient.ageInYears() between 50 and 75
 ```
+
+The US Core Elements library defines the following patient age calculation functions:
+
+* [`.ageInDaysAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInDaysAt,-(patient%20Patient)
+* [`.ageInDays()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInDays,-(patient%20Patient)
+* [`.ageInMonthsAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInMonthsAt,-(patient%20Patient)
+* [`.ageInMonths()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInMonths,-(patient%20Patient)
+* [`.ageInYearsAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInYearsAt,-(patient%20Patient)
+* [`.ageInYears()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInYears,-(patient%20Patient)
 
 > NOTE: The [AgeInYearsAt](https://cql.hl7.org/09-b-cqlreference.html#ageat) function in CQL uses the data model (US Core in this case) to understand how to access the patient's birth date information.
 
