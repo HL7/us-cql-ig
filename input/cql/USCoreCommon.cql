@@ -18,6 +18,7 @@ codesystem "USCoreConditionCategory": 'http://hl7.org/fhir/us/core/CodeSystem/co
 codesystem "CDC Race and Ethnicity Codes": 'urn:oid:2.16.840.1.113883.6.238'
 codesystem "CommunicationCategoryCodeSystem": 'http://terminology.hl7.org/CodeSystem/communication-category'
 codesystem "IdentifierType": 'http://terminology.hl7.org/CodeSystem/v2-0203'
+codesystem "ObservationInterpretation": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation'
 
 code "MedicalRecordNumber": 'MR' from "IdentifierType" display 'Medical record number'
 
@@ -40,6 +41,8 @@ code "health-concern": 'health-concern' from "USCoreConditionCategory" display '
 code "Systolic Blood Pressure": '8480-6' from FHIRCommon.LOINC
 code "Diastolic Blood Pressure": '8462-4' from FHIRCommon.LOINC
 code "BMI": '39156-5' from FHIRCommon.LOINC
+code "Positive": 'LA6576-8' from ObservationInterpretation
+code "Negative": 'NEG' from ObservationInterpretation
 
 context Patient
 
@@ -89,4 +92,47 @@ define fluent function isHealthConcern(condition FHIR.Condition):
     condition.category C
       where C ~ "health-concern"
   )
+
+/*
+@description: Returns Observations in the given list that have an interpretation of positive
+*/
+define fluent function positive(observations List<Observation>):
+  observations O
+    where exists (O.interpretation I where I ~ "Positive")
+
+/*
+@description: Returns Observations in the given list that have an interpretation of negative
+*/
+define fluent function negative(observations List<Observation>):
+  observations O
+    where exists (O.interpretation I where I ~ "Negative")
+
+/*
+@description: Returns Observations in the given list that were issued during the given Encounter
+*/
+define fluent function during(observations List<Observation>, encounter Encounter):
+  observations O
+    where O.issued during minute of encounter.period
+
+/*
+@description: Returns Observations in the given list that were issued within the given time duration before now
+*/
+define fluent function within(observations List<Observation>, period Quantity):
+  observations O
+    where (O.issued + period) on or after minute of Now()
+
+/*
+@description: Returns Observations consecutively by when they were issued
+*/
+define fluent function consecutively(observations List<Observation>):
+  observations O
+    sort by issued
+
+/*
+@description: Returns Observations consecutively by when they were issued, on or after when the given Observation was issued
+*/
+define fluent function consecutivelyFrom(observations List<Observation>, observation Observation):
+  observations O
+    where O.issued on or after observation.issued
+    sort by issued
 
