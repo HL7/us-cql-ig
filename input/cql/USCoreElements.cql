@@ -25,39 +25,114 @@ context Patient
 
 // Patient Patterns
 
+/*
+@description: Returns the age in days of the patient as of the given date, using birth time if known
+@comment: This function returns the number of whole days between the patient birth date 
+and the asOf date. If the patient has a birthTime, the calculation is performed using the 
+birthDateTime, and the time component of the asOf parameter is considered. Note that when 
+the birth time is known, timezone offset normalization will be used.
+*/
 define fluent function ageInDaysAt(patient Patient, asOf DateTime):
-  CalculateAgeInDaysAt(Patient.birthDate, date from asOf)
+  if patient.birthTime() is not null then
+    CalculateAgeInDaysAt(Patient.birthDateTime(), asOf)
+  else
+    CalculateAgeInDaysAt(Patient.birthDate, date from asOf)
 
+/*
+@description: Returns the current age in days of the patient, using birth time if known
+@comment: This function returns the number of whole days between the patient birth date 
+and the current date. If the patient has a birthTime, the calculation is performed using the 
+birthDateTime and Now(), otherwise the calculation is performed using Today(). Note that when 
+the birth time is known, timezone offset normalization will be used.
+*/
 define fluent function ageInDays(patient Patient):
-  CalculateAgeInDaysAt(Patient.birthDate, Today())
+  if patient.birthTime() is not null then
+    CalculateAgeInDaysAt(Patient.birthDateTime(), Now())
+  else
+    CalculateAgeInDaysAt(Patient.birthDate, Today())
 
+/*
+@description: Returns the age in months of the patient as of the given date, using birth time if known
+@comment: This function returns the number of whole calendar months between the patient birth date 
+and the asOf date. If the patient has a birthTime, the calculation is performed using the 
+birthDateTime, and the time component of the asOf parameter is considered. Note that when 
+the birth time is known, timezone offset normalization will be used.
+*/
 define fluent function ageInMonthsAt(patient Patient, asOf DateTime):
-  CalculateAgeInMonthsAt(Patient.birthDate, date from asOf)
+  if patient.birthTime() is not null then
+    CalculateAgeInMonthsAt(Patient.birthDateTime(), asOf)
+  else
+    CalculateAgeInMonthsAt(Patient.birthDate, date from asOf)
 
+/*
+@description: Returns the current age in months of the patient, using birth time if known
+@comment: This function returns the number of whole calendar months between the patient birth date 
+and the current date. If the patient has a birthTime, the calculation is performed using the 
+birthDateTime and Now(), otherwise the calculation is performed using Today(). Note that when 
+the birth time is known, timezone offset normalization will be used.
+*/
 define fluent function ageInMonths(patient Patient):
-  CalculateAgeInMonthsAt(Patient.birthDate, Today())
+  if patient.birthTime() is not null then
+    CalculateAgeInMonthsAt(Patient.birthDateTime(), Now())
+  else
+    CalculateAgeInMonthsAt(Patient.birthDate, Today())
 
+/*
+@description: Returns the age in years of the patient, as of the given date
+@comment: This function returns the number of whole calendar years between the patient birth 
+date and the given date. Regardless of whether the patient has a birthTime, the calculation is
+performed using only the birth date. If the given date has a time component, it is ignored, on 
+the grounds that birth time is almost universally not considered when determining age in years.
+*/
 define fluent function ageInYearsAt(patient Patient, asOf DateTime):
   CalculateAgeInYearsAt(Patient.birthDate, date from asOf)
 
+/*
+@description: Returns the current age in years of the patient
+@comment: This function returns the number of whole calendar years between the patient birth 
+date and the current date. Regardless of whether the patient has a birthTime, the calculation is
+performed using only the birth date and Today(), on the grounds that birth time is almost universally 
+not considered when determining age in years.
+*/
 define fluent function ageInYears(patient Patient):
   CalculateAgeInYearsAt(Patient.birthDate, Today())
 
+/*
+@description: Returns the first official, usual, or other name
+@comment: This function returns the first _official_ name if present, otherwise the first _usual_ name, otherwise
+the first non-official, non-usual name. In each case, the function returns the most recent name that either has no 
+period specified, or has a period overlapping today.
+*/
 define fluent function name(patient Patient):
   Coalesce(patient.officialName().first(), patient.usualName().first(), patient.firstNonOfficialNonUsualName())
 
+/*
+@description: Returns the first usual name
+@comment: This function returns the first _usual_ name for a patient. The most recent name entry is return that
+either has no period specified, or has a period overlapping today.
+*/
 define fluent function usualName(patient Patient):
   patient.name name
     where name.use ~ 'usual'
       and name.period is not null implies name.period includes Today()
     sort by start of period desc
 
+/*
+@description: Returns the first officiel name
+@comment: This function returns the first _official_ name for a patient. The most recent name entry is return that
+either has no period specified, or has a period overlapping today.
+*/
 define fluent function officialName(patient Patient):
   patient.name name
     where name.use ~ 'official'
       and name.period is not null implies name.period includes Today()
     sort by start of period desc
 
+/*
+@description: Returns the first non-official, non-usual name
+@comment: This function returns the first non-official, non-usual name for a patient. The most recent name entry is return that
+either has no period specified, or has a period overlapping today.
+*/
 define fluent function firstNonOfficialNonUsualName(patient Patient):
   First(
     patient.name name
@@ -78,21 +153,42 @@ define fluent function policyNumber(coverage FHIR.Coverage):
 define fluent function medicalRecordNumber(patient Patient):
   patient.identifier.where(type ~ UC.MedicalRecordNumber).single().value
 
+/*
+@description: Returns the first official, usual, or other name
+@comment: This function returns the first _official_ name if present, otherwise the first _usual_ name, otherwise
+the first non-official, non-usual name. In each case, the function returns the most recent name that either has no 
+period specified, or has a period overlapping today.
+*/
 define fluent function name(practitioner Practitioner):
   Coalesce(practitioner.officialName().first(), practitioner.usualName().first(), practitioner.firstNonOfficialNonUsualName())
 
+/*
+@description: Returns the first usual name
+@comment: This function returns the first _usual_ name for a practitioner. The most recent name entry is return that
+either has no period specified, or has a period overlapping today.
+*/
 define fluent function usualName(practitioner Practitioner):
   practitioner.name name
     where name.use ~ 'usual'
       and name.period is not null implies name.period includes Today()
     sort by start of period desc
 
+/*
+@description: Returns the first officiel name
+@comment: This function returns the first _official_ name for a practitioner. The most recent name entry is return that
+either has no period specified, or has a period overlapping today.
+*/
 define fluent function officialName(practitioner Practitioner):
   practitioner.name name
     where name.use ~ 'official'
       and name.period is not null implies name.period includes Today()
     sort by start of period desc
 
+/*
+@description: Returns the first non-official, non-usual name
+@comment: This function returns the first non-official, non-usual name for a practitioner. The most recent name entry is return that
+either has no period specified, or has a period overlapping today.
+*/
 define fluent function firstNonOfficialNonUsualName(practitioner Practitioner):
   First(
     practitioner.name name
@@ -124,9 +220,6 @@ define fluent function work(organization Organization):
         and telecom.period is not null implies telecom.period includes Today()
       sort by start of period desc
   )
-
-define fluent function name(practitioner Practitioner):
-  Coalesce(practitioner.officialName().first(), practitioner.usualName().first(), practitioner.firstNonOfficialNonUsualName())
 
 define fluent function firstName(name HumanName):
   name.given.first()
