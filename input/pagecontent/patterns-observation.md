@@ -91,17 +91,17 @@ As well as for filtering lists of observations with a given status:
 
 #### Interpretation
 
-Note that the interpretation element of an observation 
+Note that the interpretation element of an observation may not be present, and may not be coded as expected. Care must be taken in the use of this element to ensure that data conforms with the expectations of the logic.
 
-* [`.positive()`](): Returns Observations in the given list that have an interpretation of positive
-* [`.negative()`](): Returns Observations in the given list that have an interpretation of negative
+* [`.positive()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,positive,-%28observations%20List): Returns Observations in the given list that have an interpretation of positive
+* [`.negative()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,negative,-%28observations%20List): Returns Observations in the given list that have an interpretation of negative
 
 #### Timings
 
-* [`.during(Encounter)`](): Returns Observations in the given list that were issued during the given Encounter
-* [`.within(Quantity)`](): Returns Observations in the given list that were issued within the given time duration before now
-* [`.consecutively()`](): Returns Observations consecutively by when they were issued
-* [`.consecutivelyFrom(Observation)`](): Returns Observations consecutively by when they were issued, on or after when the given Observation was issued  
+* [`.during(Encounter)`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,during,-%28observations%20List): Returns Observations in the given list that were issued during the given Encounter
+* [`.within(Quantity)`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,within,-%28observations%20List): Returns Observations in the given list that were issued within the given time duration before now
+* [`.consecutively()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,consecutively,-%28observations%20List): Returns Observations consecutively by when they were issued
+* [`.consecutivelyFrom(Observation)`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,consecutivelyFrom,-%28observations%20List): Returns Observations consecutively by when they were issued, on or after when the given Observation was issued  
 
 #### Observation Elements
 
@@ -127,6 +127,7 @@ define StickTest:
 define "Three Consecutive Negative Stick Tests":
   exists (
     StickTest.during(Encounter).consecutively().take(3).negative().count() = 3
+  )
 ```
 
 In addition, this expression can be parameterized with current context (for example from a trigger context) with:
