@@ -113,6 +113,20 @@ In addition, the USCoreElements library defines expressions for accessing the va
 
 In general, the expressions to retrieve observations for a particular profile include the `.resulted()` function to ensure only final, amended, or corrected observations are returned.
 
+#### Clinical Results
+
+Clinical test results **(including imaging results)** in US Core use the [ObservationClinicalResult]({{site.data.fhir.ver.uscore7}}/StructureDefinition-qicore-observation-clinical-result.html) profile. By default, clinical test results in US Core are characterized by the code element.
+
+```cql
+define ObservationClinicalResult:
+  ["Observation Clinical Result Profile"] O
+    where O.isResulted()
+```
+
+Note that observations associated with imaging are expected to represent specific measurements obtained from imaging. See the [Imaging Procedures](patterns-service.html#imaging-procedures) discussion for more information.
+
+> NOTE: US Core 5 defined two different profiles for clinical results, one for [test results](https://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-observation-clinical-test.html), and one for [imaging results](https://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-observation-imaging.html). These profiles were combined in US Core 6 in the clinical result profile.
+
 #### Pregnancy Status
 
 US Core allows for the presence of pregnancy to be represented in multiple resources. The US Core profile [Pregnancy Status]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-observation-pregnancystatus.html) allows for the representation of pregnancy as an Observation. However, pregnancy information may also be represented in a laboratory test result, an encounter diagnosis, or a problem list item.
