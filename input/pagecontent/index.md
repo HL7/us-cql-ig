@@ -98,19 +98,19 @@ This Implementation Guide was made possible by the thoughtful contributions of t
 
 ### Dependencies
 
-{% include dependency-table-short.xhtml %}
+{% include dependency-table-short-en.xhtml %}
 
 ### Cross Version Analysis
 
-{% include cross-version-analysis.xhtml %}
+{% include cross-version-analysis-en.xhtml %}
 
 ### Global Profiles
 
-{% include globals-table.xhtml %}
+{% include globals-table-en.xhtml %}
 
 ### IP Statements
 
-{% include ip-statements.xhtml %}
+{% include ip-statements-en.xhtml %}
 
 Many of the examples in this implementation guide are informed by prior-authorization forms freely available on the internet and used with permission.
 
