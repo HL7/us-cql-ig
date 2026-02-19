@@ -40,9 +40,10 @@
 <page key="downloads" name="Downloads"/>
 <page key="examples" name="Examples"/>
 <page key="index" name="Home"/>
-<page key="patterns-lab" name="Lab Patterns"/>
+<page deprecated="true" key="patterns-lab" name="Lab Patterns"/>
 <page key="license" name="License"/>
 <page key="patterns-medication" name="Medication Patterns"/>
+<page key="patterns-observation" name="Observation Patterns"/>
 <page key="patterns-overall" name="Overall Patterns"/>
 <page key="patterns-patient" name="Patient Patterns"/>
 <page key="patterns" name="Patterns"/>

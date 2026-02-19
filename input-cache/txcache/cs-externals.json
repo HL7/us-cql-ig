@@ -1,7 +1,5 @@
 {
   "http://unstats.un.org/unsd/methods/m49/m49.htm" : null,
-  "urn:ietf:bcp:13|null" : null,
   "urn:ietf:bcp:13" : null,
-  "http://unstats.un.org/unsd/methods/m49/m49.htm|null" : null,
   "http://example.org/fhir/CodeSystem/additionalLaunchContext" : null
 }

@@ -1,76 +1,4 @@
 -------------------------------------------------------------------------------------
-{"hierarchical" : false, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "inactive" : true,
-    "include" : [{
-      "system" : "http://hl7.org/fhir/sid/icd-10",
-      "concept" : [{
-        "code" : "123456",
-        "display" : "DIAG-1"
-      },
-      {
-        "code" : "123457",
-        "display" : "DIAG-1a"
-      },
-      {
-        "code" : "987654",
-        "display" : "DIAG-2"
-      },
-      {
-        "code" : "123987",
-        "display" : "DIAG-3"
-      },
-      {
-        "code" : "112233",
-        "display" : "DIAG-4"
-      },
-      {
-        "code" : "997755",
-        "display" : "DIAG-5"
-      },
-      {
-        "code" : "321789",
-        "display" : "DIAG-6"
-      }]
-    }]
-  }
-}}####
-e: {
-  "source" : tx-dev.fhir.org,
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:ba703641-4046-4e5f-8403-91a7feb8c115",
-    "timestamp" : "2025-08-11T20:04:21.633Z",
-    "total" : 0,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "excludeNested",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    },
-    {
-      "name" : "count",
-      "valueInteger" : 1000
-    },
-    {
-      "name" : "used-codesystem",
-      "valueUri" : "http://hl7.org/fhir/sid/icd-10|2019-covid-expanded"
-    },
-    {
-      "name" : "version",
-      "valueUri" : "http://hl7.org/fhir/sid/icd-10|2019-covid-expanded"
-    }]
-  }
-},
-  "error" : ""
-}
--------------------------------------------------------------------------------------
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -114,8 +42,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:d67c5b1e-c36d-4713-aee7-0cc91d8fe078",
-    "timestamp" : "2025-10-22T17:55:31.469Z",
+    "identifier" : "urn:uuid:18a43231-54a6-4638-8a31-f16e9e9168dd",
+    "timestamp" : "2025-12-15T16:28:28.160Z",
     "total" : 0,
     "offset" : 0,
     "parameter" : [{
@@ -132,10 +60,6 @@ e: {
     },
     {
       "name" : "used-codesystem",
-      "valueUri" : "http://hl7.org/fhir/sid/icd-10|2019-covid-expanded"
-    },
-    {
-      "name" : "version",
       "valueUri" : "http://hl7.org/fhir/sid/icd-10|2019-covid-expanded"
     }]
   }

@@ -14,13 +14,13 @@
   }
 }}####
 e: {
-  "source" : tx-dev.fhir.org,
+  "source" : tx.fhir.org,
   "valueSet" : {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:410bcbab-5010-445a-be70-e596d905fbd0",
-    "timestamp" : "2025-08-11T20:04:56.721Z",
+    "identifier" : "urn:uuid:8e5cef90-d879-4ff8-93d8-273df63619c9",
+    "timestamp" : "2025-12-15T16:28:58.410Z",
     "total" : 249,
     "offset" : 0,
     "parameter" : [{
@@ -37,10 +37,6 @@ e: {
     },
     {
       "name" : "used-codesystem",
-      "valueUri" : "urn:iso:std:iso:3166|2018"
-    },
-    {
-      "name" : "version",
       "valueUri" : "urn:iso:std:iso:3166|2018"
     }],
     "contains" : [{
@@ -1308,14 +1304,14 @@ e: {
   }
 }}####
 e: {
-  "source" : tx-dev.fhir.org,
+  "source" : tx.fhir.org,
   "valueSet" : {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:16c6e085-36a4-4216-b000-4aab71fe33fa",
-    "timestamp" : "2025-08-11T20:04:56.994Z",
-    "total" : 249,
+    "identifier" : "urn:uuid:8f6031bb-dfee-4bbc-9b4c-a8a354c4dac3",
+    "timestamp" : "2025-12-15T16:28:58.847Z",
+    "total" : 291,
     "offset" : 0,
     "parameter" : [{
       "name" : "excludeNested",
@@ -1331,10 +1327,6 @@ e: {
     },
     {
       "name" : "used-codesystem",
-      "valueUri" : "urn:iso:std:iso:3166|2018"
-    },
-    {
-      "name" : "version",
       "valueUri" : "urn:iso:std:iso:3166|2018"
     }],
     "contains" : [{
@@ -2581,6 +2573,216 @@ e: {
       "system" : "urn:iso:std:iso:3166",
       "code" : "ZW",
       "display" : "Zimbabwe"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "AA",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "QM",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "QN",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "QO",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "QP",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "QQ",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "QR",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "QS",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "QT",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "QU",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "QV",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "QW",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "QX",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "QY",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "QZ",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XA",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XB",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XC",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XD",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XE",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XF",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XG",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XH",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XI",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XJ",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XK",
+      "display" : "Kosovo"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XL",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XM",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XN",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XO",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XP",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XQ",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XR",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XS",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XT",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XU",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XV",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XW",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XX",
+      "display" : "Unknown"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XY",
+      "display" : "User-assigned"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "XZ",
+      "display" : "International Waters"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "ZZ",
+      "display" : "Unknown or Invalid Territory"
     }]
   }
 },
@@ -2602,13 +2804,13 @@ e: {
   }
 }}####
 e: {
-  "source" : tx-dev.fhir.org,
+  "source" : tx.fhir.org,
   "valueSet" : {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:71bddcc5-783c-4dca-8717-2c2802ba5880",
-    "timestamp" : "2025-08-11T20:04:57.262Z",
+    "identifier" : "urn:uuid:59796a1c-ffba-4529-8873-4031fbf1910b",
+    "timestamp" : "2025-12-15T16:28:59.301Z",
     "total" : 249,
     "offset" : 0,
     "parameter" : [{
@@ -2625,10 +2827,6 @@ e: {
     },
     {
       "name" : "used-codesystem",
-      "valueUri" : "urn:iso:std:iso:3166|2018"
-    },
-    {
-      "name" : "version",
       "valueUri" : "urn:iso:std:iso:3166|2018"
     }],
     "contains" : [{

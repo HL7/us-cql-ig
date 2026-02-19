@@ -1,61 +1,4 @@
 -------------------------------------------------------------------------------------
-{"hierarchical" : false, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "inactive" : true,
-    "include" : [{
-      "system" : "http://www.ama-assn.org/go/cpt"
-    }]
-  }
-}}####
-e: {
-  "from-server" : true,
-  "error" : "Error from https://tx-dev.fhir.org/r4: The code System \"http://www.ama-assn.org/go/cpt\" has a grammar, and cannot be enumerated directly"
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : false, "url": "http://terminology.hl7.org/ValueSet/cpt-all", "version": "1.0.0"}####
-e: {
-  "source" : tx-dev.fhir.org,
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "url" : "http://terminology.hl7.org/ValueSet/cpt-all",
-  "version" : "1.0.0",
-  "name" : "AmaCPTAllCodes",
-  "title" : "AMA CPT All Codes",
-  "status" : "active",
-  "experimental" : false,
-  "date" : "2023-08-05T16:43:13+10:00",
-  "immutable" : true,
-  "expansion" : {
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
-      "valueBoolean" : true
-    }],
-    "identifier" : "urn:uuid:5ffb5452-4e75-4d41-8967-6a96f3a87776",
-    "timestamp" : "2025-08-11T20:04:22.868Z",
-    "total" : 0,
-    "offset" : 0,
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "excludeNested",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "offset",
-      "valueInteger" : 0
-    },
-    {
-      "name" : "count",
-      "valueInteger" : 1000
-    }]
-  }
-},
-  "error" : ""
-}
--------------------------------------------------------------------------------------
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -88,8 +31,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:5b40b909-e0e6-434d-b4a3-4874f6fcada3",
-    "timestamp" : "2025-10-22T17:55:33.407Z",
+    "identifier" : "urn:uuid:e2604ffa-78dd-41e0-a9fd-d6b014897ef4",
+    "timestamp" : "2025-12-15T16:28:30.113Z",
     "total" : 0,
     "offset" : 0,
     "parameter" : [{
