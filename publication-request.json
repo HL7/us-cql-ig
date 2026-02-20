@@ -1,11 +1,11 @@
 {
     "package-id" : "hl7.fhir.us.cql",
-    "version": "1.0.0",
-    "path": "http://hl7.org/fhir/us/cql/Informative1",
-    "mode": "milestone",
-    "status": "informative",
-    "sequence": "Informative 1",
-    "desc": "This 1.0.0 edition is the initial publication of the Common CQL Artifacts for FHIR (US-Based) implementation guide, providing shareable libraries of CQL logic for use with FHIR systems support US Core version 7, 6.1.0, and 3.1.1.",
-    "descmd": "This 1.0.0 edition is the initial publication of the Common CQL Artifacts for FHIR (US-Based) implementation guide, providing shareable libraries of CQL logic for use with FHIR systems support US Core version 7, 6.1.0, and 3.1.1.",
+    "version": "2.0.0-ballot",
+    "path": "http://hl7.org/fhir/us/cql/2026May",
+    "mode": "working",
+    "status": "ballot",
+    "sequence": "Informative 2",
+    "desc": "This update adds new patterns for patient name and age, allergies and intolerances, observations, orders and procedures including imaging, as well as claims and explanations of benefits. In addition, the update includes derived model information libraries for US Core, QI Core, and CarinBB to enable those IGs to be referenced in quality improvement artifacts.",
+    "descmd": "This update adds new patterns for patient name and age, allergies and intolerances, observations, orders and procedures including imaging, as well as claims and explanations of benefits. In addition, the update includes derived model information libraries for US Core, QI Core, and CarinBB to enable those IGs to be referenced in quality improvement artifacts.",
     "first" : false
 }

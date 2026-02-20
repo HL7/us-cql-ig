@@ -4,7 +4,7 @@
 in USCore as fluent functions in CQL, as well as common terminology and functions
 used in writing CQL with FHIR and USCore profiles.
 */
-library USCoreCommon
+library USCoreCommon version '2.0.0-ballot'
 
 using FHIR version '4.0.1'
 using USCore version '7.0.0'

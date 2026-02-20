@@ -1,5 +1,9 @@
 This provides a list of changes to the CQF US specification since its initial release
 
+### Version 2.0.0-ballot
+
+TODO
+
 ### Version 1.0.0
 
 The following changes were applied as a result of comments received during the 1.0.0 ballot

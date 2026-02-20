@@ -1,9 +1,9 @@
-library USCoreCommonTests
+library USCoreCommonTests version '2.0.0-ballot'
 
 using FHIR version '4.0.1'
 using USCore version '7.0.0'
 
-include USCoreCommon called UC
+include USCoreCommon version '2.0.0-ballot' called UC
 
 context Patient
 

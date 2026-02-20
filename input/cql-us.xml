@@ -14,7 +14,7 @@
     <valueString value="resources-spreadsheet.xml"/>
   </extension>-->
   <url value="http://hl7.org/fhir/us/cql/ImplementationGuide/hl7.fhir.us.cql"/>
-  <version value="1.0.0"/>
+  <version value="2.0.0"/>
   <name value="CQLUSCommon"/>
   <title value="Common CQL Artifacts for FHIR (US-Based)"/>
   <status value="active"/>

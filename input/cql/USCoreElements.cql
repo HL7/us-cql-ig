@@ -1,11 +1,11 @@
-library USCoreElements
+library USCoreElements version '2.0.0-ballot'
 
 using FHIR version '4.0.1'
 using USCore version '7.0.0'
 
 include hl7.fhir.uv.cql.FHIRHelpers version '4.0.1'
 include hl7.fhir.uv.cql.FHIRCommon version '2.0.0'
-include USCoreCommon called UC
+include USCoreCommon version '2.0.0-ballot' called UC
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'

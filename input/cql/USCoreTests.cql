@@ -2,7 +2,7 @@
 @description: This is a testing library used to validate capability of the CQL-to-ELM translator
 using the US Core model info.
 */
-library USCoreTests
+library USCoreTests version '2.0.0-ballot'
 
 using FHIR version '4.0.1'
 using USCore version '7.0.0'
