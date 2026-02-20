@@ -1,4 +1,4 @@
-library USCoreElements
+library USCoreElements version '1.0.1'
 
 using FHIR version '4.0.1'
 using USCore version '7.0.0'

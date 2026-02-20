@@ -1,10 +1,10 @@
-library CumulativeMedicationDurationTests
+library CumulativeMedicationDurationTests version '1.0.1'
 
 using FHIR version '4.0.1'
 
 include hl7.fhir.uv.cql.FHIRHelpers version '4.0.1'
 
-include CumulativeMedicationDuration called CMD
+include CumulativeMedicationDuration version '1.0.1' called CMD
 
 context Patient
 
