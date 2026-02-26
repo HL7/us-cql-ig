@@ -171,6 +171,11 @@
           <generation value="markdown"/>
         </page>
         <page>
+          <nameUrl value="patterns-claim.html"/>
+          <title value="Claim Patterns"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
           <nameUrl value="patterns-condition.html"/>
           <title value="Condition Patterns"/>
           <generation value="markdown"/>

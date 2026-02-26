@@ -30,6 +30,10 @@ The following table lists the patterns page for each profile:
 |[USCore Patient]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-patient.html)|[Patient Patterns](patterns-patient.html)|
 |[USCore Service]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-servicerequest.html)|[Service Patterns](patterns-service.html)|
 
+In addition, there are patterns associated with Carin Blue Button Claim and ExplanationOfBenefit information:
+
+[Claim Patterns](patterns-claim.html)
+
 Elements from current example questionnaires:
 
 * DiagnosticReport - Query for and attach to response, but not necessarily drive any particular questions out of the contents
