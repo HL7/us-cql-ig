@@ -516,7 +516,7 @@
         </element>
         <element name="reason" elementType="FHIR.CodeableConcept"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="QICore" name="ClaimResponse" identifier="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-claimresponse" label="ClaimResponse" retrievable="true" baseType="FHIR.ClaimResponse">
+    <typeInfo xsi:type="ClassInfo" namespace="QICore" name="ClaimResponse" identifier="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-claimresponse" label="ClaimResponse" retrievable="true" primaryCodePath="type" baseType="FHIR.ClaimResponse">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2454,7 +2454,7 @@
         <contextRelationship context="Patient" relatedKeyElement="subject"/>
         <contextRelationship context="RelatedPerson" relatedKeyElement="informationSource"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="QICore" name="NonPatientObservation" identifier="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nonpatient-observation" label="NonPatient Observation" target="Observation" retrievable="true" baseType="FHIR.Observation">
+    <typeInfo xsi:type="ClassInfo" namespace="QICore" name="NonPatientObservation" identifier="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nonpatient-observation" label="NonPatient Observation" target="Observation" retrievable="true" primaryCodePath="code" baseType="FHIR.Observation">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2660,7 +2660,7 @@
         <element name="age" elementType="FHIR.Range"/>
         <element name="text" elementType="FHIR.string"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="QICore" name="ObservationClinicalResult" identifier="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-clinical-result" label="Observation Clinical Result" target="Observation" retrievable="true" baseType="USCore.ObservationClinicalResultProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="QICore" name="ObservationClinicalResult" identifier="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-clinical-result" label="Observation Clinical Result" target="Observation" retrievable="true" primaryCodePath="code" baseType="USCore.ObservationClinicalResultProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -2730,7 +2730,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="QICore.Observation.Component"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="QICore" name="ObservationScreeningAssessment" identifier="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-screening-assessment" label="Observation Screening Assessment" target="Observation" retrievable="true" baseType="USCore.ObservationScreeningAssessmentProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="QICore" name="ObservationScreeningAssessment" identifier="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-screening-assessment" label="Observation Screening Assessment" target="Observation" retrievable="true" primaryCodePath="code" baseType="USCore.ObservationScreeningAssessmentProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -3309,7 +3309,7 @@
         <contextRelationship context="Device" relatedKeyElement="requester"/>
         <contextRelationship context="RelatedPerson" relatedKeyElement="performer"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="QICore" name="SimpleObservation" identifier="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation" label="Simple Observation" target="Observation" retrievable="true" baseType="USCore.SimpleObservationProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="QICore" name="SimpleObservation" identifier="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation" label="Simple Observation" target="Observation" retrievable="true" primaryCodePath="code" baseType="USCore.SimpleObservationProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
