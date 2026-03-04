@@ -7,7 +7,7 @@ used in writing CQL with FHIR and USCore profiles.
 library USCoreCommon version '2.0.0-ballot'
 
 using FHIR version '4.0.1'
-using USCore version '7.0.0'
+using USCore version '6.1.0-derived'
 
 include hl7.fhir.uv.cql.FHIRHelpers version '4.0.1'
 include hl7.fhir.uv.cql.FHIRCommon version '2.0.0'

@@ -1,6 +1,6 @@
 {
     "resourceType": "Library",
-    "id": "USCore-ModelInfo",
+    "id": "QICore-ModelInfo",
   "extension": [ {
       "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
       "valueInteger" : 3
@@ -13,10 +13,10 @@
       "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
       "valueCode" : "informative"
     } ],
-    "url": "http://hl7.org/fhir/us/cql/Library/USCore-ModelInfo",
-    "version": "6.1.0-derived",
+    "url": "http://hl7.org/fhir/us/cql/Library/QICore-ModelInfo",
+    "version": "6.0.0-derived",
     "name": "USCore",
-    "title": "US Core Model Information",
+    "title": "QI Core Model Information",
     "status": "active",
     "experimental": false,
     "type": {
@@ -25,13 +25,13 @@
         "code": "model-definition"
       } ]
     },
-    "description": "CQL model information for the US Core version 6.1.0 implementation guide.",
+    "description": "CQL model information for the QI Core version 6.0.0 implementation guide.",
   "topic": [ {
     "text": "FHIR"
   }, {
     "text": "CQL"
   } ],
   "content": [ {
-    "id": "ig-loader-uscore-modelinfo-6.1.0-derived.xml"
+    "id": "ig-loader-qicore-modelinfo-6.0.0-derived.xml"
   } ]
 }

@@ -1,7 +1,7 @@
 library USCoreCommonTests version '2.0.0-ballot'
 
 using FHIR version '4.0.1'
-using USCore version '7.0.0'
+using USCore version '6.1.0-derived'
 
 include USCoreCommon version '2.0.0-ballot' called UC
 

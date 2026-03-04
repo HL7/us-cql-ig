@@ -1,0 +1,1470 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<modelInfo name="C4BB" version="2.1.1-derived" url="http://hl7.org/fhir/us/carin-bb" targetUrl="http://hl7.org/fhir" targetQualifier="c4bb" xmlns="urn:hl7-org:elm-modelinfo:r1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <requiredModelInfo name="System" version="1.0.0"/>
+    <requiredModelInfo name="FHIR" version="4.0.1"/>
+    <requiredModelInfo name="USCore" version="6.1.0-derived"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Coverage" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Coverage" label="C4BB Coverage" retrievable="true" baseType="USCore.CoverageProfile">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="status" elementType="FHIR.CoverageStatus"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="policyHolder" elementType="FHIR.Reference"/>
+        <element name="subscriber" elementType="FHIR.Reference"/>
+        <element name="subscriberId" elementType="FHIR.string"/>
+        <element name="beneficiary" elementType="FHIR.Reference"/>
+        <element name="dependent" elementType="FHIR.string"/>
+        <element name="relationship" elementType="FHIR.CodeableConcept"/>
+        <element name="period" elementType="FHIR.Period"/>
+        <element name="payor" elementType="FHIR.Reference"/>
+        <element name="class">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.Coverage.Class"/>
+        </element>
+        <element name="order" elementType="FHIR.positiveInt"/>
+        <element name="network" elementType="FHIR.string"/>
+        <element name="costToBeneficiary">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.Coverage.CostToBeneficiary"/>
+        </element>
+        <element name="subrogation" elementType="FHIR.boolean"/>
+        <element name="contract">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <contextRelationship context="Patient" relatedKeyElement="policyHolder"/>
+        <contextRelationship context="Patient" relatedKeyElement="subscriber"/>
+        <contextRelationship context="Patient" relatedKeyElement="beneficiary"/>
+        <contextRelationship context="Patient" relatedKeyElement="payor"/>
+        <contextRelationship context="RelatedPerson" relatedKeyElement="policyHolder"/>
+        <contextRelationship context="RelatedPerson" relatedKeyElement="subscriber"/>
+        <contextRelationship context="RelatedPerson" relatedKeyElement="payor"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Coverage.Class" retrievable="false" baseType="USCore.Coverage.Class">
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="value" elementType="FHIR.string"/>
+        <element name="name" elementType="FHIR.string"/>
+        <element name="group" elementType="C4BB.Coverage.Class.group"/>
+        <element name="plan" elementType="C4BB.Coverage.Class.plan"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Coverage.Class.group" retrievable="false" baseType="USCore.Coverage.Class.group"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Coverage.Class.plan" retrievable="false" baseType="USCore.Coverage.Class.plan"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Coverage.CostToBeneficiary" retrievable="false" baseType="USCore.Coverage.CostToBeneficiary">
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="value">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="SimpleQuantity"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Money"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="exception">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.Coverage.CostToBeneficiary.Exception"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Coverage.CostToBeneficiary.Exception" retrievable="false" baseType="USCore.Coverage.CostToBeneficiary.Exception">
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="period" elementType="FHIR.Period"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit" label="C4BB Explanation Of Benefit" retrievable="false" baseType="FHIR.ExplanationOfBenefit">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="status" elementType="FHIR.ExplanationOfBenefitStatus"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="subType" elementType="FHIR.CodeableConcept"/>
+        <element name="use" elementType="FHIR.Use"/>
+        <element name="patient" elementType="FHIR.Reference"/>
+        <element name="billablePeriod" elementType="FHIR.Period"/>
+        <element name="created" elementType="FHIR.dateTime"/>
+        <element name="enterer" elementType="FHIR.Reference"/>
+        <element name="insurer" elementType="FHIR.Reference"/>
+        <element name="provider" elementType="FHIR.Reference"/>
+        <element name="priority" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserveRequested" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserve" elementType="FHIR.CodeableConcept"/>
+        <element name="related">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Related"/>
+        </element>
+        <element name="prescription" elementType="FHIR.Reference"/>
+        <element name="originalPrescription" elementType="FHIR.Reference"/>
+        <element name="payee" elementType="C4BB.ExplanationOfBenefit.Payee"/>
+        <element name="referral" elementType="FHIR.Reference"/>
+        <element name="facility" elementType="FHIR.Reference"/>
+        <element name="claim" elementType="FHIR.Reference"/>
+        <element name="claimResponse" elementType="FHIR.Reference"/>
+        <element name="outcome" elementType="FHIR.RemittanceOutcome"/>
+        <element name="disposition" elementType="FHIR.string"/>
+        <element name="preAuthRef">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.string"/>
+        </element>
+        <element name="preAuthRefPeriod">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Period"/>
+        </element>
+        <element name="careTeam">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.CareTeam"/>
+        </element>
+        <element name="supportingInfo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="diagnosis">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Diagnosis"/>
+        </element>
+        <element name="procedure">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Procedure"/>
+        </element>
+        <element name="precedence" elementType="FHIR.positiveInt"/>
+        <element name="insurance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Insurance"/>
+        </element>
+        <element name="accident" elementType="C4BB.ExplanationOfBenefit.Accident"/>
+        <element name="item">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item"/>
+        </element>
+        <element name="addItem">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.AddItem"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item.Adjudication"/>
+        </element>
+        <element name="total">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Total"/>
+        </element>
+        <element name="payment" elementType="C4BB.ExplanationOfBenefit.Payment"/>
+        <element name="formCode" elementType="FHIR.CodeableConcept"/>
+        <element name="form" elementType="FHIR.Attachment"/>
+        <element name="processNote">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.ProcessNote"/>
+        </element>
+        <element name="benefitPeriod" elementType="FHIR.Period"/>
+        <element name="benefitBalance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
+        </element>
+        <contextRelationship context="Practitioner" relatedKeyElement="enterer"/>
+        <contextRelationship context="Practitioner" relatedKeyElement="provider"/>
+        <contextRelationship context="Practitioner" relatedKeyElement="party"/>
+        <contextRelationship context="Practitioner" relatedKeyElement="provider"/>
+        <contextRelationship context="Patient" relatedKeyElement="patient"/>
+        <contextRelationship context="Patient" relatedKeyElement="party"/>
+        <contextRelationship context="RelatedPerson" relatedKeyElement="party"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Accident" retrievable="false" baseType="FHIR.ExplanationOfBenefit.Accident">
+        <element name="date" elementType="FHIR.date"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="location">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Address"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Reference"/>
+            </elementTypeSpecifier>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.AddItem" retrievable="false" baseType="FHIR.ExplanationOfBenefit.AddItem">
+        <element name="itemSequence">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.positiveInt"/>
+        </element>
+        <element name="detailSequence">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.positiveInt"/>
+        </element>
+        <element name="subDetailSequence">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.positiveInt"/>
+        </element>
+        <element name="provider">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="productOrService" elementType="FHIR.CodeableConcept"/>
+        <element name="modifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="programCode">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="serviced">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="date"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Period"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="location">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="CodeableConcept"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Address"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Reference"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="unitPrice" elementType="FHIR.Money"/>
+        <element name="factor" elementType="FHIR.decimal"/>
+        <element name="net" elementType="FHIR.Money"/>
+        <element name="bodySite" elementType="FHIR.CodeableConcept"/>
+        <element name="subSite">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="noteNumber">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.positiveInt"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item.Adjudication"/>
+        </element>
+        <element name="detail">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.AddItem.Detail"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.AddItem.Detail" retrievable="false" baseType="FHIR.ExplanationOfBenefit.AddItem.Detail">
+        <element name="productOrService" elementType="FHIR.CodeableConcept"/>
+        <element name="modifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="unitPrice" elementType="FHIR.Money"/>
+        <element name="factor" elementType="FHIR.decimal"/>
+        <element name="net" elementType="FHIR.Money"/>
+        <element name="noteNumber">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.positiveInt"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item.Adjudication"/>
+        </element>
+        <element name="subDetail">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.AddItem.Detail.SubDetail"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.AddItem.Detail.SubDetail" retrievable="false" baseType="FHIR.ExplanationOfBenefit.AddItem.Detail.SubDetail">
+        <element name="productOrService" elementType="FHIR.CodeableConcept"/>
+        <element name="modifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="unitPrice" elementType="FHIR.Money"/>
+        <element name="factor" elementType="FHIR.decimal"/>
+        <element name="net" elementType="FHIR.Money"/>
+        <element name="noteNumber">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.positiveInt"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item.Adjudication"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Adjudication" retrievable="false" baseType="C4BB.ExplanationOfBenefit.Item.Adjudication">
+        <element name="category" elementType="FHIR.CodeableConcept"/>
+        <element name="reason" elementType="FHIR.CodeableConcept"/>
+        <element name="amount" elementType="FHIR.Money"/>
+        <element name="value" elementType="FHIR.decimal"/>
+        <element name="billingnetworkstatus" elementType="C4BB.ExplanationOfBenefit.Adjudication.billingnetworkstatus"/>
+        <element name="renderingnetworkstatus" elementType="C4BB.ExplanationOfBenefit.Adjudication.renderingnetworkstatus"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Adjudication.adjudicationamounttype" retrievable="false" baseType="C4BB.ExplanationOfBenefit.Adjudication"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Adjudication.adjustmentreason" retrievable="false" baseType="C4BB.ExplanationOfBenefit.Adjudication"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Adjudication.benefitpaymentstatus" retrievable="false" baseType="C4BB.ExplanationOfBenefit.Adjudication"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Adjudication.billingnetworkstatus" retrievable="false" baseType="C4BB.ExplanationOfBenefit.Adjudication"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Adjudication.renderingnetworkstatus" retrievable="false" baseType="C4BB.ExplanationOfBenefit.Adjudication"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.BenefitBalance" retrievable="false" baseType="FHIR.ExplanationOfBenefit.BenefitBalance">
+        <element name="category" elementType="FHIR.CodeableConcept"/>
+        <element name="excluded" elementType="FHIR.boolean"/>
+        <element name="name" elementType="FHIR.string"/>
+        <element name="description" elementType="FHIR.string"/>
+        <element name="network" elementType="FHIR.CodeableConcept"/>
+        <element name="unit" elementType="FHIR.CodeableConcept"/>
+        <element name="term" elementType="FHIR.CodeableConcept"/>
+        <element name="financial">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance.Financial"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.BenefitBalance.Financial" retrievable="false" baseType="FHIR.ExplanationOfBenefit.BenefitBalance.Financial">
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="allowed">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="unsignedInt"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="string"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Money"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="used">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="unsignedInt"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Money"/>
+            </elementTypeSpecifier>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.CareTeam" retrievable="false" baseType="FHIR.ExplanationOfBenefit.CareTeam">
+        <element name="sequence" elementType="FHIR.positiveInt"/>
+        <element name="provider" elementType="FHIR.Reference"/>
+        <element name="responsible" elementType="FHIR.boolean"/>
+        <element name="role" elementType="FHIR.CodeableConcept"/>
+        <element name="qualification" elementType="FHIR.CodeableConcept"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Diagnosis" retrievable="false" baseType="FHIR.ExplanationOfBenefit.Diagnosis">
+        <element name="sequence" elementType="FHIR.positiveInt"/>
+        <element name="diagnosis" elementType="FHIR.CodeableConcept"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="onAdmission" elementType="FHIR.CodeableConcept"/>
+        <element name="packageCode" elementType="FHIR.CodeableConcept"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Insurance" retrievable="false" baseType="FHIR.ExplanationOfBenefit.Insurance">
+        <element name="focal" elementType="FHIR.boolean"/>
+        <element name="coverage" elementType="FHIR.Reference"/>
+        <element name="preAuthRef">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.string"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Item" retrievable="false" baseType="FHIR.ExplanationOfBenefit.Item">
+        <element name="sequence" elementType="FHIR.positiveInt"/>
+        <element name="careTeamSequence">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.positiveInt"/>
+        </element>
+        <element name="diagnosisSequence">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.positiveInt"/>
+        </element>
+        <element name="procedureSequence">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.positiveInt"/>
+        </element>
+        <element name="informationSequence">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.positiveInt"/>
+        </element>
+        <element name="revenue" elementType="FHIR.CodeableConcept"/>
+        <element name="category" elementType="FHIR.CodeableConcept"/>
+        <element name="productOrService" elementType="FHIR.CodeableConcept"/>
+        <element name="modifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="programCode">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="serviced">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="date"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Period"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="location" elementType="FHIR.CodeableConcept"/>
+        <element name="unitPrice" elementType="FHIR.Money"/>
+        <element name="factor" elementType="FHIR.decimal"/>
+        <element name="net" elementType="FHIR.Money"/>
+        <element name="udi">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="bodySite" elementType="FHIR.CodeableConcept"/>
+        <element name="subSite">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="encounter">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="noteNumber">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.positiveInt"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item.Adjudication"/>
+        </element>
+        <element name="detail">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item.Detail"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Item.Adjudication" retrievable="false" baseType="FHIR.ExplanationOfBenefit.Item.Adjudication">
+        <element name="category" elementType="FHIR.CodeableConcept"/>
+        <element name="reason" elementType="FHIR.CodeableConcept"/>
+        <element name="amount" elementType="FHIR.Money"/>
+        <element name="value" elementType="FHIR.decimal"/>
+        <element name="adjustmentreason" elementType="C4BB.ExplanationOfBenefit.Item.Adjudication.adjustmentreason"/>
+        <element name="benefitpaymentstatus" elementType="C4BB.ExplanationOfBenefit.Item.Adjudication.benefitpaymentstatus"/>
+        <element name="allowedunits" elementType="C4BB.ExplanationOfBenefit.Item.Adjudication.allowedunits"/>
+        <element name="adjudicationamounttype">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item.Adjudication.adjudicationamounttype"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Item.Adjudication.adjudicationamounttype" retrievable="false" baseType="C4BB.ExplanationOfBenefit.Item.Adjudication"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Item.Adjudication.adjustmentreason" retrievable="false" baseType="C4BB.ExplanationOfBenefit.Item.Adjudication"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Item.Adjudication.allowedunits" retrievable="false" baseType="C4BB.ExplanationOfBenefit.Item.Adjudication"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Item.Adjudication.benefitpaymentstatus" retrievable="false" baseType="C4BB.ExplanationOfBenefit.Item.Adjudication"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Item.Adjudication.rejectreason" retrievable="false" baseType="C4BB.ExplanationOfBenefit.Item.Adjudication"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Item.Detail" retrievable="false" baseType="FHIR.ExplanationOfBenefit.Item.Detail">
+        <element name="sequence" elementType="FHIR.positiveInt"/>
+        <element name="revenue" elementType="FHIR.CodeableConcept"/>
+        <element name="category" elementType="FHIR.CodeableConcept"/>
+        <element name="productOrService" elementType="FHIR.CodeableConcept"/>
+        <element name="modifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="programCode">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="unitPrice" elementType="FHIR.Money"/>
+        <element name="factor" elementType="FHIR.decimal"/>
+        <element name="net" elementType="FHIR.Money"/>
+        <element name="udi">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="noteNumber">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.positiveInt"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item.Adjudication"/>
+        </element>
+        <element name="subDetail">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item.Detail.SubDetail"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Item.Detail.SubDetail" retrievable="false" baseType="FHIR.ExplanationOfBenefit.Item.Detail.SubDetail">
+        <element name="sequence" elementType="FHIR.positiveInt"/>
+        <element name="revenue" elementType="FHIR.CodeableConcept"/>
+        <element name="category" elementType="FHIR.CodeableConcept"/>
+        <element name="productOrService" elementType="FHIR.CodeableConcept"/>
+        <element name="modifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="programCode">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="unitPrice" elementType="FHIR.Money"/>
+        <element name="factor" elementType="FHIR.decimal"/>
+        <element name="net" elementType="FHIR.Money"/>
+        <element name="udi">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="noteNumber">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.positiveInt"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item.Adjudication"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Payee" retrievable="false" baseType="FHIR.ExplanationOfBenefit.Payee">
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="party" elementType="FHIR.Reference"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Payment" retrievable="false" baseType="FHIR.ExplanationOfBenefit.Payment">
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="adjustment" elementType="FHIR.Money"/>
+        <element name="adjustmentReason" elementType="FHIR.CodeableConcept"/>
+        <element name="date" elementType="FHIR.date"/>
+        <element name="amount" elementType="FHIR.Money"/>
+        <element name="identifier" elementType="FHIR.Identifier"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Procedure" retrievable="false" baseType="FHIR.ExplanationOfBenefit.Procedure">
+        <element name="sequence" elementType="FHIR.positiveInt"/>
+        <element name="type">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="date" elementType="FHIR.dateTime"/>
+        <element name="procedure">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="CodeableConcept"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Reference"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="udi">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.ProcessNote" retrievable="false" baseType="FHIR.ExplanationOfBenefit.ProcessNote">
+        <element name="number" elementType="FHIR.positiveInt"/>
+        <element name="type" elementType="FHIR.NoteType"/>
+        <element name="text" elementType="FHIR.string"/>
+        <element name="language" elementType="FHIR.CodeableConcept"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Related" retrievable="false" baseType="FHIR.ExplanationOfBenefit.Related">
+        <element name="claim" elementType="FHIR.Reference"/>
+        <element name="relationship" elementType="FHIR.CodeableConcept"/>
+        <element name="reference" elementType="FHIR.Identifier"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo" retrievable="false" baseType="FHIR.ExplanationOfBenefit.SupportingInfo">
+        <element name="sequence" elementType="FHIR.positiveInt"/>
+        <element name="category" elementType="FHIR.CodeableConcept"/>
+        <element name="code" elementType="FHIR.CodeableConcept"/>
+        <element name="timing">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="date"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Period"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="value">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="boolean"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="string"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Quantity"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Attachment"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="Reference"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="reason" elementType="FHIR.Coding"/>
+        <element name="clmrecvddate" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        <element name="servicefacility" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        <element name="medicalrecordnumber" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        <element name="patientaccountnumber" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        <element name="patientweight">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="transportationdistance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="roudtrippurpose">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="stretcherpurpose">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="pickuplocation">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="dropofflocation">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.additionalbodysite" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.admissionperiod" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.admtype" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.brandgenericindicator" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.clmrecvddate" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.compoundcode" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.dawcode" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.dayssupply" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.discharge-status" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.drg" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.dropofflocation" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.medicalrecordnumber" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.missingtoothnumber" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.orthodontics" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.patientaccountnumber" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.patientweight" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.pickuplocation" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.pointoforigin" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.prosthesis" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.refillNum" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.refillsAuthorized" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.roudtrippurpose" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.rxoriginCode" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.servicefacility" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.stretcherpurpose" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.transportationdistance" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.SupportingInfo.typeofbill" retrievable="false" baseType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Total" retrievable="false" baseType="FHIR.ExplanationOfBenefit.Total">
+        <element name="category" elementType="FHIR.CodeableConcept"/>
+        <element name="amount" elementType="FHIR.Money"/>
+        <element name="adjudicationamounttype">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Total.adjudicationamounttype"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefit.Total.adjudicationamounttype" retrievable="false" baseType="C4BB.ExplanationOfBenefit.Total"/>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitInpatientInstitutional" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Inpatient-Institutional" label="C4BB ExplanationOfBenefit Inpatient Institutional" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefitInpatientInstitutionalBasis">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="status" elementType="FHIR.ExplanationOfBenefitStatus"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="subType" elementType="FHIR.CodeableConcept"/>
+        <element name="use" elementType="FHIR.Use"/>
+        <element name="patient" elementType="FHIR.Reference"/>
+        <element name="billablePeriod" elementType="FHIR.Period"/>
+        <element name="created" elementType="FHIR.dateTime"/>
+        <element name="enterer" elementType="FHIR.Reference"/>
+        <element name="insurer" elementType="FHIR.Reference"/>
+        <element name="provider" elementType="FHIR.Reference"/>
+        <element name="priority" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserveRequested" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserve" elementType="FHIR.CodeableConcept"/>
+        <element name="related">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Related"/>
+        </element>
+        <element name="prescription" elementType="FHIR.Reference"/>
+        <element name="originalPrescription" elementType="FHIR.Reference"/>
+        <element name="payee" elementType="C4BB.ExplanationOfBenefit.Payee"/>
+        <element name="referral" elementType="FHIR.Reference"/>
+        <element name="facility" elementType="FHIR.Reference"/>
+        <element name="claim" elementType="FHIR.Reference"/>
+        <element name="claimResponse" elementType="FHIR.Reference"/>
+        <element name="outcome" elementType="FHIR.RemittanceOutcome"/>
+        <element name="disposition" elementType="FHIR.string"/>
+        <element name="preAuthRef">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.string"/>
+        </element>
+        <element name="preAuthRefPeriod">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Period"/>
+        </element>
+        <element name="careTeam">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.CareTeam"/>
+        </element>
+        <element name="supportingInfo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="diagnosis">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Diagnosis"/>
+        </element>
+        <element name="procedure">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Procedure"/>
+        </element>
+        <element name="precedence" elementType="FHIR.positiveInt"/>
+        <element name="insurance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Insurance"/>
+        </element>
+        <element name="accident" elementType="C4BB.ExplanationOfBenefit.Accident"/>
+        <element name="item">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item"/>
+        </element>
+        <element name="addItem">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.AddItem"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Adjudication"/>
+        </element>
+        <element name="total">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Total"/>
+        </element>
+        <element name="payment" elementType="C4BB.ExplanationOfBenefit.Payment"/>
+        <element name="formCode" elementType="FHIR.CodeableConcept"/>
+        <element name="form" elementType="FHIR.Attachment"/>
+        <element name="processNote">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.ProcessNote"/>
+        </element>
+        <element name="benefitPeriod" elementType="FHIR.Period"/>
+        <element name="benefitBalance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitInpatientInstitutionalBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Inpatient-Institutional-Basis" label="C4BB ExplanationOfBenefit Inpatient Institutional Basis" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefit">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="status" elementType="FHIR.ExplanationOfBenefitStatus"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="subType" elementType="FHIR.CodeableConcept"/>
+        <element name="use" elementType="FHIR.Use"/>
+        <element name="patient" elementType="FHIR.Reference"/>
+        <element name="billablePeriod" elementType="FHIR.Period"/>
+        <element name="created" elementType="FHIR.dateTime"/>
+        <element name="enterer" elementType="FHIR.Reference"/>
+        <element name="insurer" elementType="FHIR.Reference"/>
+        <element name="provider" elementType="FHIR.Reference"/>
+        <element name="priority" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserveRequested" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserve" elementType="FHIR.CodeableConcept"/>
+        <element name="related">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Related"/>
+        </element>
+        <element name="prescription" elementType="FHIR.Reference"/>
+        <element name="originalPrescription" elementType="FHIR.Reference"/>
+        <element name="payee" elementType="C4BB.ExplanationOfBenefit.Payee"/>
+        <element name="referral" elementType="FHIR.Reference"/>
+        <element name="facility" elementType="FHIR.Reference"/>
+        <element name="claim" elementType="FHIR.Reference"/>
+        <element name="claimResponse" elementType="FHIR.Reference"/>
+        <element name="outcome" elementType="FHIR.RemittanceOutcome"/>
+        <element name="disposition" elementType="FHIR.string"/>
+        <element name="preAuthRef">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.string"/>
+        </element>
+        <element name="preAuthRefPeriod">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Period"/>
+        </element>
+        <element name="careTeam">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.CareTeam"/>
+        </element>
+        <element name="supportingInfo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="diagnosis">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Diagnosis"/>
+        </element>
+        <element name="procedure">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Procedure"/>
+        </element>
+        <element name="precedence" elementType="FHIR.positiveInt"/>
+        <element name="insurance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Insurance"/>
+        </element>
+        <element name="accident" elementType="C4BB.ExplanationOfBenefit.Accident"/>
+        <element name="item">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item"/>
+        </element>
+        <element name="addItem">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.AddItem"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Adjudication"/>
+        </element>
+        <element name="total">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Total"/>
+        </element>
+        <element name="payment" elementType="C4BB.ExplanationOfBenefit.Payment"/>
+        <element name="formCode" elementType="FHIR.CodeableConcept"/>
+        <element name="form" elementType="FHIR.Attachment"/>
+        <element name="processNote">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.ProcessNote"/>
+        </element>
+        <element name="benefitPeriod" elementType="FHIR.Period"/>
+        <element name="benefitBalance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitOral" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Oral" label="C4BB ExplanationOfBenefit Oral" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefitOralBasis">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="status" elementType="FHIR.ExplanationOfBenefitStatus"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="subType" elementType="FHIR.CodeableConcept"/>
+        <element name="use" elementType="FHIR.Use"/>
+        <element name="patient" elementType="FHIR.Reference"/>
+        <element name="billablePeriod" elementType="FHIR.Period"/>
+        <element name="created" elementType="FHIR.dateTime"/>
+        <element name="enterer" elementType="FHIR.Reference"/>
+        <element name="insurer" elementType="FHIR.Reference"/>
+        <element name="provider" elementType="FHIR.Reference"/>
+        <element name="priority" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserveRequested" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserve" elementType="FHIR.CodeableConcept"/>
+        <element name="related">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Related"/>
+        </element>
+        <element name="prescription" elementType="FHIR.Reference"/>
+        <element name="originalPrescription" elementType="FHIR.Reference"/>
+        <element name="payee" elementType="C4BB.ExplanationOfBenefit.Payee"/>
+        <element name="referral" elementType="FHIR.Reference"/>
+        <element name="facility" elementType="FHIR.Reference"/>
+        <element name="claim" elementType="FHIR.Reference"/>
+        <element name="claimResponse" elementType="FHIR.Reference"/>
+        <element name="outcome" elementType="FHIR.RemittanceOutcome"/>
+        <element name="disposition" elementType="FHIR.string"/>
+        <element name="preAuthRef">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.string"/>
+        </element>
+        <element name="preAuthRefPeriod">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Period"/>
+        </element>
+        <element name="careTeam">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.CareTeam"/>
+        </element>
+        <element name="supportingInfo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="diagnosis">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Diagnosis"/>
+        </element>
+        <element name="procedure">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Procedure"/>
+        </element>
+        <element name="precedence" elementType="FHIR.positiveInt"/>
+        <element name="insurance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Insurance"/>
+        </element>
+        <element name="accident" elementType="C4BB.ExplanationOfBenefit.Accident"/>
+        <element name="item">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item"/>
+        </element>
+        <element name="addItem">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.AddItem"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Adjudication"/>
+        </element>
+        <element name="total">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Total"/>
+        </element>
+        <element name="payment" elementType="C4BB.ExplanationOfBenefit.Payment"/>
+        <element name="formCode" elementType="FHIR.CodeableConcept"/>
+        <element name="form" elementType="FHIR.Attachment"/>
+        <element name="processNote">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.ProcessNote"/>
+        </element>
+        <element name="benefitPeriod" elementType="FHIR.Period"/>
+        <element name="benefitBalance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitOralBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Oral-Basis" label="C4BB ExplanationOfBenefit Oral Basis" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefit">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="status" elementType="FHIR.ExplanationOfBenefitStatus"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="subType" elementType="FHIR.CodeableConcept"/>
+        <element name="use" elementType="FHIR.Use"/>
+        <element name="patient" elementType="FHIR.Reference"/>
+        <element name="billablePeriod" elementType="FHIR.Period"/>
+        <element name="created" elementType="FHIR.dateTime"/>
+        <element name="enterer" elementType="FHIR.Reference"/>
+        <element name="insurer" elementType="FHIR.Reference"/>
+        <element name="provider" elementType="FHIR.Reference"/>
+        <element name="priority" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserveRequested" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserve" elementType="FHIR.CodeableConcept"/>
+        <element name="related">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Related"/>
+        </element>
+        <element name="prescription" elementType="FHIR.Reference"/>
+        <element name="originalPrescription" elementType="FHIR.Reference"/>
+        <element name="payee" elementType="C4BB.ExplanationOfBenefit.Payee"/>
+        <element name="referral" elementType="FHIR.Reference"/>
+        <element name="facility" elementType="FHIR.Reference"/>
+        <element name="claim" elementType="FHIR.Reference"/>
+        <element name="claimResponse" elementType="FHIR.Reference"/>
+        <element name="outcome" elementType="FHIR.RemittanceOutcome"/>
+        <element name="disposition" elementType="FHIR.string"/>
+        <element name="preAuthRef">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.string"/>
+        </element>
+        <element name="preAuthRefPeriod">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Period"/>
+        </element>
+        <element name="careTeam">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.CareTeam"/>
+        </element>
+        <element name="supportingInfo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="diagnosis">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Diagnosis"/>
+        </element>
+        <element name="procedure">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Procedure"/>
+        </element>
+        <element name="precedence" elementType="FHIR.positiveInt"/>
+        <element name="insurance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Insurance"/>
+        </element>
+        <element name="accident" elementType="C4BB.ExplanationOfBenefit.Accident"/>
+        <element name="item">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item"/>
+        </element>
+        <element name="addItem">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.AddItem"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Adjudication"/>
+        </element>
+        <element name="total">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Total"/>
+        </element>
+        <element name="payment" elementType="C4BB.ExplanationOfBenefit.Payment"/>
+        <element name="formCode" elementType="FHIR.CodeableConcept"/>
+        <element name="form" elementType="FHIR.Attachment"/>
+        <element name="processNote">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.ProcessNote"/>
+        </element>
+        <element name="benefitPeriod" elementType="FHIR.Period"/>
+        <element name="benefitBalance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitOutpatientInstitutional" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Outpatient-Institutional" label="C4BB ExplanationOfBenefit Outpatient Institutional" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefitOutpatientInstitutionalBasis">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="status" elementType="FHIR.ExplanationOfBenefitStatus"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="subType" elementType="FHIR.CodeableConcept"/>
+        <element name="use" elementType="FHIR.Use"/>
+        <element name="patient" elementType="FHIR.Reference"/>
+        <element name="billablePeriod" elementType="FHIR.Period"/>
+        <element name="created" elementType="FHIR.dateTime"/>
+        <element name="enterer" elementType="FHIR.Reference"/>
+        <element name="insurer" elementType="FHIR.Reference"/>
+        <element name="provider" elementType="FHIR.Reference"/>
+        <element name="priority" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserveRequested" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserve" elementType="FHIR.CodeableConcept"/>
+        <element name="related">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Related"/>
+        </element>
+        <element name="prescription" elementType="FHIR.Reference"/>
+        <element name="originalPrescription" elementType="FHIR.Reference"/>
+        <element name="payee" elementType="C4BB.ExplanationOfBenefit.Payee"/>
+        <element name="referral" elementType="FHIR.Reference"/>
+        <element name="facility" elementType="FHIR.Reference"/>
+        <element name="claim" elementType="FHIR.Reference"/>
+        <element name="claimResponse" elementType="FHIR.Reference"/>
+        <element name="outcome" elementType="FHIR.RemittanceOutcome"/>
+        <element name="disposition" elementType="FHIR.string"/>
+        <element name="preAuthRef">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.string"/>
+        </element>
+        <element name="preAuthRefPeriod">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Period"/>
+        </element>
+        <element name="careTeam">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.CareTeam"/>
+        </element>
+        <element name="supportingInfo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="diagnosis">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Diagnosis"/>
+        </element>
+        <element name="procedure">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Procedure"/>
+        </element>
+        <element name="precedence" elementType="FHIR.positiveInt"/>
+        <element name="insurance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Insurance"/>
+        </element>
+        <element name="accident" elementType="C4BB.ExplanationOfBenefit.Accident"/>
+        <element name="item">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item"/>
+        </element>
+        <element name="addItem">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.AddItem"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Adjudication"/>
+        </element>
+        <element name="total">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Total"/>
+        </element>
+        <element name="payment" elementType="C4BB.ExplanationOfBenefit.Payment"/>
+        <element name="formCode" elementType="FHIR.CodeableConcept"/>
+        <element name="form" elementType="FHIR.Attachment"/>
+        <element name="processNote">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.ProcessNote"/>
+        </element>
+        <element name="benefitPeriod" elementType="FHIR.Period"/>
+        <element name="benefitBalance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitOutpatientInstitutionalBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Outpatient-Institutional-Basis" label="C4BB ExplanationOfBenefit Outpatient Institutional Basis" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefit">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="status" elementType="FHIR.ExplanationOfBenefitStatus"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="subType" elementType="FHIR.CodeableConcept"/>
+        <element name="use" elementType="FHIR.Use"/>
+        <element name="patient" elementType="FHIR.Reference"/>
+        <element name="billablePeriod" elementType="FHIR.Period"/>
+        <element name="created" elementType="FHIR.dateTime"/>
+        <element name="enterer" elementType="FHIR.Reference"/>
+        <element name="insurer" elementType="FHIR.Reference"/>
+        <element name="provider" elementType="FHIR.Reference"/>
+        <element name="priority" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserveRequested" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserve" elementType="FHIR.CodeableConcept"/>
+        <element name="related">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Related"/>
+        </element>
+        <element name="prescription" elementType="FHIR.Reference"/>
+        <element name="originalPrescription" elementType="FHIR.Reference"/>
+        <element name="payee" elementType="C4BB.ExplanationOfBenefit.Payee"/>
+        <element name="referral" elementType="FHIR.Reference"/>
+        <element name="facility" elementType="FHIR.Reference"/>
+        <element name="claim" elementType="FHIR.Reference"/>
+        <element name="claimResponse" elementType="FHIR.Reference"/>
+        <element name="outcome" elementType="FHIR.RemittanceOutcome"/>
+        <element name="disposition" elementType="FHIR.string"/>
+        <element name="preAuthRef">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.string"/>
+        </element>
+        <element name="preAuthRefPeriod">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Period"/>
+        </element>
+        <element name="careTeam">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.CareTeam"/>
+        </element>
+        <element name="supportingInfo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="diagnosis">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Diagnosis"/>
+        </element>
+        <element name="procedure">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Procedure"/>
+        </element>
+        <element name="precedence" elementType="FHIR.positiveInt"/>
+        <element name="insurance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Insurance"/>
+        </element>
+        <element name="accident" elementType="C4BB.ExplanationOfBenefit.Accident"/>
+        <element name="item">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item"/>
+        </element>
+        <element name="addItem">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.AddItem"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Adjudication"/>
+        </element>
+        <element name="total">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Total"/>
+        </element>
+        <element name="payment" elementType="C4BB.ExplanationOfBenefit.Payment"/>
+        <element name="formCode" elementType="FHIR.CodeableConcept"/>
+        <element name="form" elementType="FHIR.Attachment"/>
+        <element name="processNote">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.ProcessNote"/>
+        </element>
+        <element name="benefitPeriod" elementType="FHIR.Period"/>
+        <element name="benefitBalance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitPharmacy" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Pharmacy" label="C4BB ExplanationOfBenefit Pharmacy" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefitPharmacyBasis">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="status" elementType="FHIR.ExplanationOfBenefitStatus"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="subType" elementType="FHIR.CodeableConcept"/>
+        <element name="use" elementType="FHIR.Use"/>
+        <element name="patient" elementType="FHIR.Reference"/>
+        <element name="billablePeriod" elementType="FHIR.Period"/>
+        <element name="created" elementType="FHIR.dateTime"/>
+        <element name="enterer" elementType="FHIR.Reference"/>
+        <element name="insurer" elementType="FHIR.Reference"/>
+        <element name="provider" elementType="FHIR.Reference"/>
+        <element name="priority" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserveRequested" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserve" elementType="FHIR.CodeableConcept"/>
+        <element name="related">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Related"/>
+        </element>
+        <element name="prescription" elementType="FHIR.Reference"/>
+        <element name="originalPrescription" elementType="FHIR.Reference"/>
+        <element name="payee" elementType="C4BB.ExplanationOfBenefit.Payee"/>
+        <element name="referral" elementType="FHIR.Reference"/>
+        <element name="facility" elementType="FHIR.Reference"/>
+        <element name="claim" elementType="FHIR.Reference"/>
+        <element name="claimResponse" elementType="FHIR.Reference"/>
+        <element name="outcome" elementType="FHIR.RemittanceOutcome"/>
+        <element name="disposition" elementType="FHIR.string"/>
+        <element name="preAuthRef">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.string"/>
+        </element>
+        <element name="preAuthRefPeriod">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Period"/>
+        </element>
+        <element name="careTeam">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.CareTeam"/>
+        </element>
+        <element name="supportingInfo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="diagnosis">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Diagnosis"/>
+        </element>
+        <element name="procedure">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Procedure"/>
+        </element>
+        <element name="precedence" elementType="FHIR.positiveInt"/>
+        <element name="insurance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Insurance"/>
+        </element>
+        <element name="accident" elementType="C4BB.ExplanationOfBenefit.Accident"/>
+        <element name="item">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item"/>
+        </element>
+        <element name="addItem">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.AddItem"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Adjudication"/>
+        </element>
+        <element name="total">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Total"/>
+        </element>
+        <element name="payment" elementType="C4BB.ExplanationOfBenefit.Payment"/>
+        <element name="formCode" elementType="FHIR.CodeableConcept"/>
+        <element name="form" elementType="FHIR.Attachment"/>
+        <element name="processNote">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.ProcessNote"/>
+        </element>
+        <element name="benefitPeriod" elementType="FHIR.Period"/>
+        <element name="benefitBalance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitPharmacyBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Pharmacy-Basis" label="C4BB ExplanationOfBenefit Pharmacy Basis" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefit">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="status" elementType="FHIR.ExplanationOfBenefitStatus"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="subType" elementType="FHIR.CodeableConcept"/>
+        <element name="use" elementType="FHIR.Use"/>
+        <element name="patient" elementType="FHIR.Reference"/>
+        <element name="billablePeriod" elementType="FHIR.Period"/>
+        <element name="created" elementType="FHIR.dateTime"/>
+        <element name="enterer" elementType="FHIR.Reference"/>
+        <element name="insurer" elementType="FHIR.Reference"/>
+        <element name="provider" elementType="FHIR.Reference"/>
+        <element name="priority" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserveRequested" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserve" elementType="FHIR.CodeableConcept"/>
+        <element name="related">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Related"/>
+        </element>
+        <element name="prescription" elementType="FHIR.Reference"/>
+        <element name="originalPrescription" elementType="FHIR.Reference"/>
+        <element name="payee" elementType="C4BB.ExplanationOfBenefit.Payee"/>
+        <element name="referral" elementType="FHIR.Reference"/>
+        <element name="facility" elementType="FHIR.Reference"/>
+        <element name="claim" elementType="FHIR.Reference"/>
+        <element name="claimResponse" elementType="FHIR.Reference"/>
+        <element name="outcome" elementType="FHIR.RemittanceOutcome"/>
+        <element name="disposition" elementType="FHIR.string"/>
+        <element name="preAuthRef">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.string"/>
+        </element>
+        <element name="preAuthRefPeriod">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Period"/>
+        </element>
+        <element name="careTeam">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.CareTeam"/>
+        </element>
+        <element name="supportingInfo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="diagnosis">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Diagnosis"/>
+        </element>
+        <element name="procedure">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Procedure"/>
+        </element>
+        <element name="precedence" elementType="FHIR.positiveInt"/>
+        <element name="insurance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Insurance"/>
+        </element>
+        <element name="accident" elementType="C4BB.ExplanationOfBenefit.Accident"/>
+        <element name="item">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item"/>
+        </element>
+        <element name="addItem">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.AddItem"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Adjudication"/>
+        </element>
+        <element name="total">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Total"/>
+        </element>
+        <element name="payment" elementType="C4BB.ExplanationOfBenefit.Payment"/>
+        <element name="formCode" elementType="FHIR.CodeableConcept"/>
+        <element name="form" elementType="FHIR.Attachment"/>
+        <element name="processNote">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.ProcessNote"/>
+        </element>
+        <element name="benefitPeriod" elementType="FHIR.Period"/>
+        <element name="benefitBalance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitProfessionalNonClinician" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Professional-NonClinician" label="C4BB ExplanationOfBenefit Professional NonClinician" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefitProfessionalNonClinicianBasis">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="status" elementType="FHIR.ExplanationOfBenefitStatus"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="subType" elementType="FHIR.CodeableConcept"/>
+        <element name="use" elementType="FHIR.Use"/>
+        <element name="patient" elementType="FHIR.Reference"/>
+        <element name="billablePeriod" elementType="FHIR.Period"/>
+        <element name="created" elementType="FHIR.dateTime"/>
+        <element name="enterer" elementType="FHIR.Reference"/>
+        <element name="insurer" elementType="FHIR.Reference"/>
+        <element name="provider" elementType="FHIR.Reference"/>
+        <element name="priority" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserveRequested" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserve" elementType="FHIR.CodeableConcept"/>
+        <element name="related">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Related"/>
+        </element>
+        <element name="prescription" elementType="FHIR.Reference"/>
+        <element name="originalPrescription" elementType="FHIR.Reference"/>
+        <element name="payee" elementType="C4BB.ExplanationOfBenefit.Payee"/>
+        <element name="referral" elementType="FHIR.Reference"/>
+        <element name="facility" elementType="FHIR.Reference"/>
+        <element name="claim" elementType="FHIR.Reference"/>
+        <element name="claimResponse" elementType="FHIR.Reference"/>
+        <element name="outcome" elementType="FHIR.RemittanceOutcome"/>
+        <element name="disposition" elementType="FHIR.string"/>
+        <element name="preAuthRef">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.string"/>
+        </element>
+        <element name="preAuthRefPeriod">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Period"/>
+        </element>
+        <element name="careTeam">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.CareTeam"/>
+        </element>
+        <element name="supportingInfo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="diagnosis">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Diagnosis"/>
+        </element>
+        <element name="procedure">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Procedure"/>
+        </element>
+        <element name="precedence" elementType="FHIR.positiveInt"/>
+        <element name="insurance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Insurance"/>
+        </element>
+        <element name="accident" elementType="C4BB.ExplanationOfBenefit.Accident"/>
+        <element name="item">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item"/>
+        </element>
+        <element name="addItem">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.AddItem"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Adjudication"/>
+        </element>
+        <element name="total">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Total"/>
+        </element>
+        <element name="payment" elementType="C4BB.ExplanationOfBenefit.Payment"/>
+        <element name="formCode" elementType="FHIR.CodeableConcept"/>
+        <element name="form" elementType="FHIR.Attachment"/>
+        <element name="processNote">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.ProcessNote"/>
+        </element>
+        <element name="benefitPeriod" elementType="FHIR.Period"/>
+        <element name="benefitBalance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitProfessionalNonClinicianBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Professional-NonClinician-Basis" label="C4BB ExplanationOfBenefit Professional NonClinician Basis" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefit">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="status" elementType="FHIR.ExplanationOfBenefitStatus"/>
+        <element name="type" elementType="FHIR.CodeableConcept"/>
+        <element name="subType" elementType="FHIR.CodeableConcept"/>
+        <element name="use" elementType="FHIR.Use"/>
+        <element name="patient" elementType="FHIR.Reference"/>
+        <element name="billablePeriod" elementType="FHIR.Period"/>
+        <element name="created" elementType="FHIR.dateTime"/>
+        <element name="enterer" elementType="FHIR.Reference"/>
+        <element name="insurer" elementType="FHIR.Reference"/>
+        <element name="provider" elementType="FHIR.Reference"/>
+        <element name="priority" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserveRequested" elementType="FHIR.CodeableConcept"/>
+        <element name="fundsReserve" elementType="FHIR.CodeableConcept"/>
+        <element name="related">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Related"/>
+        </element>
+        <element name="prescription" elementType="FHIR.Reference"/>
+        <element name="originalPrescription" elementType="FHIR.Reference"/>
+        <element name="payee" elementType="C4BB.ExplanationOfBenefit.Payee"/>
+        <element name="referral" elementType="FHIR.Reference"/>
+        <element name="facility" elementType="FHIR.Reference"/>
+        <element name="claim" elementType="FHIR.Reference"/>
+        <element name="claimResponse" elementType="FHIR.Reference"/>
+        <element name="outcome" elementType="FHIR.RemittanceOutcome"/>
+        <element name="disposition" elementType="FHIR.string"/>
+        <element name="preAuthRef">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.string"/>
+        </element>
+        <element name="preAuthRefPeriod">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Period"/>
+        </element>
+        <element name="careTeam">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.CareTeam"/>
+        </element>
+        <element name="supportingInfo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.SupportingInfo"/>
+        </element>
+        <element name="diagnosis">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Diagnosis"/>
+        </element>
+        <element name="procedure">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Procedure"/>
+        </element>
+        <element name="precedence" elementType="FHIR.positiveInt"/>
+        <element name="insurance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Insurance"/>
+        </element>
+        <element name="accident" elementType="C4BB.ExplanationOfBenefit.Accident"/>
+        <element name="item">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Item"/>
+        </element>
+        <element name="addItem">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.AddItem"/>
+        </element>
+        <element name="adjudication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Adjudication"/>
+        </element>
+        <element name="total">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.Total"/>
+        </element>
+        <element name="payment" elementType="C4BB.ExplanationOfBenefit.Payment"/>
+        <element name="formCode" elementType="FHIR.CodeableConcept"/>
+        <element name="form" elementType="FHIR.Attachment"/>
+        <element name="processNote">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.ProcessNote"/>
+        </element>
+        <element name="benefitPeriod" elementType="FHIR.Period"/>
+        <element name="benefitBalance">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Organization" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization" label="C4BB Organization" retrievable="true" baseType="USCore.OrganizationProfile">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="active" elementType="FHIR.boolean"/>
+        <element name="type">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="name" elementType="FHIR.string"/>
+        <element name="alias">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.string"/>
+        </element>
+        <element name="telecom">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.ContactPoint"/>
+        </element>
+        <element name="address">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Address"/>
+        </element>
+        <element name="partOf" elementType="FHIR.Reference"/>
+        <element name="contact">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.Organization.Contact"/>
+        </element>
+        <element name="endpoint">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Organization.Contact" retrievable="false" baseType="USCore.Organization.Contact">
+        <element name="purpose" elementType="FHIR.CodeableConcept"/>
+        <element name="name" elementType="FHIR.HumanName"/>
+        <element name="telecom">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.ContactPoint"/>
+        </element>
+        <element name="address" elementType="FHIR.Address"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Patient" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient" label="C4BB Patient" retrievable="true" baseType="USCore.PatientProfile">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="active" elementType="FHIR.boolean"/>
+        <element name="name">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.HumanName"/>
+        </element>
+        <element name="telecom">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.ContactPoint"/>
+        </element>
+        <element name="gender" elementType="FHIR.AdministrativeGender"/>
+        <element name="birthDate" elementType="FHIR.date"/>
+        <element name="deceased">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="boolean"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="dateTime"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="address">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Address"/>
+        </element>
+        <element name="maritalStatus" elementType="FHIR.CodeableConcept"/>
+        <element name="multipleBirth">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="boolean"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="FHIR" name="integer"/>
+            </elementTypeSpecifier>
+        </element>
+        <element name="photo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Attachment"/>
+        </element>
+        <element name="contact">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.Patient.Contact"/>
+        </element>
+        <element name="communication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.Patient.Communication"/>
+        </element>
+        <element name="generalPractitioner">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Reference"/>
+        </element>
+        <element name="managingOrganization" elementType="FHIR.Reference"/>
+        <element name="link">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.Patient.Link"/>
+        </element>
+        <contextRelationship context="Practitioner" relatedKeyElement="generalPractitioner"/>
+        <contextRelationship context="Patient" relatedKeyElement="other"/>
+        <contextRelationship context="RelatedPerson" relatedKeyElement="other"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Patient.Communication" retrievable="false" baseType="USCore.Patient.Communication">
+        <element name="language" elementType="FHIR.CodeableConcept"/>
+        <element name="preferred" elementType="FHIR.boolean"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Patient.Contact" retrievable="false" baseType="USCore.Patient.Contact">
+        <element name="relationship">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="name" elementType="FHIR.HumanName"/>
+        <element name="telecom">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.ContactPoint"/>
+        </element>
+        <element name="address" elementType="FHIR.Address"/>
+        <element name="gender" elementType="FHIR.AdministrativeGender"/>
+        <element name="organization" elementType="FHIR.Reference"/>
+        <element name="period" elementType="FHIR.Period"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Patient.Link" retrievable="false" baseType="USCore.Patient.Link">
+        <element name="other" elementType="FHIR.Reference"/>
+        <element name="type" elementType="FHIR.LinkType"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Practitioner" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Practitioner" label="C4BB Practitioner" retrievable="true" baseType="USCore.PractitionerProfile">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="active" elementType="FHIR.boolean"/>
+        <element name="name">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.HumanName"/>
+        </element>
+        <element name="telecom">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.ContactPoint"/>
+        </element>
+        <element name="address">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Address"/>
+        </element>
+        <element name="gender" elementType="FHIR.AdministrativeGender"/>
+        <element name="birthDate" elementType="FHIR.date"/>
+        <element name="photo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Attachment"/>
+        </element>
+        <element name="qualification">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.Practitioner.Qualification"/>
+        </element>
+        <element name="communication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Practitioner.Qualification" retrievable="false" baseType="USCore.Practitioner.Qualification">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="code" elementType="FHIR.CodeableConcept"/>
+        <element name="period" elementType="FHIR.Period"/>
+        <element name="issuer" elementType="FHIR.Reference"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="RelatedPerson" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-RelatedPerson" label="C4BB RelatedPerson" retrievable="true" baseType="USCore.RelatedPersonProfile">
+        <element name="identifier">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
+        </element>
+        <element name="active" elementType="FHIR.boolean"/>
+        <element name="patient" elementType="FHIR.Reference"/>
+        <element name="relationship">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
+        </element>
+        <element name="name">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.HumanName"/>
+        </element>
+        <element name="telecom">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.ContactPoint"/>
+        </element>
+        <element name="gender" elementType="FHIR.AdministrativeGender"/>
+        <element name="birthDate" elementType="FHIR.date"/>
+        <element name="address">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Address"/>
+        </element>
+        <element name="photo">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Attachment"/>
+        </element>
+        <element name="period" elementType="FHIR.Period"/>
+        <element name="communication">
+            <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.RelatedPerson.Communication"/>
+        </element>
+        <contextRelationship context="Patient" relatedKeyElement="patient"/>
+    </typeInfo>
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="RelatedPerson.Communication" retrievable="false" baseType="USCore.RelatedPerson.Communication">
+        <element name="language" elementType="FHIR.CodeableConcept"/>
+        <element name="preferred" elementType="FHIR.boolean"/>
+    </typeInfo>
+    <contextInfo name="Practitioner" keyElement="id">
+        <contextType namespace="C4BB" name="Practitioner"/>
+    </contextInfo>
+    <contextInfo name="Patient" keyElement="id">
+        <contextType namespace="C4BB" name="Patient"/>
+    </contextInfo>
+    <contextInfo name="RelatedPerson" keyElement="id">
+        <contextType namespace="C4BB" name="RelatedPerson"/>
+    </contextInfo>
+</modelInfo>
