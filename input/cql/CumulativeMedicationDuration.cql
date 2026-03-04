@@ -123,7 +123,8 @@ define function ToDaily(frequency System.Integer, period System.Quantity):
   Returns a daily frequency for the given code representation of frequency.
   The function expects codes from the [EventTiming](http://hl7.org/fhir/codesystem-event-timing.html) or
   [V3TimingEvent](http://hl7.org/fhir/v3/TimingEvent/cs.html) code systems.
-  // TODO: Determine whether or not we should use timing.code at all....
+  Note that for ranges, the boundary resulting in the highest frequency result is used. 
+  E.g. `Every two to four hours` results in `12.0` and `One to two` times a day results in `2.0`.
 */
 define function ToDaily(frequency Code):
   case
