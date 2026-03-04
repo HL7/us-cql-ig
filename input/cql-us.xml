@@ -14,7 +14,7 @@
     <valueString value="resources-spreadsheet.xml"/>
   </extension>-->
   <url value="http://hl7.org/fhir/us/cql/ImplementationGuide/hl7.fhir.us.cql"/>
-  <version value="2.0.0"/>
+  <version value="2.0.0-ballot"/>
   <name value="CQLUSCommon"/>
   <title value="Common CQL Artifacts for FHIR (US-Based)"/>
   <status value="active"/>
@@ -251,7 +251,7 @@
     <!-- releaselabel should be the ballot status for HL7-published IGs. -->
     <parameter>
       <code value="releaselabel"/>
-      <value value="Informative 1"/>
+      <value value="Informative 2 Ballot"/>
     </parameter>
     <parameter>
       <code value="find-other-resources"/>
