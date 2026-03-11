@@ -7,14 +7,14 @@
 
 The following file contains the complete, downloadable implementation guide:
 
--  [Full IG](full-ig.zip)
+-  [Full IG](../full-ig.zip)
 
 ### IG Package
 {: #package}
 
 The following file is the FHIR IG Package [NPM Subset](https://confluence.hl7.org/display/FHIR/NPM+Package+Specification)
 
-- [package.tgz](package.tgz)
+- [package.tgz](../package.tgz)
 
 This file should be the first choice whenever generating any implementation artifacts since they contain all of the
 rules about what makes these Quality Measure profiles valid. Implementers will still need to be familiar with the content of the

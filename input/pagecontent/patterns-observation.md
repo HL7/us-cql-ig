@@ -115,7 +115,7 @@ In general, the expressions to retrieve observations for a particular profile in
 
 #### Clinical Results
 
-Clinical test results **(including imaging results)** in US Core use the [ObservationClinicalResult]({{site.data.fhir.ver.uscore7}}/StructureDefinition-qicore-observation-clinical-result.html) profile. By default, clinical test results in US Core are characterized by the code element.
+Clinical test results **(including imaging results)** in US Core use the [ObservationClinicalResult]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-observation-clinical-result.html) profile. By default, clinical test results in US Core are characterized by the code element.
 
 ```cql
 define ObservationClinicalResult:

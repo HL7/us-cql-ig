@@ -84,7 +84,7 @@ For example, if application intent is that a CT Scan was performed, regardless o
 * [ServiceRequest](#requested-services) with an intent of order and a status of completed
 * [Procedure](#procedures-performed) with a status of completed
 * [ImagingStudy](http://hl7.org/fhir/R4/imagingstudy.html) with a status of available and related by `basedOn` or one of the `procedure` elements
-* [DiagnosticReportNote]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-diagnosticreport-note) with a status of final, amended, appended, or corrected
+* [DiagnosticReportNote]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-diagnosticreport-note.html) with a status of final, amended, appended, or corrected
 * [ObservationClinicalResult](patterns-observation.html#clinical-results) with a status of final, amended, or corrected
 * [Claim](patterns-claim.html#claim-items) with a status of `active` and a use of `claim`
 * [ExplanationOfBenefit](patterns-claim.html#eob-items) with a status of `active` and a use of `claim`
@@ -148,6 +148,6 @@ define "Mammography Observation":
       and MammographyResult.isResulted()
 ```
 
-For the Claim and ExplanationOfBenefit patterns, see [Mammography Claim](patterns-claim#mammography-claim).
+For the Claim and ExplanationOfBenefit patterns, see [Mammography Claim](patterns-claim.html#mammography-claim).
 
 > NOTE: Content for this page was adapted from the [QICore Authoring Patterns - Procedures](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0#procedures) topic.

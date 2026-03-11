@@ -114,27 +114,6 @@ This Implementation Guide was made possible by the thoughtful contributions of t
 
 Many of the examples in this implementation guide are informed by prior-authorization forms freely available on the internet and used with permission.
 
-<!--
-TODO:
+### Expansion Parameters
 
-* Testing
-  * Test Cases Parameters Resources ({{site.data.fhir.ver.cql}}/conformance.html#fhir-type-mapping)
-  * Test Case Inputs expressed as Parameters in each test case (Parameters-input.json)
-  * Unit Tests for Common Calculations (USCoreElementsTests.cql - BSA testing)
-  * Remove Practitioner/Organization/Provider-related questions from example questionnaires (move to ExamplePatientAndCoverage)
-  * Document mapping from Questionnaire/$populate to Library/$evaluate parameters
-  * Document test case structure (w/ inputParameters and expectedResults)
-* Architectural Guidance
-  * Versioning
-    * Multi-version approach
-  * Data Requirements Transformation
-  * Search Parameters Usage
-* Patterns
-  * Patient and Family History
-  * Laboratory Testing
-  * MedicationRequest
-  * AllergyIntolerance
-  * ServiceRequest
-* Authoring Documentation
-  * Workflow diagram illustrating tooling and pattern touchpoints
--->
+{% include expansion-params-en.xhtml %}
