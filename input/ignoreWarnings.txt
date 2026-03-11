@@ -225,11 +225,7 @@ INFORMATION: dtr-data-flow.svg: The html source contains the word 'MAY' but it i
 INFORMATION: en/dtr-data-flow.svg: The html source contains the word 'MAY' but it is not in a text phrase marked as a conformance clause: ''
 
 # 2.0.0-ballot:02 - Known issue with duplicate anchor ids in questionnaires (https://chat.fhir.org/#narrow/channel/179252-IG-creation/topic/Duplicate.20ids.20in.20Questionnaire.20rendering)
-WARNING: C:\Users\Bryn\Documents\Src\HL7\Specifications\us-cql-ig\output\en\Questionnaire-ExamplePatientAndCoverageQuestionnaire.html: The html source has duplicate anchor Ids: parameters
-WARNING: C:\Users\Bryn\Documents\Src\HL7\Specifications\us-cql-ig\output\en\Questionnaire-GMTPQuestionnaire.html: The html source has duplicate anchor Ids: parameters
-WARNING: C:\Users\Bryn\Documents\Src\HL7\Specifications\us-cql-ig\output\en\Questionnaire-MBODAQuestionnaire.html: The html source has duplicate anchor Ids: parameters
-WARNING: C:\Users\Bryn\Documents\Src\HL7\Specifications\us-cql-ig\output\en\Questionnaire-MNACQuestionnaire.html: The html source has duplicate anchor Ids: parameters
-WARNING: C:\Users\Bryn\Documents\Src\HL7\Specifications\us-cql-ig\output\en\Questionnaire-UPPARFQuestionnaire.html: The html source has duplicate anchor Ids: parameters
+%The html source has duplicate anchor Ids: parameters
 
 # 2.0.0-ballot:03 - These are using text fragment links (`#:~:text=`), so the publisher does not resolve them (Discussion in Zulip: https://chat.fhir.org/#narrow/channel/179252-IG-creation/topic/Text.20fragment.20links.20are.20marked.20as.20errors/with/578534990)
 ERROR: en\patterns-allergy.html#/html/body/div/div/div/div/div/ul/li/a at Line 390, column 8: The link 'Library-USCoreElements.html#:~:text=core%2Dallergyintolerance%0A*/%0Adefine-,%22All%20Allergies%20and%20Intolerances%22,-%3A%0A%20%20%5BUSCore' for ""All Allergies and Intolerances"" cannot be resolved (valid targets: [toggle-change-display, project-logo, segment-header, project-nav, publish-box, bottom, hl7-logo, showChanges, segment-post-footer, cql-content, family-logo, family-nav, ig-status, top, root, stripe, segment-footer, hl7-nav, segment-navbar, library-us-core-elements, segment-content, segment-breadcrumb, parameters])
@@ -266,9 +262,5 @@ ERROR: en\patterns-patient.html#/html/body/div/div/div/div/div/ul/li/a at Line 3
 ERROR: ImplementationGuide/hl7.fhir.us.cql: ImplementationGuide.definition.extension[33].url: No definition could be found for URL value 'http://hl7.org/fhir/tools/StructureDefinition/expansion-parameters'
 
 # 2.0.0-ballot:05 - The publisher is correcting a known issue with dependencies reported from the CQL translator. This will be addressed with a new version of the translator, but until then the publisher will inform editors when this happens
-INFORMATION: C:\Users\Bryn\Documents\Src\HL7\Specifications\us-cql-ig\input\resources\questionnaire\ExamplePatientAndCoverageQuestionnaire.json: Artifact is using Using CQL 2.0+ package, but the implicitly loaded FHIR-ModelInfo. The artifact dependencies have been updated to use the Using CQL 2.0+ dependency.
-INFORMATION: C:\Users\Bryn\Documents\Src\HL7\Specifications\us-cql-ig\input\resources\questionnaire\GMTPQuestionnaire.json: Artifact is using Using CQL 2.0+ package, but the implicitly loaded FHIR-ModelInfo. The artifact dependencies have been updated to use the Using CQL 2.0+ dependency.
-INFORMATION: C:\Users\Bryn\Documents\Src\HL7\Specifications\us-cql-ig\input\resources\questionnaire\MBODAQuestionnaire.json: Artifact is using Using CQL 2.0+ package, but the implicitly loaded FHIR-ModelInfo. The artifact dependencies have been updated to use the Using CQL 2.0+ dependency.
-INFORMATION: C:\Users\Bryn\Documents\Src\HL7\Specifications\us-cql-ig\input\resources\questionnaire\MNACQuestionnaire.json: Artifact is using Using CQL 2.0+ package, but the implicitly loaded FHIR-ModelInfo. The artifact dependencies have been updated to use the Using CQL 2.0+ dependency.
-INFORMATION: C:\Users\Bryn\Documents\Src\HL7\Specifications\us-cql-ig\input\resources\questionnaire\UPPARFQuestionnaire.json: Artifact is using Using CQL 2.0+ package, but the implicitly loaded FHIR-ModelInfo. The artifact dependencies have been updated to use the Using CQL 2.0+ dependency.
+%Artifact is using Using CQL 2.0+ package, but the implicitly loaded FHIR-ModelInfo. The artifact dependencies have been updated to use the Using CQL 2.0+ dependency.
 
