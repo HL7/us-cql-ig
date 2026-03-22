@@ -142,3 +142,15 @@ define fluent function consecutivelyFrom(observations List<Observation>, observa
     where O.issued on or after observation.issued
     sort by issued
 
+/*
+@description: Returns true if the given diagnostic report has a status of final, appended, amended, or corrected; false otherwise
+*/
+define fluent function isComplete(diagnosticReport DiagnosticReport):
+  diagnosticReport.status in { 'final', 'appended', 'amended', 'corrected' }
+
+/*
+@description: Returns diagnostic reports that have a status of final, appended, amended, or corrected
+*/
+define fluent function complete(diagnosticReports List<DiagnosticReport>):
+  diagnosticReport dr
+    where dr.status in { 'final', 'appended', 'amended', 'corrected' }

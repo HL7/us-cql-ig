@@ -134,18 +134,23 @@ As well as potentially looking for any measurements performed as part of the sca
 Applying this pattern to mammography, we may find evidence of mammography performed in:
 
 * ObservationClinicalResult - Recording a mammography test result
+* DiagnosticReportNote - Recording a mammography test report
 * Claim - Recording a claim for a mammography provided
 * ExplanationOfBenefit - Recording an adjudicated claim for a mammography
 
-Note that we are excluding the Procedure, DiagnosticReportNote, and LaboratoryTestResult possibilities
+Note that we are excluding the Procedure and ImagingStudy possibilities.
 
-For mammography, the following patterns can be used:
+This leads to the following patterns:
 
 ```cql
 define "Mammography Observation":
   ["Observation Clinical Result Profile": "Mammography Result"] MammographyResult
     where MammographyResult.isImaging()
       and MammographyResult.isResulted()
+
+define "Mammography Diagnostic Report":
+  ["DiagnosticReport Profile for Report and Note Exchange": "Mammography Report"] MammographyReport
+    where MammographyReport.isComplete()
 ```
 
 For the Claim and ExplanationOfBenefit patterns, see [Mammography Claim](patterns-claim.html#mammography-claim).
