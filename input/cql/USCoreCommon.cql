@@ -152,5 +152,5 @@ define fluent function isComplete(diagnosticReport DiagnosticReport):
 @description: Returns diagnostic reports that have a status of final, appended, amended, or corrected
 */
 define fluent function complete(diagnosticReports List<DiagnosticReport>):
-  diagnosticReport dr
+  diagnosticReports dr
     where dr.status in { 'final', 'appended', 'amended', 'corrected' }
