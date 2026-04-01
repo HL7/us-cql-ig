@@ -34,3 +34,38 @@ define _07_TestIsHealthConcern:
   [Condition] C
     where C.isHealthConcern()
 
+/*
+TODO: These are really US Core tests...
+define TestAge:
+  AgeInYears()
+
+define TestAgeAt:
+  AgeInYearsAt(@2022-10-14)
+
+define TestPrimitives:
+  Patient P
+    where P.gender = 'male'
+      and P.active is true
+      and P.birthDate before Today()
+      and P.maritalStatus in "Marital Status"
+      and P.maritalStatus ~ "Marital Status - Married"
+
+define TestChoice:
+  Patient P
+    where P.deceased is false
+      or P.deceased before Today()
+
+define TestSlices:
+  ["USCore.BloodPressureProfile"] BP
+    where BP.systolic().value < 140 'mm[Hg]'
+      and BP.diastolic().value < 90 'mm[Hg]'
+
+define TestSimpleExtensions:
+  Patient P
+    where P.birthsex() = 'M'
+
+define TestComplexExtensions:
+  Patient P
+    where P.race().ombCategory contains "American Indian or Alaska Native"
+      and P.race().detailed contains "Alaska Native"
+*/
