@@ -1,11 +1,11 @@
-library MNACInitialExpressions version '2.0.0-ballot'
+library MNACInitialExpressions version '2.0.0-cibuild'
 
 using USCore version '6.1.0-derived'
 using FHIR version '4.0.1'
 
 include hl7.fhir.uv.cql.FHIRHelpers version '4.0.1'
-include USCoreCommon version '2.0.0-ballot' called UC
-include USCoreElements version '2.0.0-ballot' called UCE
+include USCoreCommon version '2.0.0-cibuild' called UC
+include USCoreElements version '2.0.0-cibuild' called UCE
 
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 codesystem "ICD10": 'http://hl7.org/fhir/sid/icd-10-cm'

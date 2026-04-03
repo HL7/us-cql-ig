@@ -1,13 +1,13 @@
-library UPPARFInitialExpressions version '2.0.0-ballot'
+library UPPARFInitialExpressions version '2.0.0-cibuild'
 
 using USCore version '6.1.0-derived'
 using FHIR version '4.0.1'
 
 include hl7.fhir.uv.cql.FHIRHelpers version '4.0.1'
 include hl7.fhir.uv.cql.FHIRCommon version '2.0.0'
-include USCoreCommon version '2.0.0-ballot' called UC
-include USCoreElements version '2.0.0-ballot' called UCE
-include CumulativeMedicationDuration version '2.0.0-ballot' called CMD 
+include USCoreCommon version '2.0.0-cibuild' called UC
+include USCoreElements version '2.0.0-cibuild' called UCE
+include CumulativeMedicationDuration version '2.0.0-cibuild' called CMD 
 
 codesystem "Identifier Type": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 codesystem "Verification Status": 'http://terminology.hl7.org/CodeSystem/condition-ver-status'

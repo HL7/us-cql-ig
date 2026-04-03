@@ -1,12 +1,12 @@
-library MBODAInitialExpressions version '2.0.0-ballot'
+library MBODAInitialExpressions version '2.0.0-cibuild'
 
 using USCore version '6.1.0-derived'
 using FHIR version '4.0.1'
 
 include hl7.fhir.uv.cql.FHIRHelpers version '4.0.1'
 include hl7.fhir.uv.cql.FHIRCommon version '2.0.0'
-include USCoreCommon version '2.0.0-ballot' called UC
-include USCoreElements version '2.0.0-ballot' called UCE
+include USCoreCommon version '2.0.0-cibuild' called UC
+include USCoreElements version '2.0.0-cibuild' called UCE
 
 //CumulativeMedicationDuration was created as part of the US ECQM and CDC Opioid Guideline development 
 //http://fhir.org/guides/cdc/opioid-mme-r4
