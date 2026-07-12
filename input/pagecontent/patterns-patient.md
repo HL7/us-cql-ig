@@ -34,7 +34,7 @@ Because FHIR allows for multiple names for different uses, as well as different 
 Patient.name()
 ```
 
-The name function is just the first official, usual, or non-official non-usual name that is defined for the Patient. The avaiable name functions defined in the US Core Elements library are:
+The name function is just the first official, usual, or non-official non-usual name that is defined for the Patient. The available name functions defined in the US Core Elements library are:
 
 * [`.name()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,name,-%28patient%20Patient)
 * [`.usualName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,usualName,-%28patient%20Patient)
