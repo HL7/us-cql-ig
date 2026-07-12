@@ -249,7 +249,7 @@ define fluent function lastFirstMiddle(name HumanName):
 /*
 @description: Returns all allergies and intolerances
 @comment: This definition returns all allergies and intolerances conforming to the US Core 7.0.0
-[AllergyIntolerance](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-allergyintolerance.html) profile.
+[AllergyIntolerance](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-allergyintolerance.html) profile.
 Allergies and intolerances returned by this definition include records with any clinical status (including none)
 and any verification status (including none).
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
@@ -286,8 +286,8 @@ define "No Known Allergies (Confirmed)":
 /*
 @description: Returns all problem list items, encounter diagnoses, and health concerns
 @comment: This definition returns all conditions of any category.
-[Condition Encounter Diagnosis](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-condition-encounter-diagnosis.html)
-[Condition Problems and Health Concerns](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-condition-problems-health-concerns.html)
+[Condition Encounter Diagnosis](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-encounter-diagnosis.html)
+[Condition Problems and Health Concerns](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-condition-problems-health-concerns.html)
 Conditions returned by this definition include records with any clinical status (including none) and
 any verification status (including none).
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition
@@ -313,7 +313,7 @@ define "All Health Concerns":
 // Laboratory Diagnostic Report
 
 /*
-@comment: [Diagnostic Report for Laboratory Results](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-diagnosticreport-lab.html)
+@comment: [Diagnostic Report for Laboratory Results](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-lab.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab
 */
 define "All Diagnostic Reports for Laboratory Results":
@@ -322,7 +322,7 @@ define "All Diagnostic Reports for Laboratory Results":
 // Diagnostic Report
 
 /*
-@comment: [Diagnostic Report Note](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-diagnosticreport-note.html)
+@comment: [Diagnostic Report Note](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-diagnosticreport-note.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note
 */
 define "All Diagnostic Report Notes":
@@ -331,7 +331,7 @@ define "All Diagnostic Report Notes":
 // Encounter
 
 /*
-@comment: [Encounter](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-encounter.html)
+@comment: [Encounter](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-encounter.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter 
 */
 define "All Encounters":
@@ -344,7 +344,7 @@ define "All Performed Encounters":
 // Immunization
 
 /*
-@comment: [Immunization](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-immunization.html)
+@comment: [Immunization](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-immunization.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization
 */
 define "All Immunizations":
@@ -357,7 +357,7 @@ define "All Completed Immunizations":
 // Implantable Device
 
 /*
-@comment: [Implantable Device](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-implantable-device.html)
+@comment: [Implantable Device](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-implantable-device.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device
 */
 define "All Implantable Devices":
@@ -367,7 +367,7 @@ define "All Implantable Devices":
 
 /*
 @description: Returns all laboratory results
-@comment: [Laboratory Result](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-observation-lab.html)
+@comment: [Laboratory Result](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-lab.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 */
 define "All Laboratory Results":
@@ -381,7 +381,7 @@ define "Resulted Laboratory Results":
 
 /*
 @description: Returns all medication requests
-@comment: [Medication Request](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-medicationrequest.html)
+@comment: [Medication Request](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medicationrequest.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest
 */
 define "Most Recent Medication Request":
@@ -401,43 +401,58 @@ define "All Medications":
 // Pediatric BMI for Age
 
 /*
-@comment: [Pediatric BMI for Age](https://hl7.org/fhir/us/core/STU7/StructureDefinition-pediatric-bmi-for-age.html)
+@comment: [Pediatric BMI for Age](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-bmi-for-age.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age
 */
 define "Pediatric BMI for Age":
-  ((["PediatricBMIforAgeObservationProfile"]).resulted()) O 
+  (("Pediatric BMI for Age All Statuses").resulted()) O 
     return O as "PediatricBMIforAgeObservationProfile"
 
+/*
+@comment: [Pediatric BMI for Age](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-bmi-for-age.html)
+@profile: http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age
+*/
 define "Pediatric BMI for Age All Statuses":
   ["PediatricBMIforAgeObservationProfile"]
 
 // Pediatric Head Circumference Percentile
 
 /*
-@comment: [Pediatric Head Circumference Percentile](https://hl7.org/fhir/us/core/STU7/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
+@comment: [Pediatric Head Circumference Percentile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/head-occipital-frontal-circumference-percentile
 */
 define "Pediatric Head Circumference Percentile":
-  ((["PediatricHeadOccipitalFrontalCircumferencePercentileProfile"]).resulted()) O
+  (("Pediatric Head Circumference Percentile All Statuses").resulted()) O
     return O as "PediatricHeadOccipitalFrontalCircumferencePercentileProfile"
+
+/*
+@comment: [Pediatric Head Circumference Percentile](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
+@profile: http://hl7.org/fhir/us/core/StructureDefinition/head-occipital-frontal-circumference-percentile
+*/
+define "Pediatric Head Circumference Percentile All Statuses":
+  ["PediatricHeadOccipitalFrontalCircumferencePercentileProfile"]
 
 // Pediatric Weight for Height
 
 /*
-@comment: [Pediatric Weight for Height](https://hl7.org/fhir/us/core/STU7/StructureDefinition-pediatric-weight-for-height.html)
+@comment: [Pediatric Weight for Height](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-weight-for-height.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height
 */
 define "Pediatric Weight for Height":
-  ((["PediatricWeightForHeightObservationProfile"]).resulted()) O 
+  (("Pediatric Weight for Height All Statuses").resulted()) O 
     return O as "PediatricWeightForHeightObservationProfile"
 
+/*
+@comment: [Pediatric Weight for Height](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-weight-for-height.html)
+@profile: http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height
+*/
 define "Pediatric Weight for Height All Statuses":
   ["PediatricWeightForHeightObservationProfile"]
 
 // Procedure
 
 /*
-@comment: [Procedure](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-procedure.html)
+@comment: [Procedure](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-procedure.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure
 */
 define "All Procedures":
@@ -451,36 +466,47 @@ define "All Performed Procedures":
 // Pulse Oximetry
 
 /*
-@comment: [Pulse Oximetry](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-pulse-oximetry.html)
+@comment: [Pulse Oximetry](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-pulse-oximetry.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry
 */
 define "Pulse Oximetry":
-  ((["PulseOximetryProfile"]).resulted()) O 
+  (("Pulse Oximetry All Statuses").resulted()) O 
     return O as "PulseOximetryProfile"
 
+/*
+@comment: [Pulse Oximetry](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-pulse-oximetry.html)
+@profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry
+*/
 define "Pulse Oximetry All Statuses":
   ["PulseOximetryProfile"]
 
 // Smoking Status
 
 /*
-@description: Returns all smoking status observations
-@comment: This definition returns all smoking status observations conforming to the US Core 3.1.1
-[Smoking Status](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-smokingstatus.html)
+@description: Returns all resulted smoking status observations
+@comment: This definition returns all smoking status observations conforming to the US Core 6.1.0
+[Smoking Status](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-smokingstatus.html)
 profile.
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus
 */
 define "Smoking Status":
-  ((["SmokingStatusProfile"]).resulted()) O 
+  (("Smoking Status All Statuses").resulted()) O 
     return O as "SmokingStatusProfile"
 
+/*
+@description: Returns all smoking status observations
+@comment: This definition returns all smoking status observations conforming to the US Core 6.1.0
+[Smoking Status](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-smokingstatus.html)
+profile.
+@profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus
+*/
 define "Smoking Status All Statuses":
   ["SmokingStatusProfile"]
 
 /*
 @description: Returns the most recent smoking status
 @comment: This definition returns the most recent (by issued time) smoking status observation conforming to the
-US Core [Smoking Status](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-smokingstatus.html)
+US Core [Smoking Status](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-smokingstatus.html)
 profile.
 */
 define "Most Recent Smoking Status":
@@ -493,117 +519,153 @@ define "Most Recent Smoking Status":
 // Vital Signs
 
 /*
-@comment: [Vital Signs Panel](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-vital-signs.html)
+@comment: [Vital Signs Panel](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-vital-signs.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-vital-signs
 */
 define "All Vital Signs":
-  ((["Vital Signs Profile"]).resulted()) O 
+  (("All Vital Signs All Statuses").resulted()) O 
     return O as "Vital Signs Profile"
 
+/*
+@comment: [Vital Signs Panel](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-vital-signs.html)
+@profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-vital-signs
+*/
 define "All Vital Signs All Statuses":
   ["Vital Signs Profile"]
 
 // Respiratory Rate
 
 /*
-@comment: [Respiratory Rate](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-respiratory-rate.html)
+@comment: [Respiratory Rate](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-respiratory-rate.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-respiratory-rate
 */
 define "All Respiratory Rate Measurements":
-  ((["Respiratory Rate Profile"]).resulted()) O 
+  (("All Respiratory Rate Measurements All Statuses").resulted()) O 
     return O as "Respiratory Rate Profile"
 
+/*
+@comment: [Respiratory Rate](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-respiratory-rate.html)
+@profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-respiratory-rate
+*/
 define "All Respiratory Rate Measurements All Statuses":
   ["Respiratory Rate Profile"]
 
 // Heart Rate
 
 /*
-@comment: [Heart Rate](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-heart-rate.html)
+@comment: [Heart Rate](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-heart-rate.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate
 */
 define "All Heart Rate Measurements":
-  ((["Heart Rate Profile"]).resulted()) O 
+  (("All Heart Rate Measurements All Statuses").resulted()) O 
     return O as "Heart Rate Profile"
 
+/*
+@comment: [Heart Rate](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-heart-rate.html)
+@profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate
+*/
 define "All Heart Rate Measurements All Statuses":
   ["Heart Rate Profile"]
 
 // Body Temperature
 
 /*
-@comment: [Body Temperature](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-body-temperature.html)
+@comment: [Body Temperature](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-temperature.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-temperature
 */
 define "All Body Temperature Measurements":
-  ((["Body Temperature Profile"]).resulted()) O 
+  (("All Body Temperature Measurements All Statuses").resulted()) O 
     return O as "Body Temperature Profile"
 
+/*
+@comment: [Body Temperature](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-temperature.html)
+@profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-temperature
+*/
 define "All Body Temperature Measurements All Statuses":
   ["Body Temperature Profile"]
 
 // Body Height
 
 /*
-@comment: [Body Height](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-body-height.html)
+@comment: [Body Height](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-height.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height
 */
 define "All Body Height Measurements":
-   ((["Body Height Profile"]).resulted()) O
+   (("All Body Height Measurements All Statuses").resulted()) O
      return O as "Body Height Profile"
 
+/*
+@comment: [Body Height](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-height.html)
+@profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height
+*/
 define "All Body Height Measurements All Statuses":
   ["Body Height Profile"] 
 
 // Head Circumference
 
 /*
-@comment: [Head Circumference](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-head-circumference.html)
+@comment: [Head Circumference](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-head-circumference.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-head-circumference
 */
 define "All Head Circumference Measurements":
-  ((["Head Circumference Profile"]).resulted()) O 
+  (("All Head Circumference Measurements All Statuses").resulted()) O 
     return O as "Head Circumference Profile"
 
+/*
+@comment: [Head Circumference](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-head-circumference.html)
+@profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-head-circumference
+*/
 define "All Head Circumference Measurements All Statuses":
   ["Head Circumference Profile"]
 
 // Body Weight
 
 /*
-@comment: [Body Weight](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-body-weight.html)
+@comment: [Body Weight](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-weight.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight
 */
 define "All Body Weight Measurements":
-  ((["Body Weight Profile"]).resulted()) O 
+  (("All Body Weight Measurements All Statuses").resulted()) O 
     return O as "Body Weight Profile"
 
+/*
+@comment: [Body Weight](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-weight.html)
+@profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight
+*/
 define "All Body Weight Measurements All Statuses":
   ["Body Weight Profile"]
 
 // Body Mass Index
 
 /*
-@comment: [Body Mass Index](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-bmi.html)
+@comment: [Body Mass Index](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-bmi.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi
 */
 define "All Body Mass Index Measurements":
-  ((["BMI Profile"]).resulted()) O 
+  (("All Body Mass Index Measurements All Statuses").resulted()) O 
     return O as "BMI Profile"
 
+/*
+@comment: [Body Mass Index](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-bmi.html)
+@profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi
+*/
 define "All Body Mass Index Measurements All Statuses":
   ["BMI Profile"]
 
 // Blood Pressure
 
 /*
-@comment: [Blood Pressure](https://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-blood-pressure.html)
+@comment: [Blood Pressure](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-blood-pressure.html)
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure
 */
 define "All Blood Pressure Measurements":
-  ((["Blood Pressure Profile"]).resulted()) O 
+  (("All Blood Pressure Measurements All Statuses").resulted()) O 
     return O as "Blood Pressure Profile"
 
+/*
+@comment: [Blood Pressure](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-blood-pressure.html)
+@profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure
+*/
 define "All Blood Pressure Measurements All Statuses":
   ["Blood Pressure Profile"]
 
