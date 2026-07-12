@@ -2,7 +2,7 @@ This topic provides best-practices and patterns for authoring CQL expressions fo
 
 ### Methodology
 
-US Core is the baseline for expected interoperability; this implementation guide builds CQL authoring patterns on top of US Core. To establishe a new set of patterns, the following methodology is used:
+US Core is the baseline for expected interoperability; this implementation guide builds CQL authoring patterns on top of US Core. To establish a new set of patterns, the following methodology is used:
 
 1. Choose a [US Core profile]({{site.data.fhir.ver.uscore7}}/index.html#us-core-profiles) to start with.
 2. Review the narrative, elements, and search parameters, building a list of what would commonly be used and benefit from having an authoring pattern defined.
