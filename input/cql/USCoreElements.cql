@@ -34,9 +34,9 @@ the birth time is known, timezone offset normalization will be used.
 */
 define fluent function ageInDaysAt(patient Patient, asOf DateTime):
   if patient.birthTime() is not null then
-    CalculateAgeInDaysAt(Patient.birthDateTime(), asOf)
+    CalculateAgeInDaysAt(patient.birthDateTime(), asOf)
   else
-    CalculateAgeInDaysAt(Patient.birthDate, date from asOf)
+    CalculateAgeInDaysAt(patient.birthDate, date from asOf)
 
 /*
 @description: Returns the current age in days of the patient, using birth time if known
@@ -47,9 +47,9 @@ the birth time is known, timezone offset normalization will be used.
 */
 define fluent function ageInDays(patient Patient):
   if patient.birthTime() is not null then
-    CalculateAgeInDaysAt(Patient.birthDateTime(), Now())
+    CalculateAgeInDaysAt(patient.birthDateTime(), Now())
   else
-    CalculateAgeInDaysAt(Patient.birthDate, Today())
+    CalculateAgeInDaysAt(patient.birthDate, Today())
 
 /*
 @description: Returns the age in months of the patient as of the given date, using birth time if known
@@ -60,9 +60,9 @@ the birth time is known, timezone offset normalization will be used.
 */
 define fluent function ageInMonthsAt(patient Patient, asOf DateTime):
   if patient.birthTime() is not null then
-    CalculateAgeInMonthsAt(Patient.birthDateTime(), asOf)
+    CalculateAgeInMonthsAt(patient.birthDateTime(), asOf)
   else
-    CalculateAgeInMonthsAt(Patient.birthDate, date from asOf)
+    CalculateAgeInMonthsAt(patient.birthDate, date from asOf)
 
 /*
 @description: Returns the current age in months of the patient, using birth time if known
@@ -73,9 +73,9 @@ the birth time is known, timezone offset normalization will be used.
 */
 define fluent function ageInMonths(patient Patient):
   if patient.birthTime() is not null then
-    CalculateAgeInMonthsAt(Patient.birthDateTime(), Now())
+    CalculateAgeInMonthsAt(patient.birthDateTime(), Now())
   else
-    CalculateAgeInMonthsAt(Patient.birthDate, Today())
+    CalculateAgeInMonthsAt(patient.birthDate, Today())
 
 /*
 @description: Returns the age in years of the patient, as of the given date
@@ -85,7 +85,7 @@ performed using only the birth date. If the given date has a time component, it 
 the grounds that birth time is almost universally not considered when determining age in years.
 */
 define fluent function ageInYearsAt(patient Patient, asOf DateTime):
-  CalculateAgeInYearsAt(Patient.birthDate, date from asOf)
+  CalculateAgeInYearsAt(patient.birthDate, date from asOf)
 
 /*
 @description: Returns the current age in years of the patient
@@ -95,7 +95,7 @@ performed using only the birth date and Today(), on the grounds that birth time 
 not considered when determining age in years.
 */
 define fluent function ageInYears(patient Patient):
-  CalculateAgeInYearsAt(Patient.birthDate, Today())
+  CalculateAgeInYearsAt(patient.birthDate, Today())
 
 /*
 @description: Returns the first official, usual, or other name
