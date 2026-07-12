@@ -140,7 +140,7 @@ valueset "Pregnancy Test Codes": 'TBD'
 codesystem "SNOMEDCT": 'http://snomed.info/sct'
 
 code "Pregnant": '77386006' from "SNOMEDCT" display 'Pregnant (finding)'
-code "Positive": 'positive' from "Interpretation Codes"
+code "Positive": 'POS' from "Interpretation Codes"
  
 define "Positive Pregnancy Observation":
   ["Observation Pregnancy Status Profile"] PregnancyStatus

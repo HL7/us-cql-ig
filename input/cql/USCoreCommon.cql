@@ -41,7 +41,7 @@ code "health-concern": 'health-concern' from "USCoreConditionCategory" display '
 code "Systolic Blood Pressure": '8480-6' from FHIRCommon.LOINC
 code "Diastolic Blood Pressure": '8462-4' from FHIRCommon.LOINC
 code "BMI": '39156-5' from FHIRCommon.LOINC
-code "Positive": 'LA6576-8' from ObservationInterpretation
+code "Positive": 'POS' from ObservationInterpretation
 code "Negative": 'NEG' from ObservationInterpretation
 
 context Patient
