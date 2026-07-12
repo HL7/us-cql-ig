@@ -1,4 +1,4 @@
-Although the initial focus for this implementation guide is on supporting the prior-authorization questionnaire use case, the content and guidance presented here is intended to be usable across clinical reasoning use cases with FHIR in the US Realm. Existing known use cases are documented here, and additional use cases are intended to be supported in future versions of this implementation guide, including DaVinci Clinical Data Exchange (CDeX).
+Although the initial focus for this implementation guide is on supporting the prior authorization questionnaire use case, the content and guidance presented here is intended to be usable across clinical reasoning use cases with FHIR in the US Realm. Existing known use cases are documented here, and additional use cases are intended to be supported in future versions of this implementation guide, including DaVinci Clinical Data Exchange (CDeX).
 
 * [Prior Authorization Questionnaire Use Case](use-case-pa.html)
 * [Quality Measurement and Reporting](use-case-cqm.html)

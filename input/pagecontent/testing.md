@@ -36,9 +36,9 @@ And the `expected-results` Parameters resource has the following parameter indic
 
 ### Integration Testing
 
-#### Prior-Authorization Questionnaires
+#### Prior Authorization Questionnaires
 
-For integration testing of prior-authorization questionnaires, based on the DTR sequence diagram, the following 4 integration test scenarios are identified:
+For integration testing of prior authorization questionnaires, based on the DTR sequence diagram, the following 4 integration test scenarios are identified:
 
 {% include img.html img="Integration-Test-Scenarios.png" caption="Integration Test Scenarios" %}
 

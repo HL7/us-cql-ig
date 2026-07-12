@@ -6,7 +6,7 @@ The base Coverage resource defines the following _modifier_ elements:
 
 * status
 
-In general, applications should ensure that the `status` element for a Coverage resource is appropriately set for their use case. Note that for many applications, such as prior-authorization, Coverage resources would be expected to have a status of `active` in order to be considered.
+In general, applications should ensure that the `status` element for a Coverage resource is appropriately set for their use case. Note that for many applications, such as prior authorization, Coverage resources would be expected to have a status of `active` in order to be considered.
 
 The US Core Coverage profile does not introduce any modifier extensions.
 

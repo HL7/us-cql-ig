@@ -6,7 +6,7 @@ This topic documents a set of capabilities gathered from community engagement an
 
 #### Questionnaire Authoring
 
-This topic describes questionnaire-related authoring capabilities that would be needed to support creation of prior-authorization questionnaires:
+This topic describes questionnaire-related authoring capabilities that would be needed to support creation of prior authorization questionnaires:
 
 > NOTE: Items in **bold** are not currently supported by the LHC Forms Builder (see below)
 

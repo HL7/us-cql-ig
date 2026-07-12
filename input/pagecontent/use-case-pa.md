@@ -1,6 +1,6 @@
 The  inclusion and support of the Prior Authorization Questionnaire use case in this implementation guide is made possible by the thoughtful contribution of the Da Vinci member organizations. 
 
-The following links provide general background information about prior-authorization scenarios:
+The following links provide general background information about prior authorization scenarios:
 
 * [Prior Authorization and Pre-Claim Review Program Stats (cms.gov)](https://www.cms.gov/files/document/prior-authorization-and-pre-claim-review-program-statistics.pdf)
 * [Prior Authorization for Certain Hospital Outpatient Department (OPD) Services \| CMS](https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-and-pre-claim-review-initiatives/prior-authorization-certain-hospital-outpatient-department-opd-services)

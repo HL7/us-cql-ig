@@ -10,11 +10,11 @@ For a walkthrough of how to build and maintain a content implementation guide, r
 
 ### CDS Connect Authoring Tool - Community Edition
 
-For authoring Clinical Decision Support Rules, as well as general CQL Libraries, the [CDS Connect Authoring Tool - Community Edition](https://foundry.hl7.org/products/2b9a2b2b-6956-4825-8737-6f72f8f78935) is an easy-to-use, stand-alone visual editor for Clinical Quality Language-based knowledge artifacts. In addition to support the CDS and Data Elements Library use cases, this tool is being actively evolved by a community of stakeholders to support other use CQL-based knowledge artifact use cases. For prior-authorization questionnaires, this tool was evaluated for supporting questionnaire authoring. See the [Tooling Support](tooling-support.html) page for more information.
+For authoring Clinical Decision Support Rules, as well as general CQL Libraries, the [CDS Connect Authoring Tool - Community Edition](https://foundry.hl7.org/products/2b9a2b2b-6956-4825-8737-6f72f8f78935) is an easy-to-use, stand-alone visual editor for Clinical Quality Language-based knowledge artifacts. In addition to support the CDS and Data Elements Library use cases, this tool is being actively evolved by a community of stakeholders to support other use CQL-based knowledge artifact use cases. For prior authorization questionnaires, this tool was evaluated for supporting questionnaire authoring. See the [Tooling Support](tooling-support.html) page for more information.
 
 ### LHC Forms Builder
 
-For authoring questionnaires specifically, the [LHC Forms Builder](https://formbuilder.nlm.nih.gov/) provides a user-friendly tool for building and validating FHIR Structured Data Capture Questionnaires. For prior-authorization questionnaires, this tool was evaluated to determine what would be needed to expand it to support CQL-based population and form behavior expressions. See the [Tooling Support](tooling-support.html) page for more information.
+For authoring questionnaires specifically, the [LHC Forms Builder](https://formbuilder.nlm.nih.gov/) provides a user-friendly tool for building and validating FHIR Structured Data Capture Questionnaires. For prior authorization questionnaires, this tool was evaluated to determine what would be needed to expand it to support CQL-based population and form behavior expressions. See the [Tooling Support](tooling-support.html) page for more information.
 
 ### Steps for Adding New Questionnaires
 

@@ -74,7 +74,7 @@ Note that some plans do not establish individual Member IDs and instead use a co
 
 #### Billing/Servicing Provider
 
-For data elements related to determining and identifying billing/servicing provider in the prior-authorization use case, there are several possibilities:
+For data elements related to determining and identifying billing/servicing provider in the prior authorization use case, there are several possibilities:
 
 1. Known ahead of time (and part of the ServiceRequest, so doesn't make sense to ask)
 2. Not known, but will be specified by a separate process (such as order dispatch)
@@ -95,4 +95,4 @@ Authorization for lab tests is sometimes determined based on category (e.g. prev
 
 Almost all prior authorization forms contain a question about the urgency of the request. Different forms have different ways of expressing the same logic. E.g., the [Humana Uniform Pharmacy Prior Authorization Request Form](https://docushare-web.apps.external.pioneer.humana.com/Marketing/docushare-app?file=2567656) uses check boxes with the strings "Urgent" and "Non-Urgent". The form [Geisinger Medical Benefit Outpatient Drug Authorization Form](https://www.geisinger.org/-/media/OneGeisinger/Files/PDFs/Provider/NaviNet/Forms/medical-benefit-outpatient-drug-authorization-form-050819.pdf?sc_lang=en&hash=6EDE27E13FCCB5731E081FC49B85359D) contains a categorization as "Urgent" more in a boolean logic with a required rationale if the request is labelled as "Urgent".
 
-However, this characterization of the urgency of the request is part of the request resource, such as `MedicationRequest.priority`, and so in general would be provided to the payer as part of the prior-authorization request, and would not be requested by the payer. As such, this element, if present at all, would likely be readonly in the prior-authorization use case.
+However, this characterization of the urgency of the request is part of the request resource, such as `MedicationRequest.priority`, and so in general would be provided to the payer as part of the prior authorization request, and would not be requested by the payer. As such, this element, if present at all, would likely be readonly in the prior authorization use case.

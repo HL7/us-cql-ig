@@ -8,7 +8,7 @@ The base Patient resource defines the following _modifier_ elements:
 * deceased
 * link
 
-In general, applications should ensure that the `active`, `deceased`, and `link` elements for a Patient resource are appropriately set for their use case. Note that for many applications, such as prior-authorization, the context will already have established that the patient in question is active and not deceased (or that the values for these elements are appropriate for the prior-authorization in progress).
+In general, applications should ensure that the `active`, `deceased`, and `link` elements for a Patient resource are appropriately set for their use case. Note that for many applications, such as prior authorization, the context will already have established that the patient in question is active and not deceased (or that the values for these elements are appropriate for the prior authorization in progress).
 
 Note that US Core does not profile the `link` element, so applications should consider whether their functionality would be impacted by the presence of `link` elements on the Patient resource.
 

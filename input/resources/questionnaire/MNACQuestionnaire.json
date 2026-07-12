@@ -55,7 +55,7 @@
   "status": "active",
   "experimental": true,
   "date": "2024-01-17T00:00:00+00:00",
-  "description": "This is an example of a prior authorization questionnaire developed based on an existing industry prior-authorization form.",
+  "description": "This is an example of a prior authorization questionnaire developed based on an existing industry prior authorization form.",
   "copyright": "This content is informed by the following source, used with permission: https://www.hca.wa.gov/assets/billers-and-providers/13-760.pdf",
   "item": [
     {
