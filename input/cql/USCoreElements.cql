@@ -104,7 +104,7 @@ the first non-official, non-usual name. In each case, the function returns the m
 period specified, or has a period overlapping today.
 */
 define fluent function name(patient Patient):
-  Coalesce(patient.officialName().first(), patient.usualName().first(), patient.firstNonOfficialNonUsualName())
+  Coalesce(patient.officialName(), patient.usualName(), patient.firstNonOfficialNonUsualName())
 
 /*
 @description: Returns the first usual name
@@ -112,10 +112,12 @@ define fluent function name(patient Patient):
 either has no period specified, or has a period overlapping today.
 */
 define fluent function usualName(patient Patient):
-  patient.name name
-    where name.use ~ 'usual'
-      and name.period is not null implies name.period includes Today()
-    sort by start of period desc
+  First(
+    patient.name patientName
+      where patientName.use ~ 'usual'
+        and patientName.period is not null implies patientName.period includes Today()
+      sort by start of period desc
+  )
 
 /*
 @description: Returns the first officiel name
@@ -123,10 +125,12 @@ define fluent function usualName(patient Patient):
 either has no period specified, or has a period overlapping today.
 */
 define fluent function officialName(patient Patient):
-  patient.name name
-    where name.use ~ 'official'
-      and name.period is not null implies name.period includes Today()
-    sort by start of period desc
+  First(
+    patient.name patientName
+      where patientName.use ~ 'official'
+        and patientName.period is not null implies patientName.period includes Today()
+      sort by start of period desc
+  )
 
 /*
 @description: Returns the first non-official, non-usual name
@@ -135,9 +139,9 @@ either has no period specified, or has a period overlapping today.
 */
 define fluent function firstNonOfficialNonUsualName(patient Patient):
   First(
-    patient.name name
-      where not(name.use ~ 'official') and not(name.use ~ 'usual')
-        and name.period is not null implies name.period includes Today()
+    patient.name patientName
+      where not(patientName.use ~ 'official') and not(patientName.use ~ 'usual')
+        and patientName.period is not null implies patientName.period includes Today()
       sort by start of period desc
   )
 
@@ -160,7 +164,7 @@ the first non-official, non-usual name. In each case, the function returns the m
 period specified, or has a period overlapping today.
 */
 define fluent function name(practitioner Practitioner):
-  Coalesce(practitioner.officialName().first(), practitioner.usualName().first(), practitioner.firstNonOfficialNonUsualName())
+  Coalesce(practitioner.officialName(), practitioner.usualName(), practitioner.firstNonOfficialNonUsualName())
 
 /*
 @description: Returns the first usual name
@@ -168,10 +172,12 @@ define fluent function name(practitioner Practitioner):
 either has no period specified, or has a period overlapping today.
 */
 define fluent function usualName(practitioner Practitioner):
-  practitioner.name name
-    where name.use ~ 'usual'
-      and name.period is not null implies name.period includes Today()
-    sort by start of period desc
+  First(
+    practitioner.name practitionerName
+      where practitionerName.use ~ 'usual'
+        and practitionerName.period is not null implies practitionerName.period includes Today()
+      sort by start of period desc
+  )
 
 /*
 @description: Returns the first officiel name
@@ -179,10 +185,12 @@ define fluent function usualName(practitioner Practitioner):
 either has no period specified, or has a period overlapping today.
 */
 define fluent function officialName(practitioner Practitioner):
-  practitioner.name name
-    where name.use ~ 'official'
-      and name.period is not null implies name.period includes Today()
-    sort by start of period desc
+  First(
+    practitioner.name practitionerName
+      where practitionerName.use ~ 'official'
+        and practitionerName.period is not null implies practitionerName.period includes Today()
+      sort by start of period desc
+  )
 
 /*
 @description: Returns the first non-official, non-usual name
@@ -191,9 +199,9 @@ either has no period specified, or has a period overlapping today.
 */
 define fluent function firstNonOfficialNonUsualName(practitioner Practitioner):
   First(
-    practitioner.name name
-      where not(name.use ~ 'official') and not(name.use ~ 'usual')
-        and name.period is not null implies name.period includes Today()
+    practitioner.name practitionerName
+      where not(practitionerName.use ~ 'official') and not(practitionerName.use ~ 'usual')
+        and practitionerName.period is not null implies practitionerName.period includes Today()
       sort by start of period desc
   )
 
