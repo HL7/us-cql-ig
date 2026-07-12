@@ -143,7 +143,7 @@ Note that time frame and status requirements could vary by condition and payer i
 
 Note that the USCore profiles for condition indicate that:
 
-* There is no single element in Condition that represents the date of daignosis. It may be the assertedDate extension, Condition.onsetDateTime, or Condition.recordedDate.
+* There is no single element in Condition that represents the date of diagnosis. It may be the assertedDate extension, Condition.onsetDateTime, or Condition.recordedDate.
 
 Although all three are marked as Must Support, servers are not required to support all three.
 
