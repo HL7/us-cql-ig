@@ -18,6 +18,8 @@ In general, the patient under consideration will be established by application c
 
 ### Cross-Version Considerations
 
+The patient [sex](http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex) element was deprecated in US Core version 7 in favor of the [individualSex](http://hl7.org/fhir/us/core/StructureDefinition/us-core-individual-sex) element. See the [Patient sex](#patient-sex) topic for discussion of this element.
+
 There are no significant backwards-compatibility issues between versions for the Patient profiles. Newer versions of US Core add additional extensions, as well as additional expectations on elements like `use` for name, contact, and address elements. Applications should ensure that they allow for the possibility that these newly supported elements will not be available when operating on Patient resources retrieved from servers implementing earlier versions of US Core.
 
 [//]: # (// TODO: Determine how to access member ID in a 3.1.1 context (where there isn't a Coverage profile))
@@ -101,6 +103,20 @@ define "Patient Is Male":
 ```
 
 > NOTE: Terminology-valued elements in FHIR resources are _bound_ to _value sets_. The gender element is an example of a _required_ binding, which means that only the codes in the bound value set are allowed to be used. This allows the logic in this example to compare using the actual string `'male'`. In general, terminology-valued elements should be compared using terminology operators. For more information, see the [Using Terminology]({{site.data.fhir.ver.cql}}/patterns.html#use-of-terminologies) topic in the Using CQL With FHIR IG.
+
+#### Patient sex
+
+The patient [sex](http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex) element has been deprecated in newer versions of US Core in favor of the [individualSex](http://hl7.org/fhir/us/core/StructureDefinition/us-core-individual-sex) element. To support backwards compatibility, the US Core Common library defines both functions, as well as a mapping from `sex` to `individualSex`. 
+
+In addition, the `.individualSex()` function will use the `sex` element if no `individualSex` element is present. This allows logic to use `individualSex()` in all cases, and systems implementing STU6 will "forward convert" to the new values.
+
+The US Core Common library defines the following patient sex functions:
+
+* [`.sex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,sex,-%28patient%20Patient) - DEPRECATED - Returns the value of the sex extension, use individualSex instead
+* [`.birthSex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,birthSex,-%28patient%20Patient) - Returns a person's documented sex at birth
+* [`.individualSex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,individualSex,-%28patient%20Patient) - Reflects documentation of a person's sex
+* [`.toIndividualSex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,toIndividualSex,-%sex%20FHIR) - Maps the code from a sex element to an individualSex element
+* [`.sexParameterForClinicalUse()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,sexParameterForClinicalUse,-%28patient%20Patient) - Returns all sexParameterForClinicalUse elements for a patient, optionally as of a given date and time
 
 #### Patient race and ethnicity
 
