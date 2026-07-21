@@ -131,7 +131,7 @@ Note that observations associated with imaging are expected to represent specifi
 
 US Core allows for the presence of pregnancy to be represented in multiple resources. The US Core profile [Pregnancy Status]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-observation-pregnancystatus.html) allows for the representation of pregnancy as an Observation. However, pregnancy information may also be represented in a laboratory test result, an encounter diagnosis, or a problem list item.
 
-To determine if an individual is pregnant, the following approach may be used to consider all three approaches: 
+As an example, to determine if an individual is pregnant at any point during a measurement period, the following approach may be used to consider all three approaches: 
 
 ```cql
 valueset "Pregancy Condition Codes": 'TBD'
@@ -152,18 +152,18 @@ define "Positive Pregnancy Test Result":
   ["Laboratory Result Observation": "Pregnancy Test Codes"] PregnancyTest
     where PregnancyTest.status = 'final'
       and PregnancyTest.value ~ "Positive"
-      and PregnancyTest.effective.toInterval() during "Measurement Period"
+      and PregnancyTest.effective.toInterval() overlaps "Measurement Period"
       
 define "Pregnancy Encounter Diagnosis":
   [ConditionEncounterDiagnosis: "Pregnancy Condition Codes"] EncounterDiagnosis
     with "Encounters" Encounter
       such that EncounterDiagnosis.encounter.references(Encounter)
-      
+
 define "Pregnancy Condition":
   [ConditionProblemsHealthConcerns: "Pregnancy Condition Codes"] Condition
     where Condition.clinicalStatus ~  "active"
       and Condition.verificationStatus ~ "confirmed"
-      and Condition.prevalenceInterval() starts during "Measurement Period"
+      and Condition.prevalenceInterval() overlaps "Measurement Period"
 
 define IsPregnant:
   exists "Positive Pregnancy Observation" 
