@@ -699,16 +699,16 @@ define function CalculateBSA(alg System.String, height System.Quantity, weight S
 define "All ServiceRequests":
   [FHIR.ServiceRequest]
 
-define function MostRecentSR(serviceRequests List<"FHIR.ServiceRequest">):
+define function MostRecentSR(serviceRequests List<FHIR.ServiceRequest>):
   Last(
     serviceRequests SR
-      // sort by authoredOn
+      sort by authoredOn
   )
 
-define fluent function mostRecentSR(serviceRequests List<"FHIR.ServiceRequest">):
+define fluent function mostRecentSR(serviceRequests List<FHIR.ServiceRequest>):
   Last(
     serviceRequests SR
-      // sort by authoredOn
+      sort by authoredOn
   )
 
 define function RequestingProvider(serviceRequest FHIR.ServiceRequest):
