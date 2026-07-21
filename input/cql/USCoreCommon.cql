@@ -221,4 +221,4 @@ define fluent function isComplete(diagnosticReport DiagnosticReport):
 */
 define fluent function complete(diagnosticReports List<DiagnosticReport>):
   diagnosticReports dr
-    where dr.status in { 'final', 'appended', 'amended', 'corrected' }
+    where dr.isComplete()
