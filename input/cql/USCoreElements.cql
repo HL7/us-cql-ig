@@ -713,23 +713,23 @@ define fluent function mostRecentSR(serviceRequests List<FHIR.ServiceRequest>):
 
 define function RequestingProvider(serviceRequest FHIR.ServiceRequest):
   [USCore.PractitionerProfile] P
-    where EndsWith(serviceRequest.requester.reference.value, P.id)
+    where serviceRequest.requester.references(P)
 
 define function ServicingProvider(serviceRequest FHIR.ServiceRequest):
   [USCore.PractitionerProfile] P
-    where EndsWith(First(serviceRequest.performer.reference.value), P.id)
+    where serviceRequest.performer.references(P)
 
 define function BillingProvider(coverage FHIR.Coverage):
-  singleton from([OrganizationProfile] O
-    where EndsWith(First(coverage.payor.reference.value), O.id))
+  [OrganizationProfile] O
+    where coverage.payor.references(O)
 
 define function RelatedCondition(serviceRequest FHIR.ServiceRequest):
   [FHIR.Condition] C
-    where EndsWith(First(serviceRequest.reasonReference.reference.value), C.id)
+    where serviceRequest.reasonReference.references(C)
 
 define "Research Subject":
   [FHIR.ResearchSubject] R
-    where  EndsWith(R.individual.reference, Patient.id)
+    where R.individual.references(R)
 
 define "All Clinical Trials":
   [FHIR.ResearchStudy] 
@@ -739,18 +739,17 @@ define "Clinical Trial Organization":
   
 define function "GetServiceRequestReasonCondition"(serviceRequest ServiceRequest):
   [FHIR.Condition] C
-    where EndsWith(First(serviceRequest.reasonReference.reference), C.id)
-  return C
+    where serviceRequest.reasonReference.references(C)
 
 define function Requester(medicationRequest MedicationRequestProfile):
   singleton from (
     [USCore.PractitionerProfile] P
-      where EndsWith(medicationRequest.requester.reference, P.id)
+      where medicationRequest.requester.references(P)
   )
 
 define function RequesterRole(medicationRequest MedicationRequestProfile):
   singleton from (
     [USCore.PractitionerRoleProfile] R
-      where EndsWith(R.practitioner.reference, Requester(medicationRequest).id)
+      where R.practitioner.references(Requester(medicationRequest))
   )
 
