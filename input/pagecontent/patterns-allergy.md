@@ -31,18 +31,6 @@ There are no significant differences between the 3.1.1, 6.1.0, and 7.0.0 version
 
 ### Common Elements and Functions
 
-#### Abatement and prevalence interval
-
-Abatement for an AllergyIntolerance can be represented in multiple ways:
-
-* [`.abatement()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,abatement,-%28allergyIntolerance%20AllergyIntolerance): Returns the abatement of the given AllergyIntolerance, if present
-* [`.resolutionAge()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,resolutionAge,-%28allergyIntolerance%20AllergyIntolerance): Returns the resolutionAge of the given AllergyIntolerance, if present
-
-Using these options, an abatement, as well as a prevalence interval, can be calculated:
-
-* [`.abatementInterval()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,abatementInterval,-%28allergyIntolerance%20AllergyIntolerance): Returns an interval representing the normalized abatement of the given AllergyIntolerance resource.
-* [`.prevalenceInterval()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,prevalenceInterval,-%28allergyIntolerance%20AllergyIntolerance): Returns an interval representing the normalized prevalence period of the given AllergyIntolerance resource
-
 #### Clinical and verification status
 
 To facilitate checking allergy intolerance status, the following functions are defined in the FHIRCommon library. The `is...` functions operate on a single AllergyIntolerance (and so are typically used within a `where` clause), while the other functions operate on a list of AllergyIntolerance resources, and so are typically used when dealing with an entire set of resources as a single expression:
@@ -53,6 +41,8 @@ To facilitate checking allergy intolerance status, the following functions are d
 * [`.inactive()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,inactive,-%28allergyIntolerances%20List)
 * [`.isResolved()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,isResolved,-%28allergyIntolerance%20FHIR)
 * [`.resolved()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,resolved,-%28allergyIntolerances%20List)
+
+> NOTE: These functions make use of the `clinicalStatus` element of the `AllergyIntolerance`, which is the _current_ status of the `AllergyIntolerance` record. For retrospective cases (such as quality reporting), the logic may be evaluated on data that exists at the time of evaluation. This means that while a given condition may have been active during the measurement period, it might no longer be active when the measure is run. As such, the `isActive()` function should not be used in retrospective contexts. Instead, the most reliable way to determine whether an allergy/intolerance was active at some point in time is to use the [Onset, Abatement, and Prevalence Period](#abatement-and-prevalence-interval) elements as discussed below.
 
 The AllergyIntolerance resource also has a verificationStatus element to represent information such as whether the allergy has been confirmed. The element is not required, but if it is present, it is a modifier element, and has the potential to negate the information the resource is conveying (e.g., the `refuted` status). For most usage, when application intent is looking for positive evidence of an allergy, the verification statuses of `refuted` and `entered-in-error` should be excluded if `verificationStatus` is present:
 
@@ -75,6 +65,21 @@ To support re-use of this pattern, the FHIRCommon library defines the `isVerifie
 * [`.unconfirmed()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,unconfirmed,-%28allergyIntolerances%20List)
 * [`.isRefuted()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,isRefuted,-%28allergyIntolerance%20FHIR)
 * [`.refuted()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,refuted,-%28allergyIntolerances%20List)
+
+#### Onset, Abatement, and Prevalence Interval
+
+The `AllergyIntolerance` resource defines an `onset` element that specifies the start of the prevalence period of the allergy/intolerance. In addition, abatement for an AllergyIntolerance can be represented in multiple ways:
+
+* [`.abatement()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,abatement,-%28allergyIntolerance%20AllergyIntolerance): Returns the abatement of the given AllergyIntolerance, if present
+* [`.resolutionAge()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,resolutionAge,-%28allergyIntolerance%20AllergyIntolerance): Returns the resolutionAge of the given AllergyIntolerance, if present
+
+These elements can be specified as choices of various types to allow systems flexibility in the way that information is represented. The US Core profile for `AllergyIntolerance` constrains those choices to only those that support actual computation of a prevalence period. Using these options, an abatement, as well as a prevalence interval, can be calculated:
+
+* [`.abatementInterval()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,abatementInterval,-%28allergyIntolerance%20AllergyIntolerance): Returns an interval representing the normalized abatement of the given AllergyIntolerance resource.
+* [`.prevalenceInterval()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,prevalenceInterval,-%28allergyIntolerance%20AllergyIntolerance): Returns an interval representing the normalized prevalence period of the given AllergyIntolerance resource
+
+
+The `prevalenceInterval` function takes an `AllergyIntolerance` resource and returns the interval from the start of the onset to the end of the abatement. If the AllergyIntolerance is active (i.e., has a clinicalStatus of active), then the ending boundary of the interval is inclusive (i.e., closed). Otherwise, the ending boundary of the interval is exclusive (i.e., open). When looking for whether an allergy/intolerance was active at some point, use the `prevalenceInterval` function rather than looking at the status element only.
 
 #### Current allergies
 
