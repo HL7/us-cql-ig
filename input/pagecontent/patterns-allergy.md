@@ -111,6 +111,16 @@ US Core also supports documenting `UCE."No Known Allergies (Not Asked)"`, which 
 * [`"No Known Allergies (Confirmed)"`](Library-USCoreElements.html#:~:text=%22No%20Known%20Allergies%20%28Confirmed%29%22)
 * [`"No Known Allergies (Not Asked)"`](Library-USCoreElements.html#:~:text=%22No%20Known%20Allergies%20%28Not%20Asked%29%22)
 
+#### Examples
+
+The following examples are illustrations of how these patterns could be used for specific clinical scenarios, making use of the general pattern for testing the type of allergy with a code:
+
+```cql
+define "AllergicToDrugX":
+  UCE."Active Confirmed Allergies and Intolerances" A
+    where A.code ~ "DrugX"
+```
+
 ##### Contrast dye allergy:
 
 Ordering HeadMRI vs HeadCT because patient has allergy to CT dye
@@ -152,12 +162,6 @@ T78.02XS – Anaphylactic reaction due to other nuts and seeds, sequela
 Z91.010 – Allergy to peanuts
 Z91.018 – Allergy to other nuts
 Z91.019 – Allergy to unspecified nuts
-```
-
-```cql
-define "AllergicToDrugX":
-  UCE."Active Confirmed Allergies and Intolerances" A
-    where A.code ~ "DrugX"
 ```
 
 > NOTE: Content for this page was adapted from the [QICore Authoring Patterns - Allergies](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0#allergies) topic.
