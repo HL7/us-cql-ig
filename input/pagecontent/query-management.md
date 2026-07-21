@@ -5,8 +5,8 @@ This topic provides query management guidance for implementers to support the us
 * Manage optional _include and _revInclude situations
 * Manage _element filtering
 * Manage version differences among servers
-* Provide simpler functions with typical search parameter filters (e.g. including only final and amended observations)
-* Manage extension retrieval for extensions expected to be present (e.g. USCore and CRD extensions)
+* Provide simpler functions with typical search parameter filters (e.g., including only final and amended observations)
+* Manage extension retrieval for extensions expected to be present (e.g., USCore and CRD extensions)
 * Complex element retrieval such as "Cumulative Medication Duration" and "Body Surface Area"
 
 * [Authoring](authoring.html)

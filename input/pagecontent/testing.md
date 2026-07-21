@@ -1,4 +1,4 @@
-> For [Content Implementation Guides](https://hl7.org/fhir/uv/crmi/introduction.html#content-igs) (i.e. implementation guides that primarily consist of knowledge artifacts) such as this one, best practice is to provide test content as part of the source repository, and as packaged bundles for ease of distribution. This is because 1) the number of test cases may be (and usually is for production-level content) quite large, resulting in large package files if test content is included, and 2) Test content is part of validating expected behavior, rather than directly needed for implementation, and so should be packaged separately to allow implementers to better manage dependency size and purpose. A future version of this implementation guide will consider using the [Related IGs](https://build.fhir.org/ig/FHIR/ig-guidance/branches/master/related-igs.html) feature of the FHIR packaging ecosystem to support distribution of test cases. Test content for this IG is currently accessible via the [Downloads](downloads.html) page.
+> For [Content Implementation Guides](https://hl7.org/fhir/uv/crmi/introduction.html#content-igs) (i.e., implementation guides that primarily consist of knowledge artifacts) such as this one, best practice is to provide test content as part of the source repository, and as packaged bundles for ease of distribution. This is because 1) the number of test cases may be (and usually is for production-level content) quite large, resulting in large package files if test content is included, and 2) test content is part of validating expected behavior, rather than directly needed for implementation, and so should be packaged separately to allow implementers to better manage dependency size and purpose. A future version of this implementation guide will consider using the [Related IGs](https://build.fhir.org/ig/FHIR/ig-guidance/branches/master/related-igs.html) feature of the FHIR packaging ecosystem to support distribution of test cases. Test content for this IG is currently accessible via the [Downloads](downloads.html) page.
 
 ### Unit Testing
 
@@ -6,7 +6,7 @@ CQL libraries should be tested with focused test cases that ensure expected beha
 
 [User's Guide - Adding Test Data](https://github.com/cqframework/vscode-cql/wiki/User-Guide#adding-test-data)
 
-Each of the libraries in this implementation guide have associated test cases defined in the `input/tests/library` directory. Each library under test has a folder with the same name as the library, and each of these folders has sub-folders corresponding to test cases for the library.
+Each of the libraries in this implementation guide has associated test cases defined in the `input/tests/library` directory. Each library under test has a folder with the same name as the library, and each of these folders has sub-folders corresponding to test cases for the library.
 
 Each of the test cases is a single patient with all the resources for that test case, as well as an `expected-results` Parameters resource that defines the expected results for each expression in the library. For example, the `ExamplePatientAndCoverageInitialExpressions` library has the following expression declaration:
 
@@ -53,7 +53,7 @@ The [DTR Inferno Test Kit](https://inferno.healthit.gov/test-kits/davinci-dtr/) 
 
 ##### EHR FHIR Queries
 
-The [DTR SMART on FHIR App](https://github.com/HL7-DaVinci/dtr) has facilities for end-to-end testing of the DaVinci DTR questionnaire use case, including questionnaire population and EHR FHIR queries.
+The [DTR SMART on FHIR App](https://github.com/HL7-DaVinci/dtr) has facilities for end-to-end testing of the Da Vinci DTR questionnaire use case, including questionnaire population and EHR FHIR queries.
 
 ##### Questionnaire Populate
 

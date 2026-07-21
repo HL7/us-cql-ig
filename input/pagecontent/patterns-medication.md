@@ -38,7 +38,7 @@ Although newer versions of USCore introduce additional capability through new el
 
 #### Active Medications
 
-> NOTE: In the [prior auth use case](use-case-pa.html), the workflow is generally being conducted in the context of 1 or more order, so you'll want to start by working off that context before searching the FHIR server for medication requests.
+> NOTE: In the [prior auth use case](use-case-pa.html), the workflow is generally being conducted in the context of 1 or more orders, so you'll want to start by working off that context before searching the FHIR server for medication requests.
 
 <!--
 > TODO: in UCE we want a few wrappers for common things people would want from a MedicationRequest (procedure code, who/where requested it, who/where is performing it), however these are currently built on ```UCE."Most Recent MedicationRequest"``` which could be pulling the wrong data. We need our functions structured to support working on the data in context during DTR.

@@ -1,6 +1,6 @@
 USCore defines [USCore Condition Encounter Diagnosis]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-condition-encounter-diagnosis.html) and [USCore Condition Problems and Health Concerns]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-condition-problems-health-concerns.html).
 
-Many clinical systems make a distinction between the active conditions for a patient (i.e. the problem list or health concerns) and the diagnoses associated with an encounter. Problem list items and health concerns are typically documented with additional information about the condition such as prevalence period and clinical status, while encounter diagnoses typically have less information, usually only the diagnosis code as part of the encounter information. Within FHIR, both these types of data are represented using the Condition resource. The category element is used to indicate which kind of data the Condition represents, a problem list item, a health concern, or an encounter diagnosis. The [FHIRCommon]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html) has functions for distinguishing category if needed.
+Many clinical systems make a distinction between the active conditions for a patient (i.e., the problem list or health concerns) and the diagnoses associated with an encounter. Problem list items and health concerns are typically documented with additional information about the condition such as prevalence period and clinical status, while encounter diagnoses typically have less information, usually only the diagnosis code as part of the encounter information. Within FHIR, both these types of data are represented using the Condition resource. The category element is used to indicate which kind of data the Condition represents, a problem list item, a health concern, or an encounter diagnosis. The [FHIRCommon]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html) library has functions for distinguishing category if needed.
 
 Typical code systems for `Condition.code` include ICD-10, SNOMED, and LOINC. For historical conditions there will also be ICD-9.
 
@@ -11,7 +11,7 @@ Conditions in US Core have the following modifier elements:
 * clinicalStatus
 * verificationStatus
 
-Note that neither of these elements are required, but both are must support, and have a required binding. As such the USCoreCommon library defines functions such as `isActive()` for assessing these statuses. Further examples are provided in the "Common Elements" section below.
+Note that neither of these elements are required, but both are must support, and have a required binding. As such the FHIRCommon library defines functions such as `isActive()` for assessing these statuses. Further examples are provided in the "Common Elements" section below.
 
 ### Search Parameters
 
@@ -25,7 +25,7 @@ In addition, the following optional parameters are defined:
 * code (applications will almost always want this)
 * clinical-status (common to only want active)
 * onset-date / asserted-date / recorded-date / abatement-date / _lastUpdated (probably used a lot)
-* encounter (some payers will care about which encounter. its more rare in prior auth)
+* encounter (some payers will care about which encounter. It's more rare in prior auth)
 
 > NOTE: For discussion on how to manage search parameters with terminology, see the [Terminology Considerations](architectural-guidance.html#terminology-considerations) discussion in the Architectural Guidance topic.
 
@@ -80,7 +80,7 @@ The `Condition` resource in FHIR has a `verificationStatus` element to represent
 * `isConfirmed()`
 * `isRefuted()`
 
-The element is not required, but if it is present, it is a modifier element, and has the potential to negate the information the `Condition` resource represents (e.g. refuted). For most usage, when artifact intent is looking for positive evidence of a condition, the verification statuses of `refuted` and `entered-in-error` should be excluded if `verificationStatus` is present:
+The element is not required, but if it is present, it is a modifier element, and has the potential to negate the information the `Condition` resource represents (e.g., refuted). For most usage, when artifact intent is looking for positive evidence of a condition, the verification statuses of `refuted` and `entered-in-error` should be excluded if `verificationStatus` is present:
 
 ```cql
 define "Verified Conditions":
@@ -93,7 +93,7 @@ define "Verified Conditions":
       )
 ```
 
-To support reuse of this pattern, the `isVerified` fluent function can be used:
+To support re-use of this pattern, the `isVerified` fluent function can be used:
 
 ```cql
 define fluent function isVerified(condition FHIR.Condition):
@@ -151,9 +151,9 @@ Although all three are marked as Must Support, servers are not required to suppo
 
 The `Condition` resource defines `onset` and `abatement` elements that specify the prevalence period of the condition. The elements can be specified as choices of various types to allow systems flexibility in the way that information is represented. The US Core profiles for `Condition` constrain those choices to only those that support actual computation of a prevalence period. The Common libraries define the following functions for determining onset, abatement, and prevalence:
 
-* `toInterval()`: returns an interval representation of a time-valued element (i.e. choice of time types)
+* `toInterval()`: returns an interval representation of a time-valued element (i.e., choice of time types)
 * `abatementInterval()`: returns the abatement interval of a condition
-* `prevalenceInterval()`: returns the prevalence interval of a condition (i.e. earliest onset through latest abatement if known)
+* `prevalenceInterval()`: returns the prevalence interval of a condition (i.e., earliest onset through latest abatement if known)
 
 ```cql
 define "Active Diabetes Conditions Onset Within A Year":
@@ -161,7 +161,7 @@ define "Active Diabetes Conditions Onset Within A Year":
     where Diabetes.prevalenceInterval() starts 1 year on or before Today()
 ```
 
-The `prevalenceInterval` function takes a `Condition` resource and returns the interval from the start of the onset to the end of the abatement. If the Condition is active (i.e. has a clinicalStatus of active, recurrence, or relapse), then the ending boundary of the interval is inclusive (i.e. closed). Otherwise, the ending boundary of the interval is exclusive (i.e. open). When looking for whether a condition was active at some point, use the `prevalenceInterval` function rather than looking at the status element only.
+The `prevalenceInterval` function takes a `Condition` resource and returns the interval from the start of the onset to the end of the abatement. If the Condition is active (i.e., has a clinicalStatus of active, recurrence, or relapse), then the ending boundary of the interval is inclusive (i.e., closed). Otherwise, the ending boundary of the interval is exclusive (i.e., open). When looking for whether a condition was active at some point, use the `prevalenceInterval` function rather than looking at the status element only.
 
 
 > Some of this content is adapted from https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0#conditions

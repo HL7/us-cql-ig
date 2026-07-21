@@ -1,23 +1,23 @@
 ### Introduction
 
-This implementation guide contains architectural guidance and re-usable libraries that facilitate the use of [Clinical Quality Language (CQL)](http://cql.hl7.org) with FHIR in the US Realm, with an initial use case of Prior Authorization Support Questionnaires as described in the [DaVinci Documentation Templates and Rules (DTR)](https://hl7.org/fhir/us/davinci-dtr/) implementation guide. Much of the guidance and content presented here is built on work done in the quality measurement domain, including patterns established by measure developers as part of testing and developing quality measures for use with FHIR. These patterns have been generalized to support US Core as well as harmonized to be usable across use cases.
+This implementation guide contains architectural guidance and re-usable libraries that facilitate the use of [Clinical Quality Language (CQL)](http://cql.hl7.org) with FHIR in the US Realm, with an initial use case of Prior Authorization Support Questionnaires as described in the [Da Vinci Documentation Templates and Rules (DTR)](https://hl7.org/fhir/us/davinci-dtr/) implementation guide. Much of the guidance and content presented here is built on work done in the quality measurement domain, including patterns established by measure developers as part of testing and developing quality measures for use with FHIR. These patterns have been generalized to support US Core as well as harmonized to be usable across use cases.
 
-The content in this implementation guide is provided for reuse and proposed to help streamline implementation and development of CQL-based knowledge artifacts in the US Realm. The guidance here is published informative and the IG imposes no conformance expectations on systems that make use of it. This does not mean that the content cannot be used in production; the content in this implementation guide is stable as of publication, and will use semantic versioning to communicate change impact across new versions, as described in the [CRMI IG versioning](https://hl7.org/fhir/uv/crmi/artifact-lifecycle.html#artifact-versioning) topic. In particular, this means that production systems can expect no breaking changes without a corresponding major version increment, and that any minor version increment indicates compatible changes.
+The content in this implementation guide is provided for re-use and proposed to help streamline implementation and development of CQL-based knowledge artifacts in the US Realm. The guidance here is published as informative and the IG imposes no conformance expectations on systems that make use of it. This does not mean that the content cannot be used in production; the content in this implementation guide is stable as of publication, and will use semantic versioning to communicate change impact across new versions, as described in the [CRMI IG versioning](https://hl7.org/fhir/uv/crmi/artifact-lifecycle.html#artifact-versioning) topic. In particular, this means that production systems can expect no breaking changes without a corresponding major version increment, and that any minor version increment indicates compatible changes.
 
 ### Scope of Use
 
 This guide is a [Content Implementation Guide](https://hl7.org/fhir/uv/crmi/introduction.html#content-igs) that supports the use of CQL with FHIR in the US Realm by:
 
-* Providing architectural guidance for the evaluation of CQL expressions in the context of artifacts such as questionnaires, quality measures, and decision support rules.
+* Providing architectural guidance for the evaluation of CQL expressions in the context of artifacts such as questionnaires, quality measures, and decision support rules
 * Providing re-usable libraries of CQL expressions to retrieve data for common use cases in the US Realm
 * Providing guidance for managing CQL expressions that may involve retrieval of data from multiple versions of the US Core implementation guide
 * Gathering requirements for tooling to simplify the authoring of questionnaires that use CQL
 
-The term [_artifact_](https://hl7.org/fhir/uv/crmi/index.html#artifacts) here refers to a FHIR resource that is definitional in nature or use such as a Questionnaire, or a Library (as opposed to a FHIR resource that is representing instance-specific data, such as an Observation). This implementation guide provides common artifacts that support the use of CQL with FHIR in the US Realm. The artifacts support a broad range of use cases across the healthcare domain, including prior authorization, quality measurement and reporting, clinical decision support, computable guidelines, and public health case reporting. Any use of CQL within the US Realm could benefit from the artifacts provided here, as well as provide feedback to these artifacts, both in the form of proposed changes to existing artifacts, as well as proposing new artifacts that could be re-used across use cases.
+The term [_artifact_](https://hl7.org/fhir/uv/crmi/index.html#artifacts) here refers to a FHIR resource that is definitional in nature or use, such as a Questionnaire or a Library (as opposed to a FHIR resource that is representing instance-specific data, such as an Observation). This implementation guide provides common artifacts that support the use of CQL with FHIR in the US Realm. The artifacts support a broad range of use cases across the healthcare domain, including prior authorization, quality measurement and reporting, clinical decision support, computable guidelines, and public health case reporting. Any use of CQL within the US Realm could benefit from the artifacts provided here, as well as provide feedback to these artifacts, both in the form of proposed changes to existing artifacts, as well as proposing new artifacts that could be re-used across use cases.
 
-Providing standardized CQL libraries will reduce burden by establishing best practices and reusable expressions for common questions across questionnaires, both currently and into the future. As well, these shared CQL artifacts will support a user with deep clinical knowledge but limited technical knowledge to be able to build and maintain CQL-based questionnaires. Open questionnaire authoring environments (i.e., LHC forms builder) exist and will enable the growth of CQL artifacts (see the [Tooling Support](tooling-support.html) page for further discussion).
+Providing standardized CQL libraries will reduce burden by establishing best practices and re-usable expressions for common questions across questionnaires, both currently and into the future. As well, these shared CQL artifacts will support a user with deep clinical knowledge but limited technical knowledge to be able to build and maintain CQL-based questionnaires. Open questionnaire authoring environments (e.g., LHC forms builder) exist and will enable the growth of CQL artifacts (see the [Tooling Support](tooling-support.html) page for further discussion).
 
-> NOTE: Although the current guidance has been developed based on the prior authorization questionnaires as the first use case, the intent is to capture common patterns, guidance, and artifacts that are usable across use-cases.
+> NOTE: Although the current guidance has been developed based on the prior authorization questionnaires as the first use case, the intent is to capture common patterns, guidance, and artifacts that are usable across use cases.
 
 The artifacts provided by this implementation guide fall into three general categories:
 
@@ -30,7 +30,7 @@ The artifacts provided by this implementation guide fall into three general cate
 This implementation guide does not:
 
 * Define or mandate the use of any particular subsets of CQL
-* Define functions for the retrieval of simple elements from already retrieved FHIR resources (e.g. Patient.birthDate)
+* Define functions for the retrieval of simple elements from already retrieved FHIR resources (e.g., Patient.birthDate)
 * Define expectations for certification that require the use of any of the helper libraries provided in this implementation guide
 
 ### How to Read This Guide
@@ -42,7 +42,7 @@ This implementation guide is targeted at two main audiences:
 * **Authors**: Persons involved in the development of CQL-based FHIR Knowledge Artifacts that are authoring CQL, either directly or with tooling assistance
 * **Integrators**: Persons involved in the development of systems that support authoring, publishing, distributing, and implementing CQL-based FHIR Knowledge Artifacts
 
-This Guide is divided into several pages which are listed at the top of each page in the menu bar:
+This guide is divided into several pages which are listed at the top of each page in the menu bar:
 
 * **[Home](index.html)**
 * **Background**
@@ -73,19 +73,19 @@ This Guide is divided into several pages which are listed at the top of each pag
 
 ### Roadmap
 
-Implementers of this content are encouraged to provide feedback through the usual mechanisms for feedback on HL7 FHIR Implementation Guides, by submitting an [issue](https://jira.hl7.org/secure/CreateIssueDetails!init.jspa?pid=10405&amp;issuetype=10600&amp;customfield_11302=FHIR-us-cql). To see the current status of the feedback for this specification, see the [US CQL Specification Dashboard](https://jira.hl7.org/secure/Dashboard.jspa?selectPageId=17807). For more information on how to submit feedback, refer to the [Specification Feedback](https://confluence.hl7.org/spaces/HL7/pages/19136736/Specification+Feedback) page in the HL7 confluence.
+Implementers of this content are encouraged to provide feedback through the usual mechanisms for feedback on HL7 FHIR Implementation Guides, by submitting an [issue](https://jira.hl7.org/secure/CreateIssueDetails!init.jspa?pid=10405&amp;issuetype=10600&amp;customfield_11302=FHIR-us-cql). To see the current status of the feedback for this specification, see the [US CQL Specification Dashboard](https://jira.hl7.org/secure/Dashboard.jspa?selectPageId=17807). For more information on how to submit feedback, refer to the [Specification Feedback](https://confluence.hl7.org/spaces/HL7/pages/19136736/Specification+Feedback) page in the HL7 Confluence.
 
 Feedback submitted to this implementation guide is discussed and resolved in the [Clinical Decision Support](https://confluence.hl7.org/spaces/CDS/pages/40742690/Meeting+Index) weekly meeting.
 
-This implementation guide will be published for a two-year implementation period, during which time we will seek implementer feedback, applying as needed. The next ballot of this material will take place when the community indicates sufficient feedback and/or need for an updated release.
+This implementation guide will be published for a two-year implementation period, during which time we will seek implementer feedback, applying changes as needed. The next ballot of this material will take place when the community indicates sufficient feedback and/or need for an updated release.
 
 ### Acknowledgements
 
-This Implementation Guide was made possible by the thoughtful contributions of the following people and organizations:
+This implementation guide was made possible by the thoughtful contributions of the following people and organizations:
 
-* [The DaVinci Project Member Organizations](https://www.hl7.org/about/davinci/index.cfm?ref=common)
+* [The Da Vinci Project Member Organizations](https://www.hl7.org/about/davinci/index.cfm?ref=common)
 * Raj Godavarthi, MCG Health
-* Mike Gould, Zeomega
+* Mike Gould, ZeOmega
 * Yan Heras, Optimum eHealth
 * Kyle Johnsen, Epic
 * Crystal Kallem, Point of Care Partners

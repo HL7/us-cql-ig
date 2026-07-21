@@ -3,7 +3,7 @@ This topic provides architectural guidance for implementers supporting FHIR and 
 This discussion assumes the following:
 
 * A Questionnaire resource with any number of `item` elements, nested to any degree
-* A Questionnaire may include any number of `initialExpression`, `candidateExpression` and `calculatedExpression` extensions referencing CQL expressions to be evaluated
+* A Questionnaire may include any number of `initialExpression`, `candidateExpression`, and `calculatedExpression` extensions referencing CQL expressions to be evaluated
 
 This guidance is provided as a complement to the conformance expectations and guidance described in [Pre-populating QuestionnaireResponses](https://hl7.org/fhir/us/davinci-dtr/specification.html#pre-populating-questionnaireresponses) in the DTR implementation guide.
 
@@ -11,13 +11,13 @@ This guidance is provided as a complement to the conformance expectations and gu
 
 #### Data Access Within CQL
 
-All data access within CQL occurs within the [Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve) expression. When CQL is packaged within a Library resource, these retrieves are surfaced as `dataRequirement` elements according to the mapping defined in the [Data Requirements]({{site.data.fhir.ver.cql}}/conformance.html#parameters-and-data-requirements) of the Using CQL With FHIR IG. These data requirements allow the complete data expectations for the CQL within the library to be communicated. However, these elements in the Library resource represent the total data requirements for the library, whereas the Questionnaire may only reference some of the expressions in the library, or the initial state of the Questionnaire may be such that only a subset of questions are enabled and therefore need population.
+All data access within CQL occurs within the [Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve) expression. When CQL is packaged within a Library resource, these retrieves are surfaced as `dataRequirement` elements according to the mapping defined in the [Data Requirements]({{site.data.fhir.ver.cql}}/conformance.html#parameters-and-data-requirements) section of the Using CQL With FHIR IG. These data requirements allow the complete data expectations for the CQL within the library to be communicated. However, these elements in the Library resource represent the total data requirements for the library, whereas the Questionnaire may only reference some of the expressions in the library, or the initial state of the Questionnaire may be such that only a subset of questions are enabled and therefore need population.
 
 To address this, static analysis of the CQL can be used to determine the set of data requirements for an expression (or set of expressions), as described in the [Artifact Data Requirements](https://cql.hl7.org/05-languagesemantics.html#artifact-data-requirements) section of the CQL specification. The [DataRequirementsProcessor](https://github.com/cqframework/clinical_quality_language/blob/faf395f72fc1836cc16114da7c2a56b327fd99cd/elm-fhir/src/main/kotlin/org/cqframework/cql/elm/requirements/fhir/DataRequirementsProcessor.kt#L104) provides an implementation of this capability. This component can accept a list of the expressions that should be analyzed to determine data requirements.
 
-Note that this process of analyzing data requirements is simplified by the practice of having all the expressions in a given questionnaire reference a single CQL library, the "primary artifact library". This approach is used in measure development and provides a way to organize content per artifact. Expressions from other libraries can still be used, but must be referenced by declaring a passthrough expression in the primary artifact library. This can be an undue burden for questionnaire authors, so this is not considered best-practice for questionnaires. However, all the examples in this implementation guide take this approach to simplify data requirements analysis processing.
+Note that this process of analyzing data requirements is simplified by the practice of having all the expressions in a given questionnaire reference a single CQL library, the "primary artifact library". This approach is used in measure development and provides a way to organize content per artifact. Expressions from other libraries can still be used, but must be referenced by declaring a passthrough expression in the primary artifact library. This can be an undue burden for questionnaire authors, so this is not considered best practice for questionnaires. However, all the examples in this implementation guide take this approach to simplify data requirements analysis processing.
 
-In addition to gathering the _effective_ data requirements through dependency tracing of specific expressions, data requirements can be _collapsed_ (i.e. minimized to eliminate duplicate or overlapping requests). These techniques can be combined to ensure that applications can minimize the number of queries used to retrieve data necessary to evaluate the CQL logic within the questionnaire.
+In addition to gathering the _effective_ data requirements through dependency tracing of specific expressions, data requirements can be _collapsed_ (i.e., minimized to eliminate duplicate or overlapping requests). These techniques can be combined to ensure that applications can minimize the number of queries used to retrieve data necessary to evaluate the CQL logic within the questionnaire.
 
 ### Additional Data Retrieval and Flow Control
 
@@ -31,7 +31,7 @@ TODO: Provide guidance about making the determination between sending libraries 
 
 https://hl7.org/fhir/us/davinci-dtr/specification.html#value-set-and-code-system-guidance
 
-Note that questionnaires may reference value sets that are not included in the questionnaire package. In particular, best practice for value sets that do not have expansions (for example because the value set definition is more concisely expressed as a condition, or the value set is too large) is that they not be included in the questionnaire package.
+Note that questionnaires may reference value sets that are not included in the questionnaire package. In particular, best practice for value sets that do not have expansions (for example, because the value set definition is more concisely expressed as a condition, or the value set is too large) is that they not be included in the questionnaire package.
 
 Value set references will be encountered in two different ways in CQL used by a Questionnaire:
 
@@ -49,7 +49,7 @@ In addition, for performance, the second approach will likely be implemented wit
 
 As well, depending on the sensitivity of the questions to updates in code systems, the expansion of value sets used may need to be performed with version-specific references to the code systems and value sets involved.
 
-When questionnaires and CQL libraries reference value sets, they may do so with a version-specific, or a version-independent reference. CQL libraries often use version-independent references for value sets to minimize the maintenance overhead involved in updating value set versions. To establish the versions of value sets referenced in this way, a [Version Manifest]({{site.data.fhir.ver.crmi}}/version-manifest.html) may be used if there is a need to indicate a specific version for a particular deployment.
+When questionnaires and CQL libraries reference value sets, they may do so with a version-specific or a version-independent reference. CQL libraries often use version-independent references for value sets to minimize the maintenance overhead involved in updating value set versions. To establish the versions of value sets referenced in this way, a [Version Manifest]({{site.data.fhir.ver.crmi}}/version-manifest.html) may be used if there is a need to indicate a specific version for a particular deployment.
 
 When a value set reference appears within a `retrieve`, the corresponding DataRequirement will include the value set reference. For example:
 
@@ -115,9 +115,9 @@ In addition, multi-threading requests to the server can reduce the overall time 
 
 ### Conventions
 
-As with any content development effort, to facilitate readability and maintainability of CQL, best-practice is to follow and contribute to the conventions established by the community:
+As with any content development effort, to facilitate readability and maintainability of CQL, best practice is to follow and contribute to the conventions established by the community:
 
 * **[Conventions](https://cql.hl7.org/14-g-formattingconventions.html)**: Overall formatting conventions and best practices
-* **[Using CQL]({{site.data.fhir.ver.cql}}/using-cql.html)**: Best-practices and conformance requirements for using CQL with FHIR
+* **[Using CQL]({{site.data.fhir.ver.cql}}/using-cql.html)**: Best practices and conformance requirements for using CQL with FHIR
 * **[Well-known Documentation Tags](https://github.com/cqframework/clinical_quality_language/wiki/Well-Known-CQL-Documentation-Tags)**
 

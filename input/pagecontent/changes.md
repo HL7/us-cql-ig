@@ -14,7 +14,7 @@ This provides a list of changes to the CQF US specification since its initial re
     * [Category](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-observation.html#category)
     * [Interpretation](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-observation.html#interpretation)
     * [Timings](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-observation.html#timings)
-    * [Consecutive Negative Tests](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-observation.html#three-concurrent-negative-stick-tests)
+    * [Consecutive Negative Tests](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-observation.html#three-consecutive-negative-stick-tests)
 * [FHIR-53458](https://jira.hl7.org/browse/FHIR-53458): Added patient name and age patterns
     * [Patient Name](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-patient.html#patient-name)
     * [Patient Birthdate](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-patient.html#patient-birthdate)

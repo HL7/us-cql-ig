@@ -1,6 +1,6 @@
 US Core defines [US Core ServiceRequest]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-servicerequest.html) to track the proposal / planning / ordering of a service, and [US Core Procedure]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-procedure.html) to track performing a service.
 
-Typical procedure codes include SNOMED-CT, CPT, HCPCS II, ICD-10-PCS, CDT, and LOINC.
+Typical procedure codes include SNOMED CT, CPT, HCPCS II, ICD-10-PCS, CDT, and LOINC.
 
 ### Modifier Elements
 
@@ -45,7 +45,7 @@ Note that 3.1.1 does not define a profile for ServiceRequest, so the direct FHIR
 
 #### Requested Services
 
-> NOTE: In the [prior auth use case](use-case-pa.html), the workflow is generally being conducted in the context of 1 or more order, so you'll want to start by working off that context before searching the FHIR server for service requests.
+> NOTE: In the [prior auth use case](use-case-pa.html), the workflow is generally being conducted in the context of 1 or more orders, so you'll want to start by working off that context before searching the FHIR server for service requests.
 
 <!--
 > TODO: in UCE we want a few wrappers for common things people would want from a ServiceRequest (procedure code, who/where requested it, who/where is performing it), however these are currently built on ```UCE."Most Recent ServiceRequest"``` which could be pulling the wrong data. We need our functions structured to support working on the data in context during DTR.

@@ -57,6 +57,6 @@ This implementation guide includes the model information for the US Core specifi
 
 > Previous versions of the USCore-ModelInfo library (3.1.1 and 6.1.0) were included as embedded resources in the CQL-to-ELM translator (referenced without a namespace and using the version of the implementation guide). This is the 7.0.0 version of the US Core Model Information file. As of version 8.0.0, the US Core implementation guide now includes [model information](https://hl7.org/fhir/us/core/Library-uscore-8.0.0-model-definition.html).
 
-> Previous version of the USCore-ModelInfo were generated using [Profile-informed authoring](https://hl7.org/fhir/uv/cql/using-modelinfo.html#profile-informed-modelinfo). However, as of 7.0.0, based on authoring and implementer feedback, the model information file is generated as a Derived model info:
+> Previous versions of the USCore-ModelInfo library were generated using [Profile-informed authoring](https://hl7.org/fhir/uv/cql/using-modelinfo.html#profile-informed-modelinfo). However, as of 7.0.0, based on authoring and implementer feedback, the model information file is generated as a Derived model info:
 
-> This model information file was generated with the [uscore-7-0-0-modelinfo-settings](Parameters-uscore-7-0-0-modelinfo-settings.html) parameters, using the process described in [Derived Model Info]({{site.data.fhir.ver.cql}}using-modelinfo.html#derived-modelinfo).
+> This model information file was generated with the [uscore-7-0-0-modelinfo-settings](Parameters-uscore-7-0-0-modelinfo-settings.html) parameters, using the process described in [Derived Model Info]({{site.data.fhir.ver.cql}}/using-modelinfo.html#derived-modelinfo).

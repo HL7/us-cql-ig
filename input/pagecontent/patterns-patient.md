@@ -47,7 +47,7 @@ In addition, the library defines functions for common use cases for the HumanNam
 
 * [`.firstName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstName,-%28name%20FHIR)
 * [`.middleNames()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,middleNames,-%28name%20FHIR)
-* [`.lastName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,lastName,-%28name%FHIR)
+* [`.lastName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,lastName,-%28name%20FHIR)
 * [`.firstMiddleLast()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstMiddleLast,-%28name%20FHIR)
 * [`.lastFirstMiddle()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,lastFirstMiddle,-%28name%20FHIR)
 
@@ -73,7 +73,7 @@ Patient.birthDateTime()
 
 #### Patient age
 
-Patient information includes the birth date, and CQL provides a built-in function to calculate the age of a patient, either current age (i.e. as of now), or _as of_ a particular date. In quality improvement artifacts, age is typically calculated _as of_ a particular date. In the context of a Questionnaire, this is typically just today's date, and can be accessed using the `ageInYears()` function:
+Patient information includes the birth date, and CQL provides a built-in function to calculate the age of a patient, either current age (i.e., as of now), or _as of_ a particular date. In quality improvement artifacts, age is typically calculated _as of_ a particular date. In the context of a Questionnaire, this is typically just today's date, and can be accessed using the `ageInYears()` function:
 
 ```cql
 define "Patient Age Between 50 and 75":
@@ -115,7 +115,7 @@ The US Core Common library defines the following patient sex functions:
 * [`.sex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,sex,-%28patient%20FHIR) - DEPRECATED - Returns the value of the sex extension, use individualSex instead
 * [`.birthSex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,birthSex,-%28patient%20FHIR) - Returns a person's documented sex at birth
 * [`.individualSex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,individualSex,-%28patient%20FHIR) - Reflects documentation of a person's sex
-* [`.toIndividualSex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,toIndividualSex,-%sex%20FHIR) - Maps the code from a sex element to an individualSex element
+* [`.toIndividualSex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,toIndividualSex,-%28sex%20FHIR) - Maps the code from a sex element to an individualSex element
 * [`.sexParameterForClinicalUse()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,sexParameterForClinicalUse,-%28patient%20FHIR) - Returns all sexParameterForClinicalUse elements for a patient, optionally as of a given date and time
 
 #### Patient race and ethnicity
@@ -135,7 +135,7 @@ define "Patient Race Includes Alaska Native":
 
 Some elements in USCore profiles allow for values to be represented in different ways. For example, the `deceased` element allows values of `Boolean` and `DateTime`. This means that the value of the `deceased` element for any particular patient may be either a Boolean (`true` or `false`) or a DateTime. In FHIR and CQL, these types of elements are called _choice_ types.
 
-> NOTE: Because the US Core model is using CQL system-defined types (see the [FHIR Type Mapping]({{site.data.fhir.ver.cql}}/conformance.html#fhir-type-mapping) topic in the Using CQL With FHIR IG), the spelling of the types uses the CQL type names (e.g. `Boolean` rather than `boolean`).
+> NOTE: Because the US Core model is using CQL system-defined types (see the [FHIR Type Mapping]({{site.data.fhir.ver.cql}}/conformance.html#fhir-type-mapping) topic in the Using CQL With FHIR IG), the spelling of the types uses the CQL type names (e.g., `Boolean` rather than `boolean`).
 
 When accessing choice types in CQL expressions, authors can typically just treat the element as the type they are interested in accessing. For example:
 

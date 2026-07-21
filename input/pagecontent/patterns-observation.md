@@ -3,7 +3,7 @@ The FHIR Observation resource supports capturing a variety of information in a m
 * Vital Signs
 * Clinical Results
 * Laboratory Results
-* Screening Asessments
+* Screening Assessments
 * Simple Observations
 * Other Observations
 
@@ -17,7 +17,7 @@ US Core defines [US Core Laboratory Result Observation]({{site.data.fhir.ver.usc
 
 Observation codes will be LOINC. Result values will generally be represented in different ways, according to the type of lab result. The LOINC code itself will often describe the expected representation of possible values for a given observation or test result.
 
-#### Screening Asessments
+#### Screening Assessments
 
 #### Simple Observations
 
@@ -72,10 +72,10 @@ The USCoreCommon library defines functions and terminology declarations to suppo
 
 As well as for filtering lists of observations with a given status:
 
-* [`resulted()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,resulted,-%28observations%20List): returns Observations in the given list with a status is `final`, `amended`, or `corrected`
-* [`final()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,final,-%28observations%20List): Returns Observations in the given list with a status is `final`
-* [`amended()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,amended,-%28observations%20List): Returns Observations in the given list with a status is `amended`
-* [`corrected()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,corrected,-%28observations%20List): Returns Observations in the given list with a status is `corrected`
+* [`resulted()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,resulted,-%28observations%20List): returns Observations in the given list with a status of `final`, `amended`, or `corrected`
+* [`final()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,final,-%28observations%20List): Returns Observations in the given list with a status of `final`
+* [`amended()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,amended,-%28observations%20List): Returns Observations in the given list with a status of `amended`
+* [`corrected()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,corrected,-%28observations%20List): Returns Observations in the given list with a status of `corrected`
 
 #### Category
 
@@ -196,9 +196,9 @@ define "Positive Pregnancy Intent":
     
 ### Examples
 
-#### Three Concurrent Negative Stick Tests
+#### Three Consecutive Negative Stick Tests
 
-This example illustrates logic for identifying three concurrent negative "stick tests":
+This example illustrates logic for identifying three consecutive negative "stick tests":
 
 ```cql
 define StickTest:

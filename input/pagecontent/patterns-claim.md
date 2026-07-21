@@ -39,7 +39,7 @@ define fluent function isProfessional(claim Claim):
 define fluent function isInstitutional(claim Claim):
   claim.type ~ "institutional"
 
-define fluent function isActcive(claim Claim):
+define fluent function isActive(claim Claim):
   claim.status = 'active'
 
 define fluent function isClaim(claim Claim):

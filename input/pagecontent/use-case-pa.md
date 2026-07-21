@@ -35,7 +35,7 @@ The content and questionnaires in this IG are expected to already have resolved 
 Following the above data flow, there are two key contexts in which CQL expressions may be used to populate questionnaire responses:
 
 1. On the provider side, during the population step of questionnaire processing in the DTR application.
-2. On the provider side, as part of form behavior (e.g. enableWhen processing) while the form is being filled out (including the possibility that answers to questions change the available context and form behavior).
+2. On the provider side, as part of form behavior (e.g., enableWhen processing) while the form is being filled out (including the possibility that answers to questions change the available context and form behavior).
   
 Note: Implementations of $questionnaire-package may pre-populate elements of the QuestionnaireResponse; however, how that pre-population occurs payer-side is out of scope from both the CRD and DTR perspectives.
 
@@ -53,7 +53,7 @@ CQL used in this operation:
 
 Generally, the SDC <a href="{{site.data.fhir.ver.sdc}}/StructureDefinition-sdc-questionnaire-initialExpression.html">Initial Expression</a> extension will be used to pre-populate a given item in the QuestionnaireResponse. This is how CQL expressions are specified in the Questionnaire.
 
-Additionally, the SDC <a href="{{site.data.fhir.ver.sdc}}/StructureDefinition-sdc-questionnaire-itemPopulationContext.html">Item Population Context</a> extension can be used with a CQL expression to provide context when populating group items (i.e. group items whose sub-items are populated with the values of sub-elements of a value with multiple elements (e.g. HumanName, Address, or BackboneElement)).
+Additionally, the SDC <a href="{{site.data.fhir.ver.sdc}}/StructureDefinition-sdc-questionnaire-itemPopulationContext.html">Item Population Context</a> extension can be used with a CQL expression to provide context when populating group items (i.e., group items whose sub-items are populated with the values of sub-elements of a value with multiple elements (e.g., HumanName, Address, or BackboneElement)).
 
 #### CQL Processing to Determine Form Behavior
 

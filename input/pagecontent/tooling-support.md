@@ -11,7 +11,7 @@ This topic describes questionnaire-related authoring capabilities that would be 
 > NOTE: Items in **bold** are not currently supported by the LHC Forms Builder (see below)
 
 * Create and maintain questionnaires
-    * Edit basic (shareable) metadata including title, url, status and version
+    * Edit basic (shareable) metadata including title, url, status, and version
     * Edit advanced (publishable) metadata including description, purpose, approvalDate, lastReviewDate, **useContext**
 * Create single-item questions
     * Edit basic question information including
@@ -44,11 +44,11 @@ In addition to questionnaire authoring capability, the following are areas withi
     * Population expressions
     * Extraction expressions
     * Enable-when expressions
-* Consider the ability to map the code of an question to an existing expression
+* Consider the ability to map the code of a question to an existing expression
     * Similar to the way that LHC supports inclusion of a question "based on" a particular LOINC code
     * Consider providing the expression associated with that code automatically
 * Consider the ability to map questions or groups of questions to an existing expression
-    * Importing a question based on the result of an expression, e.g. Patient history
+    * Importing a question based on the result of an expression, e.g., Patient history
 
 This support would generally fall into two categories:
 
@@ -82,7 +82,7 @@ Existing mechanisms that could be used (and potentially enhanced) to support thi
     * Constructed expressions (the expression in the questionnaire element is a reference to an expression in a Library)
 * Support construction of element expressions
     * Support relevant element types
-        * e.g. Allergy/Intolerance, Condition, Procedure, MedicationRequest, etc.
+        * e.g., Allergy/Intolerance, Condition, Procedure, MedicationRequest, etc.
     * Support terminology selection
         * ValueSet
         * Code
@@ -93,9 +93,9 @@ Existing mechanisms that could be used (and potentially enhanced) to support thi
         * Comparison
         * Temporality
         * Relationships to other elements (including contextualization)
-    * Support reuse of existing elements
+    * Support re-use of existing elements
 * Support construction of inclusion expressions
     * Boolean-valued expressions that can reference elements (existing or in-line)
     * Filtering expressions
 
-The [CDS Connect Authoring](https://cds.ahrq.gov/cdsconnect/authoring) is an open source CQL authoring environment that supports much of this functionality
+The [CDS Connect Authoring Tool](https://cds.ahrq.gov/cdsconnect/authoring) is an open-source CQL authoring environment that supports much of this functionality.

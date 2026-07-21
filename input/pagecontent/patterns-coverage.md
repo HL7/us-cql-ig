@@ -29,4 +29,4 @@ define "Covered Member ID":
   Coverage.memberId()
 ```
 
-In addition, the profile defines an invariant that either the `memberId` slice or `subscriberId` must be present.
+In addition, the profile defines an invariant that either the `memberid` slice or `subscriberId` must be present.

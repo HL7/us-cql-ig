@@ -9,7 +9,7 @@ The AllergyIntolerance resource defines the following modifier elements:
 * clinicalStatus
 * verificationStatus
 
-Note that neither of these elements are required, but both are must support, and have a required binding. As such the USCoreCommon library defines functions such as `isActive()` for assessing these statuses. Further examples are provided in the "Common Elements" section below.
+Note that neither of these elements are required, but both are must support, and have a required binding. As such the FHIRCommon library defines functions such as `isActive()` for assessing these statuses. Further examples are provided in the "Common Elements" section below.
 
 ### Search Parameters
 
@@ -54,7 +54,7 @@ To facilitate checking allergy intolerance status, the following functions are d
 * [`.isResolved()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,isResolved,-%28allergyIntolerance%20FHIR)
 * [`.resolved()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,resolved,-%28allergyIntolerances%20List)
 
-The AllergyIntolerance resource also has a verificationStatus element to represent information such as whether the allergy has been confirmed. The element is not required, but if it is present, it is a modifier element, and has the potential to negate the information the resource is conveying (e.g. the `refuted` status). For most usage, when application intent is looking for positive evidence of an allergy, the verification statuses of `refuted` and `entered-in-error` should be excluded if `verificationStatus` is present:
+The AllergyIntolerance resource also has a verificationStatus element to represent information such as whether the allergy has been confirmed. The element is not required, but if it is present, it is a modifier element, and has the potential to negate the information the resource is conveying (e.g., the `refuted` status). For most usage, when application intent is looking for positive evidence of an allergy, the verification statuses of `refuted` and `entered-in-error` should be excluded if `verificationStatus` is present:
 
 ```cql
 define "Verified Allergies":
@@ -65,7 +65,7 @@ define "Verified Allergies":
       )
 ```
 
-To support reuse of this pattern, the FHIRCommon library defines the `isVerified` and `verified` functions, along with other functions for testing verification status. As with the clinical status functions there are two sets, one using an `is` prefix, that are used with single AllergyIntolerance instances, and one set without, used with sets of AllergyIntolerance resources.
+To support re-use of this pattern, the FHIRCommon library defines the `isVerified` and `verified` functions, along with other functions for testing verification status. As with the clinical status functions there are two sets, one using an `is` prefix, that are used with single AllergyIntolerance instances, and one set without, used with sets of AllergyIntolerance resources.
 
 * [`.isVerified()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,isVerified,-%28allergyIntolerance%20FHIR)
 * [`.verified()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,verified,-%28allergyIntolerance%20FHIR)
@@ -101,7 +101,7 @@ In retrospective cases, the logic will be evaluated on data that exists at the t
 
 To check if a patient has confirmed they have no known allergies, use `UCE."No Known Allergies (Confirmed)"`. This will check for SNOMED 716186003 (No known allergy (situation)) as advised in US Core.
 
-US Core also supports documenting `UCE."No Known Allergies (Not Asked)"`, which also uses the No known allergy (situation) SNOMED code, but the instance uses the `uncomfirmed` verification status.
+US Core also supports documenting `UCE."No Known Allergies (Not Asked)"`, which also uses the No known allergy (situation) SNOMED code, but the instance uses the `unconfirmed` verification status.
 
 * [`"No Known Allergies (Confirmed)"`](Library-USCoreElements.html#:~:text=%22No%20Known%20Allergies%20%28Confirmed%29%22)
 * [`"No Known Allergies (Not Asked)"`](Library-USCoreElements.html#:~:text=%22No%20Known%20Allergies%20%28Not%20Asked%29%22)
