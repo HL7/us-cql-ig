@@ -32,7 +32,7 @@ and the asOf date. If the patient has a birthTime, the calculation is performed 
 birthDateTime, and the time component of the asOf parameter is considered. Note that when 
 the birth time is known, timezone offset normalization will be used.
 */
-define fluent function ageInDaysAt(patient Patient, asOf DateTime):
+define fluent function ageInDaysAt(patient FHIR.Patient, asOf System.DateTime):
   if patient.birthTime() is not null then
     CalculateAgeInDaysAt(patient.birthDateTime(), asOf)
   else
@@ -45,7 +45,7 @@ and the current date. If the patient has a birthTime, the calculation is perform
 birthDateTime and Now(), otherwise the calculation is performed using Today(). Note that when 
 the birth time is known, timezone offset normalization will be used.
 */
-define fluent function ageInDays(patient Patient):
+define fluent function ageInDays(patient FHIR.Patient):
   if patient.birthTime() is not null then
     CalculateAgeInDaysAt(patient.birthDateTime(), Now())
   else
@@ -58,7 +58,7 @@ and the asOf date. If the patient has a birthTime, the calculation is performed 
 birthDateTime, and the time component of the asOf parameter is considered. Note that when 
 the birth time is known, timezone offset normalization will be used.
 */
-define fluent function ageInMonthsAt(patient Patient, asOf DateTime):
+define fluent function ageInMonthsAt(patient FHIR.Patient, asOf System.DateTime):
   if patient.birthTime() is not null then
     CalculateAgeInMonthsAt(patient.birthDateTime(), asOf)
   else
@@ -71,7 +71,7 @@ and the current date. If the patient has a birthTime, the calculation is perform
 birthDateTime and Now(), otherwise the calculation is performed using Today(). Note that when 
 the birth time is known, timezone offset normalization will be used.
 */
-define fluent function ageInMonths(patient Patient):
+define fluent function ageInMonths(patient FHIR.Patient):
   if patient.birthTime() is not null then
     CalculateAgeInMonthsAt(patient.birthDateTime(), Now())
   else
@@ -84,7 +84,7 @@ date and the given date. Regardless of whether the patient has a birthTime, the 
 performed using only the birth date. If the given date has a time component, it is ignored, on 
 the grounds that birth time is almost universally not considered when determining age in years.
 */
-define fluent function ageInYearsAt(patient Patient, asOf DateTime):
+define fluent function ageInYearsAt(patient FHIR.Patient, asOf System.DateTime):
   CalculateAgeInYearsAt(patient.birthDate, date from asOf)
 
 /*
@@ -94,7 +94,7 @@ date and the current date. Regardless of whether the patient has a birthTime, th
 performed using only the birth date and Today(), on the grounds that birth time is almost universally 
 not considered when determining age in years.
 */
-define fluent function ageInYears(patient Patient):
+define fluent function ageInYears(patient FHIR.Patient):
   CalculateAgeInYearsAt(patient.birthDate, Today())
 
 /*
@@ -103,7 +103,7 @@ define fluent function ageInYears(patient Patient):
 the first non-official, non-usual name. In each case, the function returns the most recent name that either has no 
 period specified, or has a period overlapping today.
 */
-define fluent function name(patient Patient):
+define fluent function name(patient FHIR.Patient):
   Coalesce(patient.officialName(), patient.usualName(), patient.firstNonOfficialNonUsualName())
 
 /*
@@ -111,7 +111,7 @@ define fluent function name(patient Patient):
 @comment: This function returns the first _usual_ name for a patient. The most recent name entry is return that
 either has no period specified, or has a period overlapping today.
 */
-define fluent function usualName(patient Patient):
+define fluent function usualName(patient FHIR.Patient):
   First(
     patient.name patientName
       where patientName.use ~ 'usual'
@@ -124,7 +124,7 @@ define fluent function usualName(patient Patient):
 @comment: This function returns the first _official_ name for a patient. The most recent name entry is return that
 either has no period specified, or has a period overlapping today.
 */
-define fluent function officialName(patient Patient):
+define fluent function officialName(patient FHIR.Patient):
   First(
     patient.name patientName
       where patientName.use ~ 'official'
@@ -137,7 +137,7 @@ define fluent function officialName(patient Patient):
 @comment: This function returns the first non-official, non-usual name for a patient. The most recent name entry is return that
 either has no period specified, or has a period overlapping today.
 */
-define fluent function firstNonOfficialNonUsualName(patient Patient):
+define fluent function firstNonOfficialNonUsualName(patient FHIR.Patient):
   First(
     patient.name patientName
       where not(patientName.use ~ 'official') and not(patientName.use ~ 'usual')
@@ -154,7 +154,7 @@ define fluent function policyNumber(coverage FHIR.Coverage):
       where I.type ~ "Subscriber Number"
   ).value
 
-define fluent function medicalRecordNumber(patient Patient):
+define fluent function medicalRecordNumber(patient FHIR.Patient):
   patient.identifier.where(type ~ UC.MedicalRecordNumber).single().value
 
 /*
@@ -163,7 +163,7 @@ define fluent function medicalRecordNumber(patient Patient):
 the first non-official, non-usual name. In each case, the function returns the most recent name that either has no 
 period specified, or has a period overlapping today.
 */
-define fluent function name(practitioner Practitioner):
+define fluent function name(practitioner FHIR.Practitioner):
   Coalesce(practitioner.officialName(), practitioner.usualName(), practitioner.firstNonOfficialNonUsualName())
 
 /*
@@ -171,7 +171,7 @@ define fluent function name(practitioner Practitioner):
 @comment: This function returns the first _usual_ name for a practitioner. The most recent name entry is return that
 either has no period specified, or has a period overlapping today.
 */
-define fluent function usualName(practitioner Practitioner):
+define fluent function usualName(practitioner FHIR.Practitioner):
   First(
     practitioner.name practitionerName
       where practitionerName.use ~ 'usual'
@@ -184,7 +184,7 @@ define fluent function usualName(practitioner Practitioner):
 @comment: This function returns the first _official_ name for a practitioner. The most recent name entry is return that
 either has no period specified, or has a period overlapping today.
 */
-define fluent function officialName(practitioner Practitioner):
+define fluent function officialName(practitioner FHIR.Practitioner):
   First(
     practitioner.name practitionerName
       where practitionerName.use ~ 'official'
@@ -197,7 +197,7 @@ define fluent function officialName(practitioner Practitioner):
 @comment: This function returns the first non-official, non-usual name for a practitioner. The most recent name entry is return that
 either has no period specified, or has a period overlapping today.
 */
-define fluent function firstNonOfficialNonUsualName(practitioner Practitioner):
+define fluent function firstNonOfficialNonUsualName(practitioner FHIR.Practitioner):
   First(
     practitioner.name practitionerName
       where not(practitionerName.use ~ 'official') and not(practitionerName.use ~ 'usual')
@@ -205,7 +205,7 @@ define fluent function firstNonOfficialNonUsualName(practitioner Practitioner):
       sort by start of period desc
   )
 
-define fluent function mobile(patient Patient):
+define fluent function mobile(patient FHIR.Patient):
   First(
     patient.telecom telecom
       where telecom.use = 'mobile'
@@ -213,7 +213,7 @@ define fluent function mobile(patient Patient):
       sort by start of period desc
   )
 
-define fluent function mobile(practitioner Practitioner):
+define fluent function mobile(practitioner FHIR.Practitioner):
   First(
     practitioner.telecom telecom
       where telecom.use = 'mobile'
@@ -221,7 +221,7 @@ define fluent function mobile(practitioner Practitioner):
       sort by start of period desc
   )
 
-define fluent function work(organization Organization):
+define fluent function work(organization FHIR.Organization):
   First(
     organization.telecom telecom
       where telecom.use = 'work'
@@ -229,19 +229,19 @@ define fluent function work(organization Organization):
       sort by start of period desc
   )
 
-define fluent function firstName(name HumanName):
+define fluent function firstName(name FHIR.HumanName):
   name.given.first()
 
-define fluent function middleNames(name HumanName):
+define fluent function middleNames(name FHIR.HumanName):
   Combine(Skip(name.given, 1), ' ')
 
-define fluent function lastName(name HumanName):
+define fluent function lastName(name FHIR.HumanName):
   name.family
 
-define fluent function firstMiddleLast(name HumanName):
+define fluent function firstMiddleLast(name FHIR.HumanName):
   Combine(name.given, ' ') + ' ' + name.family
 
-define fluent function lastFirstMiddle(name HumanName):
+define fluent function lastFirstMiddle(name FHIR.HumanName):
   name.family + ', ' + Combine(name.given, ' ')
 
 // Allergy/Intolerance
@@ -317,7 +317,7 @@ define "All Health Concerns":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab
 */
 define "All Diagnostic Reports for Laboratory Results":
-  ["DiagnosticReportProfileLaboratoryReporting"]
+  [USCore."DiagnosticReportProfileLaboratoryReporting"]
 
 // Diagnostic Report
 
@@ -326,7 +326,7 @@ define "All Diagnostic Reports for Laboratory Results":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note
 */
 define "All Diagnostic Report Notes":
-  ["DiagnosticReportProfileNoteExchange"]
+  [USCore."DiagnosticReportProfileNoteExchange"]
 
 // Encounter
 
@@ -335,7 +335,7 @@ define "All Diagnostic Report Notes":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter 
 */
 define "All Encounters":
-  ["EncounterProfile"]
+  [USCore."EncounterProfile"]
 
 define "All Performed Encounters":
   "All Encounters" E
@@ -348,7 +348,7 @@ define "All Performed Encounters":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization
 */
 define "All Immunizations":
-  ["ImmunizationProfile"] 
+  [USCore."ImmunizationProfile"] 
 
 define "All Completed Immunizations":
   "All Immunizations" I
@@ -361,7 +361,7 @@ define "All Completed Immunizations":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device
 */
 define "All Implantable Devices":
-  ["ImplantableDeviceProfile"]
+  [USCore."ImplantableDeviceProfile"]
 
 // Laboratory Result
 
@@ -371,7 +371,7 @@ define "All Implantable Devices":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 */
 define "All Laboratory Results":
-  ["LaboratoryResultObservationProfile"]
+  [USCore."LaboratoryResultObservationProfile"]
 
 define "Resulted Laboratory Results":
   "All Laboratory Results" L
@@ -388,7 +388,7 @@ define "Most Recent Medication Request":
   "All Medication Requests".mostRecent()
 
 define "All Medication Requests":
-  ["MedicationRequestProfile"]
+  [USCore."MedicationRequestProfile"]
 
 define "Active Medication Orders":
   "All Medication Requests" M
@@ -396,7 +396,7 @@ define "Active Medication Orders":
       and M.intent in { 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order' }
 
 define "All Medications":
-  ["MedicationProfile"]
+  [USCore."MedicationProfile"]
 
 // Pediatric BMI for Age
 
@@ -413,7 +413,7 @@ define "Pediatric BMI for Age":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age
 */
 define "Pediatric BMI for Age All Statuses":
-  ["PediatricBMIforAgeObservationProfile"]
+  [USCore."PediatricBMIforAgeObservationProfile"]
 
 // Pediatric Head Circumference Percentile
 
@@ -430,7 +430,7 @@ define "Pediatric Head Circumference Percentile":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/head-occipital-frontal-circumference-percentile
 */
 define "Pediatric Head Circumference Percentile All Statuses":
-  ["PediatricHeadOccipitalFrontalCircumferencePercentileProfile"]
+  [USCore."PediatricHeadOccipitalFrontalCircumferencePercentileProfile"]
 
 // Pediatric Weight for Height
 
@@ -447,7 +447,7 @@ define "Pediatric Weight for Height":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height
 */
 define "Pediatric Weight for Height All Statuses":
-  ["PediatricWeightForHeightObservationProfile"]
+  [USCore."PediatricWeightForHeightObservationProfile"]
 
 // Procedure
 
@@ -456,7 +456,7 @@ define "Pediatric Weight for Height All Statuses":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure
 */
 define "All Procedures":
-  ["ProcedureProfile"] P
+  [USCore."ProcedureProfile"] P
     where P.status in { 'preparation', 'in-progress', 'on-hold', 'completed' }
 
 define "All Performed Procedures":
@@ -478,7 +478,7 @@ define "Pulse Oximetry":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry
 */
 define "Pulse Oximetry All Statuses":
-  ["PulseOximetryProfile"]
+  [USCore."PulseOximetryProfile"]
 
 // Smoking Status
 
@@ -501,7 +501,7 @@ profile.
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus
 */
 define "Smoking Status All Statuses":
-  ["SmokingStatusProfile"]
+  [USCore."SmokingStatusProfile"]
 
 /*
 @description: Returns the most recent smoking status
@@ -531,7 +531,7 @@ define "All Vital Signs":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-vital-signs
 */
 define "All Vital Signs All Statuses":
-  ["Vital Signs Profile"]
+  [USCore."Vital Signs Profile"]
 
 // Respiratory Rate
 
@@ -548,7 +548,7 @@ define "All Respiratory Rate Measurements":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-respiratory-rate
 */
 define "All Respiratory Rate Measurements All Statuses":
-  ["Respiratory Rate Profile"]
+  [USCore."Respiratory Rate Profile"]
 
 // Heart Rate
 
@@ -565,7 +565,7 @@ define "All Heart Rate Measurements":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate
 */
 define "All Heart Rate Measurements All Statuses":
-  ["Heart Rate Profile"]
+  [USCore."Heart Rate Profile"]
 
 // Body Temperature
 
@@ -582,7 +582,7 @@ define "All Body Temperature Measurements":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-temperature
 */
 define "All Body Temperature Measurements All Statuses":
-  ["Body Temperature Profile"]
+  [USCore."Body Temperature Profile"]
 
 // Body Height
 
@@ -599,7 +599,7 @@ define "All Body Height Measurements":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height
 */
 define "All Body Height Measurements All Statuses":
-  ["Body Height Profile"] 
+  [USCore."Body Height Profile"] 
 
 // Head Circumference
 
@@ -616,7 +616,7 @@ define "All Head Circumference Measurements":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-head-circumference
 */
 define "All Head Circumference Measurements All Statuses":
-  ["Head Circumference Profile"]
+  [USCore."Head Circumference Profile"]
 
 // Body Weight
 
@@ -633,7 +633,7 @@ define "All Body Weight Measurements":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight
 */
 define "All Body Weight Measurements All Statuses":
-  ["Body Weight Profile"]
+  [USCore."Body Weight Profile"]
 
 // Body Mass Index
 
@@ -650,7 +650,7 @@ define "All Body Mass Index Measurements":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi
 */
 define "All Body Mass Index Measurements All Statuses":
-  ["BMI Profile"]
+  [USCore."BMI Profile"]
 
 // Blood Pressure
 
@@ -667,7 +667,7 @@ define "All Blood Pressure Measurements":
 @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure
 */
 define "All Blood Pressure Measurements All Statuses":
-  ["Blood Pressure Profile"]
+  [USCore."Blood Pressure Profile"]
 
 // Systolic Blood Pressure
 define "Systolic Blood Pressure":
@@ -712,11 +712,11 @@ define fluent function mostRecentSR(serviceRequests List<"FHIR.ServiceRequest">)
   )
 
 define function RequestingProvider(serviceRequest FHIR.ServiceRequest):
-  [PractitionerProfile] P
+  [USCore.PractitionerProfile] P
     where EndsWith(serviceRequest.requester.reference.value, P.id)
 
 define function ServicingProvider(serviceRequest FHIR.ServiceRequest):
-  [PractitionerProfile] P
+  [USCore.PractitionerProfile] P
     where EndsWith(First(serviceRequest.performer.reference.value), P.id)
 
 define function BillingProvider(coverage FHIR.Coverage):
@@ -735,7 +735,7 @@ define "All Clinical Trials":
   [FHIR.ResearchStudy] 
 
 define "Clinical Trial Organization":
-  [OrganizationProfile] O
+  [USCore.OrganizationProfile] O
   
 define function "GetServiceRequestReasonCondition"(serviceRequest ServiceRequest):
   [FHIR.Condition] C

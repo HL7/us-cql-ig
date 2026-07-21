@@ -57,7 +57,7 @@ code "Negative": 'NEG' from ObservationInterpretation
 
 context Patient
 
-define fluent function race(patient Patient):
+define fluent function race(patient FHIR.Patient):
   (patient.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-race')) E
     return {
       ombCategory: (E.exts('ombCategory')) o return o.value as FHIR.Coding,
@@ -65,7 +65,7 @@ define fluent function race(patient Patient):
       text: E.ext('text').value as FHIR.string
     }
 
-define fluent function ethnicity(patient Patient):
+define fluent function ethnicity(patient FHIR.Patient):
   (patient.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity')) E
     return {
       ombCategory: E.ext('ombCategory').value as FHIR.Coding,
@@ -73,7 +73,7 @@ define fluent function ethnicity(patient Patient):
       text: E.ext('text').value as FHIR.string
     }
 
-define fluent function tribalAffiliation(patient Patient):
+define fluent function tribalAffiliation(patient FHIR.Patient):
   (patient.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-tribal-affiliation')) E
     return {
       tribalAffiliation: E.ext('tribalAffiliation').value as CodeableConcept,
@@ -83,7 +83,7 @@ define fluent function tribalAffiliation(patient Patient):
 /*
 @description: Returns the [birthSex](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-patient-definitions.html#diff_Patient.extension:birthsex) element as defined for the USCore patient profile
 */
-define fluent function birthSex(patient Patient):
+define fluent function birthSex(patient FHIR.Patient):
   patient.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex').value as FHIR.code
 
 /*
@@ -91,7 +91,7 @@ define fluent function birthSex(patient Patient):
 @description: Returns the [sex](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-patient-definitions.html#diff_Patient.extension:sex) element as defined for the USCore patient profile
 @comment: NOTE: This element has been deprecated in future versions of US Core. The `.individualSex()` function should be used instead.
 */
-define fluent function sex(patient Patient):
+define fluent function sex(patient FHIR.Patient):
   patient.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex').value as FHIR.code
 
 /*
@@ -99,7 +99,7 @@ define fluent function sex(patient Patient):
 @comment: The definition of this element has expanded over versions. For backwards-compatibility the original .sex() function as defined in STU6 is still available, but deprecated. This function is
 forward-compatible, returning values as defined in the individualSex extension, even if they are defined in the instance using the deprecated sex extension.
 */
-define fluent function individualSex(patient Patient):
+define fluent function individualSex(patient FHIR.Patient):
   patient P
     let 
       individualSex: P.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-individual-sex').value as FHIR.Coding,
@@ -124,14 +124,14 @@ define fluent function toIndividualSex(sex FHIR.code):
 /*
 @description: Returns all [sexParameterForClinicalUse](https://hl7.org/fhir/extensions/StructureDefinition-patient-sexParameterForClinicalUse.html) elements for the patient
 */
-define fluent function sexParameterForClinicalUse(patient Patient):
+define fluent function sexParameterForClinicalUse(patient FHIR.Patient):
   (patient.exts('http://hl7.org/fhir/StructureDefinition/patient-sexParameterForClinicalUse')) E
     return {
-      value: E.ext('value').value as CodeableConcept,
-      period: E.ext('period').value as Period,
-      comment: E.ext('comment').value as string,
-      supportingInfo: (E.exts('supportingInfo')) SI return SI.value as Choice<CodeableConcept, Reference>,
-      intendedClinicalUse: (E.exts('intendedClinicalUse')) CU return CU.value as Choice<CodeableConcept, Reference>
+      value: E.ext('value').value as FHIR.CodeableConcept,
+      period: E.ext('period').value as FHIR.Period,
+      comment: E.ext('comment').value as FHIR.string,
+      supportingInfo: (E.exts('supportingInfo')) SI return SI.value as Choice<FHIR.CodeableConcept, FHIR.Reference>,
+      intendedClinicalUse: (E.exts('intendedClinicalUse')) CU return CU.value as Choice<FHIR.CodeableConcept, FHIR.Reference>
     }
 
 /*
@@ -140,19 +140,19 @@ elements for the patient applicable as of the given date and time
 @comment: Returns sexParameterForClinicalUse elements defined for the patient that either have no period specified, or have a period that includes 
 the specified asOf. Elements are returned in descending chronological order by the start of the period element (so the most recent element is first).
 */
-define fluent function sexParameterForClinicalUse(patient Patient, asOf DateTime):
+define fluent function sexParameterForClinicalUse(patient FHIR.Patient, asOf System.DateTime):
   (patient.sexParameterForClinicalUse()) SPCU
     where asOf is null or SPCU.period is null or asOf during SPCU.period
     sort by start of period desc
 
 
-define fluent function systolic(bloodPressure Observation):
+define fluent function systolic(bloodPressure FHIR.Observation):
   singleton from (
     bloodPressure.component C
       where C.code ~ "Systolic Blood Pressure"
   )
 
-define fluent function diastolic(bloodPressure Observation):
+define fluent function diastolic(bloodPressure FHIR.Observation):
   singleton from (
     bloodPressure.component C
       where C.code ~ "Diastolic Blood Pressure"
@@ -170,42 +170,42 @@ define fluent function isHealthConcern(condition FHIR.Condition):
 /*
 @description: Returns Observations in the given list that have an interpretation of positive
 */
-define fluent function positive(observations List<Observation>):
+define fluent function positive(observations List<FHIR.Observation>):
   observations O
     where exists (O.interpretation I where I ~ "Positive")
 
 /*
 @description: Returns Observations in the given list that have an interpretation of negative
 */
-define fluent function negative(observations List<Observation>):
+define fluent function negative(observations List<FHIR.Observation>):
   observations O
     where exists (O.interpretation I where I ~ "Negative")
 
 /*
 @description: Returns Observations in the given list that were issued during the given Encounter
 */
-define fluent function during(observations List<Observation>, encounter Encounter):
+define fluent function during(observations List<FHIR.Observation>, encounter FHIR.Encounter):
   observations O
     where O.issued during minute of encounter.period
 
 /*
 @description: Returns Observations in the given list that were issued within the given time duration before now
 */
-define fluent function within(observations List<Observation>, period Quantity):
+define fluent function within(observations List<FHIR.Observation>, period System.Quantity):
   observations O
     where (O.issued + period) on or after minute of Now()
 
 /*
 @description: Returns Observations consecutively by when they were issued
 */
-define fluent function consecutively(observations List<Observation>):
+define fluent function consecutively(observations List<FHIR.Observation>):
   observations O
     sort by issued
 
 /*
 @description: Returns Observations consecutively by when they were issued, on or after when the given Observation was issued
 */
-define fluent function consecutivelyFrom(observations List<Observation>, observation Observation):
+define fluent function consecutivelyFrom(observations List<FHIR.Observation>, observation FHIR.Observation):
   observations O
     where O.issued on or after observation.issued
     sort by issued
@@ -213,12 +213,12 @@ define fluent function consecutivelyFrom(observations List<Observation>, observa
 /*
 @description: Returns true if the given diagnostic report has a status of final, appended, amended, or corrected; false otherwise
 */
-define fluent function isComplete(diagnosticReport DiagnosticReport):
+define fluent function isComplete(diagnosticReport FHIR.DiagnosticReport):
   diagnosticReport.status in { 'final', 'appended', 'amended', 'corrected' }
 
 /*
 @description: Returns diagnostic reports that have a status of final, appended, amended, or corrected
 */
-define fluent function complete(diagnosticReports List<DiagnosticReport>):
+define fluent function complete(diagnosticReports List<FHIR.DiagnosticReport>):
   diagnosticReports dr
     where dr.isComplete()
