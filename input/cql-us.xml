@@ -281,7 +281,7 @@
       <code value="path-resource"/>
       <value value="input/resources/questionnaire"/>
     </parameter>
-    <!-- Uncommented to use the 0.4.9-cibuild version of the templates -->
+    <!-- Uncommented to use the 0.5.6-cibuild version of the templates -->
     <parameter>
       <code value="path-liquid-ig"/>
       <value value="templates\liquid"/>
