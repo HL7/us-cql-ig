@@ -136,7 +136,7 @@ To answer questions like "Have you had COVID in the past 3 months", use ```preva
 define "COVID Conditions":
   UCE."All Conditions" Condition
     where Condition.code in "COVID Diagnosis Codes"
-      and Condition.prevalenceInterval() status 3 months on or before Today()
+      and Condition.prevalenceInterval() overlaps Interval[Today() - 3 months, Today()]
 ```
 
 Note that time frame and status requirements could vary by condition and payer interpretation and might not be spelled out in the medical policy. As such, the USCoreCommon and USCoreElement expressions are intended to be flexible to support a broad range of uses.
