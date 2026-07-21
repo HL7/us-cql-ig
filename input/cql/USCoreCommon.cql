@@ -182,33 +182,33 @@ define fluent function negative(observations List<FHIR.Observation>):
     where exists (O.interpretation I where I ~ "Negative")
 
 /*
-@description: Returns Observations in the given list that were issued during the given Encounter
+@description: Returns Observations in the given list whose effective time is during the given Encounter, accurate to the minute
 */
 define fluent function during(observations List<FHIR.Observation>, encounter FHIR.Encounter):
   observations O
-    where O.issued during minute of encounter.period
+    where O.effective.toInterval() during minute of encounter.period
 
 /*
-@description: Returns Observations in the given list that were issued within the given time duration before now
+@description: Returns Observations in the given list that were effective within the given time duration before now
 */
 define fluent function within(observations List<FHIR.Observation>, period System.Quantity):
   observations O
-    where (O.issued + period) on or after minute of Now()
+    where (O.effective.toInterval().low + period) on or after minute of Now()
 
 /*
-@description: Returns Observations consecutively by when they were issued
+@description: Returns Observations consecutively by their effective time
 */
 define fluent function consecutively(observations List<FHIR.Observation>):
   observations O
-    sort by issued
+    sort by start of effective.toInterval()
 
 /*
-@description: Returns Observations consecutively by when they were issued, on or after when the given Observation was issued
+@description: Returns Observations consecutively by their effective time, on or after when the given Observation was issued
 */
 define fluent function consecutivelyFrom(observations List<FHIR.Observation>, observation FHIR.Observation):
   observations O
-    where O.issued on or after observation.issued
-    sort by issued
+    where O.effective.toInterval() starts on or after start of observation.effective.toInterval()
+    sort by start of effective.toInterval()
 
 /*
 @description: Returns true if the given diagnostic report has a status of final, appended, amended, or corrected; false otherwise

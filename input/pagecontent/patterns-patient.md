@@ -38,18 +38,18 @@ Patient.name()
 
 The name function is just the first official, usual, or non-official non-usual name that is defined for the Patient. The available name functions defined in the US Core Elements library are:
 
-* [`.name()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,name,-%28patient%20Patient)
-* [`.usualName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,usualName,-%28patient%20Patient)
-* [`.officialName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,officialName,-%28patient%20Patient)
-* [`.firstNonOfficialNonUsualName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstNonOfficialNonUsualName,-%28patient%20Patient)
+* [`.name()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,name,-%28patient%20FHIR)
+* [`.usualName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,usualName,-%28patient%20FHIR)
+* [`.officialName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,officialName,-%28patient%20FHIR)
+* [`.firstNonOfficialNonUsualName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstNonOfficialNonUsualName,-%28patient%20FHIR)
 
 In addition, the library defines functions for common use cases for the HumanName type:
 
-* [`.firstName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstName,-%28name%20HumanName)
-* [`.middleNames()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,middleNames,-%28name%20HumanName)
-* [`.lastName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,lastName,-%28name%20HumanName)
-* [`.firstMiddleLast()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstMiddleLast,-%28name%20HumanName)
-* [`.lastFirstMiddle()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,lastFirstMiddle,-%28name%20HumanName)
+* [`.firstName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstName,-%28name%20FHIR)
+* [`.middleNames()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,middleNames,-%28name%20FHIR)
+* [`.lastName()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,lastName,-%28name%FHIR)
+* [`.firstMiddleLast()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstMiddleLast,-%28name%20FHIR)
+* [`.lastFirstMiddle()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,lastFirstMiddle,-%28name%20FHIR)
 
 #### Patient birthDate
 
@@ -68,8 +68,8 @@ Patient.birthTime()
 Patient.birthDateTime()
 ```
 
-* [`.birthTime()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,birthTime,-%28patient%20Patient)
-* [`.birthDateTime()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,birthDateTime,-%28patient%20Patient)
+* [`.birthTime()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,birthTime,-%28patient%20FHIR)
+* [`.birthDateTime()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,birthDateTime,-%28patient%20FHIR)
 
 #### Patient age
 
@@ -82,12 +82,12 @@ define "Patient Age Between 50 and 75":
 
 The US Core Elements library defines the following patient age calculation functions:
 
-* [`.ageInDaysAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInDaysAt,-%28patient%20Patient)
-* [`.ageInDays()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInDays,-%28patient%20Patient)
-* [`.ageInMonthsAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInMonthsAt,-%28patient%20Patient)
-* [`.ageInMonths()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInMonths,-%28patient%20Patient)
-* [`.ageInYearsAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInYearsAt,-%28patient%20Patient)
-* [`.ageInYears()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInYears,-%28patient%20Patient)
+* [`.ageInDaysAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInDaysAt,-%28patient%20FHIR)
+* [`.ageInDays()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInDays,-%28patient%20FHIR)
+* [`.ageInMonthsAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInMonthsAt,-%28patient%20FHIR)
+* [`.ageInMonths()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInMonths,-%28patient%20FHIR)
+* [`.ageInYearsAt()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInYearsAt,-%28patient%20FHIR)
+* [`.ageInYears()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,ageInYears,-%28patient%20FHIR)
 
 > NOTE: The [AgeInYearsAt](https://cql.hl7.org/09-b-cqlreference.html#ageat) function in CQL uses the data model (US Core in this case) to understand how to access the patient's birth date information.
 
@@ -112,11 +112,11 @@ In addition, the `.individualSex()` function will use the `sex` element if no `i
 
 The US Core Common library defines the following patient sex functions:
 
-* [`.sex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,sex,-%28patient%20Patient) - DEPRECATED - Returns the value of the sex extension, use individualSex instead
-* [`.birthSex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,birthSex,-%28patient%20Patient) - Returns a person's documented sex at birth
-* [`.individualSex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,individualSex,-%28patient%20Patient) - Reflects documentation of a person's sex
+* [`.sex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,sex,-%28patient%20FHIR) - DEPRECATED - Returns the value of the sex extension, use individualSex instead
+* [`.birthSex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,birthSex,-%28patient%20FHIR) - Returns a person's documented sex at birth
+* [`.individualSex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,individualSex,-%28patient%20FHIR) - Reflects documentation of a person's sex
 * [`.toIndividualSex()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,toIndividualSex,-%sex%20FHIR) - Maps the code from a sex element to an individualSex element
-* [`.sexParameterForClinicalUse()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,sexParameterForClinicalUse,-%28patient%20Patient) - Returns all sexParameterForClinicalUse elements for a patient, optionally as of a given date and time
+* [`.sexParameterForClinicalUse()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,sexParameterForClinicalUse,-%28patient%20FHIR) - Returns all sexParameterForClinicalUse elements for a patient, optionally as of a given date and time
 
 #### Patient race and ethnicity
 
