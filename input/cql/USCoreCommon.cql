@@ -20,6 +20,17 @@ codesystem "CommunicationCategoryCodeSystem": 'http://terminology.hl7.org/CodeSy
 codesystem "IdentifierType": 'http://terminology.hl7.org/CodeSystem/v2-0203'
 codesystem "ObservationInterpretation": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation'
 
+codesystem "SNOMED": 'http://snomed.info/sct'
+
+code "Female": '248152002' from SNOMED display 'Female'
+code "Male": '248153007' from SNOMED display 'Male'
+code "Unknown": '184115007' from SNOMED display 'Patient sex unknown'
+code "Nonbinary": '33791000087105' from SNOMED display 'Identifies as gender nonbinary'
+
+codesystem "DataAbsentReason": 'http://terminology.hl7.org/CodeSystem/data-absent-reason'
+
+code "Asked-Declined": 'asked-declined' from DataAbsentReason display 'Aksed But Declined'
+
 code "MedicalRecordNumber": 'MR' from "IdentifierType" display 'Medical record number'
 
 // Encounter Class Codes
@@ -69,14 +80,71 @@ define fluent function tribalAffiliation(patient Patient):
       isEnrolled: E.ext('isEnrolled').value as boolean
     }
 
+/*
+@description: Returns the [birthSex](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-patient-definitions.html#diff_Patient.extension:birthsex) element as defined for the USCore patient profile
+*/
 define fluent function birthSex(patient Patient):
   patient.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex').value as FHIR.code
 
 /*
-@description: Returns the sex element as defined for the USCore patient profile
+@deprecated
+@description: Returns the [sex](https://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-patient-definitions.html#diff_Patient.extension:sex) element as defined for the USCore patient profile
+@comment: NOTE: This element has been deprecated in future versions of US Core. The `.individualSex()` function should be used instead.
 */
 define fluent function sex(patient Patient):
   patient.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex').value as FHIR.code
+
+/*
+@description: Returns the [sex](https://hl7.org/fhir/us/core/STU8.0.1/StructureDefinition-us-core-patient-definitions.html#key_Patient.extension:sex) element as defined for the USCore patient profile
+@comment: The definition of this element has expanded over versions. For backwards-compatibility the original .sex() function as defined in STU6 is still available, but deprecated. This function is
+forward-compatible, returning values as defined in the individualSex extension, even if they are defined in the instance using the deprecated sex extension.
+*/
+define fluent function individualSex(patient Patient):
+  patient P
+    let 
+      individualSex: P.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-individual-sex').value as FHIR.Coding,
+      sex: P.ext('http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex').value as FHIR.code
+    return {
+      Coalesce(individualSex, sex.toIndividualSex())
+    }
+
+/*
+@description: Maps the code value of a patient sex element to a Coding value (i.e. code with system) as expected in the individualSex element
+*/
+define fluent function toIndividualSex(sex FHIR.code):
+  case sex.value
+    when '248152002' then "Female"
+    when '248153007' then "Male"
+    when '184115007' then "Unknown"
+    when '33791000087105' then "Nonbinary"
+    when 'asked-declined' then "Asked-Declined"
+    else null
+  end
+
+/*
+@description: Returns all [sexParameterForClinicalUse](https://hl7.org/fhir/extensions/StructureDefinition-patient-sexParameterForClinicalUse.html) elements for the patient
+*/
+define fluent function sexParameterForClinicalUse(patient Patient):
+  (patient.exts('http://hl7.org/fhir/StructureDefinition/patient-sexParameterForClinicalUse')) E
+    return {
+      value: E.ext('value').value as CodeableConcept,
+      period: E.ext('period').value as Period,
+      comment: E.ext('comment').value as string,
+      supportingInfo: (E.exts('supportingInfo')) SI return SI.value as Choice<CodeableConcept, Reference>,
+      intendedClinicalUse: (E.exts('intendedClinicalUse')) CU return CU.value as Choice<CodeableConcept, Reference>
+    }
+
+/*
+@description: Returns all [sexParameterForClinicalUse](https://hl7.org/fhir/extensions/StructureDefinition-patient-sexParameterForClinicalUse.html) 
+elements for the patient applicable as of the given date and time
+@comment: Returns sexParameterForClinicalUse elements defined for the patient that either have no period specified, or have a period that includes 
+the specified asOf. Elements are returned in descending chronological order by the start of the period element (so the most recent element is first).
+*/
+define fluent function sexParameterForClinicalUse(patient Patient, asOf DateTime):
+  (patient.sexParameterForClinicalUse()) SPCU
+    where asOf is null or SPCU.period is null or asOf during SPCU.period
+    sort by start of period desc
+
 
 define fluent function systolic(bloodPressure Observation):
   singleton from (
