@@ -739,7 +739,7 @@ define "Clinical Trial Organization":
   
 define function "GetServiceRequestReasonCondition"(serviceRequest ServiceRequest):
   [FHIR.Condition] C
-    where EndsWith(First(serviceRequest.insurance.reference), C.id)
+    where EndsWith(First(serviceRequest.reasonReference.reference), C.id)
   return C
 
 define function Requester(medicationRequest MedicationRequestProfile):
