@@ -1,11 +1,31 @@
-To use these libraries in your implementation guide, include a reference to this implementation guide as an implementation guide dependency:
+To use these libraries in your implementation guide, include a reference to this implementation guide as an implementation guide dependency. If your implementation guide is specified as an XML resource:
 
 ```xml
 <dependsOn id="cql-us">
   <uri value="http://hl7.org/fhir/us/cql/ImplementationGuide/hl7.fhir.us.cql"/>
   <packageId value="hl7.fhir.us.cql"/>
-  <version value="1.0.0-ballot"/>
+  <version value="2.0.0"/>
 </dependsOn>
+```
+
+If your implementation guide is specified as a JSON resource:
+
+```json
+    "dependsOn": [{
+      "id": "cql-us",
+      "uri": "http://hl7.org/fhir/us/cql/ImplementationGuide/hl7.fhir.us.cql",
+      "packageId": "hl7.fhir.us.cql",
+      "version": "2.0.0"
+    }]
+```
+
+And if your implementation guide is specified using SUSHI, add this to your `sushi-config.yaml`:
+
+```yaml
+dependencies:
+  hl7.fhir.us.cql: 
+    id: cql-us
+    version: 2.0.0
 ```
 
 #### USCore ModelInfo
