@@ -9,7 +9,11 @@ The FHIR Observation resource supports capturing a variety of information in a m
 
 #### Vital Signs
 
+US Core defines the base [US Core Vital Signs Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-vital-signs.html) to represent vital signs generally, as well as specific vital signs for many common vital signs such as Weight, Height, BMI, and Blood Pressure.
+
 #### Clinical Results
+
+US Core defines [US Core Observation Clinical Result Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-clinical-result.html) to represent clinical test results. Note that the laboratory test result profile is derived from the clinical result profile (i.e. all laboratory results are clinical results).
 
 #### Laboratory Results
 
@@ -19,9 +23,21 @@ Observation codes will be LOINC. Result values will generally be represented in 
 
 #### Screening Assessments
 
+US Core defines [US Core Screening Assessment]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-screening-assessment.html) to record the result of screening assessment tools.
+
 #### Simple Observations
 
+US Core defines [US Core Simple Observation]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-simple-observation.html) to record observations not otherwise classified as clinical tests, laboratory results, vital signs, screening assessments, or other specific profiles defined in US Core.
+
 #### Other Observations
+
+US Core defines the following additional profiles for capturing specific types of observations:
+
+* [US Core Pregnancy Status]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-pregnancystatus.html)
+* [US Core Pregnancy Intent]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-pregnancyintent.html)
+* [US Core Smoking Status]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-smokingstatus.html)
+* [US Core Occupation]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-occupation.html)
+* [US Core Sexual Oritentation]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-sexual-orientation.html)
 
 ### Modifier Elements
 
@@ -51,7 +67,7 @@ In addition, the following optional search parameters are described:
 
 ### Cross-Version Considerations
 
-Generally, new versions of USCore since 3.1.1 have introduced additional profiles, but have not impacted representation of existing profiles. As of 7.0.0, there are generally:
+Generally, new versions of USCore since 3.1.1 have introduced additional profiles, but have not impacted representation of existing profiles. As of 6.1.0, there are generally:
 
 * vital signs (including vital signs described in the base FHIR specification, as well as additional vital signs profiles)
 * clinical results
@@ -63,7 +79,7 @@ Generally, new versions of USCore since 3.1.1 have introduced additional profile
 
 #### Status
 
-The USCoreCommon library defines functions and terminology declarations to support determining status of an observation:
+The FHIRCommon library defines functions and terminology declarations to support determining status of an observation:
 
 * [`isResulted()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,isResulted,-%28observation%20FHIR): returns true if the status is `final`, `amended`, or `corrected`
 * [`isFinal()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,isFinal,-%28observation%20FHIR): Returns true if the status is `final`
@@ -98,10 +114,42 @@ Note that the interpretation element of an observation may not be present, and m
 
 #### Timings
 
-* [`.during(Encounter)`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,during,-%28observations%20List): Returns Observations in the given list that were issued during the given Encounter
-* [`.within(Quantity)`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,within,-%28observations%20List): Returns Observations in the given list that were issued within the given time duration before now
-* [`.consecutively()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,consecutively,-%28observations%20List): Returns Observations consecutively by when they were issued
-* [`.consecutivelyFrom(Observation)`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,consecutivelyFrom,-%28observations%20List): Returns Observations consecutively by when they were issued, on or after when the given Observation was issued  
+* [`.during(Encounter)`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,during,-%28observations%20List): Returns Observations in the given list whose effective time is during the given Encounter, accurate to the minute
+* [`.within(Quantity)`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,within,-%28observations%20List): Returns Observations in the given list that that were effective within the given time duration before now, accurate to the minute
+* [`.consecutively()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,consecutively,-%28observations%20List): Returns Observations consecutively by their effective time
+* [`.consecutivelyFrom(Observation)`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,consecutivelyFrom,-%28observations%20List): Returns Observations consecutively by their effective time, on or after the start of the effective time of the given Observation  
+
+##### Specimen Collection Time
+
+Note that for the specific timing of specimen collection time, although the FHIR Specimen resource defines a collection time element, that element is not indicated as must support in the US Core Specimen profile, and so is not likely to be available for use. In addition, the `effectiveTime` element of the Observation resource is specifically documented as the "physiologically relevant time", and "usually either the time of the procedure or specimen collection". To allow for the specimen collection time to be used, logic can prefer that element if present, falling back to the observation effective time if for laboratory results. As with all clinical logic patterns, when this method is used, care should be taken to ensure that the data on which the logic will be run conforms to this usage pattern.
+
+As an example, consider the index date of an infection using specimen collection time:
+
+```cql
+define "Bacteremia or Fungemia Result With Specimen":
+  from
+    "Bacteremia or Fungemia Result" R,
+    [Specimen: "Specimen Type - Blood"] S
+    where R.specimen.references(S)
+    return {
+      result: R,
+      specimen: S
+    }
+```
+
+The index date of a set of results could then be determined by:
+
+```cql
+  indexDate: Min(
+    results R 
+      return Coalesce(
+        start of R.specimen.collection.collected.toInterval(), // Specimen.collection.collected, if present
+        start of R.result.effective.toInterval() // Fallback to Observation.effective
+      )
+  )
+```
+
+Note that the specimen collection type here still needs to be identified (using the `"Specimen Type - Blood"` value set in this case), as it can usually not be reliably inferred from the test type.
 
 #### Observation Elements
 

@@ -195,7 +195,7 @@ define fluent function during(observations List<FHIR.Observation>, encounter FHI
     where O.effective.toInterval() during minute of encounter.period
 
 /*
-@description: Returns Observations in the given list that were effective within the given time duration before now
+@description: Returns Observations in the given list that were effective within the given time duration before now, accurate to the minute
 */
 define fluent function within(observations List<FHIR.Observation>, period System.Quantity):
   observations O
@@ -209,7 +209,7 @@ define fluent function consecutively(observations List<FHIR.Observation>):
     sort by start of effective.toInterval()
 
 /*
-@description: Returns Observations consecutively by their effective time, on or after when the given Observation was issued
+@description: Returns Observations consecutively by their effective time, on or after the start of the effective time of the given Observation
 */
 define fluent function consecutivelyFrom(observations List<FHIR.Observation>, observation FHIR.Observation):
   observations O
