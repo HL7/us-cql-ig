@@ -88,8 +88,8 @@
       <reference>
         <reference value="Parameters/manifest"/>
       </reference>
-      <name value="Input Expansion Parameters"/>
-      <description value="The input expansion parameters resource for this implementation guide, specifying SNOMED Edition and version. This resource will be contained within the published implementation guide with all pinned references."/>
+      <name value="Expansion Parameters"/>
+      <description value="The expansion parameters resource for this implementation guide, specifying versions of all dependencies used in this implementation guide, including SNOMED Edition and version. This resource will be contained within the published implementation guide with all pinned references."/>
       <exampleBoolean value="false"/>
     </resource>
     <!--resource>

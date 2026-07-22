@@ -100,6 +100,12 @@ This implementation guide was made possible by the thoughtful contributions of t
 
 {% include dependency-table-short-en.xhtml %}
 
+### Dependency Versions
+
+The following table lists the versions for all conformance artifacts (including code systems, value sets, profiles, libraries, etc.) referenced by this implementation guide.
+
+{% include expansion-params-en.xhtml %}
+
 ### Cross Version Analysis
 
 {% include cross-version-analysis-en.xhtml %}
@@ -114,6 +120,3 @@ This implementation guide was made possible by the thoughtful contributions of t
 
 Many of the examples in this implementation guide are informed by prior authorization forms freely available on the internet and used with permission.
 
-### Expansion Parameters
-
-{% include expansion-params-en.xhtml %}
