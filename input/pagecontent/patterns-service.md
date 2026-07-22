@@ -1,4 +1,4 @@
-US Core defines [US Core ServiceRequest]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-servicerequest.html) to track the proposal / planning / ordering of a service, and [US Core Procedure]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-procedure.html) to track performing a service.
+US Core defines [US Core ServiceRequest]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-servicerequest.html) to track the proposal / planning / ordering of a service, and [US Core Procedure]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-procedure.html) to track performing a service.
 
 Typical procedure codes include SNOMED CT, CPT, HCPCS II, ICD-10-PCS, CDT, and LOINC.
 
@@ -55,7 +55,7 @@ If you need to search for requested services, this is made available with ```UCE
 
 #### Procedures Performed
 
-US Core defines the [Procedure]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-procedure.html) profile to represent an in-progress or complete procedure for a patient. By default, Procedure resources in US Core are characterized by the `code` element.
+US Core defines the [Procedure]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-procedure.html) profile to represent an in-progress or complete procedure for a patient. By default, Procedure resources in US Core are characterized by the `code` element.
 
 ```cql
 define "Application of Intermittent Pneumatic Compression Devices":
@@ -84,7 +84,7 @@ For example, if application intent is that a CT Scan was performed, regardless o
 * [ServiceRequest](#requested-services) with an intent of order and a status of completed
 * [Procedure](#procedures-performed) with a status of completed
 * [ImagingStudy](http://hl7.org/fhir/R4/imagingstudy.html) with a status of available and related by `basedOn` or one of the `procedure` elements
-* [DiagnosticReportNote]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-diagnosticreport-note.html) with a status of final, amended, appended, or corrected
+* [DiagnosticReportNote]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-diagnosticreport-note.html) with a status of final, amended, appended, or corrected
 * [ObservationClinicalResult](patterns-observation.html#clinical-results) with a status of final, amended, or corrected
 * [Claim](patterns-claim.html#claim-items) with a status of `active` and a use of `claim`
 * [ExplanationOfBenefit](patterns-claim.html#eob-items) with a status of `active` and a use of `claim`

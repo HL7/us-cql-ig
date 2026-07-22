@@ -1,4 +1,4 @@
-The [US Core Allergy Intolerance]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-allergyintolerance.html) profile is used to capture allergies and adverse reactions associated with a patient. 
+The [US Core Allergy Intolerance]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-allergyintolerance.html) profile is used to capture allergies and adverse reactions associated with a patient. 
 
 By default, the primary terminology filter for AllergyIntolerance is `code`. The codes for this element are expected to come from a set of [common codes designating substances for allergy documentation in SNOMED and RXNORM](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1186.8/expansion).
 

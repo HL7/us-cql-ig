@@ -1,4 +1,4 @@
-USCore defines the [USCore Patient]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-patient.html)
+USCore defines the [USCore Patient]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-patient.html)
 
 ### Modifier Elements
 

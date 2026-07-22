@@ -10,7 +10,7 @@ NOTE: Cardinality determines whether and how many values may appear for a given 
 
 #### Must Support Elements
 
-In addition, elements in FHIR resources and profiles may be marked _must support_, meaning that implementations are required to provide values for the element if they are present in the system. To ensure expression logic can be evaluated correctly, expressions should only make use of elements that are marked must support (or otherwise have a reasonable expectation of being present). For a complete discussion of this aspect, refer to the [MustSupport Flag]({{site.data.fhir.ver.uscore7}}/must-support.html) topic in the US Core implementation guide.
+In addition, elements in FHIR resources and profiles may be marked _must support_, meaning that implementations are required to provide values for the element if they are present in the system. To ensure expression logic can be evaluated correctly, expressions should only make use of elements that are marked must support (or otherwise have a reasonable expectation of being present). For a complete discussion of this aspect, refer to the [MustSupport Flag]({{site.data.fhir.ver.uscore6}}/must-support.html) topic in the US Core implementation guide.
 
 #### Modifier Elements
 

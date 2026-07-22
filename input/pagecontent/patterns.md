@@ -4,7 +4,7 @@ This topic provides best practices and patterns for authoring CQL expressions fo
 
 US Core is the baseline for expected interoperability; this implementation guide builds CQL authoring patterns on top of US Core. To establish a new set of patterns, the following methodology is used:
 
-1. Choose a [US Core profile]({{site.data.fhir.ver.uscore7}}/index.html#us-core-profiles) to start with.
+1. Choose a [US Core profile]({{site.data.fhir.ver.uscore6}}/index.html#us-core-profiles) to start with.
 2. Review the narrative, elements, and search parameters, building a list of what would commonly be used and benefit from having an authoring pattern defined.
 3. Compare those patterns with [QI Core Authoring Patterns](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0) to see if we can align.
 4. Evaluate if our [libraries](artifacts.html#knowledge-artifacts-libraries) already support the pattern or if more functions need to be added.
@@ -22,13 +22,13 @@ The following table lists the patterns page for each profile:
 
 |US Core Profile|Patterns|
 |----|----|
-|[USCore AllergyIntolerance]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-allergyintolerance.html)|[AllergyIntolerance Patterns](patterns-allergy.html)|
-|[USCore Condition]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-condition-problems-health-concerns.html)|[Condition Patterns](patterns-condition.html)|
-|[USCore Coverage]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-coverage.html)|[Coverage Patterns](patterns-coverage.html)|
-|[USCore Medication]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-medicationrequest.html)|[Medication Patterns](patterns-medication.html)|
-|[USCore Observation Lab]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-observation-lab.html)|[Observation Lab Patterns](patterns-observation.html)|
-|[USCore Patient]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-patient.html)|[Patient Patterns](patterns-patient.html)|
-|[USCore Service]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-servicerequest.html)|[Service Patterns](patterns-service.html)|
+|[USCore AllergyIntolerance]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-allergyintolerance.html)|[AllergyIntolerance Patterns](patterns-allergy.html)|
+|[USCore Condition]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-condition-problems-health-concerns.html)|[Condition Patterns](patterns-condition.html)|
+|[USCore Coverage]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-coverage.html)|[Coverage Patterns](patterns-coverage.html)|
+|[USCore Medication]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-medicationrequest.html)|[Medication Patterns](patterns-medication.html)|
+|[USCore Observation Lab]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-lab.html)|[Observation Lab Patterns](patterns-observation.html)|
+|[USCore Patient]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-patient.html)|[Patient Patterns](patterns-patient.html)|
+|[USCore Service]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-servicerequest.html)|[Service Patterns](patterns-service.html)|
 
 In addition, there are patterns associated with CARIN Blue Button Claim and ExplanationOfBenefit information:
 

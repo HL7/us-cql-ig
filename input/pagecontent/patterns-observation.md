@@ -13,7 +13,7 @@ The FHIR Observation resource supports capturing a variety of information in a m
 
 #### Laboratory Results
 
-US Core defines [US Core Laboratory Result Observation]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-observation-lab.html) to record laboratory observations.
+US Core defines [US Core Laboratory Result Observation]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-lab.html) to record laboratory observations.
 
 Observation codes will be LOINC. Result values will generally be represented in different ways, according to the type of lab result. The LOINC code itself will often describe the expected representation of possible values for a given observation or test result.
 
@@ -115,7 +115,7 @@ In general, the expressions to retrieve observations for a particular profile in
 
 #### Clinical Results
 
-Clinical test results **(including imaging results)** in US Core use the [ObservationClinicalResult]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-observation-clinical-result.html) profile. By default, clinical test results in US Core are characterized by the code element.
+Clinical test results **(including imaging results)** in US Core use the [ObservationClinicalResult]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-clinical-result.html) profile. By default, clinical test results in US Core are characterized by the code element.
 
 ```cql
 define ObservationClinicalResult:
@@ -129,7 +129,7 @@ Note that observations associated with imaging are expected to represent specifi
 
 #### Pregnancy Status
 
-US Core allows for the presence of pregnancy to be represented in multiple resources. The US Core profile [Pregnancy Status]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-observation-pregnancystatus.html) allows for the representation of pregnancy as an Observation. However, pregnancy information may also be represented in a laboratory test result, an encounter diagnosis, or a problem list item.
+US Core allows for the presence of pregnancy to be represented in multiple resources. The US Core profile [Pregnancy Status]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-pregnancystatus.html) allows for the representation of pregnancy as an Observation. However, pregnancy information may also be represented in a laboratory test result, an encounter diagnosis, or a problem list item.
 
 As an example, to determine if an individual is pregnant at any point during a measurement period, the following approach may be used to consider all three approaches: 
 
@@ -180,7 +180,7 @@ If a use case requires the use of prevalence period (onset and/or abatement time
 
 ##### Pregnancy Intent
 
-The [Pregnancy Intent]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-observation-pregnancyintent.html) profile sets minimum expectations for the Observation resource to record, search, and retrieve the "patient's intent to become pregnant" over the next year.
+The [Pregnancy Intent]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-pregnancyintent.html) profile sets minimum expectations for the Observation resource to record, search, and retrieve the "patient's intent to become pregnant" over the next year.
 
 ```cql
 codesystem "LOINC": 'http://loinc.org'

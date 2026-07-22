@@ -1,4 +1,4 @@
-US Core defines [US Core MedicationRequest]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-medicationrequest.html) to record a patient's medication prescription or order, as well as self-reported medications.
+US Core defines [US Core MedicationRequest]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-medicationrequest.html) to record a patient's medication prescription or order, as well as self-reported medications.
 
 MedicationRequest can either use a code which will be RXNORM plus an optional NDC (https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4/expansion), or use a reference to a more detailed Medication resource (which also uses RXNORM plus optional NDC).
 
