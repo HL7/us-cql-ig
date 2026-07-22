@@ -55,6 +55,12 @@ code "BMI": '39156-5' from FHIRCommon.LOINC
 code "Positive": 'POS' from ObservationInterpretation
 code "Negative": 'NEG' from ObservationInterpretation
 
+// Prescription Transmission Method
+codesystem "Rx Transmission Method": 'http://terminology.hl7.org/CodeSystem/PMIXTransmissionFormRxOriginCodeType'
+
+code "Written Prescription": 'Written Prescription' from "Rx Transmission Method" display 'Written Prescription'
+code "Electronic Prescription": 'Electronic Prescription' from "Rx Transmission Method" display 'Electronic Prescription'
+
 context Patient
 
 define fluent function race(patient FHIR.Patient):
@@ -222,3 +228,9 @@ define fluent function isComplete(diagnosticReport FHIR.DiagnosticReport):
 define fluent function complete(diagnosticReports List<FHIR.DiagnosticReport>):
   diagnosticReports dr
     where dr.isComplete()
+
+/*
+@description: Returns the [transmissionMethod](http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-transmission-method) element for the given MedicationDispense 
+*/
+define fluent function transmissionMethod(medicationDispense FHIR.MedicationDispense):
+  medicationDispense.ext('http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-transmission-method').value as FHIR.Coding

@@ -46,4 +46,31 @@ Although newer versions of USCore introduce additional capability through new el
 
 To get all medications, ```UCE."All Medication Requests"``` can be used. To filter it down to active medications, ```UCE."Active Medication Orders"``` can be used.
 
+#### Electronically Transmitted Prescriptions
+
+The US Prescription Drug Monitoring Program (PDMP) implementation guide defines an extension that supports identifying the transmission method for a prescription:
+
+https://hl7.org/fhir/us/pdmp/STU1/StructureDefinition-pdmp-extension-rx-transmission-method.html
+
+
+The USCoreCommon library provides the following declarations to support this element:
+
+```cql
+codesystem "Rx Transmission Method": 'http://terminology.hl7.org/CodeSystem/PMIXTransmissionFormRxOriginCodeType'
+
+code "Written Prescription": 'Written Prescription' from "Rx Transmission Method" display 'Written Prescription'
+code "Electronic Prescription": 'Electronic Prescription' from "Rx Transmission Method" display 'Electronic Prescription'
+
+define fluent function transmissionMethod(medicationDispense MedicationDispense):
+  medicationDispense.ext('http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-transmission-method').value as Coding
+```
+
+With these declarations, a quality improvement artifact could look for evidence of an electronic transmission with the following:
+
+```cql
+define "Electronically Transmitted Prescriptions":
+  [MedicationDispense] Prescription
+    where Prescription.transmissionMethod() ~ "Electronic Prescription"
+```
+
 > NOTE: Content for this page was adapted from the [QICore Authoring Patterns - Medications](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0#medications) topic.
