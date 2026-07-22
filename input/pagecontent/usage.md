@@ -35,6 +35,8 @@ Clinical Quality Language (<a href="http://cql.hl7.org">CQL</a>) is a high-level
 To use CQL with USCore, <a href="https://cql.hl7.org/07-physicalrepresentation.html#data-model-references">model information</a> must be provided to the implementation environment. The <a href="Library-USCore-ModelInfo.html">USCore-ModelInfo</a> library provides this information for US Core. To use USCore, include a <a href="https://cql.hl7.org/02-authorsguide.html#data-models">using declaration</a> as shown in the example below:
 
 ```cql
-using USCore version '3.1.1'
+using USCore version '6.1.0-derived'
 ```
+
+> NOTE: The `-derived` label is used to distinguish this model info from the non-derived model info. See the [US Core Model Info](uscore-modelinfo.html) page for more information.
 

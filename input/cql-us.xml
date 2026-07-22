@@ -52,17 +52,17 @@
     <packageId value="hl7.fhir.uv.sdc"/>
     <version value="3.0.0"/>
   </dependsOn>
-  <dependsOn id="uscore7">
+  <!--dependsOn id="uscore7">
     <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
     <packageId value="hl7.fhir.us.core"/>
     <version value="7.0.0"/>
-  </dependsOn>
-  <!--dependsOn id="uscore6">
+  </dependsOn-->
+  <dependsOn id="uscore6">
     <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
     <packageId value="hl7.fhir.us.core.v610"/>
     <version value="6.1.0"/>
   </dependsOn>
-  <dependsOn id="uscore3">
+  <!--dependsOn id="uscore3">
     <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
     <packageId value="hl7.fhir.us.core.v311"/>
     <version value="3.1.1"/>
@@ -70,12 +70,20 @@
   <definition>
     <resource>
       <reference>
+        <reference value="Parameters/uscore-6-1-0-modelinfo-settings"/>
+      </reference>
+      <name value="USCore610ModelInfoSettings"/>
+      <description value="US Core 6.1.0 Model Information Settings"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <!--resource>
+      <reference>
         <reference value="Parameters/uscore-7-0-0-modelinfo-settings"/>
       </reference>
       <name value="USCore700ModelInfoSettings"/>
       <description value="US Core 7.0.0 Model Information Settings"/>
       <exampleBoolean value="false"/>
-    </resource>
+    </resource-->
     <resource>
       <reference>
         <reference value="Parameters/manifest"/>
@@ -281,7 +289,6 @@
       <code value="path-resource"/>
       <value value="input/resources/questionnaire"/>
     </parameter>
-    <!-- Uncommented to use the 0.5.6-cibuild version of the templates -->
     <parameter>
       <code value="path-liquid-ig"/>
       <value value="templates\liquid"/>

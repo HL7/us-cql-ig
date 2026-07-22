@@ -1,15 +1,13 @@
-This implementation guide includes the model information for the US Core specification, [USCore-ModelInfo](Library-USCore-ModelInfo.html), version 7.0.0. The following table lists the available classes, the base resource type which they represent, and the [primary code path](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology) established for each class:
+This implementation guide includes the model information for the US Core specification, [USCore-ModelInfo](Library-USCore-ModelInfo.html), version 6.1.0. The following table lists the available classes, the base resource type which they represent, and the [primary code path](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology) established for each class:
 
 |Profile|Primary Code Path|
 |---|---|
 |[AllergyIntolerance Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-allergyintolerance.html)|code|
-|[Average Blood Pressure Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-average-blood-pressure.html)|code|
 |[BMI Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-bmi.html)|code|
 |[Blood Pressure Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-blood-pressure.html)|code|
 |[Body Height Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-body-height.html)|code|
 |[Body Temperature Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-body-temperature.html)|code|
 |[Body Weight Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-body-weight.html)|code|
-|[Care Experience Preference Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-care-experience-preference.html)|code|
 |[CarePlan Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-careplan.html)|category|
 |[CareTeam Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-careteam.html)|category|
 |[Condition Encounter Diagnosis Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-condition-encounter-diagnosis.html)|code|
@@ -52,11 +50,10 @@ This implementation guide includes the model information for the US Core specifi
 |[Simple Observation Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-simple-observation.html)|code|
 |[Smoking Status Observation Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-smokingstatus.html)|code|
 |[Specimen Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-specimen.html)|type|
-|[Treatment Intervention Preference Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-treatment-intervention-preference.html)|code|
 |[Vital Signs Profile]({{site.data.fhir.ver.uscore7}}/StructureDefinition-us-core-vital-signs.html)|code|
 
-> Previous versions of the USCore-ModelInfo library (3.1.1 and 6.1.0) were included as embedded resources in the CQL-to-ELM translator (referenced without a namespace and using the version of the implementation guide). This is the 7.0.0 version of the US Core Model Information file. As of version 8.0.0, the US Core implementation guide now includes [model information](https://hl7.org/fhir/us/core/Library-uscore-8.0.0-model-definition.html).
+> Previous versions of the USCore-ModelInfo library (3.1.1 and 6.1.0) were included as embedded resources in the CQL-to-ELM translator (referenced without a namespace and using the version of the implementation guide). This is the `6.1.0-derived` version of the US Core Model Information file. As of version 8.0.0, the US Core implementation guide now includes [model information](https://hl7.org/fhir/us/core/Library-uscore-8.0.0-model-definition.html).
 
-> Previous versions of the USCore-ModelInfo library were generated using [Profile-informed authoring](https://hl7.org/fhir/uv/cql/using-modelinfo.html#profile-informed-modelinfo). However, as of 7.0.0, based on authoring and implementer feedback, the model information file is generated as a Derived model info:
+> Previous versions of the USCore-ModelInfo library were generated using [Profile-informed authoring](https://hl7.org/fhir/uv/cql/using-modelinfo.html#profile-informed-modelinfo). However, as of 6.1.0-derived, based on authoring and implementer feedback, the model information file is generated as a Derived model info:
 
-> This model information file was generated with the [uscore-7-0-0-modelinfo-settings](Parameters-uscore-7-0-0-modelinfo-settings.html) parameters, using the process described in [Derived Model Info]({{site.data.fhir.ver.cql}}/using-modelinfo.html#derived-modelinfo).
+> This model information file was generated with the [uscore-6-1-0-modelinfo-settings](Parameters-uscore-6-1-0-modelinfo-settings.html) parameters, using the process described in [Derived Model Info]({{site.data.fhir.ver.cql}}/using-modelinfo.html#derived-modelinfo).
