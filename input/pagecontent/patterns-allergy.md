@@ -81,6 +81,10 @@ These elements can be specified as choices of various types to allow systems fle
 
 The `prevalenceInterval` function takes an `AllergyIntolerance` resource and returns the interval from the start of the onset to the end of the abatement. If the AllergyIntolerance is active (i.e., has a clinicalStatus of active), then the ending boundary of the interval is inclusive (i.e., closed). Otherwise, the ending boundary of the interval is exclusive (i.e., open). When looking for whether an allergy/intolerance was active at some point, use the `prevalenceInterval` function rather than looking at the status element only.
 
+Note also that systems may not have prevalence information, but only an `assertedDate`, which can be accessed with the assertedDate fluent function:
+
+* `.assertedDate()`
+
 #### Current allergies
 
 To get all confirmed active allergies, ```UCE."Active Confirmed Allergies and Intolerances"``` can be used. 

@@ -33,12 +33,11 @@ In addition, the following optional parameters are defined:
 
 ### Cross-Version Considerations
 
-The 3.1.1 version of USCore has a single profile for Conditions and the `category` element is used to distinguish between problem list items, health concerns, and encounter diagnoses. As a result, expressions that referenced Condition directly in 3.1.1 will need to reference both profiles in 6.1.0:
+The 3.1.1 version of USCore has a single profile for Conditions and the `category` element is used to distinguish between problem list items, health concerns, and encounter diagnoses. However, the 6.1.0 version introduces separate profiles for these. When considering logic that refers to conditions, if the category distinction is relevant, use the profiles. However, if the logic does not need to distinguish between categories, the base FHIR Condition resource can be used. For example:
 
 ```cql
 define "All Conditions":
-  [ConditionProblemsHealthConcerns]
-    union [ConditionEncounterDiagnosis]
+  [FHIR.Condition]
 ```
 
 ### Common Elements and Functions
@@ -163,6 +162,22 @@ define "Active Diabetes Conditions Onset Within A Year":
 
 The `prevalenceInterval` function takes a `Condition` resource and returns the interval from the start of the onset to the end of the abatement. If the Condition is active (i.e., has a clinicalStatus of active, recurrence, or relapse), then the ending boundary of the interval is inclusive (i.e., closed). Otherwise, the ending boundary of the interval is exclusive (i.e., open). When looking for whether a condition was active at some point, use the `prevalenceInterval` function rather than looking at the status element only.
 
+#### Evidence of Diagnosis During an Encounter
+
+When looking for evidence that a particular diagnosis is active during an encounter, there is no single pattern that can reliably be used. Systems are not required to support encounter references, nor are they required to specifically support documenting onset. The most reliable mechanism is to allow for each of these possibilities and prioritize how each element is considered. For example, consider a "Qualifying Encounters" expression that returns the set of encounters under consideration:
+
+```cql
+define "Qualifying Encounters With Relevant Diagnoses":
+  "Qualifying Encounter" E
+    with [FHIR.Condition: "Relevant Diagnoses"] C
+      such that (
+        C.prevalenceInterval() overlaps E.period // If prevalence interval is provided, it is the most reliable mechanism to ensure "active during the encounter"
+          or (
+            (C.encounter.references(E) or C.recordedDate during E.period or C.assertedDate() during E.period) // Otherwise, look for a link to the encounter and an active status
+              and C.isActive()
+          )
+      )
+```
 
 > Some of this content is adapted from https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0#conditions
 

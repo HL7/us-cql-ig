@@ -165,6 +165,12 @@ define fluent function diastolic(bloodPressure FHIR.Observation):
   )
 
 /*
+@description: Returns the assertedDate for a given allergy/intolerance, i.e. the date on which the existence of the allergy/intolerance was first asserted or acknowledged 
+*/
+define fluent function assertedDate(allergyIntolerance FHIR.AllergyIntolerance):
+  allergyIntolerance.ext('http://hl7.org/fhir/StructureDefinition/condition-assertedDate').value as FHIR.dateTime
+
+/*
 @description: Returns true if the given condition is a health concern
 */
 define fluent function isHealthConcern(condition FHIR.Condition):
@@ -172,6 +178,12 @@ define fluent function isHealthConcern(condition FHIR.Condition):
     condition.category C
       where C ~ "health-concern"
   )
+
+/*
+@description: Returns the assertedDate for a given condition, i.e. the date on which the existence of the condition was first asserted or acknowledged 
+*/
+define fluent function assertedDate(condition FHIR.Condition):
+  condition.ext('http://hl7.org/fhir/StructureDefinition/condition-assertedDate').value as FHIR.dateTime
 
 /*
 @description: Returns Observations in the given list that have an interpretation of positive
