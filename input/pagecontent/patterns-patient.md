@@ -51,6 +51,8 @@ In addition, the library defines functions for common use cases for the HumanNam
 * [`.firstMiddleLast()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,firstMiddleLast,-%28name%20FHIR)
 * [`.lastFirstMiddle()`](Library-USCoreElements.html#:~:text=define%20fluent%20function-,lastFirstMiddle,-%28name%20FHIR)
 
+> NOTE: Although these functions are simple expressions over existing elements like `name`, `given`, and `family`, the particular combinations in which they appear are standard for use in the US Realm. As such, they do provide for consistent handling of name information, and are not a violation of the "no trivial wrapper" principle espoused for shareable elements defined in this implementation guide.
+
 #### Patient birthDate
 
 Typically, patient birthDate is just represented using the birthDate element:
