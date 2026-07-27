@@ -153,13 +153,60 @@ Note that the specimen collection type here still needs to be identified (using 
 
 #### Observation Elements
 
-In addition, the USCoreElements library defines expressions for accessing the various USCore profiles, such as:
+In addition, the USCoreElements library defines expressions for accessing the various USCore observation profiles:
 
-* [`"All Laboratory Results"`](Library-USCoreElements.html#:~:text=observation%2Dlab%0A*/%0Adefine-,%22All%20Laboratory%20Results%22,-%3A%0A%20%20%5B%22LaboratoryResultObservationProfile)
-* [`"Resulted Laboratory Results"`](Library-USCoreElements.html#:~:text=%22Resulted%20Laboratory%20Results%22)
-* `"Pediatric BMI for Age"`
+* Laboratory Result
+  * [`"All Laboratory Results"`](Library-USCoreElements.html#:~:text=define%20%22All%20Laboratory%20Results%22)
+  * [`"Resulted Laboratory Results"`](Library-USCoreElements.html#:~:text=define%20%22Resulted%20Laboratory%20Results%22)
+* Pediatric BMI for Age
+  * [`"Pediatric BMI for Age"`](Library-USCoreElements.html#:~:text=define%20%22Pediatric%20BMI%20for%20Age%22)
+  * [`"Pediatric BMI for Age All Statuses"`](Library-USCoreElements.html#:~:text=define%20%22Pediatric%20BMI%20for%20Age%20All%20Statuses%22)
+* Pediatric Head Circumference Percentile
+  * [`"Pediatric Head Circumference Percentile"`](Library-USCoreElements.html#:~:text=define%20%22Pediatric%20Head%20Circumference%20Percentile%22)
+  * [`"Pediatric Head Circumference Percentile All Statuses"`](Library-USCoreElements.html#:~:text=define%20%22Pediatric%20Head%20Circumference%20Percentile%20All%20Statuses%22)
+* Pediatric Weight for Height
+  * [`"Pediatric Weight for Height"`](Library-USCoreElements.html#:~:text=define%20%22Pediatric%20Weight%20for%20Height%22)
+  * [`"Pediatric Weight for Height All Statuses"`](Library-USCoreElements.html#:~:text=define%20%22Pediatric%20Weight%20for%20Height%20All%20Statuses%22)
+* Pulse Oximetry
+  * [`"Pulse Oximetry"`](Library-USCoreElements.html#:~:text=define%20%22Pulse%20Oximetry%22)
+  * [`"Pulse Oximetry All Statuses"`](Library-USCoreElements.html#:~:text=define%20%22Pulse%20Oximetry%20All%20Statuses%22)
+* Smoking Status
+  * [`"Smoking Status"`](Library-USCoreElements.html#:~:text=define%20%22Smoking%20Status%22)
+  * [`"Smoking Status All Statuses"`](Library-USCoreElements.html#:~:text=define%20%22Smoking%20Status%20All%20Statuses%22)
+  * [`"Most Recent Smoking Status"`](Library-USCoreElements.html#:~:text=define%20%22Most%20Recent%20Smoking%20Status%22)
+* Vital Signs
+  * [`"All Vital Signs"`](Library-USCoreElements.html#:~:text=define%20%22All%20Vital%20Signs%22)
+  * [`"All Vital Signs All Statuses"`](Library-USCoreElements.html#:~:text=define%20%22All%20Vital%20Signs%20All%20Statuses%22)
+* Respiratory Rate
+  * [`"All Respiratory Rate Measurements"`](Library-USCoreElements.html#:~:text=define%20%22All%20Respiratory%20Rate%20Measurements%22)
+  * [`"All Respiratory Rate Measurements All Statuses"`](Library-USCoreElements.html#:~:text=define%20%22All%20Respiratory%20Rate%20Measurements%20All%20Statuses%22)
+* Heart Rate
+  * [`"All Heart Rate Measurements"`](Library-USCoreElements.html#:~:text=define%20%22All%20Heart%20Rate%20Measurements%22)
+  * [`"All Heart Rate Measurements All Statuses"`](Library-USCoreElements.html#:~:text=define%20%22All%20Heart%20Rate%20Measurements%20All%20Statuses%22)
+* Body Temperature
+  * [`"All Body Temperature Measurements"`](Library-USCoreElements.html#:~:text=define%20%22All%20Body%20Temperature%20Measurements%22)
+  * [`"All Body Temperature Measurements All Statuses"`](Library-USCoreElements.html#:~:text=define%20%22All%20Body%20Temperature%20Measurements%20All%20Statuses%22)
+* Body Height
+  * [`"All Body Height Measurements"`](Library-USCoreElements.html#:~:text=define%20%22All%20Body%20Height%20Measurements%22)
+  * [`"All Body Height Measurements All Statuses"`](Library-USCoreElements.html#:~:text=define%20%22All%20Body%20Height%20Measurements%20All%20Statuses%22)
+* Head Circumference
+  * [`"All Head Circumference Measurements"`](Library-USCoreElements.html#:~:text=define%20%22All%20Head%20Circumference%20Measurements%22)
+  * [`"All Head Circumference Measurements All Statuses"`](Library-USCoreElements.html#:~:text=define%20%22All%20Head%20Circumference%20Measurements%20All%20Statuses%22)
+* Body Weight
+  * [`"All Body Weight Measurements"`](Library-USCoreElements.html#:~:text=define%20%22All%20Body%20Weight%20Measurements%22)
+  * [`"All Body Weight Measurements All Statuses"`](Library-USCoreElements.html#:~:text=define%20%22All%20Body%20Weight%20Measurements%20All%20Statuses%22)
+* Body Mass Index
+  * [`"All Body Mass Index Measurements"`](Library-USCoreElements.html#:~:text=define%20%22All%20Body%20Mass%20Index%20Measurements%22)
+  * [`"All Body Mass Index Measurements All Statuses"`](Library-USCoreElements.html#:~:text=define%20%22All%20Body%20Mass%20Index%20Measurements%20All%20Statuses%22)
+* Blood Pressure
+  * [`"All Blood Pressure Measurements"`](Library-USCoreElements.html#:~:text=define%20%22All%20Blood%20Pressure%20Measurements%22)
+  * [`"All Blood Pressure Measurements All Statuses"`](Library-USCoreElements.html#:~:text=define%20%22All%20Blood%20Pressure%20Measurements%20All%20Statuses%22)
+  * [`"Systolic Blood Pressure"`](Library-USCoreElements.html#:~:text=define%20%22Systolic%20Blood%20Pressure%22)
+  * [`"Diastolic Blood Pressure"`](Library-USCoreElements.html#:~:text=define%20%22Diastolic%20Blood%20Pressure%22)
+* Body Surface Area
+  * [`"Most Recent BSA"`](Library-USCoreElements.html#:~:text=define%20%22Most%20Recent%20BSA%22)
 
-In general, the expressions to retrieve observations for a particular profile include the `.resulted()` function to ensure only final, amended, or corrected observations are returned.
+In general, the expressions to retrieve observations for a particular profile include the `.resulted()` function to ensure only final, amended, or corrected observations are returned. Each profile typically provides an `All Statuses` variant that returns observations regardless of status, along with a status-filtered expression built on top of it.
 
 #### Clinical Results
 
