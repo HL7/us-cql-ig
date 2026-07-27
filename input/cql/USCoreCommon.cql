@@ -217,13 +217,6 @@ define fluent function during(observations List<FHIR.Observation>, encounter FHI
     where O.effective.toInterval() during minute of encounter.period
 
 /*
-@description: Returns Observations in the given list that were effective within the given time duration before now, accurate to the minute
-*/
-define fluent function within(observations List<FHIR.Observation>, period System.Quantity):
-  observations O
-    where (O.effective.toInterval().low + period) on or after minute of Now()
-
-/*
 @description: Returns Observations sorted chronologically by their effective time
 */
 define fluent function chronologically(observations List<FHIR.Observation>):
