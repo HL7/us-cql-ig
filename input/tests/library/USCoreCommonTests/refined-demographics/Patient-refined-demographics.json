@@ -1,0 +1,49 @@
+{
+  "resourceType": "Patient",
+  "id": "refined-demographics",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2106-3",
+            "display": "White"
+          }
+        },
+        {
+          "url": "text",
+          "valueString": "White"
+        }
+      ]
+    },
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+      "valueCode": "F"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://example.org/mrn",
+      "value": "refined-demographics"
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "Demographics",
+      "given": [
+        "Test"
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1980-03-12"
+}

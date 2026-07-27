@@ -1,0 +1,58 @@
+{
+  "resourceType": "Parameters",
+  "id": "expected-results",
+  "parameter": [
+    {
+      "name": "Test Active Medication Orders",
+      "part": [
+        { "name": "operator", "valueCode": "countGreaterThan" },
+        { "name": "expected", "valueInteger": 0 }
+      ]
+    },
+    {
+      "name": "Test Active Medication Orders",
+      "part": [
+        { "name": "operator", "valueCode": "lengthOf" },
+        { "name": "expected", "valueInteger": 1 }
+      ]
+    },
+    {
+      "name": "Test Active Medication Orders",
+      "part": [
+        { "name": "operator", "valueCode": "includes" },
+        { "name": "expected", "resource": {
+            "resourceType": "MedicationRequest",
+            "identifier": [
+              { "system": "http://example.org/rx", "value": "metformin-active-order" }
+            ]
+        } }
+      ]
+    },
+    {
+      "name": "Test Active Medication Orders",
+      "part": [
+        { "name": "operator", "valueCode": "includes" },
+        { "name": "negated", "valueBoolean": true },
+        { "name": "expected", "resource": {
+            "resourceType": "MedicationRequest",
+            "identifier": [
+              { "system": "http://example.org/rx", "value": "lisinopril-stopped" }
+            ]
+        } }
+      ]
+    },
+    {
+      "name": "Test Active Medication Orders",
+      "part": [
+        { "name": "operator", "valueCode": "includes" },
+        { "name": "negated", "valueBoolean": true },
+        { "name": "expected", "resource": {
+            "resourceType": "MedicationRequest",
+            "identifier": [
+              { "system": "http://example.org/rx", "value": "atorvastatin-active-plan" }
+            ]
+        } }
+      ]
+    }
+  ]
+}

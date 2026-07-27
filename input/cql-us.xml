@@ -158,6 +158,11 @@
           <nameUrl value="testing.html"/>
           <title value="Testing"/>
           <generation value="markdown"/>
+          <page>
+            <nameUrl value="unit-testing.html"/>
+            <title value="Unit Testing Proposal"/>
+            <generation value="markdown"/>
+          </page>
         </page>
       </page>
       <page>

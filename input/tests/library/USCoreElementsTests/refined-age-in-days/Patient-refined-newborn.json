@@ -1,0 +1,26 @@
+{
+  "resourceType": "Patient",
+  "id": "refined-newborn",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "http://example.org/mrn",
+      "value": "refined-newborn"
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "Newborn",
+      "given": [
+        "Test"
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "2026-01-01"
+}

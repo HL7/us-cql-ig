@@ -1,0 +1,29 @@
+{
+  "resourceType": "Parameters",
+  "id": "expected-results",
+  "parameter": [
+    {
+      "name": "Test BSA (Mosteller)",
+      "part": [
+        { "name": "operator", "valueCode": "approximately" },
+        { "name": "expected", "valueQuantity": { "value": 1.84, "unit": "m2", "system": "http://unitsofmeasure.org", "code": "m2" } },
+        { "name": "tolerance", "valueQuantity": { "value": 0.01, "unit": "m2", "system": "http://unitsofmeasure.org", "code": "m2" } }
+      ]
+    },
+    {
+      "name": "Test BSA (DuBois and DuBois)",
+      "part": [
+        { "name": "operator", "valueCode": "approximately" },
+        { "name": "expected", "valueQuantity": { "value": 1.85, "unit": "m2", "system": "http://unitsofmeasure.org", "code": "m2" } },
+        { "name": "tolerance", "valueQuantity": { "value": 0.01, "unit": "m2", "system": "http://unitsofmeasure.org", "code": "m2" } }
+      ]
+    },
+    {
+      "name": "Test BSA (Mosteller)",
+      "part": [
+        { "name": "operator", "valueCode": "greaterThan" },
+        { "name": "expected", "valueQuantity": { "value": 1.5, "unit": "m2", "system": "http://unitsofmeasure.org", "code": "m2" } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "refined-stopped",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "http://example.org/rx",
+      "value": "lisinopril-stopped"
+    }
+  ],
+  "status": "stopped",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "314076",
+        "display": "lisinopril 10 MG Oral Tablet"
+      }
+    ],
+    "text": "lisinopril 10 mg"
+  },
+  "subject": {
+    "reference": "Patient/refined-meds"
+  },
+  "authoredOn": "2025-11-10",
+  "requester": {
+    "display": "Dr. Test"
+  }
+}

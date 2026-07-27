@@ -1,0 +1,35 @@
+{
+  "resourceType": "Parameters",
+  "id": "expected-results",
+  "parameter": [
+    {
+      "name": "Test Age In Days",
+      "part": [
+        { "name": "operator", "valueCode": "equals" },
+        { "name": "expected", "valueInteger": 7 }
+      ]
+    },
+    {
+      "name": "Test Age In Days",
+      "part": [
+        { "name": "operator", "valueCode": "between" },
+        { "name": "lowerBound", "valueInteger": 1 },
+        { "name": "upperBound", "valueInteger": 30 }
+      ]
+    },
+    {
+      "name": "Test Age In Days",
+      "part": [
+        { "name": "operator", "valueCode": "exists" },
+        { "name": "negated", "valueBoolean": false }
+      ]
+    },
+    {
+      "name": "Test Age In Years",
+      "part": [
+        { "name": "operator", "valueCode": "equals" },
+        { "name": "expected", "valueInteger": 0 }
+      ]
+    }
+  ]
+}

@@ -19,6 +19,7 @@
       <li><a href="architectural-guidance.html">Architectural Guidance</a></li>
       <li><a href="query-management.html">Query Management</a></li>
       <li><a href="testing.html">Testing</a></li>
+      <li><a href="unit-testing.html">Unit Testing Proposal</a></li>
     </ul>
   </li>
   <li class="dropdown">

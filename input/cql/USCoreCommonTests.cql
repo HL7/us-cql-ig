@@ -34,6 +34,22 @@ define _07_TestIsHealthConcern:
   [Condition] C
     where C.isHealthConcern()
 
+// ============================================================================
+// Refined unit test demonstration (proposal: unit-testing.html)
+// Exercised by the refined-* test cases under
+// input/tests/library/USCoreCommonTests using the proposed assertion model
+// (operator / expected / tolerance / negated).
+// ============================================================================
+
+// Type-aware equality + negation on a coded value
+define "Test Birth Sex":
+  Patient.birthSex()
+
+// Partial match of a Coding within a list -- the assertion checks that a
+// particular OMB race category is present (or absent), not the whole tuple.
+define "Test Race Categories":
+  (Patient.race()) R return R.ombCategory
+
 /*
 TODO: These are really US Core tests...
 define TestAge:

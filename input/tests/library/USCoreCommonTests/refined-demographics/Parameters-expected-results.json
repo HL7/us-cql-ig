@@ -1,0 +1,43 @@
+{
+  "resourceType": "Parameters",
+  "id": "expected-results",
+  "parameter": [
+    {
+      "name": "Test Birth Sex",
+      "part": [
+        { "name": "operator", "valueCode": "equals" },
+        { "name": "expected", "valueCode": "F" }
+      ]
+    },
+    {
+      "name": "Test Birth Sex",
+      "part": [
+        { "name": "operator", "valueCode": "equals" },
+        { "name": "negated", "valueBoolean": true },
+        { "name": "expected", "valueCode": "M" }
+      ]
+    },
+    {
+      "name": "Test Race Categories",
+      "part": [
+        { "name": "operator", "valueCode": "includes" },
+        { "name": "expected", "valueCoding": { "system": "urn:oid:2.16.840.1.113883.6.238", "code": "2106-3" } }
+      ]
+    },
+    {
+      "name": "Test Race Categories",
+      "part": [
+        { "name": "operator", "valueCode": "includes" },
+        { "name": "negated", "valueBoolean": true },
+        { "name": "expected", "valueCoding": { "system": "urn:oid:2.16.840.1.113883.6.238", "code": "2054-5" } }
+      ]
+    },
+    {
+      "name": "Test Race Categories",
+      "part": [
+        { "name": "operator", "valueCode": "lengthOf" },
+        { "name": "expected", "valueInteger": 1 }
+      ]
+    }
+  ]
+}

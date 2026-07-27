@@ -34,6 +34,8 @@ And the `expected-results` Parameters resource has the following parameter indic
 
 > Note that these tests are not included directly as resources in the implementation guide, since they are part of testing and not directly required for implementation. However, the test resources are included in _test bundles_ available on the [Downloads](downloads.html) page. 
 
+> The exact-equality model described above works well for static, deterministic checks, but is limited for CQL intended for reuse across many implementations and against real-world data — for example, it cannot express relative timing, tolerant floating-point comparison, or partial matching of lists and complex objects. A refined assertion model addressing these needs is proposed on the [Unit Testing Proposal](unit-testing.html) page.
+
 ### Integration Testing
 
 #### Prior Authorization Questionnaires
