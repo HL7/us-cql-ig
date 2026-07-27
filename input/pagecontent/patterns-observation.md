@@ -116,8 +116,8 @@ Note that the interpretation element of an observation may not be present, and m
 
 * [`.during(Encounter)`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,during,-%28observations%20List): Returns Observations in the given list whose effective time is during the given Encounter, accurate to the minute
 * [`.within(Quantity)`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,within,-%28observations%20List): Returns Observations in the given list that that were effective within the given time duration before now, accurate to the minute
-* [`.consecutively()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,consecutively,-%28observations%20List): Returns Observations consecutively by their effective time
-* [`.consecutivelyFrom(Observation)`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,consecutivelyFrom,-%28observations%20List): Returns Observations consecutively by their effective time, on or after the start of the effective time of the given Observation  
+* [`.chronologically()`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,chronologically,-%28observations%20List): Returns Observations chronologically by their effective time
+* [`.chronologicallyAfter(Observation)`](Library-USCoreCommon.html#:~:text=define%20fluent%20function-,chronologicallyAfter,-%28observations%20List): Returns Observations chronologically by their effective time, on or after the start of the effective time of the given Observation  
 
 ##### Specimen Collection Time
 
