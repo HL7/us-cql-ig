@@ -224,16 +224,16 @@ define fluent function within(observations List<FHIR.Observation>, period System
     where (O.effective.toInterval().low + period) on or after minute of Now()
 
 /*
-@description: Returns Observations consecutively by their effective time
+@description: Returns Observations sorted chronologically by their effective time
 */
-define fluent function consecutively(observations List<FHIR.Observation>):
+define fluent function chronologically(observations List<FHIR.Observation>):
   observations O
     sort by start of effective.toInterval()
 
 /*
-@description: Returns Observations consecutively by their effective time, on or after the start of the effective time of the given Observation
+@description: Returns Observations chronologically by their effective time, on or after the start of the effective time of the given Observation
 */
-define fluent function consecutivelyFrom(observations List<FHIR.Observation>, observation FHIR.Observation):
+define fluent function chronologicallyAfter(observations List<FHIR.Observation>, observation FHIR.Observation):
   observations O
     where O.effective.toInterval() starts on or after start of observation.effective.toInterval()
     sort by start of effective.toInterval()

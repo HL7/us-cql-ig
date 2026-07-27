@@ -302,14 +302,16 @@ define StickTest:
 
 define "Three Consecutive Negative Stick Tests":
   exists (
-    StickTest.during(Encounter).consecutively().take(3).negative().count() = 3
+    StickTest.during(Encounter).chronologically().take(3).negative().count() = 3
   )
 ```
+
+> NOTE: The use of the term _consecutive_ here means there are no intervening positive tests, rather than that they are strictly sequential chronologically (i.e. with no gaps in time in between).
 
 In addition, this expression can be parameterized with current context (for example from a trigger context) with:
 
 ```cql
-StickTest.consecutivelyFrom(%context).take(3).negative().count() = 3
+StickTest.chronologicallyAfter(%context).take(3).negative().count() = 3
 ```
 
 > NOTE: Content for this page was adapted from the [QICore Authoring Patterns - Laboratory Result](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0#laboratory-result) topic.
