@@ -1,4 +1,14 @@
-This topic provides best practices and patterns for authoring CQL expressions for each type of data accessed in CQL-based questionnaires:
+This topic provides best practices and patterns for authoring CQL expressions for each type of data accessed in CQL-based questionnaires.
+
+* [**Overall**](patterns-overall.html): Best practices and patterns for accessing data and authoring logic that apply to all types of data
+* [**Patient**](patterns-patient.html): Patterns and practices for patient data, including demographics
+* [**AllergyIntolerance**](patterns-allergy.html): Patterns and practices for allergy/intolerance data
+* [**Condition**](patterns-condition.html): Patterns and practices for condition data including encounter diagnoses, as well as problem list items, and health concerns
+* [**Observation**](patterns-observation.html): Patterns and practices for observations generally, including labs, vital signs, clinical results, and simple observations
+* [**Service**](patterns-service.html): Patterns and practices for services, including orders, prohibitions, referrals, and procedures
+* [**Medication**](patterns-medication.html): Patterns and practices for medications, including prescriptions, dispenses, and administrations
+* [**Claim**](patterns-claim.html): Patterns and practices for claims and explanations-of-benefits (EOBs)
+* [**Coverage**](patterns-coverage.html): Patterns and practices for accessing coverage information
 
 ### Methodology
 
@@ -13,26 +23,6 @@ US Core is the baseline for expected interoperability; this implementation guide
 7. Submit the proposed patterns and underlying profile as a change request JIRA tracker to this implementation guide.
 
 Note that things like community calls, ballot feedback, JIRA issues, and trying to support example questionnaires can also feed into adding more patterns outside of this methodology.
-
-Overall patterns are discussed here:
-
-[Overall](patterns-overall.html)
-
-The following table lists the patterns page for each profile:
-
-|US Core Profile|Patterns|
-|----|----|
-|[USCore AllergyIntolerance]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-allergyintolerance.html)|[AllergyIntolerance Patterns](patterns-allergy.html)|
-|[USCore Condition]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-condition-problems-health-concerns.html)|[Condition Patterns](patterns-condition.html)|
-|[USCore Coverage]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-coverage.html)|[Coverage Patterns](patterns-coverage.html)|
-|[USCore Medication]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-medicationrequest.html)|[Medication Patterns](patterns-medication.html)|
-|[USCore Observation Lab]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-lab.html)|[Observation Lab Patterns](patterns-observation.html)|
-|[USCore Patient]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-patient.html)|[Patient Patterns](patterns-patient.html)|
-|[USCore Service]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-servicerequest.html)|[Service Patterns](patterns-service.html)|
-
-In addition, there are patterns associated with CARIN Blue Button Claim and ExplanationOfBenefit information:
-
-[Claim Patterns](patterns-claim.html)
 
 Elements from current example questionnaires:
 

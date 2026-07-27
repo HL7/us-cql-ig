@@ -35,22 +35,6 @@ define fluent function checkImplicitRules(resource Resource, knownImplicitRules 
   )
 ```
 
-### Naming Best-Practices
-
-To ensure that declarations in shared libraries can be clearly understood when used in other contexts, the following section provides best-practices for naming declarations in shared libraries. This is a curated list of rules that may grow depending on when important distinctions are found, so feedback is welcome, both on these best-practices, as well as how they are applied in the shared content here.
-
-1. Unless there can be no confusion, include clarity over the type of resource returned
-    1. e.g. 'Metformin RxNorm Code', Metformin Valueset, 'Metformin AllergyIntolerances' 'Metformin MedicationResources', 'Renal Dialysis Procedures', 'Renal Dialysis Conditions', etc.
-2. When a set of items is returned use a plural form (e.g. add s). When not in plural form the definition should return a singleton and where applicable, how that singleton was obtained from the set
-    1. e.g. 'Most Recent Systolic Blood Pressure Quantity'
-3. When a parameter quantity (or set of parameter quantities) is returned as a primitive (e.g. Decimal), include any qualifying unit in the name 
-    1. e.g. 'Patient Age in Days'
-4. When a resource list is filtered or processed, it should include clarity over how it is filtered or processed
-    1. e.g. 'Active Confirmed Conditions'
-5. When a resource list is unfiltered (except the primary code) clarify with 'All'
-6. Non-fluent functions should generally begin with a verb to distinguish from definitions 
-    1. e.g. 'GetX', 'ComputeX', 'MapToX', etc.
-
 ### Accessing Data
 
 To summarize, _cardinality_ determines whether data will be present at all, _must support_ determines whether the element can reasonably be expected to be present, and _modifier_ elements must always be considered to determine the impact of possible values of the element on the result of the expression.
@@ -76,6 +60,22 @@ define "Active Confirmed Allergies and Intolerances":
 > NOTE: For discussion on how to manage search parameters with terminology, see the [Terminology Considerations](architectural-guidance.html#terminology-considerations) discussion in the Architectural Guidance topic.
 
 > NOTE: For discussion on how to manage optional search parameters, see the [Performant Data Access](architectural-guidance.html#performant-data-access) discussion in the Architectural Guidance topic.
+
+### Naming Best-Practices
+
+To ensure that declarations in shared libraries can be clearly understood when used in other contexts, the following section provides best-practices for naming declarations in shared libraries. This is a curated list of rules that may grow depending on when important distinctions are found, so feedback is welcome, both on these best-practices, as well as how they are applied in the shared content here.
+
+1. Unless there can be no confusion, include clarity over the type of resource returned
+    1. e.g. 'Metformin RxNorm Code', Metformin Valueset, 'Metformin AllergyIntolerances' 'Metformin MedicationResources', 'Renal Dialysis Procedures', 'Renal Dialysis Conditions', etc.
+2. When a set of items is returned use a plural form (e.g. add s). When not in plural form the definition should return a singleton and where applicable, how that singleton was obtained from the set
+    1. e.g. 'Most Recent Systolic Blood Pressure Quantity'
+3. When a parameter quantity (or set of parameter quantities) is returned as a primitive (e.g. Decimal), include any qualifying unit in the name 
+    1. e.g. 'Patient Age in Days'
+4. When a resource list is filtered or processed, it should include clarity over how it is filtered or processed
+    1. e.g. 'Active Confirmed Conditions'
+5. When a resource list is unfiltered (except the primary code) clarify with 'All'
+6. Non-fluent functions should generally begin with a verb to distinguish from definitions 
+    1. e.g. 'GetX', 'ComputeX', 'MapToX', etc.
 
 ### Context Questions
 
