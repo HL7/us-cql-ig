@@ -9,6 +9,8 @@ This topic provides query management guidance for implementers to support the us
 * [Manage extension retrieval](#extension-retrieval) for extensions expected to be present (e.g., USCore and CRD extensions)
 * [Complex element retrieval](#complex-element-retrieval) such as "Cumulative Medication Duration" and "Body Surface Area"
 
+> NOTE: The guidance in this section discusses several options for accessing data more broadly when more specific capabilities are not available. As much as possible, these fallback retrieval patterns should be bounded by clinical context, measurement or prior authorization period, resource type, and supported search parameters, and should avoid broad payer-driven data sweeps where targeted queries are available.
+
 ### Overview
 
 All data access within CQL is expressed abstractly, using the [Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve) expression, and surfaced from a packaged Library as `dataRequirement` elements. These data requirements describe _what_ data the logic needs, independent of _how_ any particular server exposes it. A DTR-style client that evaluates CQL must bridge that gap: translating abstract data requirements into concrete FHIR searches, executing them against a server whose capabilities vary, and shaping the results so the CQL engine can evaluate the logic correctly.

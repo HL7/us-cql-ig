@@ -7,6 +7,8 @@ This discussion assumes the following:
 
 This guidance is provided as a complement to the conformance expectations and guidance described in [Pre-populating QuestionnaireResponses](https://hl7.org/fhir/us/davinci-dtr/specification.html#pre-populating-questionnaireresponses) in the DTR implementation guide.
 
+> NOTE: The guidance in this section discusses several options for accessing data more broadly when more specific capabilities are not available. As much as possible, these fallback retrieval patterns should be bounded by clinical context, measurement or prior authorization period, resource type, and supported search parameters, and should avoid broad payer-driven data sweeps where targeted queries are available.
+
 ### Initial Data Retrieval
 
 #### Data Access Within CQL
