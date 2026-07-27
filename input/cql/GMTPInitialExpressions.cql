@@ -87,7 +87,7 @@ define "Most Recent ServiceRequest":
   )
 
 define "Billing Provider":
-  UCE.BillingProvider("Member Coverage")
+  First(UCE.BillingProvider("Member Coverage"))
 
 define "Billing Provider NPI":
   "Billing Provider".identifier I 
@@ -138,7 +138,7 @@ define "Billing Provider different from Servicing Provider":
   'No'
 
 define "Clinical Trial Organization":
-  First(UCE."Clinical Trial Organization" O 
+  First(UCE."All Organizations" O 
     with "Clinical Trial"  T such that EndsWith(T.sponsor.reference, O.id))  
  //in FHIR R5 T.associatedParty instead of T.sponsor 
 

@@ -734,7 +734,7 @@ define "Research Subject":
 define "All Clinical Trials":
   [FHIR.ResearchStudy] 
 
-define "Clinical Trial Organization":
+define "All Organizations":
   [USCore.OrganizationProfile] O
   
 define function "GetServiceRequestReasonCondition"(serviceRequest ServiceRequest):
