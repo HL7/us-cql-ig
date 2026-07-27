@@ -152,12 +152,22 @@ define fluent function sexParameterForClinicalUse(patient FHIR.Patient, asOf Sys
     sort by start of period desc
 
 
+/*
+@description: Returns the single systolic blood pressure component of the given blood pressure observation
+@comment: This function will return `null` if there is no component with a code of `"Systolic Blood Pressure"`, and will throw an error 
+if there are multiple components with that code.
+*/
 define fluent function systolic(bloodPressure FHIR.Observation):
   singleton from (
     bloodPressure.component C
       where C.code ~ "Systolic Blood Pressure"
   )
 
+/*
+@description: Returns the single diastolic blood pressure component of the given blood pressure observation
+@comment: This function will return `null` if there is no component with a code of `"Diastolic Blood Pressure"`, and will throw an error
+if there are multiple components with that code.
+*/
 define fluent function diastolic(bloodPressure FHIR.Observation):
   singleton from (
     bloodPressure.component C
