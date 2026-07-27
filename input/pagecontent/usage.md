@@ -40,3 +40,27 @@ using USCore version '6.1.0-derived'
 
 > NOTE: The `-derived` label is used to distinguish this model info from the non-derived model info. See the [US Core Model Info](uscore-modelinfo.html) page for more information.
 
+#### Dependencies and Versioning
+
+As with any knowledge artifact, dependencies and versioning are a critical aspect of ensuring correct function, both as part of development and testing, as well as implementation. To ensure version and dependency information is correctly captured, and communicated, best practice is to use a [version manifest](http://hl7.org/fhir/uv/crmi/version-manifest.html) as part of the development and distribution of knowledge artifacts.
+
+A version manifest is represented as a [CRMI Manifest Library]({{site.data.fhir.ver.crmi}}/StructureDefinition-crmi-manifestlibrary.html) (a `Library` of type `asset-collection`). It uses `relatedArtifact` entries to declare both the artifacts that make up the collection (`composed-of`, marked owned) and the specific versions of every dependency those artifacts rely on (`depends-on`). Terminology (code system) versions are additionally pinned through the [expansion parameters]({{site.data.fhir.ver.crmi}}/version-manifest.html#expansion-parameters) referenced by the manifest, so that value set expansions performed during evaluation resolve to the same codes every time.
+
+##### Prior Authorization Version Manifest Example
+
+The [Prior Authorization Example Version Manifest](Library-PriorAuthManifestExample.html) is a complete example that declares the exact dependency versions used by the prior-authorization [example questionnaires](examples.html) in this implementation guide. Downstream implementation guides that reuse these questionnaires (for example, a Da Vinci DTR-based application) can adapt this manifest to declare their own dependency versions.
+
+The example illustrates how each kind of dependency and governance detail is captured:
+
+| Dependency / detail | Where it appears in the manifest |
+| --- | --- |
+| **US Core version** | A `depends-on` `relatedArtifact` referencing the US Core IG canonical pinned to `\|6.1.0` |
+| **CQL library version** | `depends-on` entries for each CQL library (e.g., `USCoreCommon`, `USCoreElements`, `CumulativeMedicationDuration`, `FHIRHelpers`, `FHIRCommon`), each pinned to a specific version |
+| **Value-set version** | A `depends-on` entry referencing the value set canonical with a version suffix (e.g., `.../ValueSet/icd-10\|4.0.1`) |
+| **Terminology (code system) versions** | `system-version` parameters in the contained expansion `Parameters` (SNOMED CT, LOINC, RxNorm, ICD-10-CM, CPT), also surfaced as `depends-on` entries |
+| **ConceptMap / map package version** | A `depends-on` entry referencing the `ConceptMap` canonical pinned to a map package version |
+| **Map publisher** | Recorded in the `display` of the ConceptMap `depends-on` entry, and in a `documentation` artifact comment on that entry |
+| **Stewardship model** | Captured in a `documentation` [artifact comment](https://hl7.org/fhir/extensions/StructureDefinition-cqf-artifactComment.html) extension — at the manifest level for the collection, and per-dependency for externally-stewarded packages such as the ConceptMap |
+| **Update cadence** | Described in the manifest-level `documentation` artifact comment, and bounded by the `effectivePeriod`, `approvalDate`, and `lastReviewDate` metadata elements |
+
+Because the manifest pins versions rather than relying on "latest", packaging and evaluating the questionnaires against the versions it declares produces reproducible results. When adapting the manifest for a specific deployment, update each pinned version to the version approved for that deployment, and re-review the manifest on the cadence documented within it.

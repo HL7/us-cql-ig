@@ -1,0 +1,353 @@
+{
+  "resourceType": "Library",
+  "id": "PriorAuthManifestExample",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary"
+    ]
+  },
+  "contained": [
+    {
+      "resourceType": "Parameters",
+      "id": "exp-params",
+      "parameter": [
+        {
+          "name": "system-version",
+          "valueCanonical": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20250901"
+        },
+        {
+          "name": "system-version",
+          "valueCanonical": "http://loinc.org|2.80"
+        },
+        {
+          "name": "system-version",
+          "valueCanonical": "http://www.nlm.nih.gov/research/umls/rxnorm|20250505"
+        },
+        {
+          "name": "system-version",
+          "valueCanonical": "http://hl7.org/fhir/sid/icd-10-cm|2025"
+        },
+        {
+          "name": "system-version",
+          "valueCanonical": "http://www.ama-assn.org/go/cpt|2025"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-expansionParameters",
+      "valueReference": {
+        "reference": "#exp-params"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-artifactComment",
+      "extension": [
+        {
+          "url": "type",
+          "valueCode": "documentation"
+        },
+        {
+          "url": "text",
+          "valueMarkdown": "This manifest pins the exact versions of every dependency used by the prior-authorization example questionnaires in this implementation guide. Downstream IGs that reuse these questionnaires should copy this pattern, updating the pinned versions for their deployment. Stewardship model: this manifest is owned and maintained by the publisher of this implementation guide (HL7 Clinical Decision Support Work Group); the dependency versions it references are stewarded by their respective publishers as noted on each dependency. Update cadence: this manifest is reviewed and re-pinned on each release of this implementation guide, and out-of-cycle when a referenced terminology or map package publishes a version that materially changes evaluation results. See the effectivePeriod for the window during which these pinned versions are considered current."
+        }
+      ]
+    }
+  ],
+  "url": "http://hl7.org/fhir/us/cql/Library/PriorAuthManifestExample",
+  "version": "2.0.0",
+  "name": "PriorAuthManifestExample",
+  "title": "Prior Authorization Example Version Manifest",
+  "status": "active",
+  "experimental": true,
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "asset-collection"
+      }
+    ]
+  },
+  "date": "2026-07-26",
+  "publisher": "HL7 International / Clinical Decision Support",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/dss"
+        }
+      ]
+    }
+  ],
+  "description": "Example CRMI version manifest and dependency declaration for the prior-authorization example questionnaires defined in this implementation guide. It declares the exact versions of the US Core implementation guide, CQL libraries, value sets, terminology (code systems), and ConceptMap/map packages that the example questionnaires depend on, along with the publisher, stewardship model, and update cadence for those dependencies. It is intended as a template that downstream implementation guides can adapt to declare their own dependency versions.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "purpose": "Provide a single, machine-readable declaration of the specific dependency versions used to author, test, and evaluate the prior-authorization example questionnaires, so that consumers can reproduce identical evaluation behavior.",
+  "usage": "Use the pinned dependency versions in this manifest when packaging or evaluating the prior-authorization example questionnaires to ensure reproducible results. When adapting for a downstream deployment, update each pinned version to the version approved for that deployment.",
+  "approvalDate": "2026-07-26",
+  "lastReviewDate": "2026-07-26",
+  "effectivePeriod": {
+    "start": "2026-07-26",
+    "end": "2027-07-25"
+  },
+  "useContext": [
+    {
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "task"
+      },
+      "valueCodeableConcept": {
+        "text": "Prior Authorization"
+      }
+    }
+  ],
+  "relatedArtifact": [
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
+          "valueBoolean": true
+        }
+      ],
+      "type": "composed-of",
+      "resource": "http://hl7.org/fhir/us/cql/Questionnaire/ExamplePatientAndCoverageQuestionnaire|2.0.0",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "Questionnaire"
+          }
+        ]
+      },
+      "display": "Example Patient and Coverage Questionnaire"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
+          "valueBoolean": true
+        }
+      ],
+      "type": "composed-of",
+      "resource": "http://hl7.org/fhir/us/cql/Questionnaire/GMTPQuestionnaire|2.0.0",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "Questionnaire"
+          }
+        ]
+      },
+      "display": "Example Genetic/Molecular Testing Preauthorization Questionnaire"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
+          "valueBoolean": true
+        }
+      ],
+      "type": "composed-of",
+      "resource": "http://hl7.org/fhir/us/cql/Questionnaire/MBODAQuestionnaire|2.0.0",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "Questionnaire"
+          }
+        ]
+      },
+      "display": "Example Medical Benefit Outpatient Drug Authorization Questionnaire"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
+          "valueBoolean": true
+        }
+      ],
+      "type": "composed-of",
+      "resource": "http://hl7.org/fhir/us/cql/Questionnaire/MNACQuestionnaire|2.0.0",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "Questionnaire"
+          }
+        ]
+      },
+      "display": "Example Medical Necessity For Authorization Of Catheters Questionnaire"
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
+          "valueBoolean": true
+        }
+      ],
+      "type": "composed-of",
+      "resource": "http://hl7.org/fhir/us/cql/Questionnaire/UPPARFQuestionnaire|2.0.0",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "Questionnaire"
+          }
+        ]
+      },
+      "display": "Example Uniform Pharmacy Prior Authorization Request Form"
+    },
+
+    {
+      "type": "depends-on",
+      "resource": "http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core|6.1.0",
+      "display": "US Core Implementation Guide, version 6.1.0 (publisher: HL7 International / Cross-Group Projects)"
+    },
+
+    {
+      "type": "depends-on",
+      "resource": "http://hl7.org/fhir/us/cql/Library/USCoreCommon|2.0.0",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "Library"
+          }
+        ]
+      },
+      "display": "US Core Common CQL library, version 2.0.0"
+    },
+    {
+      "type": "depends-on",
+      "resource": "http://hl7.org/fhir/us/cql/Library/USCoreElements|2.0.0",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "Library"
+          }
+        ]
+      },
+      "display": "US Core Elements CQL library, version 2.0.0"
+    },
+    {
+      "type": "depends-on",
+      "resource": "http://hl7.org/fhir/us/cql/Library/CumulativeMedicationDuration|2.0.0",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "Library"
+          }
+        ]
+      },
+      "display": "Cumulative Medication Duration CQL library, version 2.0.0"
+    },
+    {
+      "type": "depends-on",
+      "resource": "http://hl7.org/fhir/uv/cql/Library/FHIRCommon|2.0.0",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "Library"
+          }
+        ]
+      },
+      "display": "FHIRCommon CQL library, version 2.0.0 (from hl7.fhir.uv.cql)"
+    },
+    {
+      "type": "depends-on",
+      "resource": "http://hl7.org/fhir/uv/cql/Library/FHIRHelpers|4.0.1",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "Library"
+          }
+        ]
+      },
+      "display": "FHIRHelpers CQL library, version 4.0.1 (from hl7.fhir.uv.cql)"
+    },
+
+    {
+      "type": "depends-on",
+      "resource": "http://hl7.org/fhir/ValueSet/icd-10|4.0.1",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "ValueSet"
+          }
+        ]
+      },
+      "display": "ICD-10 value set, version 4.0.1"
+    },
+
+    {
+      "type": "depends-on",
+      "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20250901",
+      "display": "SNOMED CT, US Edition 2025-09-01 (publisher: National Library of Medicine, US Edition)"
+    },
+    {
+      "type": "depends-on",
+      "resource": "http://loinc.org|2.80",
+      "display": "LOINC, version 2.80 (publisher: Regenstrief Institute)"
+    },
+    {
+      "type": "depends-on",
+      "resource": "http://www.nlm.nih.gov/research/umls/rxnorm|20250505",
+      "display": "RxNorm, 2025-05-05 monthly release (publisher: National Library of Medicine)"
+    },
+    {
+      "type": "depends-on",
+      "resource": "http://hl7.org/fhir/sid/icd-10-cm|2025",
+      "display": "ICD-10-CM, 2025 (publisher: US Centers for Medicare & Medicaid Services / CDC NCHS)"
+    },
+    {
+      "type": "depends-on",
+      "resource": "http://www.ama-assn.org/go/cpt|2025",
+      "display": "CPT, 2025 (publisher: American Medical Association)"
+    },
+
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-artifactComment",
+          "extension": [
+            {
+              "url": "type",
+              "valueCode": "documentation"
+            },
+            {
+              "url": "text",
+              "valueMarkdown": "ConceptMap/map package dependency. Map publisher: (example) a payer or terminology steward responsible for the mapping. Stewardship model: the map is maintained externally to this implementation guide by the map publisher, who is responsible for versioning and errata; this manifest only pins the version that consumers should use. Update cadence: quarterly, aligned to the referenced code system releases; consumers should re-pin when a new map package version is published."
+            }
+          ]
+        }
+      ],
+      "type": "depends-on",
+      "resource": "http://example.org/fhir/ConceptMap/prior-auth-code-map|1.2.0",
+      "_resource": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-resourceType",
+            "valueCode": "ConceptMap"
+          }
+        ]
+      },
+      "display": "Prior Authorization code mapping (ConceptMap), map package version 1.2.0"
+    }
+  ]
+}
