@@ -14,7 +14,7 @@
       "valueCode" : "informative"
     } ],
     "url": "http://hl7.org/fhir/us/cql/Library/C4BB-ModelInfo",
-    "version": "2.1.1-derived",
+    "version": "2.2.0-derived",
     "name": "C4BB",
     "title": "CARIN Blue Button Model Information",
     "status": "active",
@@ -25,13 +25,13 @@
         "code": "model-definition"
       } ]
     },
-    "description": "CQL model information for the CARIN Blue Button version 2.1.1 implementation guide.",
+    "description": "CQL model information for the CARIN Blue Button version 2.2.0 implementation guide.",
   "topic": [ {
     "text": "FHIR"
   }, {
     "text": "CQL"
   } ],
   "content": [ {
-    "id": "ig-loader-c4bb-modelinfo-2.1.1-derived.xml"
+    "id": "ig-loader-c4bb-modelinfo-2.2.0-derived.xml"
   } ]
 }
