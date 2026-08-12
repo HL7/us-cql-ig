@@ -4,7 +4,7 @@
 in USCore as fluent functions in CQL, as well as common terminology and functions
 used in writing CQL with FHIR and USCore profiles.
 */
-library USCoreCommon version '2.0.0-cibuild'
+library USCoreCommon version '2.0.0'
 
 using FHIR version '4.0.1'
 using USCore version '6.1.0-derived'
@@ -29,7 +29,7 @@ code "Nonbinary": '33791000087105' from SNOMED display 'Identifies as gender non
 
 codesystem "DataAbsentReason": 'http://terminology.hl7.org/CodeSystem/data-absent-reason'
 
-code "Asked-Declined": 'asked-declined' from DataAbsentReason display 'Aksed But Declined'
+code "Asked-Declined": 'asked-declined' from DataAbsentReason display 'Asked But Declined'
 
 code "MedicalRecordNumber": 'MR' from "IdentifierType" display 'Medical record number'
 

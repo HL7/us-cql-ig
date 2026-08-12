@@ -48,9 +48,7 @@ To get all medications, ```UCE."All Medication Requests"``` can be used. To filt
 
 #### Electronically Transmitted Prescriptions
 
-The US Prescription Drug Monitoring Program (PDMP) implementation guide defines an extension that supports identifying the transmission method for a prescription:
-
-https://hl7.org/fhir/us/pdmp/STU1/StructureDefinition-pdmp-extension-rx-transmission-method.html
+The US Prescription Drug Monitoring Program (PDMP) implementation guide defines an extension that supports identifying the transmission method for a prescription, the [PDMP Rx Transmission Method extension](https://hl7.org/fhir/us/pdmp/STU1/StructureDefinition-pdmp-extension-rx-transmission-method.html).
 
 
 The USCoreCommon library provides the following declarations to support this element:

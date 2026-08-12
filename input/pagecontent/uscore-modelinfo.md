@@ -15,9 +15,9 @@ This implementation guide includes the model information for the US Core specifi
 |[Coverage Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-coverage.html)|type|
 |[DiagnosticReport Profile for Laboratory Results Reporting]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-diagnosticreport-lab.html)|code|
 |[DiagnosticReport Profile for Report and Note Exchange]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-diagnosticreport-note.html)|code|
-|[DocumentReference Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-documentreference.html)|code|
+|[DocumentReference Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-documentreference.html)|type|
 |[Encounter Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-encounter.html)|type|
-|[Goal Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-goal.html)|category|
+|[Goal Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-goal.html)|description|
 |[Head Circumference Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-head-circumference.html)|code|
 |[Heart Rate Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-heart-rate.html)|code|
 |[Immunization Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-immunization.html)|vaccineCode|
@@ -33,20 +33,20 @@ This implementation guide includes the model information for the US Core specifi
 |[Observation Pregnancy Status Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-pregnancystatus.html)|code|
 |[Observation Screening Assessment Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-screening-assessment.html)|code|
 |[Observation Sexual Orientation Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-sexual-orientation.html)|code|
-|[Organization Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-organization.html)|N/A|
+|[Organization Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-organization.html)|type|
 |[Patient Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-patient.html)|N/A|
 |[Pediatric BMI for Age Observation Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-pediatric-bmi-for-age.html)|code|
 |[Pediatric Head Occipital Frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)|code|
 |[Pediatric Weight for Height Observation Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-pediatric-weight-for-height.html)|code|
-|[Practitioner Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-practitioner.html)|code|
+|[Practitioner Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-practitioner.html)|N/A|
 |[PractitionerRole Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-practitionerrole.html)|code|
 |[Procedure Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-procedure.html)|code|
-|[Provenance Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-provenance.html)|code|
+|[Provenance Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-provenance.html)|N/A|
 |[Pulse Oximetry Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-pulse-oximetry.html)|code|
-|[QuestionnaireResponse Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-questionnaireresponse.html)|name|
+|[QuestionnaireResponse Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-questionnaireresponse.html)|N/A|
 |[RelatedPerson Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-relatedperson.html)|relationship|
 |[Respiratory Rate Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-respiratory-rate.html)|code|
-|[ServiceRequest Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-servicerequest.html)|type|
+|[ServiceRequest Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-servicerequest.html)|code|
 |[Simple Observation Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-simple-observation.html)|code|
 |[Smoking Status Observation Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-smokingstatus.html)|code|
 |[Specimen Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-specimen.html)|type|

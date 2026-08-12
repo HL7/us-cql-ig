@@ -83,7 +83,7 @@ The element is not required, but if it is present, it is a modifier element, and
 
 ```cql
 define "Verified Conditions":
-  [Condition] VerifiedCondition
+  [FHIR.Condition] VerifiedCondition
     where VerifiedCondition.verificationStatus is not null implies
       (VerifiedCondition.verificationStatus ~ "confirmed"
         or VerifiedCondition.verificationStatus ~ "unconfirmed"
@@ -126,7 +126,7 @@ If you have more filters such as excluding things that were refuted you can incl
 define "History of Diabetes":
   UCE."All Conditions" Condition
     where Condition.code in "Diabetes"
-      and Condition.verificationStatus is not null implies not Condition.isRefuted()
+      and (Condition.verificationStatus is not null implies not Condition.isRefuted())
 ```
 
 To answer questions like "Have you had COVID in the past 3 months", use ```prevalenceInterval```:
@@ -157,7 +157,7 @@ The `Condition` resource defines `onset` and `abatement` elements that specify t
 ```cql
 define "Active Diabetes Conditions Onset Within A Year":
   "Active Diabetes Conditions" Diabetes
-    where Diabetes.prevalenceInterval() starts 1 year on or before Today()
+    where Diabetes.prevalenceInterval() starts 1 year or less on or before Today()
 ```
 
 The `prevalenceInterval` function takes a `Condition` resource and returns the interval from the start of the onset to the end of the abatement. If the Condition is active (i.e., has a clinicalStatus of active, recurrence, or relapse), then the ending boundary of the interval is inclusive (i.e., closed). Otherwise, the ending boundary of the interval is exclusive (i.e., open). When looking for whether a condition was active at some point, use the `prevalenceInterval` function rather than looking at the status element only.
@@ -179,6 +179,6 @@ define "Qualifying Encounters With Relevant Diagnoses":
       )
 ```
 
-> Some of this content is adapted from https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0#conditions
+> NOTE: Content for this page was adapted from the [QICore Authoring Patterns - Conditions](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0#conditions) topic.
 
 

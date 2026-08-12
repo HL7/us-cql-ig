@@ -35,7 +35,7 @@ Because modifier elements and modifier extensions can change the overall meaning
 
 This is discussed in detail in the [Element Considerations](patterns-overall.html#element-considerations) section of the [Overall Patterns](patterns-overall.html) topic:
 
-* [Modifier Elements](patterns-overall.html#modifier-elements): For each modifier element (for example, `Condition.clinicalStatus`), authors must consider whether each possible value would impact the intent of the expression. The `USCoreCommon` library provides fluent functions such as `.allergyActive()` and `.allergyConfirmed()` for filtering based on these status elements.
+* [Modifier Elements](patterns-overall.html#modifier-elements): For each modifier element (for example, `Condition.clinicalStatus`), authors must consider whether each possible value would impact the intent of the expression. The `FHIRCommon` library provides fluent functions such as `.active()` and `.confirmed()` for filtering based on these status elements.
 * [Modifier Extensions](patterns-overall.html#modifier-extensions): A resource that carries a modifier extension that is not understood cannot be safely processed. The [`checkModifiers()`](https://hl7.org/fhir/fhirpath.html#functions) function can be used within CQL to ensure that either no modifier extensions are present, or that only expected modifier extensions are present.
 * [ImplicitRules](patterns-overall.html#implicitrules): The `implicitRules` element is a modifier element that, if present, must be understood. A `checkImplicitRules()` function can be used to guard against unexpected implicit rules.
 

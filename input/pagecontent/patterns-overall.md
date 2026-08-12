@@ -28,10 +28,10 @@ A key modifier element that must be considered for any FHIR resource is [`implic
 define fluent function checkImplicitRules(resource Resource, knownImplicitRules String):
   Message(
     resource, 
-    resource.imiplicitRules !~ knownImplicitRules, 
+    resource.implicitRules !~ knownImplicitRules, 
     'implicit-rules-check', 
     'Error', 
-    'Implicit rules check failed for resource ' + resource.resourceType + '\' + resource.id
+    'Implicit rules check failed for resource ' + resource.resourceType + '/' + resource.id
   )
 ```
 
@@ -50,11 +50,11 @@ This retrieve expression consists only of the name of the profiled resource bein
 
 Because the `clinicalStatus` and `verificationStatus` elements of the AllergyIntolerance resource are modifier elements, they should be considered whenever accessing and using these types of resources.
 
-The `USCoreCommon` library provides fluent functions for checking these status elements:
+The `FHIRCommon` library provides fluent functions for checking these status elements:
 
 ```cql
 define "Active Confirmed Allergies and Intolerances":
-  "All Allergies and Intolerances".allergyActive().allergyConfirmed()
+  "All Allergies and Intolerances".active().confirmed()
 ```
 
 > NOTE: For discussion on how to manage search parameters with terminology, see the [Terminology Considerations](architectural-guidance.html#terminology-considerations) discussion in the Architectural Guidance topic.

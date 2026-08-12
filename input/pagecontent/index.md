@@ -52,6 +52,7 @@ This guide is divided into several pages which are listed at the top of each pag
   * **[Architectural Guidance](architectural-guidance.html)**
   * **[Query Management](query-management.html)**
   * **[Testing](testing.html)**
+    * **[Unit Testing Proposal](unit-testing.html)**
 * **Authoring**
   * **[Authoring](authoring.html)**
   * **[Patterns](patterns.html)**
@@ -63,7 +64,9 @@ This guide is divided into several pages which are listed at the top of each pag
   * **[US Core Elements](Library-USCoreElements.html)**
   * **[US Core Model Information](uscore-modelinfo.html)**
   * **[Cumulative Medication Duration](Library-CumulativeMedicationDuration.html)**
-  * **[CARIN BB Model Information](c4bb-modelinfo.html)**
+  * **[CARIN Blue Button Common](Library-C4BBCommon.html)**
+  * **[CARIN Blue Button Model Information](c4bb-modelinfo.html)**
+  * **[QI Core Model Information](qicore-modelinfo.html)**
 * **[FHIR Artifacts](artifacts.html)**
 * **Support**
   * **[Downloads](downloads.html)**

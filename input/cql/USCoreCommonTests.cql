@@ -1,9 +1,9 @@
-library USCoreCommonTests version '2.0.0-cibuild'
+library USCoreCommonTests version '2.0.0'
 
 using FHIR version '4.0.1'
 using USCore version '6.1.0-derived'
 
-include USCoreCommon version '2.0.0-cibuild' called UC
+include USCoreCommon version '2.0.0' called UC
 
 context Patient
 

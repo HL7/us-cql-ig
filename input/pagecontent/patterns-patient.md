@@ -1,4 +1,4 @@
-USCore defines the [USCore Patient]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-patient.html)
+USCore defines the [USCore Patient]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-patient.html) profile to record demographics and other administrative information about an individual receiving care.
 
 ### Modifier Elements
 
@@ -93,7 +93,7 @@ The US Core Elements library defines the following patient age calculation funct
 
 > NOTE: The [AgeInYearsAt](https://cql.hl7.org/09-b-cqlreference.html#ageat) function in CQL uses the data model (US Core in this case) to understand how to access the patient's birth date information.
 
-> NOTE: CQL supports age calculation functions using both `Date` and `DateTime` values. In both cases the function is shorthand for a date/datetime duration calculation. If the `DateTime` overloads are used, note that the timezone offset is considered and there may be edge cases that result in unexpected results, depending on how large the timezone offset is from the execution timestamp. To avoid these edge cases, best practice is to use the `date from` extractor as shown in the above pattern to ensure the `Date` calculation is used.
+> NOTE: CQL supports age calculation functions using both `Date` and `DateTime` values. In both cases the function is shorthand for a date/datetime duration calculation. If the `DateTime` overloads are used, note that the timezone offset is considered and there may be edge cases that result in unexpected results, depending on how large the timezone offset is from the execution timestamp. To avoid these edge cases, best practice is to use the `date from` extractor on the `asOf` value to ensure the `Date` calculation is used. The `ageInYears()` and `ageInYearsAt()` functions listed above already apply this extractor, so logic that uses them does not need to do so.
 
 #### Patient gender
 

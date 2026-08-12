@@ -1,4 +1,4 @@
-library C4BBCommon version '2.0.0-cibuild'
+library C4BBCommon version '2.0.0'
 
 using USCore version '6.1.0-derived'
 using C4BB version '2.2.0-derived'

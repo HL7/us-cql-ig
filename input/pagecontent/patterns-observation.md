@@ -37,7 +37,7 @@ US Core defines the following additional profiles for capturing specific types o
 * [US Core Pregnancy Intent]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-pregnancyintent.html)
 * [US Core Smoking Status]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-smokingstatus.html)
 * [US Core Occupation]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-occupation.html)
-* [US Core Sexual Oritentation]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-sexual-orientation.html)
+* [US Core Sexual Orientation]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-sexual-orientation.html)
 
 ### Modifier Elements
 
@@ -227,16 +227,17 @@ Note that observations associated with imaging are expected to represent specifi
 
 US Core allows for the presence of pregnancy to be represented in multiple resources. The US Core profile [Pregnancy Status]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-observation-pregnancystatus.html) allows for the representation of pregnancy as an Observation. However, pregnancy information may also be represented in a laboratory test result, an encounter diagnosis, or a problem list item.
 
-As an example, to determine if an individual is pregnant at any point during a measurement period, the following approach may be used to consider all three approaches: 
+As an example, to determine if an individual is pregnant at any point during a measurement period, the following approach may be used to consider all four approaches: 
 
 ```cql
-valueset "Pregancy Condition Codes": 'TBD'
+valueset "Pregnancy Condition Codes": 'TBD'
 valueset "Pregnancy Test Codes": 'TBD'
 
 codesystem "SNOMEDCT": 'http://snomed.info/sct'
+codesystem "Interpretation Codes": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation'
 
 code "Pregnant": '77386006' from "SNOMEDCT" display 'Pregnant (finding)'
-code "Positive": 'POS' from "Interpretation Codes"
+code "Positive": 'POS' from "Interpretation Codes" display 'Positive'
  
 define "Positive Pregnancy Observation":
   ["Observation Pregnancy Status Profile"] PregnancyStatus
@@ -245,25 +246,25 @@ define "Positive Pregnancy Observation":
       and PregnancyStatus.effective.toInterval() overlaps "Measurement Period"
 
 define "Positive Pregnancy Test Result":
-  ["Laboratory Result Observation": "Pregnancy Test Codes"] PregnancyTest
+  ["Laboratory Result Observation Profile": "Pregnancy Test Codes"] PregnancyTest
     where PregnancyTest.status = 'final'
       and PregnancyTest.value ~ "Positive"
       and PregnancyTest.effective.toInterval() overlaps "Measurement Period"
       
 define "Pregnancy Encounter Diagnosis":
-  [ConditionEncounterDiagnosis: "Pregnancy Condition Codes"] EncounterDiagnosis
+  [ConditionEncounterDiagnosisProfile: "Pregnancy Condition Codes"] EncounterDiagnosis
     with "Encounters" Encounter
       such that EncounterDiagnosis.encounter.references(Encounter)
 
 define "Pregnancy Condition":
-  [ConditionProblemsHealthConcerns: "Pregnancy Condition Codes"] Condition
+  [ConditionProblemsHealthConcernsProfile: "Pregnancy Condition Codes"] Condition
     where Condition.clinicalStatus ~  "active"
       and Condition.verificationStatus ~ "confirmed"
       and Condition.prevalenceInterval() overlaps "Measurement Period"
 
 define IsPregnant:
   exists "Positive Pregnancy Observation" 
-    or exists "Positive Pregnancy Test"
+    or exists "Positive Pregnancy Test Result"
     or exists "Pregnancy Condition"
     or exists "Pregnancy Encounter Diagnosis"
 ```
@@ -301,18 +302,22 @@ define StickTest:
   [Observation: "Stick Test Codes"] O
     where O.status in { 'final', 'amended', 'corrected' }
 
+define "First Three Stick Tests In Encounter":
+  Take(StickTest.during(Encounter).chronologically(), 3)
+
 define "Three Consecutive Negative Stick Tests":
-  exists (
-    StickTest.during(Encounter).chronologically().take(3).negative().count() = 3
-  )
+  Count("First Three Stick Tests In Encounter".negative()) = 3
 ```
 
 > NOTE: The use of the term _consecutive_ here means there are no intervening positive tests, rather than that they are strictly sequential chronologically (i.e. with no gaps in time in between).
 
-In addition, this expression can be parameterized with current context (for example from a trigger context) with:
+In addition, this expression can be parameterized with current context (for example, a triggering Observation supplied as a parameter named `ContextObservation`) with:
 
 ```cql
-StickTest.chronologicallyAfter(%context).take(3).negative().count() = 3
+parameter ContextObservation Observation
+
+define "Three Consecutive Negative Stick Tests After Context":
+  Count(Take(StickTest.chronologicallyAfter(ContextObservation), 3).negative()) = 3
 ```
 
 > NOTE: Content for this page was adapted from the [QICore Authoring Patterns - Laboratory Result](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0#laboratory-result) topic.

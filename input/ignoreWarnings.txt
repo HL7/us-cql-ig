@@ -166,7 +166,7 @@ INFORMATION: Library.dataRequirement[1].profile[0]: Pinned the version of http:/
 INFORMATION: Library.relatedArtifact[5].resource: Pinned the version of http://terminology.hl7.org/CodeSystem/v2-0203 to 5.0.0
 INFORMATION: Library.dataRequirement[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/Coverage to 4.0.1
 INFORMATION: Library.dataRequirement[1].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/ServiceRequest to 4.0.1
-INFORMATION: Library.relatedArtifact[4].resource: Pinned the version of http://hl7.org/fhir/us/cql/Library/CumulativeMedicationDuration to 2.0.0-cibuild
+INFORMATION: Library.relatedArtifact[4].resource: Pinned the version of http://hl7.org/fhir/us/cql/Library/CumulativeMedicationDuration to 2.0.0
 INFORMATION: Library.relatedArtifact[6].resource: Pinned the version of http://terminology.hl7.org/CodeSystem/v2-0203 to 5.0.0
 INFORMATION: Library.relatedArtifact[3].resource: Pinned the version of http://terminology.hl7.org/CodeSystem/v2-0203 to 5.0.0
 INFORMATION: Library.dataRequirement[0].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/ServiceRequest to 4.0.1
@@ -278,21 +278,21 @@ INFORMATION: Library.dataRequirement[45].profile[0]: Pinned the version of http:
 INFORMATION: Library.dataRequirement[46].profile[0]: Pinned the version of http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus to 6.1.0
 INFORMATION: Library.dataRequirement[47].profile[0]: Pinned the version of http://hl7.org/fhir/us/core/StructureDefinition/us-core-specimen to 6.1.0
 INFORMATION: Library.dataRequirement[48].profile[0]: Pinned the version of http://hl7.org/fhir/us/core/StructureDefinition/us-core-vital-signs to 6.1.0
-INFORMATION: Questionnaire.extension[0].value[x]: Pinned the version of http://hl7.org/fhir/us/cql/Library/ExamplePatientAndCoverageInitialExpressions to 2.0.0-cibuild
+INFORMATION: Questionnaire.extension[0].value[x]: Pinned the version of http://hl7.org/fhir/us/cql/Library/ExamplePatientAndCoverageInitialExpressions to 2.0.0
 INFORMATION: Questionnaire.item[0].item[2].answerValueSet: Pinned the version of http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.24 to 20211119
 INFORMATION: Questionnaire.contained[0].dataRequirement[0].profile[0]: Pinned the version of http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization to 6.1.0
 INFORMATION: Questionnaire.contained[0].dataRequirement[1].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/Coverage to 4.0.1
 INFORMATION: Questionnaire.contained[0].dataRequirement[2].profile[0]: Pinned the version of http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner to 6.1.0
 INFORMATION: Questionnaire.contained[0].dataRequirement[3].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/ServiceRequest to 4.0.1
 INFORMATION: Questionnaire.contained[0].dataRequirement[4].profile[0]: Pinned the version of http://hl7.org/fhir/StructureDefinition/ServiceRequest to 4.0.1
-INFORMATION: Questionnaire.extension[0].value[x]: Pinned the version of http://hl7.org/fhir/us/cql/Library/GMTPInitialExpressions to 2.0.0-cibuild
+INFORMATION: Questionnaire.extension[0].value[x]: Pinned the version of http://hl7.org/fhir/us/cql/Library/GMTPInitialExpressions to 2.0.0
 INFORMATION: Questionnaire.item[1].item[4].answerValueSet: Pinned the version of http://hl7.org/fhir/ValueSet/icd-10 to 4.0.1
 INFORMATION: Questionnaire.item[1].item[5].answerValueSet: Pinned the version of http://terminology.hl7.org/ValueSet/cpt-all to 1.0.0
-INFORMATION: Questionnaire.extension[0].value[x]: Pinned the version of http://hl7.org/fhir/us/cql/Library/MBODAInitialExpressions to 2.0.0-cibuild
-INFORMATION: Questionnaire.extension[0].value[x]: Pinned the version of http://hl7.org/fhir/us/cql/Library/MNACInitialExpressions to 2.0.0-cibuild
+INFORMATION: Questionnaire.extension[0].value[x]: Pinned the version of http://hl7.org/fhir/us/cql/Library/MBODAInitialExpressions to 2.0.0
+INFORMATION: Questionnaire.extension[0].value[x]: Pinned the version of http://hl7.org/fhir/us/cql/Library/MNACInitialExpressions to 2.0.0
 INFORMATION: Questionnaire.contained[0].dataRequirement[0].profile[0]: Pinned the version of http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest to 6.1.0
 INFORMATION: Questionnaire.contained[0].dataRequirement[1].profile[0]: Pinned the version of http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest to 6.1.0
-INFORMATION: Questionnaire.extension[0].value[x]: Pinned the version of http://hl7.org/fhir/us/cql/Library/UPPARFInitialExpressions to 2.0.0-cibuild
+INFORMATION: Questionnaire.extension[0].value[x]: Pinned the version of http://hl7.org/fhir/us/cql/Library/UPPARFInitialExpressions to 2.0.0
 INFORMATION: Questionnaire.item[2].item[2].item[1].answerValueSet: Pinned the version of http://hl7.org/fhir/ValueSet/icd-10 to 4.0.1
 
 # 2.0.0:04 - Deliberately referencing 6.1.0 as the current target that downstream content is expecting

@@ -45,7 +45,9 @@
       <li><a href="Library-USCoreElements.html">US Core Elements</a></li>
       <li><a href="uscore-modelinfo.html">US Core Model Information</a></li>
       <li><a href="Library-CumulativeMedicationDuration.html">Cumulative Medication Duration</a></li>
+      <li><a href="Library-C4BBCommon.html">CARIN Blue Button Common</a></li>
       <li><a href="c4bb-modelinfo.html">CARIN Blue Button Model Information</a></li>
+      <li><a href="qicore-modelinfo.html">QI Core Model Information</a></li>
     </ul>
   </li>
   <li><a href="artifacts.html">FHIR Artifacts</a></li>

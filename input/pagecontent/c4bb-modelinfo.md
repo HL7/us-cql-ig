@@ -1,18 +1,18 @@
-This implementation guide includes the model information for the CARIN BlueButton specification, [C4BB-ModelInfo](Library-C4BB-ModelInfo.html), version 2.2.0. The following table lists the available classes, the base resource type which they represent, and the [primary code path](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology) established for each class:
+This implementation guide includes the model information for the CARIN Blue Button specification, [C4BB-ModelInfo](Library-C4BB-ModelInfo.html), version 2.2.0. The following table lists the available classes, the base resource type which they represent, and the [primary code path](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology) established for each class:
 
 |Profile|Primary Code Path|
 |---|---|
 |[Coverage](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-Coverage.html)|type|
-|[ExplanationOfBenefit](https://build.fhir.org/ig/HL7/carin-bb/en/StructureDefinition-C4BB-ExplanationOfBenefit.html)|type|
-|[ExplanationOfBenefitInpatientInstitutionalBasis](https://build.fhir.org/ig/HL7/carin-bb/en/StructureDefinition-C4BB-ExplanationOfBenefit-Inpatient-Institutional-Basis.html)|type|
+|[ExplanationOfBenefit](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-ExplanationOfBenefit.html)|type|
+|[ExplanationOfBenefitInpatientInstitutionalBasis](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-ExplanationOfBenefit-Inpatient-Institutional-Basis.html)|type|
 |[ExplanationOfBenefitInpatientInstitutional](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-ExplanationOfBenefit-Inpatient-Institutional.html)|type|
-|[ExplanationOfBenefitOralBasis](https://build.fhir.org/ig/HL7/carin-bb/en/StructureDefinition-C4BB-ExplanationOfBenefit-Oral-Basis.html)|type|
+|[ExplanationOfBenefitOralBasis](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-ExplanationOfBenefit-Oral-Basis.html)|type|
 |[ExplanationOfBenefitOral](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-ExplanationOfBenefit-Oral.html)|type|
-|[ExplanationOfBenefitOutpatientInstitutionalBasis](https://build.fhir.org/ig/HL7/carin-bb/en/StructureDefinition-C4BB-ExplanationOfBenefit-Outpatient-Institutional-Basis.html)|type|
+|[ExplanationOfBenefitOutpatientInstitutionalBasis](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-ExplanationOfBenefit-Outpatient-Institutional-Basis.html)|type|
 |[ExplanationOfBenefitOutpatientInstitutional](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-ExplanationOfBenefit-Outpatient-Institutional.html)|type|
-|[ExplanationOfBenefitPharmacyBasis](https://build.fhir.org/ig/HL7/carin-bb/en/StructureDefinition-C4BB-ExplanationOfBenefit-Pharmacy-Basis.html)|type|
+|[ExplanationOfBenefitPharmacyBasis](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-ExplanationOfBenefit-Pharmacy-Basis.html)|type|
 |[ExplanationOfBenefitPharmacy](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-ExplanationOfBenefit-Pharmacy.html)|type|
-|[ExplanationOfBenefitProfessionalNonClinicianBasis](https://build.fhir.org/ig/HL7/carin-bb/en/StructureDefinition-C4BB-ExplanationOfBenefit-Professional-NonClinician-Basis.html)|type|
+|[ExplanationOfBenefitProfessionalNonClinicianBasis](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-ExplanationOfBenefit-Professional-NonClinician-Basis.html)|type|
 |[ExplanationOfBenefitProfessionalNonClinician](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-ExplanationOfBenefit-Professional-NonClinician.html)|type|
 |[Organization Profile](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-Organization.html)|type|
 |[Patient Profile](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-Patient.html)|N/A|
@@ -22,7 +22,7 @@ This implementation guide includes the model information for the CARIN BlueButto
 To make use of this model in a CQL library, include the following using declaration:
 
 ```cql
-using C4BB version '2.2.0'
+using C4BB version '2.2.0-derived'
 ```
 
 > This model information file was generated using the process described in [Derived Model Info]({{site.data.fhir.ver.cql}}/using-modelinfo.html#derived-modelinfo).

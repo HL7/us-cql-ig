@@ -19,11 +19,12 @@ US Core is the baseline for expected interoperability; this implementation guide
 3. Compare those patterns with [QI Core Authoring Patterns](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0) to see if we can align.
 4. Evaluate if our [libraries](artifacts.html#knowledge-artifacts-libraries) already support the pattern or if more functions need to be added.
 5. Add the patterns to a local copy of this implementation guide, with pages split out by US Core profile. For each include a CQL example ([ex:](patterns-patient.html)).
-6. Evaluate if there are any differences with older versions of US Core that should be called out (at time of writing, most systems are on 3.1.1, working on moving to 6.1.0 by Jan 1st, 2026, and planning for 7.0.0 by Jan 1st, 2028).
+6. Evaluate if there are any differences with older versions of US Core that should be called out (at time of writing, most systems are on 6.1.0, and planning for 7.0.0 by Jan 1st, 2028).
 7. Submit the proposed patterns and underlying profile as a change request JIRA tracker to this implementation guide.
 
 Note that things like community calls, ballot feedback, JIRA issues, and trying to support example questionnaires can also feed into adding more patterns outside of this methodology.
 
+<!-- Additional elements to characterize
 Elements from current example questionnaires:
 
 * DiagnosticReport - Query for and attach to response, but not necessarily drive any particular questions out of the contents
@@ -36,3 +37,4 @@ Elements from current example questionnaires:
 * MedicationRequest
 * Associated Procedures for a Request (given a particular prior auth there will sometimes be additional associated prior authorizations required)
     * for example, given an allergy appointment, you're probably gonna have additional testing
+-->

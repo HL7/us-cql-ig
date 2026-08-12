@@ -51,7 +51,7 @@ For integration testing of prior authorization questionnaires, based on the DTR 
 
 ##### Questionnaire Package Response
 
-The [DTR Inferno Test Kit](https://inferno.healthit.gov/test-kits/davinci-dtr/) supports verifying the result of the $questionnaire-package operation:
+The [DTR Inferno Test Kit](https://inferno.healthit.gov/test-kits/davinci-dtr/) supports verifying the result of the $questionnaire-package operation.
 
 ##### EHR FHIR Queries
 
@@ -65,7 +65,7 @@ The source repository for this implementation guide contains Postman collections
 
 (NOTE: These collections were tested against a [HAPI JPA Server Starter](https://github.com/hapifhir/hapi-fhir-jpaserver-starter) instance using version 3.27.0 of the [Clinical Reasoning](https://github.com/cqframework/clinical-reasoning) module.  They also include missing US Core 7.0.0 dependencies due to some technical limitations in the CQF Tooling used to construct the questionnaire bundles.  Once those limitations have been removed that collection will no longer be required.)
 
-[Postman Collections](https://github.com/HL7/us-cql-ig/tree/master/postman)
+[Postman Collections](https://github.com/HL7/us-cql-ig/tree/main/postman)
 
 ##### Next Question (Adaptive Questionnaire Testing)
 

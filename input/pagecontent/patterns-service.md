@@ -110,7 +110,7 @@ However, if application intent is that the scan was performed and resulted, diag
 
 ```cql
 define "CT Scan Diagnostic Report":
-  ["DiagnosticReportNote": "CT Scan Notes"] DR
+  ["DiagnosticReport Profile for Report and Note Exchange": "CT Scan Notes"] DR
     where DR.status in ('final', 'amended', 'corrected', 'appended')
 ```
 
@@ -127,7 +127,7 @@ define "CT Scan Imaging Study":
 
 As well as potentially looking for any measurements performed as part of the scan or study.
 
-> NOTE: This topic is a summary of discussion with the Orders & Observations Work Group in the following FHIR Zulip chat: https://chat.fhir.org/#narrow/channel/179256-Orders-and-Observation-WG/topic/How.20to.20represent.20CT-Scan.3F/with/541254708. Also note that part of that discussion suggests that [ChargeItem](https://hl7.org/fhir/R4/chargeitem.html) may be useful as a source of evidence that something was done. This needs followup and additional investigation.
+> NOTE: This topic is a summary of discussion with the Orders & Observations Work Group in [this FHIR Zulip chat](https://chat.fhir.org/#narrow/channel/179256-Orders-and-Observation-WG/topic/How.20to.20represent.20CT-Scan.3F/with/541254708). Also note that part of that discussion suggests that [ChargeItem](https://hl7.org/fhir/R4/chargeitem.html) may be useful as a source of evidence that something was done. This needs followup and additional investigation.
 
 #### Mammography
 

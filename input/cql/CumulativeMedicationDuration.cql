@@ -8,7 +8,7 @@ Split-dosing, tapering, and other more complex dosing instructions are not handl
 Note also that this logic is not US-specific, this library is a candidate for promotion to
 universal realm.
 */
-library CumulativeMedicationDuration version '2.0.0-cibuild'
+library CumulativeMedicationDuration version '2.0.0'
 
 using FHIR version '4.0.1'
 

@@ -2,7 +2,7 @@ Claim data in FHIR is represented with the [Claim](http://hl7.org/fhir/R4/claim.
 
 The Claim resource represents a claim for a product or service provided from the provider perspective, whereas the ExplanationOfBenefit resource represents an adjudicated claim from the payer perspective.
 
-> NOTE: US Core does not define profiles for either of these resources. QI-Core defines a Claim profile to represent the claim for a service from the provider perspective, and CARIN BlueButton defines ExplanationOfBenefit profiles to represent adjudicated claims from the payer perspective. The content here treats these resources from the base FHIR perspective.
+> NOTE: US Core does not define profiles for either of these resources. QI-Core defines a Claim profile to represent the claim for a service from the provider perspective, and CARIN Blue Button defines ExplanationOfBenefit profiles to represent adjudicated claims from the payer perspective. The content here treats these resources from the base FHIR perspective.
 
 ### Modifier Elements
 
@@ -46,16 +46,16 @@ define fluent function isClaim(claim Claim):
   claim.use = 'claim'
 
 define fluent function isProfessional(eob ExplanationOfBenefit):
-  claim.type ~ "professional"
+  eob.type ~ "professional"
 
 define fluent function isInstitutional(eob ExplanationOfBenefit):
-  claim.type ~ "institutional"
+  eob.type ~ "institutional"
 
-define fluent function isActcive(eob ExplanationOfBenefit):
-  claim.status = 'active'
+define fluent function isActive(eob ExplanationOfBenefit):
+  eob.status = 'active'
 
 define fluent function isClaim(eob ExplanationOfBenefit):
-  claim.use = 'claim'
+  eob.use = 'claim'
 ```
 
 #### Principal Diagnosis

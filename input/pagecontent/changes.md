@@ -1,29 +1,59 @@
 This provides a list of changes to the CQF US specification since its initial release
 
+### Version 2.0.0
+
+#### Non-Compatible Changes
+
+* [FHIR-56952](https://jira.hl7.org/browse/FHIR-56952): Clinical Trial Organization is unconstrained retrieve 
+* [FHIR-56946](https://jira.hl7.org/browse/FHIR-56946): consecutively/consecutivelyFrom naming misleading
+* [FHIR-56945](https://jira.hl7.org/browse/FHIR-56945): Observation period logic clarification
+
+#### Compatible, Substantive Changes
+
+* [FHIR-57910](https://jira.hl7.org/browse/FHIR-57910): Update dependency to 6.1.0-derived to align with US Quality Core
+* [FHIR-57872](https://jira.hl7.org/browse/FHIR-57872): Document effective time vs specimen collection time on lab tests
+* [FHIR-57486](https://jira.hl7.org/browse/FHIR-57486): Add a pattern for "electronically transmitted prescription"
+* [FHIR-57446](https://jira.hl7.org/browse/FHIR-57446): Document "evidence of diagnosis during an encounter" pattern
+* [FHIR-56992](https://jira.hl7.org/browse/FHIR-56992): Provide additional guidance on determining active status for AllergyIntolerance retroactively
+* [FHIR-56984](https://jira.hl7.org/browse/FHIR-56984): More improvements for artifact testing
+* [FHIR-56951](https://jira.hl7.org/browse/FHIR-56951): EndsWith is birttle throughout
+* [FHIR-56944](https://jira.hl7.org/browse/FHIR-56944): Observation timing concern
+* [FHIR-56801](https://jira.hl7.org/browse/FHIR-56801): Re-consider or explain inclusion of US Core sex function
+* [FHIR-55600](https://jira.hl7.org/browse/FHIR-55600): Consider claim and explanation of benefit patterns
+* [FHIR-53941](https://jira.hl7.org/browse/FHIR-53941): Specify primary code path for all profiles
+* [FHIR-53940](https://jira.hl7.org/browse/FHIR-53940): Add fluent functions for CMD
+* [FHIR-53939](https://jira.hl7.org/browse/FHIR-53939): Missing sex extension function
+* [FHIR-53462](https://jira.hl7.org/browse/FHIR-53462): Consider pregnancy status patterns
+* [FHIR-53461](https://jira.hl7.org/browse/FHIR-53461): Consider imaging procedures patterns
+* [FHIR-53459](https://jira.hl7.org/browse/FHIR-53459): Add observation patterns for 3 concurrent negative stick test
+* [FHIR-53458](https://jira.hl7.org/browse/FHIR-53458): Add patient patterns for birthTime and name
+
+#### Non-Substantive Changes
+
 ### Version 2.0.0-ballot
 
 #### Compatible, Substantive Changes
 
 * [FHIR-53462](https://jira.hl7.org/browse/FHIR-53462): Added pregnancy patterns
-    * [Pregnancy Status](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-observation.html#pregnancy-status)
-    * [Pregnancy Intent](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-observation.html#pregnancy-intent)
+    * [Pregnancy Status](patterns-observation.html#pregnancy-status)
+    * [Pregnancy Intent](patterns-observation.html#pregnancy-intent)
 * [FHIR-53461](https://jira.hl7.org/browse/FHIR-53461): Added imaging patterns
-    * [Imaging Procedures](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-service.html#imaging-procedures)
+    * [Imaging Procedures](patterns-service.html#imaging-procedures)
 * [FHIR-53459](https://jira.hl7.org/browse/FHIR-53459): Added observation patterns
-    * [Status](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-observation.html#status)
-    * [Category](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-observation.html#category)
-    * [Interpretation](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-observation.html#interpretation)
-    * [Timings](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-observation.html#timings)
-    * [Consecutive Negative Tests](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-observation.html#three-consecutive-negative-stick-tests)
+    * [Status](patterns-observation.html#status)
+    * [Category](patterns-observation.html#category)
+    * [Interpretation](patterns-observation.html#interpretation)
+    * [Timings](patterns-observation.html#timings)
+    * [Consecutive Negative Tests](patterns-observation.html#three-consecutive-negative-stick-tests)
 * [FHIR-53458](https://jira.hl7.org/browse/FHIR-53458): Added patient name and age patterns
-    * [Patient Name](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-patient.html#patient-name)
-    * [Patient Birthdate](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-patient.html#patient-birthdate)
-    * [Patient Age](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-patient.html#patient-age)
+    * [Patient Name](patterns-patient.html#patient-name)
+    * [Patient Birthdate](patterns-patient.html#patient-birthdate)
+    * [Patient Age](patterns-patient.html#patient-age)
 * [FHIR-53460](https://jira.hl7.org/browse/FHIR-53460): Added allergy patterns
-    * [Abatement and Prevalence Interval](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-allergy.html#abatement-and-prevalence-interval)
-    * [Clinical and Verification Status](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-allergy.html#clinical-and-verification-status)
+    * [Onset, Abatement, and Prevalence Interval](patterns-allergy.html#onset-abatement-and-prevalence-interval)
+    * [Clinical and Verification Status](patterns-allergy.html#clinical-and-verification-status)
 * [FHIR-55600](https://jira.hl7.org/browse/FHIR-55600): Added claim and explanation of benefit patterns, and derived model info for USCore 6.1.0, QICore 6.0.0, and CarinBB 2.1.1
-    * [Mammography Claim](https://build.fhir.org/ig/HL7/us-cql-ig/en/patterns-claim#mammography-claim)
+    * [Mammography Claim](patterns-claim.html#mammography-claim)
 * [FHIR-53941](https://jira.hl7.org/browse/FHIR-53941): Specified primary code path for all profiles in US Core model information
 * [FHIR-53940](https://jira.hl7.org/browse/FHIR-53940): Added fluent functions for CumulativeMedicationDuration
 * [FHIR-53939](https://jira.hl7.org/browse/FHIR-53939): Added fluent function for accessing sex extension on USCore Patient

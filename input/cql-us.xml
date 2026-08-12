@@ -14,7 +14,7 @@
     <valueString value="resources-spreadsheet.xml"/>
   </extension>-->
   <url value="http://hl7.org/fhir/us/cql/ImplementationGuide/hl7.fhir.us.cql"/>
-  <version value="2.0.0-cibuild"/>
+  <version value="2.0.0"/>
   <name value="CQLUSCommon"/>
   <title value="Common CQL Artifacts for FHIR (US-Based)"/>
   <status value="active"/>
@@ -241,7 +241,12 @@
         </page>
         <page>
           <nameUrl value="c4bb-modelinfo.html"/>
-          <title value="CARIN BlueButton Model Information"/>
+          <title value="CARIN Blue Button Model Information"/>
+          <generation value="markdown"/>
+        </page>
+        <page>
+          <nameUrl value="qicore-modelinfo.html"/>
+          <title value="QI Core Model Information"/>
           <generation value="markdown"/>
         </page>
       </page>
@@ -270,7 +275,7 @@
     <!-- releaselabel should be the ballot status for HL7-published IGs. -->
     <parameter>
       <code value="releaselabel"/>
-      <value value="Informative 2 - CI Build"/>
+      <value value="Informative 2"/>
     </parameter>
     <parameter>
       <code value="find-other-resources"/>
@@ -283,10 +288,6 @@
     <parameter>
       <code value="path-expansion-params"/>
       <value value="resources/parameters/Parameters-manifest.json"/>
-    </parameter>
-    <parameter>
-      <code value="path-resource"/>
-      <value value="input/resources/device"/>
     </parameter>
     <parameter>
       <code value="path-resource"/>

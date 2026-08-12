@@ -42,13 +42,13 @@ To facilitate checking allergy intolerance status, the following functions are d
 * [`.isResolved()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,isResolved,-%28allergyIntolerance%20FHIR)
 * [`.resolved()`]({{site.data.fhir.ver.cql}}/Library-FHIRCommon.html#:~:text=define%20fluent%20function-,resolved,-%28allergyIntolerances%20List)
 
-> NOTE: These functions make use of the `clinicalStatus` element of the `AllergyIntolerance`, which is the _current_ status of the `AllergyIntolerance` record. For retrospective cases (such as quality reporting), the logic may be evaluated on data that exists at the time of evaluation. This means that while a given condition may have been active during the measurement period, it might no longer be active when the measure is run. As such, the `isActive()` function should not be used in retrospective contexts. Instead, the most reliable way to determine whether an allergy/intolerance was active at some point in time is to use the [Onset, Abatement, and Prevalence Interval](#onset-abatement-and-prevalence-interval) elements as discussed below.
+> NOTE: These functions make use of the `clinicalStatus` element of the `AllergyIntolerance`, which is the _current_ status of the `AllergyIntolerance` record. For retrospective cases (such as quality reporting), the logic may be evaluated on data that exists at the time of evaluation. This means that while a given allergy/intolerance may have been active during the measurement period, it might no longer be active when the measure is run. As such, the `isActive()` function should not be used in retrospective contexts. Instead, the most reliable way to determine whether an allergy/intolerance was active at some point in time is to use the [Onset, Abatement, and Prevalence Interval](#onset-abatement-and-prevalence-interval) elements as discussed below.
 
 The AllergyIntolerance resource also has a verificationStatus element to represent information such as whether the allergy has been confirmed. The element is not required, but if it is present, it is a modifier element, and has the potential to negate the information the resource is conveying (e.g., the `refuted` status). For most usage, when application intent is looking for positive evidence of an allergy, the verification statuses of `refuted` and `entered-in-error` should be excluded if `verificationStatus` is present:
 
 ```cql
 define "Verified Allergies":
-  [AllergyIntolerance] VerifiedAllergyIntolerance
+  [USCore."AllergyIntolerance"] VerifiedAllergyIntolerance
     where VerifiedAllergyIntolerance.verificationStatus is not null implies
       (VerifiedAllergyIntolerance.verificationStatus ~ "confirmed"
         or VerifiedAllergyIntolerance.verificationStatus ~ "unconfirmed"
@@ -101,9 +101,9 @@ define "Statin Allergy Intolerance":
 
 In retrospective cases, the logic will be evaluated on data that exists at the time of evaluation. This means that while a given allergy/intolerance may have been active during the retrospective period, it might no longer be active when the logic is evaluated.
 
-* [`"All Allergies and Intolerances"`](Library-USCoreElements.html#:~:text=core%2Dallergyintolerance%0A*/%0Adefine-,%22All%20Allergies%20and%20Intolerances%22,-%3A%0A%20%20%5BUSCore)
+* [`"All Allergies and Intolerances"`](Library-USCoreElements.html#:~:text=define%20%22All%20Allergies%20and%20Intolerances%22)
 * [`"Active Confirmed Allergies and Intolerances"`](Library-USCoreElements.html#:~:text=%22Active%20Confirmed%20Allergies%20and%20Intolerances%22)
-* [`"Common Allergies and Intolerances"`](Library-USCoreElements.html#:~:text=()%0A%0Adefine-,%22Common%20Allergies%20and%20Intolerances%22,-%3A%0A%20%20%22All%20Allergies)
+* [`"Common Allergies and Intolerances"`](Library-USCoreElements.html#:~:text=define%20%22Common%20Allergies%20and%20Intolerances%22)
 * [`"Active Confirmed Common Allergies and Intolerances"`](Library-USCoreElements.html#:~:text=%22Active%20Confirmed%20Common%20Allergies%20and%20Intolerances%22)
 
 #### No known allergies

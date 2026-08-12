@@ -158,7 +158,7 @@ Concrete drafts of these test cases are available in the source repository as a 
 - `input/tests/library/USCoreElementsTests/refined-active-medications` — partial list include/exclude (`Active Medication Orders`)
 - `input/tests/library/USCoreCommonTests/refined-demographics` — type-aware equality, negation, and partial `Coding` matching (`birthSex`, `race`)
 
-The test expressions these cases assert against are declared in `USCoreElementsTests.cql` and `USCoreCommonTests.cql` under the "Refined unit test demonstration" headings. See the [refined-tests README](https://github.com/HL7/us-cql-ig/tree/master/input/tests/library) for the per-case expected values and how each maps to a proposal criterion.
+The test expressions these cases assert against are declared in `USCoreElementsTests.cql` and `USCoreCommonTests.cql` under the "Refined unit test demonstration" headings. See the [refined-tests README](https://github.com/HL7/us-cql-ig/tree/main/input/tests/library) for the per-case expected values and how each maps to a proposal criterion.
 
 ### Backward Compatibility and Next Steps
 

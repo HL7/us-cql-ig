@@ -21,6 +21,8 @@ Note that this process of analyzing data requirements is simplified by the pract
 
 In addition to gathering the _effective_ data requirements through dependency tracing of specific expressions, data requirements can be _collapsed_ (i.e., minimized to eliminate duplicate or overlapping requests). These techniques can be combined to ensure that applications can minimize the number of queries used to retrieve data necessary to evaluate the CQL logic within the questionnaire.
 
+<!-- TODO: Complete this section vNext
+
 ### Additional Data Retrieval and Flow Control
 
 * Managing queries that depend on user-entered data
@@ -29,9 +31,11 @@ In addition to gathering the _effective_ data requirements through dependency tr
 
 TODO: Provide guidance about making the determination between sending libraries up front versus questionnaire specific libraries (https://hl7.org/fhir/us/davinci-dtr/specification.html#adaptive-form-considerations)
 
+-->
+
 ### Terminology Considerations
 
-https://hl7.org/fhir/us/davinci-dtr/specification.html#value-set-and-code-system-guidance
+This discussion complements the [Value Set and Code System Guidance](https://hl7.org/fhir/us/davinci-dtr/specification.html#value-set-and-code-system-guidance) topic in the DTR implementation guide.
 
 Note that questionnaires may reference value sets that are not included in the questionnaire package. In particular, best practice for value sets that do not have expansions (for example, because the value set definition is more concisely expressed as a condition, or the value set is too large) is that they not be included in the questionnaire package.
 
