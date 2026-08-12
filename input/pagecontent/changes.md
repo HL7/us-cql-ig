@@ -30,6 +30,43 @@ This provides a list of changes to the CQF US specification since its initial re
 
 #### Non-Substantive Changes
 
+* [FHIR-57162](https://jira.hl7.org/browse/FHIR-57162): Correct usualName and officialName functions
+* [FHIR-57160](https://jira.hl7.org/browse/FHIR-57160): Age functions access Patient context expression
+* [FHIR-57136](https://jira.hl7.org/browse/FHIR-57136): add CPT to IP statement 
+* [FHIR-57135](https://jira.hl7.org/browse/FHIR-57135): add urgent PA flag 
+* [FHIR-57133](https://jira.hl7.org/browse/FHIR-57133): comment on downstream IGs
+* [FHIR-57132](https://jira.hl7.org/browse/FHIR-57132): Add provider-burden guardrails
+* [FHIR-57067](https://jira.hl7.org/browse/FHIR-57067): USCoreElements is Inconsistent with Simplifying Retrieves to the Same Resource
+* [FHIR-57000](https://jira.hl7.org/browse/FHIR-57000): Consider including other formats for declaring dependency on IG
+* [FHIR-56999](https://jira.hl7.org/browse/FHIR-56999): Patient Patterns should include patterns for sex
+* [FHIR-56997](https://jira.hl7.org/browse/FHIR-56997): Typo: avaiable
+* [FHIR-56996](https://jira.hl7.org/browse/FHIR-56996): Logic and timing issues in Pregnancy Status approach
+* [FHIR-56995](https://jira.hl7.org/browse/FHIR-56995): Typo: daignosis
+* [FHIR-56994](https://jira.hl7.org/browse/FHIR-56994): Invalid CQL for checking COVID in last 3 months
+* [FHIR-56993](https://jira.hl7.org/browse/FHIR-56993): Provide additional descriptions and/or heading for specific allergy information
+* [FHIR-56991](https://jira.hl7.org/browse/FHIR-56991): Typo --> establish
+* [FHIR-56988](https://jira.hl7.org/browse/FHIR-56988): Improve naming conventions
+* [FHIR-56962](https://jira.hl7.org/browse/FHIR-56962): URL's Correction
+* [FHIR-56961](https://jira.hl7.org/browse/FHIR-56961): Fixing Typos in several sections
+* [FHIR-56950](https://jira.hl7.org/browse/FHIR-56950): GetServiceRequestReasonCondition appears to use the wrong field
+* [FHIR-56949](https://jira.hl7.org/browse/FHIR-56949): Most recent ServiceRequest functions to not actually define 'most recent'
+* [FHIR-56948](https://jira.hl7.org/browse/FHIR-56948): No trivial wrapper principle alignment
+* [FHIR-56947](https://jira.hl7.org/browse/FHIR-56947): Improve handling of potential duplicate code returns in systolic function
+* [FHIR-56943](https://jira.hl7.org/browse/FHIR-56943): TribalAffiliation function inconsistency
+* [FHIR-56942](https://jira.hl7.org/browse/FHIR-56942): Broken link
+* [FHIR-56940](https://jira.hl7.org/browse/FHIR-56940): "complete" Definition in USCoreCommon Simplification
+* [FHIR-56939](https://jira.hl7.org/browse/FHIR-56939): Query Management Page Mostly Empty
+* [FHIR-56923](https://jira.hl7.org/browse/FHIR-56923): Clarity needed regarding the Production-use expectations
+* [FHIR-56922](https://jira.hl7.org/browse/FHIR-56922): Broken internal links in QA report
+* [FHIR-56921](https://jira.hl7.org/browse/FHIR-56921): Inconsistent hyphenation of "prior authorization"
+* [FHIR-56920](https://jira.hl7.org/browse/FHIR-56920): Unclear wording: "stable as of publication versions"
+* [FHIR-56861](https://jira.hl7.org/browse/FHIR-56861): Incorrect code "Positive" for ObservationInterpretation
+* [FHIR-56421](https://jira.hl7.org/browse/FHIR-56421): Missing Hyperlink under Observation Elements in Observation Patterns
+* [FHIR-53938](https://jira.hl7.org/browse/FHIR-53938): Version is not declared in CQL content
+* [FHIR-53574](https://jira.hl7.org/browse/FHIR-53574): URL of USCore ModelInfo is incorrect
+* [FHIR-53485](https://jira.hl7.org/browse/FHIR-53485): Correct frequency result in ToDaily
+* [FHIR-53460](https://jira.hl7.org/browse/FHIR-53460): Consider updates to allergies patterns
+
 ### Version 2.0.0-ballot
 
 #### Compatible, Substantive Changes
