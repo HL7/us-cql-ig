@@ -30,8 +30,10 @@ This provides a list of changes to the CQF US specification since its initial re
 
 #### Non-Substantive Changes
 
+* [FHIR-58212](https://jira.hl7.org/browse/FHIR-58212): Updated CARIN Blue Button Model Information to 2.2
 * [FHIR-57162](https://jira.hl7.org/browse/FHIR-57162): Correct usualName and officialName functions
 * [FHIR-57160](https://jira.hl7.org/browse/FHIR-57160): Age functions access Patient context expression
+* [FHIR-57136](https://jira.hl7.org/browse/FHIR-57136): Removed UPPARF Questionnaire example
 * [FHIR-57136](https://jira.hl7.org/browse/FHIR-57136): add CPT to IP statement 
 * [FHIR-57135](https://jira.hl7.org/browse/FHIR-57135): add urgent PA flag 
 * [FHIR-57133](https://jira.hl7.org/browse/FHIR-57133): comment on downstream IGs
