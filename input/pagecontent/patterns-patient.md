@@ -18,7 +18,7 @@ In general, the patient under consideration will be established by application c
 
 ### Cross-Version Considerations
 
-The patient [sex](http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex) element was deprecated in US Core version 7 in favor of the [individualSex](http://hl7.org/fhir/us/core/StructureDefinition/us-core-individual-sex) element. See the [Patient sex](#patient-sex) topic for discussion of this element.
+The patient [sex]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-sex.html) extension was deprecated in US Core version 7 in favor of the [individualSex](https://hl7.org/fhir/us/core/StructureDefinition-us-core-individual-sex.html) extension. See the [Patient sex](#patient-sex) topic for discussion of this element.
 
 There are no significant backwards-compatibility issues between versions for the Patient profiles. Newer versions of US Core add additional extensions, as well as additional expectations on elements like `use` for name, contact, and address elements. Applications should ensure that they allow for the possibility that these newly supported elements will not be available when operating on Patient resources retrieved from servers implementing earlier versions of US Core.
 
@@ -108,7 +108,7 @@ define "Patient Is Male":
 
 #### Patient sex
 
-The patient [sex](http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex) element has been deprecated in newer versions of US Core in favor of the [individualSex](http://hl7.org/fhir/us/core/StructureDefinition/us-core-individual-sex) element. To support backwards compatibility, the US Core Common library defines both functions, as well as a mapping from `sex` to `individualSex`. 
+The patient [sex]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-sex.html) element has been deprecated in newer versions of US Core in favor of the [individualSex](https://hl7.org/fhir/us/core/StructureDefinition-us-core-individual-sex.html) element. To support backwards compatibility, the US Core Common library defines both functions, as well as a mapping from `sex` to `individualSex`. 
 
 In addition, the `.individualSex()` function will use the `sex` element if no `individualSex` element is present. This allows logic to use `individualSex()` in all cases, and systems implementing STU6 will "forward convert" to the new values.
 

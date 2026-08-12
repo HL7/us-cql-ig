@@ -59,7 +59,8 @@
   </dependsOn-->
   <dependsOn id="uscore6">
     <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
-    <packageId value="hl7.fhir.us.core.v610"/>
+    <!--packageId value="hl7.fhir.us.core.v610"/--> <!--Only need this if we are using the wrapper -->
+    <packageId value="hl7.fhir.us.core"/>
     <version value="6.1.0"/>
   </dependsOn>
   <!--dependsOn id="uscore3">
@@ -306,6 +307,10 @@
     <parameter>
       <code value="path-suppressed-warnings"/>
       <value value="input/ignoreWarnings.txt"/>
+    </parameter>
+    <parameter>
+      <code value="auto-oid-root"/>
+      <value value="2.16.840.1.113883.4.642.40.86"/>
     </parameter>
     <parameter>
       <code value="apply-contact"/>

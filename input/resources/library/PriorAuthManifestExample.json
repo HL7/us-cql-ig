@@ -114,12 +114,6 @@
   ],
   "relatedArtifact": [
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
-          "valueBoolean": true
-        }
-      ],
       "type": "composed-of",
       "resource": "http://hl7.org/fhir/us/cql/Questionnaire/ExamplePatientAndCoverageQuestionnaire|2.0.0",
       "_resource": {
@@ -133,12 +127,6 @@
       "display": "Example Patient and Coverage Questionnaire"
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
-          "valueBoolean": true
-        }
-      ],
       "type": "composed-of",
       "resource": "http://hl7.org/fhir/us/cql/Questionnaire/GMTPQuestionnaire|2.0.0",
       "_resource": {
@@ -152,12 +140,6 @@
       "display": "Example Genetic/Molecular Testing Preauthorization Questionnaire"
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
-          "valueBoolean": true
-        }
-      ],
       "type": "composed-of",
       "resource": "http://hl7.org/fhir/us/cql/Questionnaire/MBODAQuestionnaire|2.0.0",
       "_resource": {
@@ -171,12 +153,6 @@
       "display": "Example Medical Benefit Outpatient Drug Authorization Questionnaire"
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
-          "valueBoolean": true
-        }
-      ],
       "type": "composed-of",
       "resource": "http://hl7.org/fhir/us/cql/Questionnaire/MNACQuestionnaire|2.0.0",
       "_resource": {
@@ -190,12 +166,6 @@
       "display": "Example Medical Necessity For Authorization Of Catheters Questionnaire"
     },
     {
-      "extension": [
-        {
-          "url": "http://hl7.org/fhir/StructureDefinition/artifact-isOwned",
-          "valueBoolean": true
-        }
-      ],
       "type": "composed-of",
       "resource": "http://hl7.org/fhir/us/cql/Questionnaire/UPPARFQuestionnaire|2.0.0",
       "_resource": {
@@ -208,13 +178,11 @@
       },
       "display": "Example Uniform Pharmacy Prior Authorization Request Form"
     },
-
     {
       "type": "depends-on",
       "resource": "http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core|6.1.0",
       "display": "US Core Implementation Guide, version 6.1.0 (publisher: HL7 International / Cross-Group Projects)"
     },
-
     {
       "type": "depends-on",
       "resource": "http://hl7.org/fhir/us/cql/Library/USCoreCommon|2.0.0",
@@ -280,7 +248,6 @@
       },
       "display": "FHIRHelpers CQL library, version 4.0.1 (from hl7.fhir.uv.cql)"
     },
-
     {
       "type": "depends-on",
       "resource": "http://hl7.org/fhir/ValueSet/icd-10|4.0.1",
@@ -294,7 +261,6 @@
       },
       "display": "ICD-10 value set, version 4.0.1"
     },
-
     {
       "type": "depends-on",
       "resource": "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20250901",
@@ -320,7 +286,6 @@
       "resource": "http://www.ama-assn.org/go/cpt|2025",
       "display": "CPT, 2025 (publisher: American Medical Association)"
     },
-
     {
       "extension": [
         {
