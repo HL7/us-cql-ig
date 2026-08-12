@@ -3,7 +3,7 @@
     <requiredModelInfo name="System" version="1.0.0"/>
     <requiredModelInfo name="FHIR" version="4.0.1"/>
     <requiredModelInfo name="USCore" version="6.1.0-derived"/>
-    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Coverage" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Coverage" label="C4BB Coverage" retrievable="true" baseType="USCore.CoverageProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Coverage" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Coverage" label="C4BB Coverage" retrievable="true" primaryCodePath="type" baseType="USCore.CoverageProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -472,7 +472,7 @@
         <element name="category" elementType="FHIR.CodeableConcept"/>
         <element name="amount" elementType="FHIR.Money"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitInpatientInstitutional" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Inpatient-Institutional" label="C4BB ExplanationOfBenefit Inpatient Institutional" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefitInpatientInstitutionalBasis">
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitInpatientInstitutional" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Inpatient-Institutional" label="C4BB ExplanationOfBenefit Inpatient Institutional" target="ExplanationOfBenefit" retrievable="true" primaryCodePath="type" baseType="C4BB.ExplanationOfBenefitInpatientInstitutionalBasis">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -547,7 +547,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitInpatientInstitutionalBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Inpatient-Institutional-Basis" label="C4BB ExplanationOfBenefit Inpatient Institutional Basis" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefit">
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitInpatientInstitutionalBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Inpatient-Institutional-Basis" label="C4BB ExplanationOfBenefit Inpatient Institutional Basis" target="ExplanationOfBenefit" retrievable="true" primaryCodePath="type" baseType="C4BB.ExplanationOfBenefit">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -622,7 +622,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitOral" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Oral" label="C4BB ExplanationOfBenefit Oral" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefitOralBasis">
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitOral" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Oral" label="C4BB ExplanationOfBenefit Oral" target="ExplanationOfBenefit" retrievable="true" primaryCodePath="type" baseType="C4BB.ExplanationOfBenefitOralBasis">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -697,7 +697,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitOralBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Oral-Basis" label="C4BB ExplanationOfBenefit Oral Basis" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefit">
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitOralBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Oral-Basis" label="C4BB ExplanationOfBenefit Oral Basis" target="ExplanationOfBenefit" retrievable="true" primaryCodePath="type" baseType="C4BB.ExplanationOfBenefit">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -772,7 +772,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitOutpatientInstitutional" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Outpatient-Institutional" label="C4BB ExplanationOfBenefit Outpatient Institutional" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefitOutpatientInstitutionalBasis">
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitOutpatientInstitutional" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Outpatient-Institutional" label="C4BB ExplanationOfBenefit Outpatient Institutional" target="ExplanationOfBenefit" retrievable="true" primaryCodePath="type" baseType="C4BB.ExplanationOfBenefitOutpatientInstitutionalBasis">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -847,7 +847,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitOutpatientInstitutionalBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Outpatient-Institutional-Basis" label="C4BB ExplanationOfBenefit Outpatient Institutional Basis" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefit">
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitOutpatientInstitutionalBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Outpatient-Institutional-Basis" label="C4BB ExplanationOfBenefit Outpatient Institutional Basis" target="ExplanationOfBenefit" retrievable="true" primaryCodePath="type" baseType="C4BB.ExplanationOfBenefit">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -922,7 +922,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitPharmacy" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Pharmacy" label="C4BB ExplanationOfBenefit Pharmacy" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefitPharmacyBasis">
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitPharmacy" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Pharmacy" label="C4BB ExplanationOfBenefit Pharmacy" target="ExplanationOfBenefit" retrievable="true" primaryCodePath="type" baseType="C4BB.ExplanationOfBenefitPharmacyBasis">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -997,7 +997,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitPharmacyBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Pharmacy-Basis" label="C4BB ExplanationOfBenefit Pharmacy Basis" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefit">
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitPharmacyBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Pharmacy-Basis" label="C4BB ExplanationOfBenefit Pharmacy Basis" target="ExplanationOfBenefit" retrievable="true" primaryCodePath="type" baseType="C4BB.ExplanationOfBenefit">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1072,7 +1072,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitProfessionalNonClinician" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Professional-NonClinician" label="C4BB ExplanationOfBenefit Professional NonClinician" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefitProfessionalNonClinicianBasis">
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitProfessionalNonClinician" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Professional-NonClinician" label="C4BB ExplanationOfBenefit Professional NonClinician" target="ExplanationOfBenefit" retrievable="true" primaryCodePath="type" baseType="C4BB.ExplanationOfBenefitProfessionalNonClinicianBasis">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1147,7 +1147,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitProfessionalNonClinicianBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Professional-NonClinician-Basis" label="C4BB ExplanationOfBenefit Professional NonClinician Basis" target="ExplanationOfBenefit" retrievable="true" baseType="C4BB.ExplanationOfBenefit">
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="ExplanationOfBenefitProfessionalNonClinicianBasis" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Professional-NonClinician-Basis" label="C4BB ExplanationOfBenefit Professional NonClinician Basis" target="ExplanationOfBenefit" retrievable="true" primaryCodePath="type" baseType="C4BB.ExplanationOfBenefit">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1222,7 +1222,7 @@
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="C4BB.ExplanationOfBenefit.BenefitBalance"/>
         </element>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Organization" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization" label="C4BB Organization" retrievable="true" baseType="USCore.OrganizationProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Organization" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization" label="C4BB Organization" retrievable="true" primaryCodePath="type" baseType="USCore.OrganizationProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1326,7 +1326,7 @@
         <element name="other" elementType="FHIR.Reference"/>
         <element name="type" elementType="FHIR.LinkType"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Practitioner" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Practitioner" label="C4BB Practitioner" retrievable="true" baseType="USCore.PractitionerProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="Practitioner" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Practitioner" label="C4BB Practitioner" retrievable="true" primaryCodePath="code" baseType="USCore.PractitionerProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>
@@ -1360,7 +1360,7 @@
         <element name="period" elementType="FHIR.Period"/>
         <element name="issuer" elementType="FHIR.Reference"/>
     </typeInfo>
-    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="RelatedPerson" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-RelatedPerson" label="C4BB RelatedPerson" retrievable="true" baseType="USCore.RelatedPersonProfile">
+    <typeInfo xsi:type="ClassInfo" namespace="C4BB" name="RelatedPerson" identifier="http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-RelatedPerson" label="C4BB RelatedPerson" retrievable="true" primaryCodePath="relationship" baseType="USCore.RelatedPersonProfile">
         <element name="identifier">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </element>

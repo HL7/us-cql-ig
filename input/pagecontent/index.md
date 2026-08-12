@@ -63,6 +63,7 @@ This guide is divided into several pages which are listed at the top of each pag
   * **[US Core Elements](Library-USCoreElements.html)**
   * **[US Core Model Information](uscore-modelinfo.html)**
   * **[Cumulative Medication Duration](Library-CumulativeMedicationDuration.html)**
+  * **[CARIN BB Model Information](c4bb-modelinfo.html)**
 * **[FHIR Artifacts](artifacts.html)**
 * **Support**
   * **[Downloads](downloads.html)**

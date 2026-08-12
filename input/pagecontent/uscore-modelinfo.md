@@ -52,6 +52,12 @@ This implementation guide includes the model information for the US Core specifi
 |[Specimen Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-specimen.html)|type|
 |[Vital Signs Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-vital-signs.html)|code|
 
+To make use of this model in a CQL library, include the following using declaration:
+
+```cql
+using USCore version '6.1.0-derived'
+```
+
 > Previous versions of the USCore-ModelInfo library (3.1.1 and 6.1.0) were included as embedded resources in the CQL-to-ELM translator (referenced without a namespace and using the version of the implementation guide). This is the `6.1.0-derived` version of the US Core Model Information file. As of version 8.0.0, the US Core implementation guide now includes [model information](https://hl7.org/fhir/us/core/Library-uscore-8.0.0-model-definition.html).
 
 > Previous versions of the USCore-ModelInfo library were generated using [Profile-informed authoring](https://hl7.org/fhir/uv/cql/using-modelinfo.html#profile-informed-modelinfo). However, as of 6.1.0-derived, based on authoring and implementer feedback, the model information file is generated as a Derived model info:
