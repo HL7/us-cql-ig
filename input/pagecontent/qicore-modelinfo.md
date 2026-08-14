@@ -20,6 +20,7 @@ The following table lists the available classes, the base resource type which th
 |[ConditionProblemsHealthConcerns](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-condition-problems-health-concerns.html)|code|
 |[Coverage](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-coverage.html)|type|
 |[Device](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-device.html)|type|
+|[DeviceNotRequested](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-devicenotrequested.html)|code|
 |[DeviceRequest](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-devicerequest.html)|code|
 |[DeviceUseStatement](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-deviceusestatement.html)|device.type|
 |[DiagnosticReportLab](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-diagnosticreport-lab.html)|code|
@@ -40,10 +41,12 @@ The following table lists the available classes, the base resource type which th
 |[MedicationAdministrationNotDone](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-medicationadministrationnotdone.html)|medication|
 |[MedicationDispense](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-medicationdispense.html)|medication|
 |[MedicationDispenseDeclined](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-medicationdispensedeclined.html)|medication|
+|[MedicationNotRequested](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-medicationnotrequested.html)|medication|
 |[MedicationRequest](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-medicationrequest.html)|medication|
 |[MedicationStatement](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-medicationstatement.html)|medication|
 |[NonPatientObservation](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-nonpatient-observation.html)|code|
 |[NutritionOrder](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-nutritionorder.html)|N/A|
+|[ObservationCancelled](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-observation-cancelled.html)|code|
 |[ObservationClinicalResult](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-observation-clinical-result.html)|code|
 |[ObservationScreeningAssessment](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-observation-screening-assessment.html)|code|
 |[Organization](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-organization.html)|type|
@@ -54,11 +57,13 @@ The following table lists the available classes, the base resource type which th
 |[ProcedureNotDone](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-procedurenotdone.html)|code|
 |[QuestionnaireResponse](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-questionnaireresponse.html)|N/A|
 |[RelatedPerson](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-relatedperson.html)|relationship|
+|[ServiceNotRequested](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-servicenotrequested.html)|code|
 |[ServiceRequest](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-servicerequest.html)|code|
 |[SimpleObservation](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-simple-observation.html)|code|
 |[Substance](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-substance.html)|code|
 |[Task](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-task.html)|code|
 |[TaskRejected](https://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-taskrejected.html)|code|
+{: .grid}
 
 To make use of this model in a CQL library, include the following using declaration:
 

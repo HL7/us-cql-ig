@@ -51,6 +51,7 @@ This implementation guide includes the model information for the US Core specifi
 |[Smoking Status Observation Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-smokingstatus.html)|code|
 |[Specimen Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-specimen.html)|type|
 |[Vital Signs Profile]({{site.data.fhir.ver.uscore6}}/StructureDefinition-us-core-vital-signs.html)|code|
+{: .grid}
 
 To make use of this model in a CQL library, include the following using declaration:
 

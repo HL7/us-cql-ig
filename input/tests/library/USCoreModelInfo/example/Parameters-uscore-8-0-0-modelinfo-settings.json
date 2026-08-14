@@ -1,0 +1,1506 @@
+{
+    "resourceType": "Parameters",
+    "id": "uscore-8-0-0-modelinfo-settings",
+    "parameter": [
+        {
+            "name": "modelName",
+            "valueString": "USCore"
+        },
+        {
+            "name": "modelVersion",
+            "valueString": "8.0.0"
+        },
+        {
+            "name": "modelNamespace",
+            "valueString": "hl7.fhir.us.core"
+        },
+        {
+            "name": "modelUrl",
+            "valueString": "http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"
+        },
+        {
+            "name": "patientClassName",
+            "valueString": "Patient"
+        },
+        {
+            "name": "patientBirthDatePropertyName",
+            "valueString": "birthDate"
+        },
+        {
+            "name": "targetQualifier",
+            "valueString": "USCore"
+        },
+        {
+            "name": "targetUrl",
+            "valueString": "http://hl7.org/fhir"
+        },
+        {
+            "name": "useCqlPrimitives",
+            "valueBoolean": false
+        },
+        {
+            "name": "createSliceElements",
+            "valueBoolean": false
+        },
+        {
+            "name": "includeMetadata",
+            "valueBoolean": false
+        },
+        {
+            "name": "flatten",
+            "valueBoolean": false
+        },
+        {
+            "name": "dependency",
+            "part": [
+                {
+                    "name": "modelName",
+                    "valueString": "hl7.terminology.r4"
+                },
+                {
+                    "name": "modelVersion",
+                    "valueString": "6.4.0"
+                },
+                {
+                    "name": "modelUrl",
+                    "valueString": "http://terminology.hl7.org/ImplementationGuide/hl7.terminology"
+                }
+            ]
+        },
+        {
+            "name": "dependency",
+            "part": [
+                {
+                    "name": "modelName",
+                    "valueString": "hl7.fhir.uv.smart-app-launch"
+                },
+                {
+                    "name": "modelVersion",
+                    "valueString": "2.2.0"
+                },
+                {
+                    "name": "modelUrl",
+                    "valueString": "http://hl7.org/fhir/smart-app-launch/ImplementationGuide/hl7.fhir.uv.smart-app-launch"
+                }
+            ]
+        },
+        {
+            "name": "dependency",
+            "part": [
+                {
+                    "name": "modelName",
+                    "valueString": "us.nlm.vsac"
+                },
+                {
+                    "name": "modelVersion",
+                    "valueString": "0.23.0"
+                },
+                {
+                    "name": "modelUrl",
+                    "valueString": "http://fhir.org/packages/us.nlm.vsac/ImplementationGuide/us.nlm.vsac"
+                }
+            ]
+        },
+        {
+            "name": "dependency",
+            "part": [
+                {
+                    "name": "modelName",
+                    "valueString": "hl7.fhir.uv.sdc"
+                },
+                {
+                    "name": "modelVersion",
+                    "valueString": "3.0.0"
+                },
+                {
+                    "name": "modelUrl",
+                    "valueString": "http://hl7.org/fhir/uv/sdc/ImplementationGuide/hl7.fhir.uv.sdc"
+                }
+            ]
+        },
+        {
+            "name": "dependency",
+            "part": [
+                {
+                    "name": "modelName",
+                    "valueString": "us.cdc.phinvads"
+                },
+                {
+                    "name": "modelVersion",
+                    "valueString": "0.12.0"
+                },
+                {
+                    "name": "modelUrl",
+                    "valueString": "https://phinvads.cdc.gov/vads/fhir/ImplementationGuide/us.cdc.phinvads"
+                }
+            ]
+        },
+        {
+            "name": "dependency",
+            "part": [
+                {
+                    "name": "modelName",
+                    "valueString": "hl7.fhir.uv.extensions.r4"
+                },
+                {
+                    "name": "modelVersion",
+                    "valueString": "5.2.0"
+                },
+                {
+                    "name": "modelUrl",
+                    "valueString": "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-adi-documentreference"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core ADI DocumentReference Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core AllergyIntolerance Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-average-blood-pressure"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Average Blood Pressure Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-bmi"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core BMI Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Blood Pressure Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Body Height Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-temperature"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Body Temperature Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Body Weight Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-care-experience-preference"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Care Experience Preference Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core CarePlan Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "category"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core CareTeam Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "category"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-encounter-diagnosis"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Condition Encounter Diagnosis Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Condition Problems and Health Concerns Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-coverage"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Coverage Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "type"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core DiagnosticReport Profile for Laboratory Results Reporting"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core DiagnosticReport Profile for Report and Note Exchange"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core DocumentReference Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Encounter Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "type"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Goal Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "category"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-head-circumference"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Head Circumference Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-heart-rate"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Heart Rate Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Immunization Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "vaccineCode"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Implantable Device Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "type"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Laboratory Result Observation Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Location Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Medication Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core MedicationDispense Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "medication"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core MedicationRequest Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "medication"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-adi-documentation"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Observation ADI Documentation Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Observation Clinical Result Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-occupation"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Observation Occupation Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancyintent"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Observation Pregnancy Intent Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Observation Pregnancy Status Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-screening-assessment"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Observation Screening Assessment Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-sexual-orientation"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Observation Sexual Orientation Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Organization Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Patient Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Pediatric BMI for Age Observation Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/head-occipital-frontal-circumference-percentile"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Pediatric Head Occipital Frontal Circumference Percentile Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Pediatric Weight for Height Observation Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Practitioner Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core PractitionerRole Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Procedure Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Provenance Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Pulse Oximetry Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-questionnaireresponse"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core QuestionnaireResponse Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core RelatedPerson Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-respiratory-rate"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Respiratory Rate Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core ServiceRequest Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Simple Observation Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Smoking Status Observation Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-specimen"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Specimen Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "type"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-treatment-intervention-preference"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Treatment Intervention Preference Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        },
+        {
+            "name": "profile",
+            "part": [
+                {
+                    "name": "url",
+                    "valueUri": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-vital-signs"
+                },
+                {
+                    "name": "isIncluded",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "isRetrievable",
+                    "valueBoolean": true
+                },
+                {
+                    "name": "label",
+                    "valueString": "US Core Vital Signs Profile"
+                },
+                {
+                    "name": "primaryCodePath",
+                    "valueString": "code"
+                }
+            ]
+        }
+    ]
+}

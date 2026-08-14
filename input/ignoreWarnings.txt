@@ -7,12 +7,6 @@
 %is not supported; implementations may not be able to use the result of this expression
 %is not supported; reported as FHIR.Any
 
-# 1.0.0:01 - The path-liquid-ig parameter is a temporary workaround for getting the IG to make use of liquid templates in the IG when the fhir template includes liquid templates for the same resources. See https://chat.fhir.org/#narrow/channel/179252-IG-creation/topic/Errors.20in.20rendering.20Measures.20and.20PlanDefinitions/near/534068493
-ERROR: ImplementationGuide/hl7.fhir.us.cql: ImplementationGuide.definition.extension[4].extension[0].value.ofType(string): The System URI could not be determined for the code 'path-liquid-ig' in the ValueSet 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2'
-ERROR: ImplementationGuide/hl7.fhir.us.cql: ImplementationGuide.definition.extension[4].extension[0].value.ofType(string): The value provided ('path-liquid-ig') was not found in the value set 'ig-parameters Codes ValueSet' (http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2), and a code is required from this value set  (error message = The System URI could not be determined for the code 'path-liquid-ig' in the ValueSet 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2'; The provided code '#path-liquid-ig' was not found in the value set 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2')
-ERROR: ImplementationGuide/hl7.fhir.us.cql: ImplementationGuide.definition.extension[40].extension[0].value.ofType(code): The System URI could not be determined for the code 'path-liquid-ig' in the ValueSet 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2'
-ERROR: ImplementationGuide/hl7.fhir.us.cql: ImplementationGuide.definition.extension[40].extension[0].value.ofType(code): The value provided ('path-liquid-ig') was not found in the value set 'ig-parameters Codes ValueSet' (http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2), and a code is required from this value set  (error message = The System URI could not be determined for the code 'path-liquid-ig' in the ValueSet 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2'; The provided code '#path-liquid-ig' was not found in the value set 'http://hl7.org/fhir/tools/ValueSet/ig-parameters|1.1.2')
-
 # 1.0.0:04 - Deliberately used the same name in CQL as the extension so that it matches, it would be confusing otherwise
 WARNING: USCoreCommon: String literal 'tribalAffiliation' matches the identifier tribalAffiliation. Consider whether the identifier was intended instead.
 WARNING: USCoreElements: String literal 'mobile' matches the identifier mobile. Consider whether the identifier was intended instead.
@@ -294,6 +288,14 @@ INFORMATION: Questionnaire.contained[0].dataRequirement[0].profile[0]: Pinned th
 INFORMATION: Questionnaire.contained[0].dataRequirement[1].profile[0]: Pinned the version of http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest to 6.1.0
 INFORMATION: Questionnaire.extension[0].value[x]: Pinned the version of http://hl7.org/fhir/us/cql/Library/UPPARFInitialExpressions to 2.0.0
 INFORMATION: Questionnaire.item[2].item[2].item[1].answerValueSet: Pinned the version of http://hl7.org/fhir/ValueSet/icd-10 to 4.0.1
+INFORMATION: Library.relatedArtifact[2].resource: Pinned the version of http://terminology.hl7.org/CodeSystem/v3-ActCode to 11.0.0
+INFORMATION: Library.relatedArtifact[3].resource: Pinned the version of http://hl7.org/fhir/CodeSystem/task-code to 4.0.1
+INFORMATION: Library.relatedArtifact[0].resource: Pinned the version of http://hl7.org/fhir/us/cql/Library/QICoreCommon to 2.0.0
+INFORMATION: Library.relatedArtifact[3].resource: Pinned the version of http://terminology.hl7.org/CodeSystem/communication-category to 1.0.1
+INFORMATION: Library.relatedArtifact[7].resource: Pinned the version of http://hl7.org/fhir/CodeSystem/task-code to 4.0.1
+INFORMATION: Library.relatedArtifact[8].resource: Pinned the version of http://hl7.org/fhir/ValueSet/marital-status to 4.0.1
+INFORMATION: Library.relatedArtifact[9].resource: Pinned the version of http://hl7.org/fhir/ValueSet/communication-category to 4.0.1
+INFORMATION: Library.relatedArtifact[15].resource: Pinned the version of http://hl7.org/fhir/ValueSet/task-code to 4.0.1
 
 # 2.0.0:04 - Deliberately referencing 6.1.0 as the current target that downstream content is expecting
 WARNING: ImplementationGuide/hl7.fhir.us.cql: ImplementationGuide.dependsOn[5]: The ImplementationGuide uses package hl7.fhir.us.core#6.1.0 released on 2023-06-30, but the most recent appropriate version is 9.0.0. This reference is getting old and the more recent version should be considered
@@ -301,5 +303,8 @@ WARNING: ImplementationGuide/hl7.fhir.us.cql: ImplementationGuide.dependsOn[5]: 
 # 2.0.0:05 - Using artifactComment extension to provide relevant documentation for dependencies in the manifest. There is an extensions pack issue to expand the context of use (https://jira.hl7.org/browse/FHIR-58220) and a CRMI issue to add the extension to the ManifestLibrary profile (https://jira.hl7.org/browse/FHIR-58221)
 INFORMATION: Library/PriorAuthManifestExample: Library.extension[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary|2.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 INFORMATION: Library/PriorAuthManifestExample: Library.extension[2]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary|2.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
-ERROR: Library/PriorAuthManifestExample: Library.relatedArtifact[17]: The extension http://hl7.org/fhir/StructureDefinition/cqf-artifactComment v5.3.0 is not allowed to be used at this point (this element is [Library.relatedArtifact, RelatedArtifact]; allowed for this version = e:Resource)
-INFORMATION: Library/PriorAuthManifestExample: Library.relatedArtifact[17].extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary|2.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+ERROR: Library/PriorAuthManifestExample: Library.relatedArtifact[16]: The extension http://hl7.org/fhir/StructureDefinition/cqf-artifactComment v5.3.0 is not allowed to be used at this point (this element is [Library.relatedArtifact, RelatedArtifact]; allowed for this version = e:Resource)
+INFORMATION: Library/PriorAuthManifestExample: Library.relatedArtifact[16].extension[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-manifestlibrary|2.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+
+# 2.0.0:06 - Accepted warning about not being to resolve the terminology target of the retrieve: The content is correct, the fix is being addressed in the CQL-to-ELM translator: https://github.com/cqframework/clinical_quality_language/issues/1714
+WARNING: QICoreCommonTests: Could not resolve membership operator for terminology target of the retrieve.

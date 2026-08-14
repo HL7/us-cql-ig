@@ -47,6 +47,7 @@
       <li><a href="Library-CumulativeMedicationDuration.html">Cumulative Medication Duration</a></li>
       <li><a href="Library-C4BBCommon.html">CARIN Blue Button Common</a></li>
       <li><a href="c4bb-modelinfo.html">CARIN Blue Button Model Information</a></li>
+      <li><a href="Library-QICoreCommon.html">QI Core Common</a></li>
       <li><a href="qicore-modelinfo.html">QI Core Model Information</a></li>
     </ul>
   </li>

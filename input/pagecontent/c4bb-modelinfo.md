@@ -18,6 +18,7 @@ This implementation guide includes the model information for the CARIN Blue Butt
 |[Patient Profile](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-Patient.html)|N/A|
 |[Practitioner Profile](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-Practitioner.html)|code|
 |[RelatedPerson Profile](https://hl7.org/fhir/us/carin-bb/STU2.2/en/StructureDefinition-C4BB-RelatedPerson.html)|relationship|
+{: .grid}
 
 To make use of this model in a CQL library, include the following using declaration:
 

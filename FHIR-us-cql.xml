@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ballotUrl="http://hl7.org/fhir/us/cql/2026May" ciUrl="http://build.fhir.org/ig/HL7/us-cql-ig" defaultVersion="1.0.0" defaultWorkgroup="cds" gitUrl="https://github.com/HL7/us-cql-ig" url="http://hl7.org/fhir/us/cql">
+<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ballotUrl="http://hl7.org/fhir/us/cql/2026May" ciUrl="http://build.fhir.org/ig/HL7/us-cql-ig" defaultVersion="2.0.0" defaultWorkgroup="cds" gitUrl="https://github.com/HL7/us-cql-ig" url="http://hl7.org/fhir/us/cql">
 <version code="current" url="http://build.fhir.org/ig/HL7/us-cql-ig"/>
+<version code="2.0.0" url="http://hl7.org/fhir/us/cql/2.0.0"/>
 <version code="2.0.0-ballot" url="http://hl7.org/fhir/us/cql/2026May"/>
 <version code="1.0.0" url="http://hl7.org/fhir/us/cql/Informative1"/>
 <version code="1.0.0-ballot" deprecated="true" url="http://hl7.org/fhir/us/cql/2025May"/>
@@ -21,8 +22,10 @@
 <artifact id="Library/GMTPInitialExpressions" key="Library-GMTPInitialExpressions" name="Expression Library for the Genetic/Molecular testing preauthorization Example"/>
 <artifact id="Library/MBODAInitialExpressions" key="Library-MBODAInitialExpressions" name="Expression Library for the Medical Benefit Outpatient Drug Authorization Example"/>
 <artifact id="Library/MNACInitialExpressions" key="Library-MNACInitialExpressions" name="Expression Library for the Medical Necessity For Authorization Of Catheters Example"/>
-<artifact id="Library/UPPARFInitialExpressions" key="Library-UPPARFInitialExpressions" name="Expression Library for the Uniform Pharmacy Prior Authorization Request Form Example"/>
+<artifact deprecated="true" id="Library/UPPARFInitialExpressions" key="Library-UPPARFInitialExpressions" name="Expression Library for the Uniform Pharmacy Prior Authorization Request Form Example"/>
 <artifact id="Library/PriorAuthManifestExample" key="Library-PriorAuthManifestExample" name="Prior Authorization Example Version Manifest"/>
+<artifact id="Library/QICoreCommon" key="Library-QICoreCommon" name="QI Core Common"/>
+<artifact id="Library/QICoreCommonTests" key="Library-QICoreCommonTests" name="QI Core Common Tests"/>
 <artifact id="Library/QICore-ModelInfo" key="Library-QICore-ModelInfo" name="QI Core Model Information"/>
 <artifact id="Library/USCoreCommon" key="Library-USCoreCommon" name="US Core Common"/>
 <artifact id="Library/USCoreCommonTests" key="Library-USCoreCommonTests" name="US Core Common Tests"/>
@@ -39,7 +42,7 @@
 <page key="artifacts" name="Artifacts Summary"/>
 <page key="authoring" name="Authoring Documentation"/>
 <page key="background" name="Background"/>
-<page key="c4bb-modelinfo" name="CARIN BlueButton Model Information"/>
+<page key="c4bb-modelinfo" name="CARIN Blue Button Model Information"/>
 <page key="changes" name="Changes"/>
 <page key="patterns-claim" name="Claim Patterns"/>
 <page key="use-case-cds" name="Clinical Decision Support"/>
@@ -58,6 +61,7 @@
 <page key="patterns" name="Patterns"/>
 <page key="use-case-pa" name="Prior Authorization Questionnaire Use Case"/>
 <page key="use-case-ph" name="Public Health Case Reporting"/>
+<page key="qicore-modelinfo" name="QI Core Model Information"/>
 <page key="use-case-cqm" name="Quality Measurement and Reporting"/>
 <page key="query-management" name="Query Management"/>
 <page key="patterns-service" name="Service Patterns"/>
