@@ -49,7 +49,17 @@ CQL used in this operation:
     * For example, a Patient context specified in the DTR launch context will be correlated with an sdc-questionnaire-launchContext extension with a name of <code>patient</code> and a type of <code>Patient</code>, and thereby established as the <a href="https://cql.hl7.org/02-authorsguide.html#context">Patient context</a> for the CQL expressions specified in the Questionnaire. It would be the responsibility of the DTR application to reconcile such launch contexts.
 * May declare additional parameters through the SDC Launch Context extension.
     * For example, an Encounter context specified in the DTR launch context may be correlated with an `sdc-questionnaire-launchContext` extension with a name of <code>encounter</code> and a type of <code>Encounter</code>, and thereby passed as a named parameter to CQL expressions specified in the Questionnaire.
-    * Additionally, since the binding to the Questionnaire Launch Context ValueSet is extensible, a Coverage context specified in the DTR launch context may be correlated with an `sdc-questionnaire-launchContext` extension with a name of <code>PrimaryCoverage</code> and a type of <code>Coverage</code>, and thereby passed as a named parameter to CQL expressions specified in the Questionnaire.
+    * Additionally, since the binding to the Questionnaire Launch Context ValueSet is extensible, a Coverage context specified in the DTR launch context may be correlated with an `sdc-questionnaire-launchContext` extension with a name of <code>coverage</code> and a type of <code>Coverage</code>, and thereby passed as a named parameter to CQL expressions specified in the Questionnaire.
+    * And finally, to support the identification of the service for which authorization is being requested, a Request context specified in the DTR launch context may be correlated with an `sdc-questionnaire-launchContext` extension with a name of <code>request</code> and a type of one of the supported FHIR Request resources types (i.e. <code>NutritionOrder</code>, <code>ServiceRequest</code>, <code>DeviceRequest</code>, <code>MedicationRequest</code>, <code>VisionPrescription</code>, <code>Appointment</code>, or <code>Encounter</code>.
+
+By following these suggestions, libraries of CQL can include the following declarations and have an expectation that they will be passed the appropriate parameters from the DTR launch context:
+
+```cql
+parameter "Coverage" FHIR.Coverage
+parameter "Request" Choice<FHIR.NutritionOrder, FHIR.ServiceRequest, FHIR.DeviceRequest, FHIR.MedicationRequest, FHIR.VisionPrescription, FHIR.Appointment, FHIR.Encounter>
+
+context Patient
+```
 
 Generally, the SDC <a href="{{site.data.fhir.ver.sdc}}/StructureDefinition-sdc-questionnaire-initialExpression.html">Initial Expression</a> extension will be used to pre-populate a given item in the QuestionnaireResponse. This is how CQL expressions are specified in the Questionnaire.
 
