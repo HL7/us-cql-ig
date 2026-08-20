@@ -241,13 +241,13 @@ code "Positive": 'POS' from "Interpretation Codes" display 'Positive'
  
 define "Positive Pregnancy Observation":
   ["Observation Pregnancy Status Profile"] PregnancyStatus
-    where PregnancyStatus.status = 'final'
+    where PregnancyStatus.isResulted()
       and PregnancyStatus.value ~ "Pregnant" 
       and PregnancyStatus.effective.toInterval() overlaps "Measurement Period"
 
 define "Positive Pregnancy Test Result":
   ["Laboratory Result Observation Profile": "Pregnancy Test Codes"] PregnancyTest
-    where PregnancyTest.status = 'final'
+    where PregnancyTest.isResulted()
       and PregnancyTest.value ~ "Positive"
       and PregnancyTest.effective.toInterval() overlaps "Measurement Period"
       
@@ -258,8 +258,7 @@ define "Pregnancy Encounter Diagnosis":
 
 define "Pregnancy Condition":
   [ConditionProblemsHealthConcernsProfile: "Pregnancy Condition Codes"] Condition
-    where Condition.clinicalStatus ~  "active"
-      and Condition.verificationStatus ~ "confirmed"
+    where Condition.isVerified()
       and Condition.prevalenceInterval() overlaps "Measurement Period"
 
 define IsPregnant:
@@ -274,6 +273,8 @@ Note that the examples above assume the existence of a ValueSet "Pregnancy Condi
 In addition, the "Pregnancy Encounter Diagnosis" criteria is assuming the existence of an "Encounters" expression that constrains the encounter diagnoses to measure intent as well as the measurement period.
 
 If a use case requires the use of prevalence period (onset and/or abatement time for a condition), it will require the use of condition profiles because onset and/or abatement times are only available in the Condition resource.
+
+Also note that, as discussed in the [Active Conditions](patterns-condition.html#active-conditions) topic, because the `clinicalStatus` reflects the _current_ status and the example here is a retrospective use case, the example is testing `prevalenceInterval()`, not `clinicalStatus` directly.
 
 ##### Pregnancy Intent
 
@@ -300,7 +301,7 @@ This example illustrates logic for identifying three consecutive negative "stick
 ```cql
 define StickTest:
   [Observation: "Stick Test Codes"] O
-    where O.status in { 'final', 'amended', 'corrected' }
+    where O.isResulted()
 
 define "First Three Stick Tests In Encounter":
   Take(StickTest.during(Encounter).chronologically(), 3)
